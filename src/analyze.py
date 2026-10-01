@@ -65,6 +65,8 @@ def _gemini_candidates(key: str) -> list:
     ok = [n for n in names if "flash" in n and not any(x in n for x in bad)]
     # aliases/stable first, then lite; previews last
     ok.sort(key=lambda n: (("preview" in n or "exp" in n), "lite" in n, not n.endswith("-latest")))
+    lite = [n for n in ok if "lite" in n and "preview" not in n]
+    ok = ok[:3] + lite[:2] + [n for n in ok[3:] if n not in lite[:2]]  # make sure a lite fallback is tried early
     return ok or [GEMINI_MODEL]
 
 
@@ -75,7 +77,7 @@ def _gemini_call(key: str, model: str, user: str, system: str):
         json={"systemInstruction": {"parts": [{"text": system}]},
               "contents": [{"parts": [{"text": user}]}],
               "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-        timeout=180,
+        timeout=120,
     )
 
 
@@ -83,7 +85,7 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
     """Free tier via Google AI Studio key (no billing); tries models in order, retries overload."""
     key = os.environ["GEMINI_API_KEY"]
     errors = []
-    for model in _gemini_candidates(key)[:6]:
+    for model in _gemini_candidates(key)[:10]:
         for attempt in range(3):
             r = _gemini_call(key, model, user, system)
             if r.ok:
@@ -97,7 +99,7 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
                     break
             errors.append(f"{model}: {r.status_code}")
             if r.status_code in (500, 503):  # transient: wait and retry same model
-                time.sleep(15 * (attempt + 1))
+                time.sleep(10 * (attempt + 1))
                 continue
             if r.status_code not in (400, 404, 429):
                 raise RuntimeError(f"Gemini {r.status_code}: {r.text[:300]}")

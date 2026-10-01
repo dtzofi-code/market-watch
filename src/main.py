@@ -110,6 +110,10 @@ def main():
     if args.weekly:
         run_weekly(args, date)
         return
+    # scheduled retry runs are no-ops once today's report exists (manual runs always execute)
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and os.path.exists(os.path.join(ROOT, "data", f"{date}.json")):
+        print("[main] today's report already exists; skipping")
+        return
 
     if args.demo:
         analysis = DEMO

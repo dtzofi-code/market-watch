@@ -3,6 +3,8 @@ name: daily-report
 on:
   schedule:
     - cron: "30 3 * * *"   # 03:30 UTC ~ 06:30 Israel (summer) / 05:30 (winter)
+    - cron: "30 6 * * *"   # retry 3h later; skipped if the report already exists
+    - cron: "30 9 * * *"   # last retry
   workflow_dispatch:
     inputs:
       weekly:
