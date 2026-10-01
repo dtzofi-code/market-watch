@@ -4,41 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מעקב שוק ואירועים</title>
-<style>
-:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
---s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
-header h1{margin:0;font-size:1.6rem}
-header p{margin:.2rem 0 0;color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
-h2{font-size:1.15rem;margin:28px 0 8px}
-.ev h3{margin:0 0 4px;font-size:1.1rem}
-.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
-.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
-.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
-.col h4{margin:10px 0 4px;font-size:.95rem}
-.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
-.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
-.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
-.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
-.up{color:var(--up)}.down{color:var(--down)}
-table{width:100%;border-collapse:collapse;font-size:.92rem}
-th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
-th{color:var(--muted);font-weight:600}
-.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
-footer{color:var(--muted);font-size:.8rem;margin-top:30px}
-a{color:var(--accent)}
-</style>
+{% include '_style.html.j2' %}
 </head>
 <body><div class="wrap">
 <header>
   <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="{{ prefix }}index.html">יומי</a><a href="{{ prefix }}weekly.html">סיכום שבועי</a></nav>
   <p>דוח ליום {{ date }} · <span class="mood">מצב שוק: {{ {'risk-on':'נטייה לסיכון','risk-off':'בריחה מסיכון','mixed':'מעורב'}.get(a.market_mood, 'מעורב') }}</span></p>
 </header>
 
@@ -52,6 +23,10 @@ a{color:var(--accent)}
   <div class="tags"><span>{{ e.category }}</span>{% for r in e.regions or [] %}<span>{{ r }}</span>{% endfor %}</div>
   <p>{{ e.what_happened }}</p>
   <p><strong>השפעה על השוק:</strong> {{ e.impact }}</p>
+  {% if e.horizons %}<div class="hz">
+  {% for key, label in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% set h = e.horizons.get(key) %}{% if h %}
+    <div class="hzc"><b>טווח {{ label }} <span class="o-{{ h.outlook }}">· {{ h.outlook }}</span></b><small>{{ h.when }}{% if h.tickers %} · <span class="tk">{{ h.tickers|join(', ') }}</span>{% endif %}</small><br>{{ h.why }}</div>
+  {% endif %}{% endfor %}</div>{% endif %}
   <div class="grid">
     <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
       {% for s in e.winners or [] %}<div class="stk"><span class="tk">{{ s.ticker }}</span> {{ s.name }}

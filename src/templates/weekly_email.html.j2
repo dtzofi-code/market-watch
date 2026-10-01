@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"></head>
+<body style="margin:0;background:#f5f6f8;font-family:Arial,Helvetica,sans-serif;color:#14181f;direction:rtl">
+<div style="max-width:640px;margin:0 auto;padding:16px;line-height:1.6">
+<h1 style="font-size:22px;margin:0">🗓️ סיכום שבועי – {{ range }}</h1>
+<p style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px">{{ a.summary }}</p>
+{% for t in a.themes %}<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0">
+<b style="font-size:17px">{{ t.title }}</b> <span style="color:#5c6675;font-size:13px">({{ t.trend }})</span>
+<p style="margin:6px 0">{{ t.market_impact }}</p>
+{% for s in t.tickers or [] %}<div style="font-size:14px"><b dir="ltr">{{ s.ticker }}</b>{% if m.get(s.ticker) %} <span dir="ltr" style="color:{{ '#0f8a4b' if m[s.ticker].week>=0 else '#c62828' }}">({{ '%+.1f'|format(m[s.ticker].week) }}% שבוע)</span>{% endif %} – {{ s.note }}</div>{% endfor %}</div>{% endfor %}
+{% if a.best_ideas %}<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0"><b>רעיונות מובילים</b>
+{% for i in a.best_ideas %}<div style="font-size:14px;border-top:1px solid #eee;padding:4px 0"><b dir="ltr">{{ i.ticker }}</b> {{ i.name }} ({{ i.horizon }}) – {{ i.why }}</div>{% endfor %}</div>{% endif %}
+{% if a.outlook %}<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14px"><b>תחזית</b>
+<div>קצר: {{ a.outlook.short }}</div><div>בינוני: {{ a.outlook.medium }}</div><div>ארוך: {{ a.outlook.long }}</div></div>{% endif %}
+{% if a.watch_next_week %}<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14px"><b>לעקוב בשבוע הבא</b>{% for r in a.watch_next_week %}<div>• {{ r }}</div>{% endfor %}</div>{% endif %}
+{% if site_url %}<p style="text-align:center"><a href="{{ site_url }}weekly.html">לסיכום המלא באתר</a></p>{% endif %}
+<p style="color:#8a94a6;font-size:12px">נוצר אוטומטית באמצעות AI ואינו מהווה ייעוץ השקעות.</p>
+</div></body></html>

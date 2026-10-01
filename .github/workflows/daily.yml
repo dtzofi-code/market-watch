@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "30 3 * * *"   # 03:30 UTC ~ 06:30 Israel (summer) / 05:30 (winter)
   workflow_dispatch:
+    inputs:
+      weekly:
+        description: "Run the weekly summary only"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,7 +35,7 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
-        run: python src/main.py
+        run: python src/main.py ${{ inputs.weekly && '--weekly' || '' }}
       - name: Commit history
         run: |
           git config user.name "market-watch-bot"

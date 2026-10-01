@@ -11,6 +11,8 @@
     <span style="background:{{ {1:'#8a94a6',2:'#2e7d32',3:'#b7791f',4:'#d9480f',5:'#c62828'}.get(e.severity,'#8a94a6') }};color:#fff;border-radius:5px;padding:0 6px;font-size:13px">{{ e.severity }}/5</span></div>
   <div style="color:#5c6675;font-size:13px">{{ e.category }} · {{ (e.regions or [])|join(', ') }}</div>
   <p style="margin:8px 0">{{ e.impact }}</p>
+  {% if e.horizons %}<div style="font-size:14px;margin:6px 0">{% for key, label in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% set h = e.horizons.get(key) %}{% if h %}
+  <div style="border-top:1px solid #eee;padding:4px 0"><b>טווח {{ label }}</b> <span style="color:{{ '#0f8a4b' if h.outlook=='חיובי' else ('#c62828' if h.outlook=='שלילי' else '#5c6675') }}">({{ h.outlook }})</span>{% if h.tickers %} <span dir="ltr">{{ h.tickers|join(', ') }}</span>{% endif %} – {{ h.why }}</div>{% endif %}{% endfor %}</div>{% endif %}
   {% if e.winners %}<div style="color:#0f8a4b;font-weight:bold;font-size:14px">📈 כדאי לבחון</div>
   {% for s in e.winners %}<div style="font-size:14px;border-top:1px solid #eee;padding:4px 0"><b dir="ltr">{{ s.ticker }}</b> {{ s.name }}
     {% if m.get(s.ticker) %}<span dir="ltr" style="color:{{ '#0f8a4b' if m[s.ticker].day>=0 else '#c62828' }}">({{ '%+.1f'|format(m[s.ticker].day) }}% היום)</span>{% endif %} – {{ s.reason }} ({{ s.confidence }})</div>{% endfor %}{% endif %}

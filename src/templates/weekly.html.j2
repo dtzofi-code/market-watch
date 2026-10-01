@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סיכום שבועי – מעקב שוק</title>
+{% include '_style.html.j2' %}
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🗓️ סיכום שבועי</h1>
+  <nav><a href="{{ prefix }}index.html">יומי</a><a href="{{ prefix }}weekly.html">סיכום שבועי</a></nav>
+  <p>{{ range }} · <span class="mood">מצב שוק: {{ {'risk-on':'נטייה לסיכון','risk-off':'בריחה מסיכון','mixed':'מעורב'}.get(a.market_mood, 'מעורב') }}</span></p>
+</header>
+<div class="card"><strong>תקציר:</strong> {{ a.summary }}</div>
+
+{% if a.themes %}<h2>נושאי השבוע</h2>
+{% for t in a.themes %}<div class="card ev">
+  <h3>{{ t.title }} <span class="tags"><span>{{ t.trend }}</span></span></h3>
+  <p>{{ t.what_happened }}</p><p><strong>השפעה על השוק:</strong> {{ t.market_impact }}</p>
+  {% for s in t.tickers or [] %}<div class="stk"><span class="tk">{{ s.ticker }}</span>
+    {% if m.get(s.ticker) %}<span class="pct {{ 'up' if m[s.ticker].week>=0 else 'down' }}">{{ '%+.1f'|format(m[s.ticker].week) }}% שבוע</span>{% endif %}
+    <br><small>{{ s.note }}</small></div>{% endfor %}
+</div>{% endfor %}{% endif %}
+
+{% if a.best_ideas %}<h2>רעיונות מובילים</h2><div class="card"><table>
+<tr><th>מנייה</th><th>אופק</th><th>למה</th></tr>
+{% for i in a.best_ideas %}<tr><td><span class="tk">{{ i.ticker }}</span> {{ i.name }}</td><td>{{ i.horizon }}</td><td>{{ i.why }}</td></tr>{% endfor %}
+</table></div>{% endif %}
+
+{% if a.outlook %}<h2>תחזית לפי אופק</h2><div class="hz">
+{% for key, label in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}<div class="hzc card" style="margin:0"><b>טווח {{ label }}</b>{{ a.outlook.get(key) }}</div>{% endfor %}</div>{% endif %}
+
+{% if a.risks %}<h2>סיכונים</h2><div class="card"><ul class="l">{% for r in a.risks %}<li>{{ r }}</li>{% endfor %}</ul></div>{% endif %}
+{% if a.watch_next_week %}<h2>לעקוב בשבוע הבא</h2><div class="card"><ul class="l">{% for r in a.watch_next_week %}<li>{{ r }}</li>{% endfor %}</ul></div>{% endif %}
+{% if a.regions_to_watch %}<h2>אזורים</h2><div class="card"><table><tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+{% for r in a.regions_to_watch %}<tr><td>{{ r.region }}</td><td>{{ r.stance }}</td><td>{{ r.why }}</td></tr>{% endfor %}</table></div>{% endif %}
+
+{% if archive %}<h2>ארכיון שבועי</h2><div class="card">{% for d, label in archive %}<a href="weekly/{{ d }}.html">{{ label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</div>{% endif %}
+<footer>נוצר אוטומטית באמצעות AI מתוך הדוחות היומיים, ואינו מהווה ייעוץ השקעות.</footer>
+</div></body></html>

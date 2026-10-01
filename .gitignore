@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 email_preview.html
+weekly_email_preview.html
+demo_out/

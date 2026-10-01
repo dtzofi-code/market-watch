@@ -9,12 +9,12 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from market import snapshot, tickers_from  # noqa: E402
-from render import ROOT, render  # noqa: E402
+from render import OUT, ROOT, render, render_weekly  # noqa: E402
 
 DEMO = {
     "summary": "נתוני הדגמה: מתיחות במזרח התיכון ומחסור בשבבי זיכרון מזיזים את השוק לכיוון ביטחוניות ושבבים.",
@@ -22,13 +22,19 @@ DEMO = {
     "events": [
         {"title": "ניסיון חטיפת מטוס אייר דובאי", "category": "תעופה", "severity": 3,
          "what_happened": "ניסיון חטיפה סוכל בטיסה מדובאי. הנוסעים והצוות לא נפגעו.",
-         "regions": ["המפרץ", "ישראל"], "impact": "חברות תעופה זרות תחת לחץ; אל על נהנית מתשומת לב ומביקוש לשירותי ביטחון.",
+         "regions": ["המפרץ", "ישראל"], "horizons": {"short": {"outlook": "חיובי", "when": "ימים עד שבועות", "tickers": ["ELAL.TA"], "why": "תשומת לב ומומנטום; עלול להתהפך אם יתברר שהאירוע בודד."},
+                      "medium": {"outlook": "ניטרלי", "when": "חודשים", "tickers": [], "why": "התלות בעלויות דלק וביקוש לטיסות."},
+                      "long": {"outlook": "ניטרלי", "when": "שנה ומעלה", "tickers": [], "why": "אין שינוי מבני מהאירוע עצמו."}},
+         "impact": "חברות תעופה זרות תחת לחץ; אל על נהנית מתשומת לב ומביקוש לשירותי ביטחון.",
          "winners": [{"ticker": "ELAL.TA", "name": "אל על", "reason": "ביקוש לטיסות ישירות ותנופת מומנטום", "confidence": "בינונית"}],
          "losers": [{"ticker": "DAL", "name": "Delta", "reason": "חשיפה לעלויות ביטחון וביקוש חלש"}],
          "sources": [{"title": "הדגמה", "url": "https://example.com"}]},
         {"title": "משבר שבבי זיכרון ואחסון", "category": "שבבים וטכנולוגיה", "severity": 4,
          "what_happened": "מחסור גובר ב-DRAM וב-NAND מעלה מחירים בעקבות ביקוש ל-AI.",
-         "regions": ["טייוואן", "דרום קוריאה", "ארה\"ב"], "impact": "יצרניות זיכרון ואחסון נהנות ממחירים גבוהים; יצרניות מחשבים ורכב נפגעות.",
+         "regions": ["טייוואן", "דרום קוריאה", "ארה\"ב"], "horizons": {"short": {"outlook": "חיובי", "when": "ימים עד שבועות", "tickers": ["MU"], "why": "מחירי DRAM עולים ומשקפים דיווחים קרובים."},
+                      "medium": {"outlook": "חיובי", "when": "חודשים", "tickers": ["MU", "WDC"], "why": "מחסור מבני עד שקיבולת חדשה תעלה."},
+                      "long": {"outlook": "שלילי", "when": "שנה ומעלה", "tickers": [], "why": "תוספת קיבולת עלולה להוביל לעודף היצע."}},
+         "impact": "יצרניות זיכרון ואחסון נהנות ממחירים גבוהים; יצרניות מחשבים ורכב נפגעות.",
          "winners": [{"ticker": "MU", "name": "Micron", "reason": "עליית מחירי DRAM", "confidence": "גבוהה"},
                      {"ticker": "WDC", "name": "Western Digital", "reason": "ביקוש לאחסון", "confidence": "בינונית"},
                      {"ticker": "NVDA", "name": "Nvidia", "reason": "ביקוש מתמשך לשבבי AI", "confidence": "בינונית"}],
@@ -36,7 +42,10 @@ DEMO = {
          "sources": [{"title": "הדגמה", "url": "https://example.com"}]},
         {"title": "הסלמה ביטחונית בישראל ובאוקראינה", "category": "גיאופוליטי", "severity": 5,
          "what_happened": "המשך לחימה בשתי זירות מגביר הוצאות ביטחוניות.",
-         "regions": ["ישראל", "אוקראינה", "אירופה"], "impact": "ביקוש לנשק, מודיעין ו-AI ביטחוני; נפט וזהב עולים.",
+         "regions": ["ישראל", "אוקראינה", "אירופה"], "horizons": {"short": {"outlook": "חיובי", "when": "ימים עד שבועות", "tickers": ["PLTR"], "why": "כותרות מעלות ביקוש."},
+                      "medium": {"outlook": "חיובי", "when": "חודשים", "tickers": ["ESLT.TA", "LMT"], "why": "צבר הזמנות והגדלות תקציב."},
+                      "long": {"outlook": "חיובי", "when": "שנה ומעלה", "tickers": ["PLTR"], "why": "הוצאות ביטחון מבניות באירופה ובישראל."}},
+         "impact": "ביקוש לנשק, מודיעין ו-AI ביטחוני; נפט וזהב עולים.",
          "winners": [{"ticker": "PLTR", "name": "Palantir", "reason": "חוזי ביטחון ו-AI", "confidence": "גבוהה"},
                      {"ticker": "ESLT.TA", "name": "אלביט", "reason": "צבר הזמנות גדל", "confidence": "גבוהה"},
                      {"ticker": "LMT", "name": "Lockheed Martin", "reason": "תקציבי הגנה", "confidence": "בינונית"}],
@@ -50,13 +59,57 @@ DEMO = {
     ],
 }
 
+DEMO_WEEKLY = {
+    "summary": "הדגמה: שבוע של מתיחות ביטחונית ומחסור בזיכרון. ביטחוניות ושבבים הובילו.",
+    "market_mood": "mixed",
+    "themes": [{"title": "מחסור בשבבי זיכרון", "trend": "מתעצם", "what_happened": "מחירי DRAM עלו כל השבוע.",
+                "market_impact": "יצרניות זיכרון מרוויחות.", "tickers": [{"ticker": "MU", "note": "הרוויחה מהעלייה במחירים"}]}],
+    "best_ideas": [{"ticker": "PLTR", "name": "Palantir", "horizon": "ארוך", "why": "ביקוש ביטחוני מבני."}],
+    "risks": ["היפוך חד בנפט", "חדשות על הפסקת אש"],
+    "watch_next_week": ["דוחות רבעוניים של יצרניות שבבים"],
+    "regions_to_watch": [{"region": "ישראל", "stance": "להעדיף", "why": "ביטחוניות וסייבר."}],
+    "outlook": {"short": "תנודתיות גבוהה", "medium": "נטייה חיובית לשבבים וביטחוניות", "long": "תקציבי ביטחון ו-AI ימשיכו לגדול"},
+}
+
+
+def run_weekly(args, date):
+    import glob
+    files = sorted(glob.glob(os.path.join(ROOT, "data", "????-??-??.json")))[-7:]
+    days = [{"date": os.path.basename(f)[:-5], **json.load(open(f, encoding="utf-8"))} for f in files]
+    if args.demo:
+        analysis = DEMO_WEEKLY
+    elif not days:
+        print("[weekly] no daily data yet; skipping")
+        return
+    else:
+        from analyze import analyze_weekly
+        analysis = analyze_weekly(days)
+    tickers = list(dict.fromkeys(
+        [i["ticker"] for i in analysis.get("best_ideas", [])] +
+        [s["ticker"] for t in analysis.get("themes", []) for s in t.get("tickers", [])]))
+    market = snapshot(tickers) if tickers else {}
+    start = days[0]["date"] if days else date
+    out = render_weekly(analysis, market, date, start)
+    if args.demo:
+        with open(os.path.join(OUT(), "weekly_email_preview.html"), "w", encoding="utf-8") as f:
+            f.write(out["email_html"])
+    elif not args.no_email:
+        from send_email import send
+        send(f"סיכום שבועי {date}", out["email_html"])
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-email", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--weekly", action="store_true", help="weekly summary only")
     args = ap.parse_args()
     date = datetime.now().strftime("%Y-%m-%d")
+    if args.demo:
+        os.environ["DEMO_OUT"] = os.path.join(ROOT, "demo_out")
+    if args.weekly:
+        run_weekly(args, date)
+        return
 
     if args.demo:
         analysis = DEMO
@@ -68,18 +121,23 @@ def main():
         analysis = analyze(headlines) if headlines else {"summary": "לא נאספו כותרות היום.", "events": [], "regions_to_watch": []}
 
     market = snapshot(tickers_from(analysis))
-    os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
-    with open(os.path.join(ROOT, "data", f"{date}.json"), "w", encoding="utf-8") as f:
+    os.makedirs(os.path.join(OUT(), "data"), exist_ok=True)
+    with open(os.path.join(OUT(), "data", f"{date}.json"), "w", encoding="utf-8") as f:
         json.dump({"analysis": analysis, "market": market}, f, ensure_ascii=False, indent=2)
 
     out = render(analysis, market, date)
     if args.demo:
-        with open(os.path.join(ROOT, "email_preview.html"), "w", encoding="utf-8") as f:
+        with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
     if not (args.no_email or args.demo):
         from send_email import send
         top = max((e.get("severity", 0) for e in analysis.get("events", [])), default=0)
         send(f"דוח שוק יומי {date} | חומרה מקסימלית {top}/5", out["email_html"])
+    if datetime.now().weekday() == 4 and not args.demo:  # Friday
+        try:
+            run_weekly(args, date)
+        except Exception as exc:  # weekly failure must not fail the daily run
+            print(f"[weekly] failed: {exc}")
 
 
 if __name__ == "__main__":
