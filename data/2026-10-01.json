@@ -1,238 +1,229 @@
 {
   "analysis": {
-    "summary": "היממה האחרונה התאפיינה בלחץ כבד בשווקים הפיננסיים בעקבות זינוק בתשואות אג\"ח ארה\"ב לשיא של יותר משני עשורים, לצד עלייה במחירי הנפט עקב השעיית יצוא דלקים מסין ותקיפת מיכליות במצר הורמוז. בנוסף, אירוע ביטחוני חריג בטיסת פליי-דובאי לישראל מעורר חששות מחודשים בסקטור התעופה והתיירות באזור.",
-    "market_mood": "risk-off",
+    "summary": "שווקי המניות העולמיים מתמודדים עם לחצים מצד שוק האג\"ח (תשואות האוצר האמריקאי ל-10 שנים ברמות שיא וחששות פיסקליים), זינוק במחירי הנפט על רקע שיבושים במפרץ וביטול ייצוא דלקים מסין, לצד אירועים גיאופוליטיים כמו תקיפת מכליות במיצר הורמוז ואירוע חריג בטיסת פליידובאי לישראל. במקביל, סקטור הטכנולוגיה והשבבים מציג עוצמה הודות לדוחות חזקים וביקוש לתשתיות בינה מלאכותית, למרות אתגרי הרגולציה וההתרחבות.",
+    "market_mood": "mixed",
     "events": [
       {
-        "title": "זינוק בתשואות אג\"ח ממשלת ארה\"ב ל-10 שנים לרמות שיא",
-        "category": "אחר",
-        "severity": 5,
-        "what_happened": "תשואות האג\"ח הממשלתיות של ארה\"ב ל-10 שנים זינקו לרמתן הגבוהה ביותר מאז 2002 בעקבות חששות פיסקליים גלובליים. במקביל, גולדמן זאקס דחה את תחזית הפחתת הריבית של הפד לדצמבר, מה שהגביר את הלחץ על שוקי המניות.",
+        "title": "שיבושים ופגיעות במכליות במיצר הורמוז והפסקה של ייצוא דלק מסין",
+        "category": "אנרגיה",
+        "severity": 4,
+        "what_happened": "שלוש מכליות נפט נפגעו מפגזים במיצר הורמוז, וסין השעתה את ייצוא הדלקים לחודש אוקטובר, מה שהוביל לזינוק חד במחירי הנפט והגברת חששות האינפלציה הגלובלית.",
         "regions": [
-          "ארה\"ב",
-          "גלובלי"
+          "מפרץ פרסי",
+          "סין",
+          "עולמי"
         ],
-        "impact": "לחץ מכירות כבד על מניות הטכנולוגיה והצמיחה הרגישות לריבית, והתחזקות של הדולר בעולם.",
+        "impact": "הזינוק במחירי הנפט תומך בחברות האנרגיה אך מעלה לחצים אינפלציוניים על חברות התעופה, התחבורה והתעשייה בארה\"ב, אירופה ובתל אביב.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "XOM",
+              "CVX",
+              "OXY",
+              "FRO",
+              "STNG"
+            ],
+            "why": "מחירי הנפט הגבוהים ומצוקת האספקה מקפיצים את רווחי חברות האנרגיה וחברות תובלה ימית (טנקרים). שינוי במדיניות הייצוא של סין עשוי להרגיע את השוק."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [],
+            "why": "תגובת OPEC+ לשמור על תפוקה יציבה לצד התאמות מלאי צפויות לאזן חלקית את מחירי האנרגיה, אך הסיכון הגיאופוליטי יישאר גבוה."
+          },
+          "long": {
+            "outlook": "שלילי",
+            "when": "שנה ומעלה",
+            "tickers": [],
+            "why": "שיבושים כרוניים בנתיבי אנרגיה מעודדים מעבר מואץ לאנרגיה מתחדשת והשקעות ענק בתשתיות חלופיות, מה שמשנה את מבנה הביקוש לדלקים מאובנים."
+          }
+        },
         "winners": [
           {
-            "ticker": "JPM",
-            "name": "JPMorgan Chase & Co.",
-            "reason": "סביבת ריבית גבוהה לאורך זמן מיטיבה עם מרווחי הריבית של הבנקים הגדולים",
+            "ticker": "XOM",
+            "name": "Exxon Mobil",
+            "reason": "נהנית ממחירי נפט גבוהים ומרווחי זיקוק משופרים",
             "confidence": "גבוהה"
           },
           {
-            "ticker": "TBT",
-            "name": "ProShares UltraShort 20+ Year Treasury",
-            "reason": "תעודת סל בחסר (שורט) על אג\"ח ארוכות טווח המרוויחה מירידת מחירי האג\"ח ועליית התשואות",
+            "ticker": "FRO",
+            "name": "Frontline",
+            "reason": "עלייה בביקוש למכליות נפט עקב הארכת מסלולים ושיבושים במפרץ",
             "confidence": "גבוהה"
           }
         ],
         "losers": [
           {
-            "ticker": "TLT",
-            "name": "iShares 20+ Year Treasury Bond ETF",
-            "reason": "נפגעת ישירות מעליית התשואות שמשמעותה ירידה במחירי האג\"ח"
+            "ticker": "DAL",
+            "name": "Delta Air Lines",
+            "reason": "הוצאות הדלק מזנקות ופוגעות בשולי הרווח"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Three oil tankers hit by projectiles in Hormuz strait on Tuesday",
+            "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMGxqUHRGWUpFZWo3eVZkQ1NnR2NZM05rLWhoWHNOOE5IaGhwSjk4QlNXRi16Q1BGYVlMc2VPWUh6dm55bHluMjg5WGxvY0dfcmdNcDJIaGc5UjFwaXVpZlFTd21VZDU5dkdpZUtteEtQVll0M09hTHRPMG4wZU56UlNMMjIxREx3dmJZOVNFZjE3R0ZrQ3Q0R0VaazBjWk9LcS1UOWR2S1BfRmc2M1FIeU1Qa3liNHZRcFJINWtYQ1c"
+          }
+        ]
+      },
+      {
+        "title": "גל מכירות בשוק האג\"ח ותשואות אג\"ח ארה\"ב ל-10 שנים ברמות שיא",
+        "category": "אחר",
+        "severity": 4,
+        "what_happened": "תשואות האג\"ח של ממשלת ארה\"ב ל-10 שנים זינקו לרמות הגבוהות ביותר מזה שני עשורים על רקע חששות פיסקליים גלובליים ולחצי אינפלציה.",
+        "regions": [
+          "ארה\"ב",
+          "עולמי"
+        ],
+        "impact": "העלאת עלויות ההלוואה מייצרת לחץ שלילי רוחבי על שוקי המניות (מניות צמיחה וטכנולוגיה סובלות מעליית שיעור הדיסקאונט), ופוגעת במטבעות מתעוררים כמו הרופי ההודי.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "SPY",
+              "QQQ"
+            ],
+            "why": "תשואות אג\"ח גבוהות מושכות משקיעים לאפיקים סן-ריסקיים ומפעילות לחץ מכירות על מניות טכנולוגיה ומניות ערך כאחד."
           },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [],
+            "why": "התמתנות האינפלציה (כפי שמשתקף בנתוני ארה\"ב האחרונים) עשויה לאפשר לפדרל ריסרב מרחב תמרון וייצוב של תשואות האג\"ח."
+          },
+          "long": {
+            "outlook": "שלילי",
+            "when": "שנה ומעלה",
+            "tickers": [],
+            "why": "גירעונות פיסקליים מבניים בארה\"ב ובמדינות מפותחות יוצרים לחץ ארוך טווח על אספקת החוב ועלויות המימון של התאגידים."
+          }
+        },
+        "winners": [],
+        "losers": [
           {
             "ticker": "QQQ",
             "name": "Invesco QQQ Trust",
-            "reason": "מדד הנאסד\"ק 100 רגיש במיוחד לעליית ריבית ותשואות אג\"ח המכבידות על תמחור חברות צמיחה"
+            "reason": "חשיפה גבוהה למניות טכנולוגיה וצמיחה הרגישות לעליית תשואות אג\"ח"
           }
         ],
         "sources": [
           {
             "title": "10 year US Treasury yield hits highest since 2002",
-            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSXI1RW1CX1BMdXF0WjVYS1hvd3VuOVBzZm9SZXRXZmVESE54QkFQTmxuMDRCeTdyTGdScnB4MnRnQ3dlMEpRVEJkd1otRHY0VUxQUFAzSjBINzFmN2d2UGNyUkoyWnpOT1owWmQxWktQd2ZSNjlYSC0yNzhOaklITTVVYUpHZ2ctbG10MDVUdTVLZGZ1Y0E?oc=5"
-          },
-          {
-            "title": "Goldman Sachs pushes Fed rate hike forecast to December",
-            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPOXRTWE8yWkFyM2l6XzdNT3kzUTVZeFd3SEhmSjBYelk4WS1tU0Q1YnRVVUZOSklUcURKMU1XQzVfSUVRRGYxejlncXpwQ3ZWelVrTW9WNVZldHZ2bUxFUlozcmVObFQ1RzlKbEhsZFhFbzUzYjBqaWltQmRWSDRLUERCejNfczlyRTIwTkxPODB2XzdyX0FvM0JpWWpIUQ?oc=5"
+            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSXI1RW1CX1BMdXF0WjVYS1hvd3VuOVBzZm9SZXRXZmVESE54QkFQTmxuMDRCeTdyTGdScnB4MnRnQ3dlMEpRVEJkd1otRHY0VUxQUFAzSjBINzFmN2d2UGNyUkoyWnpOT1owWmQxWktQd2ZSNjlYSC0yNzhOaklITTVVYUpHZ2ctbG10MDVUdTVLZGZ1Y0E"
           }
         ]
       },
       {
-        "title": "שיבושים באספקת האנרגיה: סין משעה יצוא דלקים ותקיפת מיכליות בהורמוז",
-        "category": "אנרגיה",
-        "severity": 4,
-        "what_happened": "בתי הזיקוק בסין השעו את יצוא הדלקים לחודש אוקטובר, מה שהוביל לזינוק של 2% במחירי הנפט. במקביל, דווח על פגיעה בשלוש מיכליות נפט במצר הורמוז ואיומים מצד ארה\"ב להטיל איסור יצוא דיזל לאירופה אם לא ישוחררו מלאים.",
+        "title": "התרחבות שיתופי פעולה בבינה מלאכותית ועסקאות שבבים (טנסנט-אורקל ומייקרון)",
+        "category": "שבבים וטכנולוגיה",
+        "severity": 3,
+        "what_happened": "ענקית הטכנולוגיה הסינית Tencent חכרה 100,000 שבבים מאורקל כדי להאיץ את פיתוח ה-AI שלה, תוך כדי דוחות חזקים מיצרנית השבבים Micron שתמכו במניות הטכנולוגיה.",
         "regions": [
-          "גלובלי",
-          "המזרח התיכון",
-          "אירופה",
-          "סין"
+          "ארה\"ב",
+          "סין",
+          "אסיה"
         ],
-        "impact": "עליית מחירי הנפט הגולמי והתזקיקים (במיוחד סולר/דיזל), לחץ אינפלציוני מחודש ועלייה בעלויות השילוח והתעופה.",
+        "impact": "מחזק את הביקוש לשבבי תשתיות ולענני מחשוב, ומציג פתרונות עקיפים למגבלות הייצוא האמריקאיות על ידי שימוש בתשתיות ענן זרות.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "MU",
+              "ORCL",
+              "NVDA"
+            ],
+            "why": "תוצאות חזקות וביקושים מוסדיים לשבבי זכרון ומחשוב ענן דוחפים כלפי מעלה את סקטור החומרה והשבבים."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "ORCL",
+              "MU"
+            ],
+            "why": "המשך השקעות תאגידיות בתשתיות AI למרות אתגרי קנה מידה ראשוניים (כפי שעולה ממחקרים בשוק) תומך בהכנסות חברות החומרה."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "NVDA",
+              "ASML"
+            ],
+            "why": "מעבר מבני של הכלכלה העולמית לכלכלה מבוססת AI ממשיך לייצר ביקוש שיא לשבבים מתקדמים ולציוד ייצור."
+          }
+        },
         "winners": [
           {
-            "ticker": "XOM",
-            "name": "Exxon Mobil Corporation",
-            "reason": "עליית מחירי הנפט הגולמי והתזקיקים משפרת ישירות את רווחיות ענקית האנרגיה",
+            "ticker": "MU",
+            "name": "Micron Technology",
+            "reason": "דוחות חזקים וביקוש עצום לשבבי זיכרון לתשתיות AI",
             "confidence": "גבוהה"
           },
           {
-            "ticker": "FRO",
-            "name": "Frontline plc",
-            "reason": "חברת מיכליות נפט הנהנית מעליית תעריפי ההובלה הימית בשל סיכונים גיאופוליטיים ושינוי נתיבי סחר",
-            "confidence": "בינונית"
-          },
-          {
-            "ticker": "ORL.TA",
-            "name": "בזן",
-            "reason": "מרווחי הזיקוק של סולר ודלקים צפויים לעלות בעקבות המחסור העולמי והשעיית היצוא מסין",
+            "ticker": "ORCL",
+            "name": "Oracle",
+            "reason": "השכרת תשתיות ענן ושבבים לחברות ענק כמו Tencent מחזקת את מגזר הענן",
             "confidence": "גבוהה"
           }
         ],
-        "losers": [
-          {
-            "ticker": "AAL",
-            "name": "American Airlines Group",
-            "reason": "עליית מחירי הדלק הסילוני (מבוסס נפט) מהווה פגיעה ישירה בשורת הרווח של חברות התעופה"
-          },
-          {
-            "ticker": "ICL.TA",
-            "name": "איי.סי.אל גרופ",
-            "reason": "חברות כימיקלים ודשנים חוות עלייה בעלויות הייצור והשינוע כתוצאה מהתייקרות האנרגיה"
-          }
-        ],
+        "losers": [],
         "sources": [
           {
-            "title": "Oil prices rise 2% as China suspends fuel exports",
-            "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOcGNFYVVqQ0xkMTkyblJkMU5mMnJ6Y1RhTEhBWjJyWEhDaXdCVzg3aF9pWTFYdVkyN3d5WmpIRDdHQ283dUJhVlV4WTJzSEMwTy1uZkhwS2NNNndEZlhJY2lGTHgtRng1TjQ0XzRWdUNnUjRPQ2ZoaDg2UlJ1cTgtRGZHbTNVcUVFenI1SlIxREdDbWJJX25kWFY2ZWxxVzRyOFl3SGZzbjZUWEk2NklWOUR2UzEwanpPSzU1TnJyXzVveDRoX2c?oc=5"
-          },
-          {
-            "title": "Three oil tankers hit by projectiles in Hormuz strait on Tuesday",
-            "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMGxqUHRGWUpFZWo3eVZkQ1NnR2NZM05rLWhoWHNOOE5IaGhwSjk4QlNXRi16Q1BGYVlMc2VPWUh6dm55bHluMjg5WGxvY0dfcmdNcDJIaGc5UjFwaXVpZlFTd21VZDU5dkdpZUtteExtQVl0M09hVHRPMG4wZU56UlNMMjIxREx3dmJZOVNFZjE3R0ZrQ3Q0R0VaazBjWk9LcS1UOWR2S1BfRmc2M1FIeU1Qa3liNHZRcFJINWtYQ1c?oc=5"
+            "title": "China’s Tencent leases 100,000 chips from Oracle to accelerate AI push, FT reports",
+            "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNR3F1ZTMtVFZsOVNXOEU4X09jTTI0RDVYNUJmQUNVVUhJQkV6YlRmdldFaWwyVzU1UnZLQl9Ia0tqTHlBZ09SUXZ6VC1kcEx6bjQyQlgxXzI1YVpwYldSV3NwNXZRRkFPSWQzclhFbE04anBtbnRZV2FwRUlIMmU2eVV3M0VscEE1Znd5bU5rNEhwWVVXdlR0c2tIbnlnald3VVBJdVFiTDZMUmhqV0x1bE1jVVR2STZ5bHdF"
           }
         ]
       },
       {
-        "title": "תקרית אבטחה חמורה בטיסת פליי-דובאי לישראל",
+        "title": "תקרית אלימה בטיסת פליידובאי לישראל",
         "category": "תעופה",
         "severity": 3,
-        "what_happened": "טיסת פליי-דובאי שהייתה בדרכה מדובאי לתל אביב הוסטה ממסלולה לאחר שטייס דקר טייס עמית בקוקפיט. הנוסעים חוו רגעי חרדה קשים עד להשתלטות על התוקף ונחיתת חירום.",
+        "what_happened": "תקרית חריגה ואלימה התרחשה בטיסת פליידובאי בדרכה לישראל כאשר טייס תקף את קצין המינהלה/קברניט שותף, מה שהוביל להנחתת חירום ולחקירה בינלאומית.",
         "regions": [
           "ישראל",
-          "איחוד האמירויות",
-          "המזרח התיכון"
+          "איחוד האמירויות"
         ],
-        "impact": "פגיעה זמנית באמון הצרכנים בחברות תעופה זרות הטסות לישראל, ועלייה בביקוש לטיסות עם אבטחה ישראלית מוגברת.",
+        "impact": "מעורר חששות זמניים בנוגע לבטיחות טיסות אזוריות ולקישוריות האווירית של ישראל דרך המפרץ, ומעלה שאלות לגבי מניות תעופה מקומיות כמו אל על (ELAL.TA) במק раз של שינויי העדפות נוסעים.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "ELAL.TA"
+            ],
+            "why": "פגיעה תדמיתית נקודתית בנתיבי הטיסה המקושרים למפרץ עלולה להפנות נוסעים לחברות תעופה ישראליות מקומיות בטווח הקצר."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [],
+            "why": "השפעה שתדעך לאחר סיום החקירה הרשמית והתייצבות לוחות הטיסות האזוריות."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [],
+            "why": "אירוע נקודתי שאינו צפוי לשנות מגמות מבניות ארוכות טווח בתעופה האזרחית."
+          }
+        },
         "winners": [
           {
             "ticker": "ELAL.TA",
-            "name": "אל על",
-            "reason": "נהנית ממוניטין האבטחה המחמיר שלה; נוסעים ישראלים עשויים להעדיף את החברה הלאומית על פני חברות זרות בעקבות אירועי אלימות בקוקפיט",
-            "confidence": "גבוהה"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "BKNG",
-            "name": "Booking Holdings Inc.",
-            "reason": "חששות ביטחוניים בטיסות למזרח התיכון עלולים להוביל לביטולי חופשות ופגיעה בהזמנות תיירות",
-            "confidence": "בינונית"
-          }
-        ],
-        "sources": [
-          {
-            "title": "Pilot stabs fellow pilot on flight to Israel before passengers intervene to stop attack",
-            "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSUVoWWFZd2hfb29WZ0tCQV83bTRCdFI5TTVLbWh4bHdxcWRxTTY5N2gxN0I4ZkN5TUp4YVpaVGMtSTRjTGRTMkV5cHVLeEl4a19lWXNBdzZVeXVnMGNCanJWdTRSNjVDUzRtSndzQ2ZBV3JsdlBXNkRlVGd5WXRaU2UweXFIVG1DVWpWby1sekV4Y1FBTDZtS1Z5aFVXSE9venYxdTRn?oc=5"
-          },
-          {
-            "title": "FlyDubai Provides Key Link for Israeli Air Travelers",
-            "url": "https://news.google.com/rss/articles/CBMiM0FfVjF0b2NiNVliRXdJVlN1T2ZvaEg4d1BlaGJ3SlB3em1CTFlOR3dIdHVpbVVNSVdPVWttVUlyRUlrTjFqeFkzSXRXU3ZCckFiYWRZM3R1bE1LQ2hJQUNaUGdubzNHRl91NXc5ZEhJMVpDUi1hWGxkWDhmY3ZOa1dyNjNYRFp5S0R0ajVCVkMzSWxBNnk3T2tFUVRxci15MXI1MlkySDZYQnhVM2JFRVJoR2FHakFqVW1HQkgycjBQUzluSWotZw?oc=5"
-          }
-        ]
-      },
-      {
-        "title": "מתקפות סייבר וריגול טכנולוגי מצד סין נגד מומחי AI ואוניברסיטאות",
-        "category": "סייבר",
-        "severity": 3,
-        "what_happened": "האקרים סינים התחזו לבכירים אמריקאים לשעבר כדי לגנוב אימיילים ממומחי בינה מלאכותית. במקביל, סוכנות הביון הבריטית MI5 הזהירה אוניברסיטאות מפני גניבת סודות טכנולוגיים על ידי חברות קש סיניות.",
-        "regions": [
-          "ארה\"ב",
-          "בריטניה",
-          "סין"
-        ],
-        "impact": "הגברת הצורך במערכות הגנת סייבר מתקדמות, בדגש על הגנה על קניין רוחני של חברות טכנולוגיה ומוסדות מחקר.",
-        "winners": [
-          {
-            "ticker": "PANW",
-            "name": "Palo Alto Networks",
-            "reason": "מובילה עולמית באבטחת סייבר לארגונים הנהנית מביקוש גובר להגנת ענן ורשתות מפני תקיפות מדינתיות",
-            "confidence": "גבוהה"
-          },
-          {
-            "ticker": "CYBR",
-            "name": "CyberArk Software",
-            "reason": "מתמחה באבטחת זהויות וגישה מיוחסת (Privileged Access), קריטית למניעת התחזות וגניבת אימיילים של בכירים",
-            "confidence": "גבוהה"
-          },
-          {
-            "ticker": "CHKP",
-            "name": "Check Point Software",
-            "reason": "חברת סייבר ישראלית/גלובלית הצפויה ליהנות מהגדלת תקציבי אבטחה בארגונים ובמוסדות אקדמיים",
-            "confidence": "בינונית"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "TCEHY",
-            "name": "Tencent Holdings",
-            "reason": "חברות טכנולוגיה סיניות גדולות עלולות לסבול מסנקציות נוספות והגבלות גישה לשווקים מערביים בעקבות האשמות הריגול",
-            "confidence": "בינונית"
-          }
-        ],
-        "sources": [
-          {
-            "title": "Chinese hackers impersonated ex-US official to steal emails from AI experts",
-            "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVHRqRS1jN2w4cEJmeUFHYkZ1N2RFVTJiRUtJYnZWSTRvMWVHNWVNU2IyYUh4Qjd1aG1pT21SSVRPbEpYVlBRUXRtZTFjS3dzMlF5SThULW1NaXRZTXlHNXdodTNfdGE1QmpMTHdGS1NSbmUxdkh2RXFubWs2eFRPSFF3MkMxVGx3cmd6U0xsSWthamd3YVdFaE8wU183SktHU3ZhNE5NVDNURFpHMU81N25YMG5jbDhQTXZjSg?oc=5"
-          },
-          {
-            "title": "MI5 warns UK universities over ‘theft of tech secrets by Chinese front company’",
-            "url": "https://www.theguardian.com/uk-news/2026/sep/30/mi5-issues-spy-alert-over-body-linked-chinese-state-stealing-vital-uk-research-universities"
-          }
-        ]
-      },
-      {
-        "title": "נסיגת כוחות ארה\"ב מעיראק לאחר 23 שנים",
-        "category": "גיאופוליטי",
-        "severity": 3,
-        "what_happened": "כוחות צבא ארה\"ב והקואליציה השלימו את נסיגתם הרשמית מעיראק וסיום המשימה נגד המדינה האסלאמית (דאעש), מה שמותיר את האזור עם סימני שאלה ביטחוניים רבים.",
-        "regions": [
-          "המזרח התיכון",
-          "ארה\"ב"
-        ],
-        "impact": "עליית הסיכון הגיאופוליטי במזרח התיכון, פוטנציאל להתחזקות השפעת איראן בעיראק, והגברת הצורך של מדינות האזור במערכות הגנה עצמאיות.",
-        "winners": [
-          {
-            "ticker": "ESLT.TA",
-            "name": "אלביט מערכות",
-            "reason": "עליית הסיכון הגיאופוליטי במזרח התיכון מגבירה את הביקוש למערכות הגנה, מל\"טים וטכנולוגיות צבאיות מתקדמות",
-            "confidence": "גבוהה"
-          },
-          {
-            "ticker": "LMT",
-            "name": "Lockheed Martin",
-            "reason": "יצרנית נשק אמריקאית מובילה הנהנית מביקוש עולמי קשיח למערכות הגנה אווירית ומטוסי קרב",
-            "confidence": "בינונית"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "SPY",
-            "name": "SPDR S&P 500 ETF Trust",
-            "reason": "עליית אי-היציבות הגיאופוליטית במזרח התיכון מייצרת סנטימנט שלילי כללי בשווקים",
+            "name": "El Al Israel Airlines",
+            "reason": "עשויה לראות מעבר נוסעים זמני לטיסות ישירות של החברה עקב חשש מנתיבי חיבור זרים",
             "confidence": "נמוכה"
           }
         ],
+        "losers": [],
         "sources": [
           {
-            "title": "American Forces Withdraw From Iraq 23 Years After Invading",
-            "url": "https://www.nytimes.com/2026/09/30/world/middleeast/iraq-us-troop-withdrawal.html"
-          },
-          {
-            "title": "Trump hails the US military’s exit from Iraq after 12-year mission against Islamic State",
-            "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOVVd3ZE1qU3YyRlhnTjBFTlVSX0taT0p1MDFpQVNBNVJTSzY5U3pkVkpNVTdmMU5qLWZrMGsxLUdROFFURmFxRzFjME5fWWhhVlZGcTFZRnExRkFhcFNaeXNRYmhkQ3h4NnU3Q09mSUlteG8wZ1dVRlpQME0xQk1jcUlqeU5XMkpVdWNyaW1jN1VRNG84VExtV0NQUkJsd2Zgrid0WFM?oc=5"
+            "title": "Israel vows to get to 'root' of flydubai attack, UAE launches investigation",
+            "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQT1RDU0l3eU5nTnBlVmRsYkpBYTdSTEVRRE1WRk1qbVZYT0MxVzVMSWJMbHk3OElRU1M5RHlGXzV6UWFSdVJiU0cydV9qMlZvSE9mV0ZCcEZSVzJyVGx4X2x2SFJYTUw4N2lialRSOFoxSElUSHVMQ3RHZHZBamNQU21WdWJhbmJHUG9mXzFPbGpfbDRkUzBMYlVOODBPMUc1TTZzSHJYc0d5ME5Ud1NGQjR3d0xSUzdz?oc=5"
           }
         ]
       }
@@ -241,41 +232,21 @@
       {
         "region": "ארה\"ב",
         "stance": "להיזהר",
-        "why": "הזינוק בתשואות האג\"ח ל-10 שנים לרמות שיא של שני עשורים מייצר לחץ כבד על שוק המניות, במיוחד על סקטור הטכנולוגיה, ומקשה על המשך עליות השערים בטווח הקצר."
+        "why": "שוק המניות כבול בין לחצים של תשואות אג\"ח בשיא רב-שנתי לבין סיכוני אינפלציה שמקורם במחירי הנפט."
       },
       {
-        "region": "המזרח התיכון",
+        "region": "המזרח התיכון / ישראל",
         "stance": "להיזהר",
-        "why": "נסיגת כוחות ארה\"ב מעיראק, לצד תקיפת מיכליות במצר הורמוז ותקרית הבטיחות החמורה בטיסת פליי-דובאי, מעלים משמעותית את פרמיית הסיכון הגיאופוליטי באזור."
+        "why": "הסלמה בנתיבי סחר ימיים (מיצר הורמוז) לצד אירועים אזוריים ממשיכים להוסיף פרימיום סיכון לשווקים המקומיים והבינלאומיים."
       },
       {
-        "region": "סין",
+        "region": "אסיה (סין והודו)",
         "stance": "ניטרלי",
-        "why": "מצד אחד, השעיית יצוא הדלקים תומכת במחירי האנרגיה המקומיים אך פוגעת בהכנסות היצוא. מצד שני, האשמות הריגול הטכנולוגי מול ארה\"ב ובריטניה עלולות להוביל לסנקציות נוספות."
+        "why": "מצד אחד צמיחה חזקה בטכנולוגיה ובשבבים בדרום קוריאה וסין, אך מנגד לחצים אינפלציוניים על מטבעות כמו הרופי ההודי."
       }
     ]
   },
   "market": {
-    "JPM": {
-      "price": 330.83,
-      "day": -1.2,
-      "week": -2.0
-    },
-    "TBT": {
-      "price": 42.49,
-      "day": 1.1,
-      "week": 7.1
-    },
-    "TLT": {
-      "price": 77.78,
-      "day": -0.6,
-      "week": -3.3
-    },
-    "QQQ": {
-      "price": 739.77,
-      "day": 0.2,
-      "week": -0.2
-    },
     "XOM": {
       "price": 162.75,
       "day": 0.9,
@@ -286,60 +257,30 @@
       "day": 0.7,
       "week": 3.6
     },
-    "ORL.TA": {
-      "price": 213.5,
-      "day": -1.9,
-      "week": 1.1
+    "DAL": {
+      "price": 83.46,
+      "day": -1.7,
+      "week": 2.1
     },
-    "AAL": {
-      "price": 13.37,
-      "day": -1.8,
-      "week": 0.1
+    "QQQ": {
+      "price": 739.77,
+      "day": 0.2,
+      "week": -0.2
     },
-    "ICL.TA": {
-      "price": 1555.0,
-      "day": 0.6,
-      "week": -2.6
+    "MU": {
+      "price": 1065.11,
+      "day": 0.0,
+      "week": -0.6
+    },
+    "ORCL": {
+      "price": 137.3,
+      "day": -0.4,
+      "week": -5.0
     },
     "ELAL.TA": {
-      "price": 1900.0,
-      "day": 2.7,
-      "week": 13.7
-    },
-    "BKNG": {
-      "price": 162.91,
-      "day": 0.4,
-      "week": 4.5
-    },
-    "PANW": {
-      "price": 397.31,
-      "day": 2.3,
-      "week": 1.0
-    },
-    "CHKP": {
-      "price": 128.35,
-      "day": 1.1,
-      "week": -9.1
-    },
-    "TCEHY": {
-      "price": 54.22,
-      "day": -0.5,
-      "week": -3.0
-    },
-    "ESLT.TA": {
-      "price": 213070.0,
-      "day": 3.6,
-      "week": -5.8
-    },
-    "LMT": {
-      "price": 509.25,
-      "day": -0.6,
-      "week": -2.9
-    },
-    "SPY": {
-      "price": 762.63,
-      "day": -0.2,
-      "week": -0.7
+      "price": 1921.0,
+      "day": 3.8,
+      "week": 15.0
     },
     "^GSPC": {
       "price": 7651.54,
@@ -352,19 +293,19 @@
       "week": -0.3
     },
     "^TA125.TA": {
-      "price": 4080.11,
-      "day": 0.1,
+      "price": 4077.44,
+      "day": 0.0,
       "week": -1.9
     },
     "GC=F": {
-      "price": 4194.9,
-      "day": 0.2,
-      "week": -2.4
+      "price": 4206.6,
+      "day": 0.5,
+      "week": -2.1
     },
     "CL=F": {
-      "price": 91.88,
-      "day": 1.6,
-      "week": -2.9
+      "price": 91.31,
+      "day": 1.0,
+      "week": -3.5
     },
     "NVDA": {
       "price": 228.38,
@@ -375,6 +316,16 @@
       "price": 187.05,
       "day": 0.0,
       "week": -2.5
+    },
+    "LMT": {
+      "price": 509.25,
+      "day": -0.6,
+      "week": -2.9
+    },
+    "ESLT.TA": {
+      "price": 212440.0,
+      "day": 3.3,
+      "week": -6.1
     }
   }
 }
