@@ -72,6 +72,15 @@ DEMO_WEEKLY = {
 }
 
 
+def _telegram(build):
+    """Telegram is a bonus channel: a failure here must never fail the report."""
+    try:
+        import telegram_digest as t
+        t.send(build(t))
+    except Exception as exc:
+        print(f"[telegram] failed: {exc}")
+
+
 def run_weekly(args, date):
     import glob
     files = sorted(glob.glob(os.path.join(ROOT, "data", "????-??-??.json")))[-7:]
@@ -96,6 +105,7 @@ def run_weekly(args, date):
     elif not args.no_email:
         from send_email import send
         send(f"סיכום שבועי {date}", out["email_html"])
+        _telegram(lambda t: t.weekly_text(analysis, f"{start} – {date}", os.environ.get("SITE_URL", "")))
 
 
 def main():
@@ -137,6 +147,7 @@ def main():
         from send_email import send
         top = max((e.get("severity", 0) for e in analysis.get("events", [])), default=0)
         send(f"דוח שוק יומי {date} | חומרה מקסימלית {top}/5", out["email_html"])
+        _telegram(lambda t: t.daily_text(analysis, date, os.environ.get("SITE_URL", "")))
     if datetime.now().weekday() == 4 and not args.demo:  # Friday
         try:
             run_weekly(args, date)

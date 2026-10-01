@@ -16,3 +16,9 @@ GEMINI_API_KEY=... python src/main.py --no-email
 4. Actions → daily-report → Run workflow לבדיקה. אחר כך רץ כל יום ~06:30.
 
 הערה: ללא דומיין מאומת ב-Resend, השולח `onboarding@resend.dev` יכול לשלוח רק לכתובת בעלת החשבון. להגדרת שולח אחר: `RESEND_FROM`.
+
+## טלגרם (אופציונלי)
+1. ב-Telegram פתח את @BotFather ← `/newbot` ← קבל טוקן.
+2. שלח הודעה כלשהי לבוט החדש שלך.
+3. העתק את הטוקן והרץ `pbpaste | gh secret set TELEGRAM_BOT_TOKEN -R <owner>/market-watch`.
+4. מצא את ה-chat id ב-`https://api.telegram.org/bot<TOKEN>/getUpdates` (שדה `chat.id`) והגדר `TELEGRAM_CHAT_ID` באותו אופן.
