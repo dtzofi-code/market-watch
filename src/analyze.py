@@ -44,36 +44,49 @@ def _extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
-def _pick_gemini_model(key: str) -> str:
-    """Use GEMINI_MODEL if set, otherwise the newest non-lite Flash model this key can call."""
+def _gemini_candidates(key: str) -> list:
+    """GEMINI_MODEL if set, else every text Flash model this key lists (stable names first)."""
     if os.environ.get("GEMINI_MODEL"):
-        return GEMINI_MODEL
+        return [GEMINI_MODEL]
     r = requests.get("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
                      headers={"x-goog-api-key": key}, timeout=30)
     r.raise_for_status()
     names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
              if "generateContent" in m.get("supportedGenerationMethods", [])]
-    flash = sorted((n for n in names if "flash" in n and not any(x in n for x in ("lite", "image", "preview", "exp", "tts", "live", "thinking"))),
-                   reverse=True)
-    model = (flash or [GEMINI_MODEL])[0]
-    print(f"[analyze] using {model}")
-    return model
+    print("[analyze] available:", ", ".join(names))
+    bad = ("image", "tts", "live", "audio", "omni", "robotics", "computer", "embedding")
+    ok = [n for n in names if ("flash" in n or "gemma" in n) and not any(x in n for x in bad)]
+    # stable (no preview/exp) first, non-lite first, newest first
+    ok.sort(key=lambda n: (("preview" in n or "exp" in n), "lite" in n, [-ord(c) for c in n]))
+    return ok or [GEMINI_MODEL]
 
 
 def _gemini(user: str) -> str:
-    """Free tier via Google AI Studio key (no billing needed)."""
+    """Free tier via Google AI Studio key (no billing needed); falls through models on quota/404."""
     key = os.environ["GEMINI_API_KEY"]
-    r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{_pick_gemini_model(key)}:generateContent",
-        headers={"x-goog-api-key": key},
-        json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
-              "contents": [{"parts": [{"text": user}]}],
-              "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-        timeout=180,
-    )
-    if not r.ok:
-        raise RuntimeError(f"Gemini {r.status_code}: {r.text[:400]}")
-    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+    errors = []
+    for model in _gemini_candidates(key)[:8]:
+        r = requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+            headers={"x-goog-api-key": key},
+            json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
+                  "contents": [{"parts": [{"text": user}]}],
+                  "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
+            timeout=180,
+        )
+        if r.ok:
+            try:
+                text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                _extract_json(text)  # validate before accepting
+                print(f"[analyze] using {model}")
+                return text
+            except Exception as exc:
+                errors.append(f"{model}: bad output ({exc})")
+                continue
+        errors.append(f"{model}: {r.status_code}")
+        if r.status_code not in (400, 404, 429, 500, 503):
+            raise RuntimeError(f"Gemini {r.status_code}: {r.text[:300]}")
+    raise RuntimeError("No Gemini model worked: " + "; ".join(errors))
 
 
 def _claude(user: str) -> str:
