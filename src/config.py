@@ -1,7 +1,14 @@
 """Configuration: news sources and the reference map the analyst model uses."""
 import os
 
+GN = "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q="
 FEEDS = [
+    # Reuters stopped its public RSS; Google News indexes its headlines (and AP's).
+    ("Reuters", GN + "site:reuters.com+when:1d"),
+    ("Reuters Business", GN + "site:reuters.com+(markets+OR+oil+OR+chips+OR+sanctions)+when:1d"),
+    ("AP", GN + "site:apnews.com+when:1d"),
+    ("Guardian World", "https://www.theguardian.com/world/rss"),
+    ("NYT World", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"),
     ("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml"),
     ("Al Jazeera", "https://www.aljazeera.com/xml/rss/all.xml"),
     ("Times of Israel", "https://www.timesofisrael.com/feed/"),

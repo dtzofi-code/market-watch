@@ -7,7 +7,7 @@ import requests
 
 from config import FEEDS, GDELT_QUERY, HOURS_BACK, MAX_HEADLINES
 
-UA = {"User-Agent": "world-events-market-watch/1.0"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; world-events-market-watch/1.0)"}
 
 
 def _from_rss():
@@ -20,7 +20,7 @@ def _from_rss():
         except Exception as exc:  # one bad source must not sink the report
             print(f"[collect] {name} failed: {exc}")
             continue
-        for e in feed.entries[:40]:
+        for e in feed.entries[:25]:
             ts = e.get("published_parsed") or e.get("updated_parsed")
             if ts and calendar.timegm(ts) < cutoff:
                 continue

@@ -2,6 +2,7 @@
 import json
 import os
 import re
+import time
 
 import requests
 
@@ -54,38 +55,47 @@ def _gemini_candidates(key: str) -> list:
     names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
              if "generateContent" in m.get("supportedGenerationMethods", [])]
     print("[analyze] available:", ", ".join(names))
-    bad = ("image", "tts", "live", "audio", "omni", "robotics", "computer", "embedding")
-    ok = [n for n in names if ("flash" in n or "gemma" in n) and not any(x in n for x in bad)]
-    # stable (no preview/exp) first, non-lite first, newest first
-    ok.sort(key=lambda n: (("preview" in n or "exp" in n), "lite" in n, [-ord(c) for c in n]))
+    bad = ("image", "tts", "live", "audio", "omni", "robotics", "computer", "embedding", "gemma", "customtools")
+    ok = [n for n in names if "flash" in n and not any(x in n for x in bad)]
+    # aliases/stable first, then lite; previews last
+    ok.sort(key=lambda n: (("preview" in n or "exp" in n), "lite" in n, not n.endswith("-latest")))
     return ok or [GEMINI_MODEL]
 
 
+def _gemini_call(key: str, model: str, user: str):
+    return requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        headers={"x-goog-api-key": key},
+        json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
+              "contents": [{"parts": [{"text": user}]}],
+              "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
+        timeout=180,
+    )
+
+
 def _gemini(user: str) -> str:
-    """Free tier via Google AI Studio key (no billing needed); falls through models on quota/404."""
+    """Free tier via Google AI Studio key (no billing); tries models in order, retries overload."""
     key = os.environ["GEMINI_API_KEY"]
     errors = []
-    for model in _gemini_candidates(key)[:8]:
-        r = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-            headers={"x-goog-api-key": key},
-            json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
-                  "contents": [{"parts": [{"text": user}]}],
-                  "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-            timeout=180,
-        )
-        if r.ok:
-            try:
-                text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                _extract_json(text)  # validate before accepting
-                print(f"[analyze] using {model}")
-                return text
-            except Exception as exc:
-                errors.append(f"{model}: bad output ({exc})")
+    for model in _gemini_candidates(key)[:6]:
+        for attempt in range(3):
+            r = _gemini_call(key, model, user)
+            if r.ok:
+                try:
+                    text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                    _extract_json(text)  # validate before accepting
+                    print(f"[analyze] using {model}")
+                    return text
+                except Exception as exc:
+                    errors.append(f"{model}: bad output ({exc})")
+                    break
+            errors.append(f"{model}: {r.status_code}")
+            if r.status_code in (500, 503):  # transient: wait and retry same model
+                time.sleep(15 * (attempt + 1))
                 continue
-        errors.append(f"{model}: {r.status_code}")
-        if r.status_code not in (400, 404, 429, 500, 503):
-            raise RuntimeError(f"Gemini {r.status_code}: {r.text[:300]}")
+            if r.status_code not in (400, 404, 429):
+                raise RuntimeError(f"Gemini {r.status_code}: {r.text[:300]}")
+            break  # quota / unknown model: next model
     raise RuntimeError("No Gemini model worked: " + "; ".join(errors))
 
 
