@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <p>דוח ליום 01/10/2026 · <span class="mood">מצב שוק: מעורב</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> נתוני הדגמה: מתיחות במזרח התיכון ומחסור בשבבי זיכרון מזיזים את השוק לכיוון ביטחוניות ושבבים.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>ניסיון חטיפת מטוס אייר דובאי<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>תעופה</span><span>המפרץ</span><span>ישראל</span></div>
+  <p>ניסיון חטיפה סוכל בטיסה מדובאי. הנוסעים והצוות לא נפגעו.</p>
+  <p><strong>השפעה על השוק:</strong> חברות תעופה זרות תחת לחץ; אל על נהנית מתשומת לב ומביקוש לשירותי ביטחון.</p>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">ELAL.TA</span> אל על
+        <span class="pct up">+2.6% יום · +13.6% שבוע</span>
+        <br><small>ביקוש לטיסות ישירות ותנופת מומנטום · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">DAL</span> Delta
+        <span class="pct down">-1.7% יום</span>
+        <br><small>חשיפה לעלויות ביטחון וביקוש חלש</small></div></div>
+  </div>
+  <div class="src"><a href="https://example.com" rel="noopener">הדגמה</a></div>
+</div>
+
+<div class="card ev">
+  <h3>משבר שבבי זיכרון ואחסון<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>שבבים וטכנולוגיה</span><span>טייוואן</span><span>דרום קוריאה</span><span>ארה&#34;ב</span></div>
+  <p>מחסור גובר ב-DRAM וב-NAND מעלה מחירים בעקבות ביקוש ל-AI.</p>
+  <p><strong>השפעה על השוק:</strong> יצרניות זיכרון ואחסון נהנות ממחירים גבוהים; יצרניות מחשבים ורכב נפגעות.</p>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">MU</span> Micron
+        <span class="pct up">+0.0% יום · -0.6% שבוע</span>
+        <br><small>עליית מחירי DRAM · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">WDC</span> Western Digital
+        <span class="pct up">+0.2% יום · -4.1% שבוע</span>
+        <br><small>ביקוש לאחסון · ביטחון: בינונית</small></div><div class="stk"><span class="tk">NVDA</span> Nvidia
+        <span class="pct up">+0.5% יום · +1.3% שבוע</span>
+        <br><small>ביקוש מתמשך לשבבי AI · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">HPQ</span> HP
+        
+        <br><small>עלויות רכיבים גבוהות</small></div></div>
+  </div>
+  <div class="src"><a href="https://example.com" rel="noopener">הדגמה</a></div>
+</div>
+
+<div class="card ev">
+  <h3>הסלמה ביטחונית בישראל ובאוקראינה<span class="sev sev5" title="חומרה">5</span></h3>
+  <div class="tags"><span>גיאופוליטי</span><span>ישראל</span><span>אוקראינה</span><span>אירופה</span></div>
+  <p>המשך לחימה בשתי זירות מגביר הוצאות ביטחוניות.</p>
+  <p><strong>השפעה על השוק:</strong> ביקוש לנשק, מודיעין ו-AI ביטחוני; נפט וזהב עולים.</p>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">PLTR</span> Palantir
+        <span class="pct up">+0.0% יום · -2.5% שבוע</span>
+        <br><small>חוזי ביטחון ו-AI · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">ESLT.TA</span> אלביט
+        <span class="pct up">+3.3% יום · -6.1% שבוע</span>
+        <br><small>צבר הזמנות גדל · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">LMT</span> Lockheed Martin
+        <span class="pct down">-0.6% יום · -2.9% שבוע</span>
+        <br><small>תקציבי הגנה · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">RYAAY</span> Ryanair
+        <span class="pct down">-0.9% יום</span>
+        <br><small>מחירי דלק ובהלה בטיסות</small></div></div>
+  </div>
+  <div class="src"><a href="https://example.com" rel="noopener">הדגמה</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>ארה&#34;ב</td><td>להעדיף</td><td>חשיפה לשבבים, ביטחון ו-AI.</td></tr><tr><td>ישראל</td><td>להעדיף</td><td>ביטחוניות וסייבר נהנות מהמצב.</td></tr><tr><td>אירופה</td><td>להיזהר</td><td>תלות באנרגיה וחשיפה לאוקראינה.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">ELAL.TA</td><td class="pct">1899.0</td>
+<td class="pct up">+2.6%</td>
+<td class="pct up">+13.6%</td></tr><tr><td class="tk">DAL</td><td class="pct">83.46</td>
+<td class="pct down">-1.7%</td>
+<td class="pct up">+2.1%</td></tr><tr><td class="tk">MU</td><td class="pct">1065.11</td>
+<td class="pct up">+0.0%</td>
+<td class="pct down">-0.6%</td></tr><tr><td class="tk">WDC</td><td class="pct">454.46</td>
+<td class="pct up">+0.2%</td>
+<td class="pct down">-4.1%</td></tr><tr><td class="tk">NVDA</td><td class="pct">228.38</td>
+<td class="pct up">+0.5%</td>
+<td class="pct up">+1.3%</td></tr><tr><td class="tk">PLTR</td><td class="pct">187.05</td>
+<td class="pct up">+0.0%</td>
+<td class="pct down">-2.5%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">212400.0</td>
+<td class="pct up">+3.3%</td>
+<td class="pct down">-6.1%</td></tr><tr><td class="tk">LMT</td><td class="pct">509.25</td>
+<td class="pct down">-0.6%</td>
+<td class="pct down">-2.9%</td></tr><tr><td class="tk">RYAAY</td><td class="pct">55.01</td>
+<td class="pct down">-0.9%</td>
+<td class="pct up">+0.6%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7651.54</td>
+<td class="pct down">-0.3%</td>
+<td class="pct down">-0.7%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">26861.06</td>
+<td class="pct up">+0.2%</td>
+<td class="pct down">-0.3%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">4084.88</td>
+<td class="pct up">+0.2%</td>
+<td class="pct down">-1.8%</td></tr><tr><td class="tk">GC=F</td><td class="pct">4190.5</td>
+<td class="pct up">+0.1%</td>
+<td class="pct down">-2.5%</td></tr><tr><td class="tk">CL=F</td><td class="pct">92.45</td>
+<td class="pct up">+2.2%</td>
+<td class="pct down">-2.3%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
