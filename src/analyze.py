@@ -3,9 +3,9 @@ import json
 import os
 import re
 
-import anthropic
+import requests
 
-from config import MODEL, REFERENCE_MAP
+from config import GEMINI_MODEL, MODEL, REFERENCE_MAP
 
 SYSTEM = f"""אתה אנליסט מאקרו-גיאופוליטי בכיר. תקבל כותרות חדשות מהיממה האחרונה.
 משימה: זהה את האירועים והמשברים בעלי השפעה אמיתית על שווקי המניות, קבץ כותרות לאירוע אחד,
@@ -44,11 +44,31 @@ def _extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
+def _gemini(user: str) -> str:
+    """Free tier via Google AI Studio key (no billing needed)."""
+    r = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+        headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]},
+        json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
+              "contents": [{"parts": [{"text": user}]}],
+              "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
+        timeout=120,
+    )
+    r.raise_for_status()
+    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+
+
+def _claude(user: str) -> str:
+    import anthropic
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    msg = client.messages.create(model=MODEL, max_tokens=8000, system=SYSTEM,
+                                 messages=[{"role": "user", "content": user}])
+    return "".join(b.text for b in msg.content if b.type == "text")
+
+
 def analyze(headlines: list) -> dict:
     lines = "\n".join(f"{i+1}. [{h['source']}] {h['title']} <{h['url']}>" for i, h in enumerate(headlines))
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    msg = client.messages.create(
-        model=MODEL, max_tokens=8000, system=SYSTEM,
-        messages=[{"role": "user", "content": f"כותרות היממה האחרונה:\n{lines}"}],
-    )
-    return _extract_json("".join(b.text for b in msg.content if b.type == "text"))
+    user = f"כותרות היממה האחרונה:\n{lines}"
+    # Gemini (free) by default; Claude only if explicitly selected.
+    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
+    return _extract_json(_claude(user) if use_claude else _gemini(user))

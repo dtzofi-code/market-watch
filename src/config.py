@@ -18,7 +18,8 @@ GDELT_QUERY = "(war OR attack OR sanctions OR shortage OR hijack OR blockade OR 
 HOURS_BACK = 36
 MAX_HEADLINES = 150
 
-MODEL = os.environ.get("ANALYSIS_MODEL", "claude-sonnet-5-5")
+MODEL = os.environ.get("ANALYSIS_MODEL", "claude-sonnet-5-5")  # only if ANALYSIS_PROVIDER=claude
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
 # Reference examples given to the model so it reasons the way the owner expects.
 REFERENCE_MAP = """
