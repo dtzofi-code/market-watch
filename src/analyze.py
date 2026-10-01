@@ -44,17 +44,35 @@ def _extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
+def _pick_gemini_model(key: str) -> str:
+    """Use GEMINI_MODEL if set, otherwise the newest non-lite Flash model this key can call."""
+    if os.environ.get("GEMINI_MODEL"):
+        return GEMINI_MODEL
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
+                     headers={"x-goog-api-key": key}, timeout=30)
+    r.raise_for_status()
+    names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+             if "generateContent" in m.get("supportedGenerationMethods", [])]
+    flash = sorted((n for n in names if "flash" in n and not any(x in n for x in ("lite", "image", "preview", "exp", "tts", "live", "thinking"))),
+                   reverse=True)
+    model = (flash or [GEMINI_MODEL])[0]
+    print(f"[analyze] using {model}")
+    return model
+
+
 def _gemini(user: str) -> str:
     """Free tier via Google AI Studio key (no billing needed)."""
+    key = os.environ["GEMINI_API_KEY"]
     r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
-        headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]},
+        f"https://generativelanguage.googleapis.com/v1beta/models/{_pick_gemini_model(key)}:generateContent",
+        headers={"x-goog-api-key": key},
         json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
               "contents": [{"parts": [{"text": user}]}],
               "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-        timeout=120,
+        timeout=180,
     )
-    r.raise_for_status()
+    if not r.ok:
+        raise RuntimeError(f"Gemini {r.status_code}: {r.text[:400]}")
     return r.json()["candidates"][0]["content"]["parts"][0]["text"]
 
 

@@ -2,7 +2,6 @@
 import os
 
 FEEDS = [
-    ("Reuters World", "https://feeds.reuters.com/Reuters/worldNews"),
     ("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml"),
     ("Al Jazeera", "https://www.aljazeera.com/xml/rss/all.xml"),
     ("Times of Israel", "https://www.timesofisrael.com/feed/"),
