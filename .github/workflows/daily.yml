@@ -2,9 +2,13 @@ name: daily-report
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # 03:30 UTC ~ 06:30 Israel (summer) / 05:30 (winter)
-    - cron: "30 6 * * *"   # retry 3h later; skipped if the report already exists
-    - cron: "30 9 * * *"   # last retry
+    # GitHub drops/delays scheduled runs, so fire several times; later runs
+    # are no-ops once today's report exists (see main.py). UTC; 03:17 ~ 06:17 Israel (summer).
+    - cron: "17 3 * * *"
+    - cron: "47 3 * * *"
+    - cron: "37 4 * * *"
+    - cron: "7 6 * * *"
+    - cron: "37 8 * * *"
   workflow_dispatch:
     inputs:
       weekly:
