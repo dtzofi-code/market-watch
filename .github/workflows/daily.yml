@@ -42,6 +42,9 @@ jobs:
           REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          PORTFOLIO_JSON: ${{ secrets.PORTFOLIO_JSON }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: python src/main.py ${{ inputs.weekly && '--weekly' || '' }}
       - name: Commit history

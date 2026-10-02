@@ -50,8 +50,9 @@
 </table></div>
 {% endif %}
 
+{% include '_ms_site.html.j2' %}
 {% if m %}
-<h2>מצב השוק</h2>
+<h2>נתוני טיקרים</h2>
 <div class="card"><table>
 <tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
 {% for t, v in m.items() %}<tr><td class="tk">{{ t }}</td><td class="pct">{{ v.price }}</td>

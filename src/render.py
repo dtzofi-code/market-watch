@@ -19,7 +19,7 @@ def _fmt(date: str) -> str:
     return datetime.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y")
 
 
-def render(analysis: dict, market: dict, date: str) -> dict:
+def render(analysis: dict, market: dict, date: str, pf=None, pa=None) -> dict:
     ctx = {"a": analysis, "m": market, "date": _fmt(date)}
     docs = os.path.join(OUT(), "docs")
     os.makedirs(os.path.join(docs, "archive"), exist_ok=True)
@@ -34,11 +34,11 @@ def render(analysis: dict, market: dict, date: str) -> dict:
     with open(os.path.join(docs, "index.html"), "w", encoding="utf-8") as f:
         f.write(index)
 
-    email = env.get_template("email.html.j2").render(**ctx, site_url=os.environ.get("SITE_URL", ""))
+    email = env.get_template("email.html.j2").render(**ctx, pf=pf, pa=pa, site_url=os.environ.get("SITE_URL", ""))
     return {"email_html": email}
 
 
-def render_weekly(analysis: dict, market: dict, date: str, start: str) -> dict:
+def render_weekly(analysis: dict, market: dict, date: str, start: str, pf=None, pa=None) -> dict:
     ctx = {"a": analysis, "m": market, "range": f"{_fmt(start)} – {_fmt(date)}"}
     wdir = os.path.join(OUT(), "docs", "weekly")
     os.makedirs(wdir, exist_ok=True)
@@ -48,5 +48,5 @@ def render_weekly(analysis: dict, market: dict, date: str, start: str) -> dict:
     dates = sorted((os.path.basename(p)[:-5] for p in glob.glob(os.path.join(wdir, "*.html"))), reverse=True)
     with open(os.path.join(OUT(), "docs", "weekly.html"), "w", encoding="utf-8") as f:
         f.write(tpl.render(**ctx, prefix="", archive=[(d, _fmt(d)) for d in dates]))
-    email = env.get_template("weekly_email.html.j2").render(**ctx, site_url=os.environ.get("SITE_URL", ""))
+    email = env.get_template("weekly_email.html.j2").render(**ctx, pf=pf, pa=pa, site_url=os.environ.get("SITE_URL", ""))
     return {"email_html": email}

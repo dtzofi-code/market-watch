@@ -153,3 +153,53 @@ def analyze_weekly(days: list) -> dict:
     user = "\n\n".join(parts)
     use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
     return _extract_json(_claude(user, WEEKLY_SYSTEM) if use_claude else _gemini(user, WEEKLY_SYSTEM))
+
+
+MARKET_SYSTEM = """אתה אסטרטג שוק הון בכיר. תקבל מדדי שוק עדכניים (מחיר, שינוי יומי/שבועי/חודשי, מרחק משיא שנתי, מול ממוצע 50 יום) וסיכום אירועי היום.
+כתוב ניתוח "מצב השוק" בעברית, ענייני ומבוסס על הנתונים שקיבלת בלבד (אל תמציא מספרים).
+החזר JSON תקין בלבד:
+{
+ "headline": "משפט אחד שמסכם את מצב השוק",
+ "context": "קונטקסט: מה קרה ולמה (3-4 משפטים), כולל קשר לאירועי היום",
+ "analysis": "ניתוח: מגמה, מומנטום, רוחב, תשואות/VIX/דולר/סחורות ומה הם אומרים (4-6 משפטים)",
+ "recommendation": "המלצה: סטנס כללי (אגרסיבי/ניטרלי/זהיר) ופעולות קונקרטיות לפי סקטורים",
+ "by_horizon": {"short": "", "medium": "", "long": ""},
+ "levels_to_watch": ["רמות/אירועים לעקוב אחריהם"],
+ "risks": ["סיכונים עיקריים"]
+}"""
+
+
+def analyze_market_state(indices: list, analysis: dict) -> dict:
+    ev = "; ".join(f"{e.get('title')} (חומרה {e.get('severity')})" for e in analysis.get("events", []))
+    user = ("מדדים:\n" + json.dumps(indices, ensure_ascii=False) +
+            f"\n\nסיכום היום: {analysis.get('summary','')}\nאירועים: {ev}")
+    return _call(user, MARKET_SYSTEM)
+
+
+PORTFOLIO_SYSTEM = """אתה יועץ השקעות-אנליסט המנתח תיק אישי. תקבל לכל נייר: משקל בתיק (%), רווח/הפסד ביחס לעלות (%), ומדדים טכניים (שינוי יומי/שבועי/חודשי/3 חודשים, מרחק משיא 52 שבועות, מול ממוצעים נעים, RSI, מחזור יחסי),
+וכן סיכום אירועי היום והשוק. אין לך כמויות או סכומים, רק אחוזים.
+כללים: הבחן בין עובדה (מהמדדים) להערכה; אל תמציא נתונים פונדמנטליים (דוחות, מכפילים) שלא קיבלת; לניירות ללא נתוני שוק (קרנות/תפ"ס) כתוב ניתוח איכותי לפי סוג הנייר והשוק בלבד וציין שאין נתוני שוק;
+לכל נייר המלצה נפרדת לכל טווח, מתוך: "להחזיק", "להגדיל", "להקטין", "למכור", "לעקוב". ההמלצות חייבות להתחשב במשקל (ריכוזיות) וברווח/הפסד.
+כתוב בעברית. החזר JSON תקין בלבד:
+{
+ "summary": "סיכום התיק ב-3-4 משפטים",
+ "health": "חזק|בינוני|חלש",
+ "positions": [{"ticker": "", "analysis": "2-3 משפטים", "short": {"action": "", "why": ""}, "medium": {"action": "", "why": ""}, "long": {"action": "", "why": ""}, "watch": "מה לעקוב"}],
+ "concentration": "ריכוזיות/חשיפה לפי סקטור, מדינה, מטבע",
+ "exposure_to_today": "איך אירועי היום משפיעים על התיק",
+ "risks": [""],
+ "top_actions": ["3-5 פעולות חשובות ביותר, לפי עדיפות"]
+}"""
+
+
+def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = None) -> dict:
+    ev = "; ".join(f"{e.get('title')}: {e.get('impact','')}" for e in analysis.get("events", []))
+    user = ("תיק (אחוזים בלבד):\n" + json.dumps(holdings_view, ensure_ascii=False) +
+            f"\n\nסיכום היום: {analysis.get('summary','')}\nאירועים: {ev}" +
+            (f"\nמצב שוק: {market_state.get('headline','')} {market_state.get('recommendation','')}" if market_state else ""))
+    return _call(user, PORTFOLIO_SYSTEM)
+
+
+def _call(user: str, system: str) -> dict:
+    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
+    return _extract_json(_claude(user, system) if use_claude else _gemini(user, system))

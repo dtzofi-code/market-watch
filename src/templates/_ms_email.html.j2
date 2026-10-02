@@ -1,0 +1,14 @@
+{% if a.market_state %}{% set ms = a.market_state %}
+<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0;line-height:1.6;font-size:14px">
+<b style="font-size:16px">📊 מצב השוק – {{ ms.headline }}</b>
+<p style="margin:6px 0"><b>קונטקסט:</b> {{ ms.context }}</p>
+<p style="margin:6px 0"><b>ניתוח:</b> {{ ms.analysis }}</p>
+<p style="margin:6px 0"><b>המלצה:</b> {{ ms.recommendation }}</p>
+{% if ms.by_horizon %}{% for key, label in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% if ms.by_horizon.get(key) %}<div style="border-top:1px solid #eee;padding:3px 0"><b>טווח {{ label }}:</b> {{ ms.by_horizon.get(key) }}</div>{% endif %}{% endfor %}{% endif %}
+{% if ms.risks %}<div style="margin-top:6px"><b>סיכונים:</b> {{ ms.risks|join(' · ') }}</div>{% endif %}
+{% if a.indices %}<table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:13px">
+{% for i in a.indices %}<tr style="border-top:1px solid #eee"><td>{{ i.name }}</td><td dir="ltr">{{ '%.2f'|format(i.price) }}</td>
+<td dir="ltr" style="color:{{ '#0f8a4b' if (i.d1 or 0)>=0 else '#c62828' }}">{% if i.d1 is not none %}{{ '%+.1f'|format(i.d1) }}%{% endif %}</td>
+<td dir="ltr" style="color:{{ '#0f8a4b' if (i.w1 or 0)>=0 else '#c62828' }}">{% if i.w1 is not none %}{{ '%+.1f'|format(i.w1) }}% שבוע{% endif %}</td></tr>{% endfor %}</table>{% endif %}
+</div>
+{% endif %}

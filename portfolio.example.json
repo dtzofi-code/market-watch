@@ -1,0 +1,5 @@
+[
+  {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 10, "cost": 100.0, "currency": "USD"},
+  {"ticker": "ESLT", "yf": "ESLT.TA", "name": "אלביט", "type": "stock", "qty": 20, "cost": 900.0, "currency": "ILS"},
+  {"ticker": "5134135", "name": "קרן מחקה (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"}
+]

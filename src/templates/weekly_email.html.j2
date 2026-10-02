@@ -4,6 +4,7 @@
 <div style="max-width:640px;margin:0 auto;padding:16px;line-height:1.6">
 <h1 style="font-size:22px;margin:0">🗓️ סיכום שבועי – {{ range }}</h1>
 <p style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px">{{ a.summary }}</p>
+{% include '_pf_email.html.j2' %}
 {% for t in a.themes %}<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0">
 <b style="font-size:17px">{{ t.title }}</b> <span style="color:#5c6675;font-size:13px">({{ t.trend }})</span>
 <p style="margin:6px 0">{{ t.market_impact }}</p>

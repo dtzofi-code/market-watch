@@ -1,0 +1,20 @@
+{% if a.market_state %}{% set ms = a.market_state %}
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>{{ ms.headline }}</strong></p>
+  <p><strong>קונטקסט:</strong> {{ ms.context }}</p>
+  <p><strong>ניתוח:</strong> {{ ms.analysis }}</p>
+  <p><strong>המלצה:</strong> {{ ms.recommendation }}</p>
+  {% if ms.by_horizon %}<div class="hz">
+  {% for key, label in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% if ms.by_horizon.get(key) %}<div class="hzc"><b>טווח {{ label }}</b>{{ ms.by_horizon.get(key) }}</div>{% endif %}{% endfor %}</div>{% endif %}
+  <div class="grid">
+    {% if ms.levels_to_watch %}<div class="col"><h4>לעקוב אחרי</h4><ul class="l">{% for x in ms.levels_to_watch %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endif %}
+    {% if ms.risks %}<div class="col"><h4>סיכונים</h4><ul class="l">{% for x in ms.risks %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endif %}
+  </div>
+</div>
+{% if a.indices %}<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+{% for i in a.indices %}<tr><td>{{ i.name }}</td><td class="pct">{{ '%.2f'|format(i.price) }}</td>
+{% for k in ['d1','w1','m1','from_52w_high'] %}<td class="pct {{ 'up' if (i[k] or 0)>=0 else 'down' }}">{% if i[k] is not none %}{{ '%+.1f'|format(i[k]) }}%{% else %}–{% endif %}</td>{% endfor %}</tr>{% endfor %}
+</table></div>{% endif %}
+{% endif %}

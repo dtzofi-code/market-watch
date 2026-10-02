@@ -5,6 +5,9 @@
 <h1 style="font-size:22px;margin:0">🌍 דוח שוק יומי – {{ date }}</h1>
 <p style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;line-height:1.6">{{ a.summary }}</p>
 
+{% include '_ms_email.html.j2' %}
+{% include '_pf_email.html.j2' %}
+
 {% for e in a.events %}
 <div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0;line-height:1.6">
   <div style="font-size:17px;font-weight:bold">{{ e.title }}

@@ -12,8 +12,21 @@ def _e(x) -> str:
     return html.escape(str(x or ""))
 
 
-def daily_text(a: dict, date: str, site_url: str) -> str:
+def _pf_lines(pf, pa) -> list:
+    if not (pf and pa):
+        return []
+    t = pf["totals"]
+    out = ["", "<b>💼 התיק שלי</b>", f"שינוי יומי משוער: {t['day_pct']:+.2f}%" + (f" · רו\"ה כולל: {t['pnl_pct']:+.1f}%" if t.get("pnl_pct") is not None else "") + f" · מצב: {_e(pa.get('health'))}"]
+    out += [f"• {_e(x)}" for x in pa.get("top_actions", [])[:3]]
+    return out
+
+
+def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None) -> str:
     lines = [f"<b>🌍 דוח שוק יומי – {_e(date)}</b>", f"<i>מצב שוק: {MOOD.get(a.get('market_mood'), 'מעורב')}</i>", "", _e(a.get("summary"))]
+    ms = a.get("market_state")
+    if ms:
+        lines += ["", f"<b>📊 {_e(ms.get('headline'))}</b>", _e(ms.get("recommendation"))]
+    lines += _pf_lines(pf, pa)
     for e in a.get("events", [])[:5]:
         w = ", ".join(s.get("ticker", "") for s in e.get("winners", [])[:4] if s.get("ticker"))
         l = ", ".join(s.get("ticker", "") for s in e.get("losers", [])[:3] if s.get("ticker"))
@@ -32,8 +45,8 @@ def daily_text(a: dict, date: str, site_url: str) -> str:
     return "\n".join(lines)[:LIMIT]
 
 
-def weekly_text(a: dict, rng: str, site_url: str) -> str:
-    lines = [f"<b>🗓️ סיכום שבועי – {_e(rng)}</b>", "", _e(a.get("summary"))]
+def weekly_text(a: dict, rng: str, site_url: str, pf=None, pa=None) -> str:
+    lines = [f"<b>🗓️ סיכום שבועי – {_e(rng)}</b>", "", _e(a.get("summary"))] + _pf_lines(pf, pa)
     for t in a.get("themes", [])[:4]:
         lines += ["", f"<b>{_e(t.get('title'))}</b> ({_e(t.get('trend'))})", _e(t.get("market_impact"))]
     ideas = a.get("best_ideas", [])[:4]

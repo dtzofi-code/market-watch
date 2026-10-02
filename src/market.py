@@ -38,3 +38,19 @@ def snapshot(tickers: list) -> dict:
         except Exception:
             continue
     return out
+
+
+INDICES = [("^GSPC", "S&P 500"), ("^IXIC", "נאסד\"ק"), ("^RUT", "ראסל 2000"), ("^TA125.TA", "ת\"א-125"),
+           ("^VIX", "VIX (פחד)"), ("^TNX", "תשואת 10Y ארה\"ב"), ("ILS=X", "דולר/שקל"), ("DX-Y.NYB", "מדד הדולר"),
+           ("GC=F", "זהב"), ("CL=F", "נפט WTI"), ("BTC-USD", "ביטקוין")]
+
+
+def indices() -> list:
+    """Macro dashboard: [{symbol, name, price, d1, w1, m1, from_52w_high, vs_ma50}] for the market-state section."""
+    from portfolio import metrics_for
+    out = []
+    for sym, name in INDICES:
+        m = metrics_for(sym)
+        if m:
+            out.append({"symbol": sym, "name": name, **{k: m.get(k) for k in ("price", "d1", "w1", "m1", "from_52w_high", "vs_ma50", "vs_ma200")}})
+    return out

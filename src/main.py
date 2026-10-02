@@ -71,6 +71,32 @@ DEMO_WEEKLY = {
     "outlook": {"short": "תנודתיות גבוהה", "medium": "נטייה חיובית לשבבים וביטחוניות", "long": "תקציבי ביטחון ו-AI ימשיכו לגדול"},
 }
 
+DEMO["market_state"] = {
+    "headline": "הדגמה: שוק מעורב עם נטייה זהירה",
+    "context": "אירועי היום מעלים ביקוש לביטחוניות ולשבבים, בעוד תשואות האג\"ח גבוהות.",
+    "analysis": "מדדי המניות מתחת לשיאים, VIX מעט גבוה, הזהב מחזיק. המומנטום בשבבים חזק יחסית.",
+    "recommendation": "סטנס ניטרלי-זהיר: להעדיף שבבים וביטחוניות, להימנע מחשיפה מוגברת לתעופה.",
+    "by_horizon": {"short": "תנודתיות גבוהה", "medium": "נטייה חיובית לשבבים", "long": "תקציבי ביטחון ו-AI ממשיכים לגדול"},
+    "levels_to_watch": ["S&P 500 – 50 יום", "תשואת 10Y"], "risks": ["הפסקת אש פתאומית", "עליית תשואות"],
+}
+DEMO["indices"] = [{"symbol": "^GSPC", "name": "S&P 500", "price": 5800.0, "d1": 0.4, "w1": -0.8, "m1": 2.1, "from_52w_high": -3.2}]
+DEMO_PORTFOLIO = [
+    {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 10, "cost": 100.0, "currency": "USD"},
+    {"ticker": "5134135", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
+]
+DEMO_PA = {
+    "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
+    "top_actions": ["לבחון הקטנת ריכוזיות ב-NVDA", "להמשיך להחזיק את הקרן"],
+    "exposure_to_today": "משבר הזיכרון תומך בחלק גדול מהתיק.", "concentration": "ריכוז גבוה בסקטור השבבים ובדולר.",
+    "risks": ["תיקון בסקטור השבבים"],
+    "positions": [
+        {"ticker": "NVDA", "analysis": "מומנטום חזק, אך משקל גבוה בתיק.", "watch": "שבירת ממוצע 50 יום",
+         "short": {"action": "להחזיק", "why": "מומנטום חיובי"}, "medium": {"action": "להקטין", "why": "ריכוזיות"}, "long": {"action": "להחזיק", "why": "מגמת AI"}},
+        {"ticker": "5134135", "analysis": "קרן ללא נתוני שוק; ניתוח איכותי בלבד.", "watch": "",
+         "short": {"action": "להחזיק", "why": "אין נתונים"}, "medium": {"action": "לעקוב", "why": "תלוי בסחורות"}, "long": {"action": "להחזיק", "why": "פיזור"}},
+    ],
+}
+
 
 def _telegram(build):
     """Telegram is a bonus channel: a failure here must never fail the report."""
@@ -79,6 +105,32 @@ def _telegram(build):
         t.send(build(t))
     except Exception as exc:
         print(f"[telegram] failed: {exc}")
+
+
+def _whatsapp(build):
+    """WhatsApp (CallMeBot) is a bonus channel carrying public content only; failures are non-fatal."""
+    try:
+        import whatsapp as w
+        w.send(build(w))
+    except Exception as exc:
+        print(f"[whatsapp] failed: {type(exc).__name__}: {exc}")
+
+
+def _portfolio(args, analysis, ms=None):
+    """Private portfolio analysis -> (pf, pa) for email/Telegram only. Never persisted; failures are non-fatal."""
+    import portfolio
+    try:
+        holdings = DEMO_PORTFOLIO if args.demo else portfolio.load()
+        if not holdings:
+            return None, None
+        pf = portfolio.build(holdings)
+        if args.demo:
+            return pf, DEMO_PA
+        from analyze import analyze_portfolio
+        return pf, analyze_portfolio(portfolio.for_ai(pf), analysis, ms)
+    except Exception as exc:  # message omitted on purpose: never risk echoing private data to logs
+        print(f"[portfolio] failed: {type(exc).__name__}")
+        return None, None
 
 
 def run_weekly(args, date):
@@ -98,14 +150,16 @@ def run_weekly(args, date):
         [s["ticker"] for t in analysis.get("themes", []) for s in t.get("tickers", [])]))
     market = snapshot(tickers) if tickers else {}
     start = days[0]["date"] if days else date
-    out = render_weekly(analysis, market, date, start)
+    pf, pa = _portfolio(args, {"summary": analysis.get("summary", ""), "events": []})
+    out = render_weekly(analysis, market, date, start, pf, pa)
     if args.demo:
         with open(os.path.join(OUT(), "weekly_email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
     elif not args.no_email:
         from send_email import send
         send(f"סיכום שבועי {date}", out["email_html"])
-        _telegram(lambda t: t.weekly_text(analysis, f"{start} – {date}", os.environ.get("SITE_URL", "")))
+        _telegram(lambda t: t.weekly_text(analysis, f"{start} – {date}", os.environ.get("SITE_URL", ""), pf, pa))
+        _whatsapp(lambda w: w.weekly_text(analysis, f"{start} – {date}", os.environ.get("SITE_URL", "")))
 
 
 def main():
@@ -135,11 +189,21 @@ def main():
         analysis = analyze(headlines) if headlines else {"summary": "לא נאספו כותרות היום.", "events": [], "regions_to_watch": []}
 
     market = snapshot(tickers_from(analysis))
+    if not args.demo:
+        try:  # market-state section: macro dashboard + AI context/analysis/recommendation (public-safe)
+            from analyze import analyze_market_state
+            from market import indices
+            analysis["indices"] = indices()
+            if analysis["indices"]:
+                analysis["market_state"] = analyze_market_state(analysis["indices"], analysis)
+        except Exception as exc:
+            print(f"[market_state] failed: {type(exc).__name__}: {exc}")
     os.makedirs(os.path.join(OUT(), "data"), exist_ok=True)
     with open(os.path.join(OUT(), "data", f"{date}.json"), "w", encoding="utf-8") as f:
         json.dump({"analysis": analysis, "market": market}, f, ensure_ascii=False, indent=2)
 
-    out = render(analysis, market, date)
+    pf, pa = _portfolio(args, analysis, analysis.get("market_state"))  # after data/ is saved: portfolio never lands there
+    out = render(analysis, market, date, pf, pa)
     if args.demo:
         with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
@@ -147,7 +211,8 @@ def main():
         from send_email import send
         top = max((e.get("severity", 0) for e in analysis.get("events", [])), default=0)
         send(f"דוח שוק יומי {date} | חומרה מקסימלית {top}/5", out["email_html"])
-        _telegram(lambda t: t.daily_text(analysis, date, os.environ.get("SITE_URL", "")))
+        _telegram(lambda t: t.daily_text(analysis, date, os.environ.get("SITE_URL", ""), pf, pa))
+        _whatsapp(lambda w: w.daily_text(analysis, date, os.environ.get("SITE_URL", "")))
     if datetime.now().weekday() == 4 and not args.demo:  # Friday
         try:
             run_weekly(args, date)
