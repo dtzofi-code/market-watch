@@ -69,27 +69,32 @@ def build(holdings: list) -> dict:
         price = m["price"] if m else None
         if price and sym and sym.endswith(".TA"):
             price /= 100  # TASE quotes are in agorot
-        qty, cost = float(h.get("qty", 0)), float(h.get("cost", 0))
-        value = qty * price if price else qty * cost  # no market data -> valued at cost
-        invested = qty * cost
+        qty, cost = h.get("qty"), h.get("cost")
+        has_amounts = qty is not None and cost is not None  # amounts are optional: symbols alone still get analysed
         to_usd = (1 / fx) if cur == "ILS" else 1.0
+        value = invested = value_usd = invested_usd = pnl = None
+        if has_amounts:
+            qty, cost = float(qty), float(cost)
+            value = qty * price if price else qty * cost  # no market data -> valued at cost
+            invested = qty * cost
+            value_usd, invested_usd = value * to_usd, invested * to_usd
+            pnl = round((value / invested - 1) * 100, 1) if invested else None
         rows.append({
             **{k: h.get(k) for k in ("ticker", "name", "type", "currency")},
             "has_data": bool(m), "m": m or {}, "price": price,
-            "value": value, "invested": invested, "value_usd": value * to_usd, "invested_usd": invested * to_usd,
-            "pnl_pct": round((value / invested - 1) * 100, 1) if invested else None,
+            "value_usd": value_usd, "invested_usd": invested_usd, "pnl_pct": pnl, "weight": None,
         })
-    total = sum(r["value_usd"] for r in rows) or 1.0
-    inv = sum(r["invested_usd"] for r in rows)
-    for r in rows:
-        r["weight"] = round(r["value_usd"] / total * 100, 1)
-    rows.sort(key=lambda r: -r["weight"])
-    day = sum((r["m"].get("d1") or 0) * r["value_usd"] / total for r in rows if r["has_data"])
+    sized = [r for r in rows if r["value_usd"] is not None]
+    total = sum(r["value_usd"] for r in sized)
+    inv = sum(r["invested_usd"] for r in sized)
+    for r in sized:
+        r["weight"] = round(r["value_usd"] / total * 100, 1) if total else None
+    rows.sort(key=lambda r: -(r["weight"] or 0))
+    day = sum((r["m"].get("d1") or 0) * r["value_usd"] / total for r in sized if r["has_data"]) if total else None
     return {"rows": rows, "totals": {
-        "value_usd": total, "invested_usd": inv,
         "pnl_pct": round((total / inv - 1) * 100, 1) if inv else None,
-        "day_pct": round(day, 2), "fx": round(fx, 2), "n": len(rows),
-        "no_data": sum(1 for r in rows if not r["has_data"]),
+        "day_pct": round(day, 2) if day is not None else None, "fx": round(fx, 2), "n": len(rows),
+        "no_data": sum(1 for r in rows if not r["has_data"]), "sized": bool(total),
     }}
 
 

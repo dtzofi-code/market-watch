@@ -16,7 +16,13 @@ def _pf_lines(pf, pa) -> list:
     if not (pf and pa):
         return []
     t = pf["totals"]
-    out = ["", "<b>💼 התיק שלי</b>", f"שינוי יומי משוער: {t['day_pct']:+.2f}%" + (f" · רו\"ה כולל: {t['pnl_pct']:+.1f}%" if t.get("pnl_pct") is not None else "") + f" · מצב: {_e(pa.get('health'))}"]
+    parts = []
+    if t.get("day_pct") is not None:
+        parts.append(f"שינוי יומי משוער: {t['day_pct']:+.2f}%")
+    if t.get("pnl_pct") is not None:
+        parts.append(f"רו\"ה כולל: {t['pnl_pct']:+.1f}%")
+    parts.append(f"מצב: {_e(pa.get('health'))}")
+    out = ["", "<b>💼 התיק שלי</b>", " · ".join(parts)]
     out += [f"• {_e(x)}" for x in pa.get("top_actions", [])[:3]]
     return out
 
