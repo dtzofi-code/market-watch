@@ -77,7 +77,7 @@ def _gemini_call(key: str, model: str, user: str, system: str):
         json={"systemInstruction": {"parts": [{"text": system}]},
               "contents": [{"parts": [{"text": user}]}],
               "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-        timeout=90,
+        timeout=150,
     )
 
 
@@ -85,12 +85,16 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
     """Free tier via Google AI Studio key (no billing); tries models in order, retries overload."""
     key = os.environ["GEMINI_API_KEY"]
     errors = []
-    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", "200"))  # hard cap per analysis call
+    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", "320"))  # hard cap per analysis call
     for model in _gemini_candidates(key)[:8]:
         for attempt in range(2):
             if time.time() > deadline:
                 raise RuntimeError("Gemini time budget exceeded: " + "; ".join(errors[-6:]))
-            r = _gemini_call(key, model, user, system)
+            try:
+                r = _gemini_call(key, model, user, system)
+            except requests.RequestException as exc:  # timeout / connection: try again, then next model
+                errors.append(f"{model}: {type(exc).__name__}")
+                continue
             if r.ok:
                 try:
                     text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
