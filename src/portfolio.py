@@ -82,6 +82,7 @@ def build(holdings: list) -> dict:
         rows.append({
             **{k: h.get(k) for k in ("ticker", "name", "type", "currency")},
             "has_data": bool(m), "m": m or {}, "price": price,
+            "qty": qty if has_amounts else None, "unit_price": price if price else (cost if has_amounts else None),
             "value_usd": value_usd, "invested_usd": invested_usd, "pnl_pct": pnl, "weight": None,
         })
     sized = [r for r in rows if r["value_usd"] is not None]
@@ -93,7 +94,7 @@ def build(holdings: list) -> dict:
     day = sum((r["m"].get("d1") or 0) * r["value_usd"] / total for r in sized if r["has_data"]) if total else None
     return {"rows": rows, "totals": {
         "pnl_pct": round((total / inv - 1) * 100, 1) if inv else None,
-        "day_pct": round(day, 2) if day is not None else None, "fx": round(fx, 2), "n": len(rows),
+        "day_pct": round(day, 2) if day is not None else None, "fx": round(fx, 2), "n": len(rows), "total_usd": total,
         "no_data": sum(1 for r in rows if not r["has_data"]), "sized": bool(total),
     }}
 
@@ -104,3 +105,61 @@ def for_ai(pf: dict) -> list:
     return [{"ticker": r["ticker"], "name": r["name"], "type": r["type"], "weight_pct": r["weight"],
              "pnl_pct": r["pnl_pct"], "has_market_data": r["has_data"],
              **{k: r["m"].get(k) for k in keep if r["m"].get(k) is not None}} for r in pf["rows"]]
+
+
+SIGN = {"USD": "$", "ILS": "₪"}
+SELL = {"למכור": 100.0, "להקטין": 25.0}  # default share of the position when the model gives no size
+BUY = {"להגדיל": 2.0}  # default share of the whole portfolio
+
+
+def _money(x: float, cur: str) -> str:
+    return f"{SIGN.get(cur, cur + ' ')}{x:,.0f}"
+
+
+def annotate(pf: dict, pa: dict) -> None:
+    """Turn the model's percentage sizing into concrete amounts using the private holdings.
+
+    The model only ever sees percentages; amounts are computed here and used for email/Telegram only.
+    Adds `size_text` to each horizon of each position and `cash_summary` to the analysis.
+    """
+    rows = {r["ticker"]: r for r in pf["rows"]}
+    fx, total_usd = pf["totals"]["fx"], pf["totals"].get("total_usd")
+    sized = pf["totals"].get("sized")
+    flow = {"short": [0.0, 0.0], "medium": [0.0, 0.0], "long": [0.0, 0.0]}  # [sell_usd, buy_usd]
+    for pos in pa.get("positions", []):
+        row = rows.get(pos.get("ticker"))
+        if not row:
+            continue
+        cur = row.get("currency") or "USD"
+        to_usd = (1 / fx) if cur == "ILS" else 1.0
+        for k in ("short", "medium", "long"):
+            h = pos.get(k)
+            if not h:
+                continue
+            act = h.get("action")
+            try:
+                pct = float(h.get("size_pct")) if h.get("size_pct") is not None else None
+            except (TypeError, ValueError):
+                pct = None
+            if act in SELL:
+                pct = min(max(pct if pct else SELL[act], 0), 100)
+                text = f"מכירה של כ-{pct:.0f}% מהפוזיציה"
+                if sized and row.get("qty") and row.get("unit_price"):
+                    units = row["qty"] * pct / 100
+                    amount = units * row["unit_price"]
+                    text += f" (≈ {units:,.0f} יח׳, ≈ {_money(amount, cur)})"
+                    flow[k][0] += amount * to_usd
+                h["size_text"] = text
+            elif act in BUY:
+                pct = min(max(pct if pct else BUY[act], 0), 10)
+                text = f"הוספה של כ-{pct:g}% משווי התיק"
+                if sized and total_usd and row.get("unit_price"):
+                    amount_usd = total_usd * pct / 100
+                    amount = amount_usd / to_usd
+                    text += f" (≈ {_money(amount, cur)}, ≈ {amount / row['unit_price']:,.0f} יח׳)"
+                    flow[k][1] += amount_usd
+                h["size_text"] = text
+    if sized:
+        pa["cash_summary"] = {
+            lbl: f"מכירות ≈ ${v[0]:,.0f}, קניות ≈ ${v[1]:,.0f}, נטו {'מזומן שמתפנה' if v[0] >= v[1] else 'נדרש מזומן'} ≈ ${abs(v[0] - v[1]):,.0f}"
+            for (k, lbl) in (("short", "קצר"), ("medium", "בינוני"), ("long", "ארוך")) for v in [flow[k]] if v[0] or v[1]}

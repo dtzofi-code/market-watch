@@ -4,6 +4,7 @@
 <div style="color:#5c6675;font-size:13px">{{ t.n }} ניירות {% if t.day_pct is not none %} · שינוי יומי משוער <span dir="ltr" style="color:{{ '#0f8a4b' if t.day_pct>=0 else '#c62828' }}">{{ '%+.2f'|format(t.day_pct) }}%</span>{% endif %}{% if t.pnl_pct is not none %} · רווח/הפסד כולל <span dir="ltr" style="color:{{ '#0f8a4b' if t.pnl_pct>=0 else '#c62828' }}">{{ '%+.1f'|format(t.pnl_pct) }}%</span>{% endif %} · מצב התיק: {{ pa.health }}</div>
 <p style="margin:6px 0">{{ pa.summary }}</p>
 {% if pa.top_actions %}<div style="background:#eef3ff;border-radius:8px;padding:8px 10px;margin:8px 0"><b>פעולות מרכזיות</b>{% for x in pa.top_actions %}<div>• {{ x }}</div>{% endfor %}</div>{% endif %}
+{% if pa.cash_summary %}<div style="background:#fff8e6;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>תזרים מוצע</b>{% for lbl, txt in pa.cash_summary.items() %}<div>{{ lbl }}: {{ txt }}</div>{% endfor %}</div>{% endif %}
 {% if pa.exposure_to_today %}<p style="margin:6px 0"><b>חשיפה לאירועי היום:</b> {{ pa.exposure_to_today }}</p>{% endif %}
 {% if pa.concentration %}<p style="margin:6px 0"><b>ריכוזיות:</b> {{ pa.concentration }}</p>{% endif %}
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
@@ -14,11 +15,11 @@
 <td dir="ltr">{% if r.weight is not none %}{{ '%.1f'|format(r.weight) }}%{% else %}–{% endif %}</td>
 <td dir="ltr" style="color:{{ '#0f8a4b' if (r.pnl_pct or 0)>=0 else '#c62828' }}">{% if r.pnl_pct is not none %}{{ '%+.0f'|format(r.pnl_pct) }}%{% else %}–{% endif %}</td>
 <td dir="ltr" style="color:{{ '#0f8a4b' if (r.m.get('d1') or 0)>=0 else '#c62828' }}">{% if r.m.get('d1') is not none %}{{ '%+.1f'|format(r.m.get('d1')) }}%{% else %}–{% endif %}</td>
-{% for k in ['short','medium','long'] %}<td>{% if p and p.get(k) %}<b>{{ p[k].action }}</b>{% endif %}</td>{% endfor %}</tr>
-{% if p %}<tr><td colspan="7" style="color:#3b4452;padding:0 0 6px;font-size:12px">{{ p.analysis }}{% for k, lbl in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% if p.get(k) and p[k].why %}<br>• <b>{{ lbl }}:</b> {{ p[k].why }}{% endif %}{% endfor %}{% if p.watch %}<br>👁 {{ p.watch }}{% endif %}</td></tr>{% endif %}
+{% for k in ['short','medium','long'] %}<td>{% if p and p.get(k) %}<b>{{ p[k].action }}</b>{% if p[k].size_text %}<br><span style="font-size:11px;color:#3b4452">{{ p[k].size_text }}</span>{% endif %}{% endif %}</td>{% endfor %}</tr>
+{% if p %}<tr><td colspan="7" style="color:#3b4452;padding:0 0 6px;font-size:12px">{{ p.analysis }}{% for k, lbl in [('short','קצר'),('medium','בינוני'),('long','ארוך')] %}{% if p.get(k) and p[k].why %}<br>• <b>{{ lbl }}:</b> {{ p[k].why }}{% if p[k].size_text %} — <b>{{ p[k].size_text }}</b>{% endif %}{% endif %}{% endfor %}{% if p.watch %}<br>👁 {{ p.watch }}{% endif %}</td></tr>{% endif %}
 {% endfor %}</table>
 {% if pa.risks %}<div style="margin-top:8px"><b>סיכונים:</b> {{ pa.risks|join(' · ') }}</div>{% endif %}
 {% if t.no_data %}<div style="color:#8a94a6;font-size:12px;margin-top:6px">{{ t.no_data }} ניירות ללא נתוני שוק (קרנות/תפ"ס) – הניתוח שלהם איכותי בלבד.</div>{% endif %}
-<div style="color:#8a94a6;font-size:12px;margin-top:6px">ניתוח אוטומטי ואינו ייעוץ השקעות. ל-AI נשלחו רק אחוזים, לא כמויות או סכומים.{% if not t.sized %} לא הוגדרו כמויות ועלות, לכן אין משקלים ורווח/הפסד בתיק.{% endif %}</div>
+<div style="color:#8a94a6;font-size:12px;margin-top:6px">ניתוח אוטומטי ואינו ייעוץ השקעות. הסכומים מחושבים לפי המחיר האחרון, ללא עמלות ומיסים וללא ידיעת יתרת המזומן שלך. ל-AI נשלחו רק אחוזים, לא כמויות או סכומים.{% if not t.sized %} לא הוגדרו כמויות ועלות, לכן אין משקלים ורווח/הפסד בתיק.{% endif %}</div>
 </div>
 {% endif %}

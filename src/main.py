@@ -81,7 +81,7 @@ DEMO["market_state"] = {
 }
 DEMO["indices"] = [{"symbol": "^GSPC", "name": "S&P 500", "price": 5800.0, "d1": 0.4, "w1": -0.8, "m1": 2.1, "from_52w_high": -3.2}]
 DEMO_PORTFOLIO = [
-    {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 10, "cost": 100.0, "currency": "USD"},
+    {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 100, "cost": 100.0, "currency": "USD"},
     {"ticker": "5134135", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
 ]
 DEMO_PA = {
@@ -91,7 +91,7 @@ DEMO_PA = {
     "risks": ["תיקון בסקטור השבבים"],
     "positions": [
         {"ticker": "NVDA", "analysis": "מומנטום חזק, אך משקל גבוה בתיק.", "watch": "שבירת ממוצע 50 יום",
-         "short": {"action": "להחזיק", "why": "מומנטום חיובי"}, "medium": {"action": "להקטין", "why": "ריכוזיות"}, "long": {"action": "להחזיק", "why": "מגמת AI"}},
+         "short": {"action": "להחזיק", "size_pct": 0, "why": "מומנטום חיובי"}, "medium": {"action": "להקטין", "size_pct": 20, "why": "ריכוזיות"}, "long": {"action": "להחזיק", "why": "מגמת AI"}},
         {"ticker": "5134135", "analysis": "קרן ללא נתוני שוק; ניתוח איכותי בלבד.", "watch": "",
          "short": {"action": "להחזיק", "why": "אין נתונים"}, "medium": {"action": "לעקוב", "why": "תלוי בסחורות"}, "long": {"action": "להחזיק", "why": "פיזור"}},
     ],
@@ -125,9 +125,12 @@ def _portfolio(args, analysis, ms=None):
             return None, None
         pf = portfolio.build(holdings)
         if args.demo:
-            return pf, DEMO_PA
-        from analyze import analyze_portfolio
-        return pf, analyze_portfolio(portfolio.for_ai(pf), analysis, ms)
+            pa = json.loads(json.dumps(DEMO_PA))
+        else:
+            from analyze import analyze_portfolio
+            pa = analyze_portfolio(portfolio.for_ai(pf), analysis, ms)
+        portfolio.annotate(pf, pa)  # percentages -> concrete amounts, computed locally
+        return pf, pa
     except Exception as exc:  # message omitted on purpose: never risk echoing private data to logs
         print(f"[portfolio] failed: {type(exc).__name__}")
         return None, None
