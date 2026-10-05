@@ -4,7 +4,7 @@
 <div style="color:#5c6675;font-size:13px">{{ t.n }} ניירות {% if t.day_pct is not none %} · שינוי יומי משוער <span dir="ltr" style="color:{{ '#0f8a4b' if t.day_pct>=0 else '#c62828' }}">{{ '%+.2f'|format(t.day_pct) }}%</span>{% endif %}{% if t.pnl_pct is not none %} · רווח/הפסד כולל <span dir="ltr" style="color:{{ '#0f8a4b' if t.pnl_pct>=0 else '#c62828' }}">{{ '%+.1f'|format(t.pnl_pct) }}%</span>{% endif %} · מצב התיק: {{ pa.health }}</div>
 <p style="margin:6px 0">{{ pa.summary }}</p>
 {% if pa.top_actions %}<div style="background:#eef3ff;border-radius:8px;padding:8px 10px;margin:8px 0"><b>פעולות מרכזיות</b>{% for x in pa.top_actions %}<div>• {{ x }}</div>{% endfor %}</div>{% endif %}
-{% if pa.cash_summary %}<div style="background:#fff8e6;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>תזרים מוצע</b>{% for lbl, txt in pa.cash_summary.items() %}<div>{{ lbl }}: {{ txt }}</div>{% endfor %}</div>{% endif %}
+{% if pa.cash_summary or pa.cash_note %}<div style="background:#fff8e6;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>תזרים מוצע</b>{% if pa.cash_note %}<div>{{ pa.cash_note }}</div>{% endif %}{% for lbl, txt in pa.cash_summary.items() %}<div>{{ lbl }}: {{ txt }}</div>{% endfor %}</div>{% endif %}
 {% if pa.exposure_to_today %}<p style="margin:6px 0"><b>חשיפה לאירועי היום:</b> {{ pa.exposure_to_today }}</p>{% endif %}
 {% if pa.concentration %}<p style="margin:6px 0"><b>ריכוזיות:</b> {{ pa.concentration }}</p>{% endif %}
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">

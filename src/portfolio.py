@@ -69,6 +69,9 @@ def build(holdings: list) -> dict:
         price = m["price"] if m else None
         if price and sym and sym.endswith(".TA"):
             price /= 100  # TASE quotes are in agorot
+        lp = h.get("last_price")  # broker's last price (used when there is no market data, or when it is 0 = no quote)
+        if lp is not None and (lp == 0 or not price):
+            price = lp
         qty, cost = h.get("qty"), h.get("cost")
         has_amounts = qty is not None and cost is not None  # amounts are optional: symbols alone still get analysed
         to_usd = (1 / fx) if cur == "ILS" else 1.0
@@ -95,6 +98,7 @@ def build(holdings: list) -> dict:
     return {"rows": rows, "totals": {
         "pnl_pct": round((total / inv - 1) * 100, 1) if inv else None,
         "day_pct": round(day, 2) if day is not None else None, "fx": round(fx, 2), "n": len(rows), "total_usd": total,
+        "cash_usd": sum(r["value_usd"] for r in sized if r["type"] == "cash"),
         "no_data": sum(1 for r in rows if not r["has_data"]), "sized": bool(total),
     }}
 
@@ -159,6 +163,8 @@ def annotate(pf: dict, pa: dict) -> None:
                     text += f" (≈ {_money(amount, cur)}, ≈ {amount / row['unit_price']:,.0f} יח׳)"
                     flow[k][1] += amount_usd
                 h["size_text"] = text
+    if sized and pf["totals"].get("cash_usd"):
+        pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}"
     if sized:
         pa["cash_summary"] = {
             lbl: f"מכירות ≈ ${v[0]:,.0f}, קניות ≈ ${v[1]:,.0f}, נטו {'מזומן שמתפנה' if v[0] >= v[1] else 'נדרש מזומן'} ≈ ${abs(v[0] - v[1]):,.0f}"
