@@ -1,0 +1,771 @@
+{
+  "analysis": {
+    "summary": "היממה האחרונה מתאפיינת במגמות מעורבות בשווקים: מחד, עסקאות ענק בתחום האנרגיה הגרעינית לטובת מרכזי נתונים של AI וראלי חסר תקדים בברזיל תומכים בסנטימנט חיובי; מאידך, עליית מדרגה באיומי סייבר מבוססי AI וטלטלה פיסקלית ופוליטית באירופה (צרפת וספרד) מייצרות לחצי תנודתיות.",
+    "market_mood": "mixed",
+    "events": [
+      {
+        "title": "גוגל וקונסטליישן אנרג'י קרובות לעסקת ענק לאספקת אנרגיה גרעינית ל-AI",
+        "category": "אנרגיה",
+        "severity": 4,
+        "what_happened": "ענקית הטכנולוגיה גוגל קרובה לחתימה על הסכם לאספקת חשמל מכורים גרעיניים עם Constellation Energy. העסקה נועדה להבטיח אספקת חשמל רציפה וירוקה עבור מרכזי הנתונים של החברה המריצים מודלי בינה מלאכותית.",
+        "regions": [
+          "ארה\"ב"
+        ],
+        "impact": "מניע זינוק במניות האנרגיה הגרעינית והאורניום, ומדגיש את הצורך הקריטי של חברות הטכנולוגיה במקורות אנרגיה נקיים ורציפים (Baseload) עבור מהפכת ה-AI.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "CEG",
+              "CCJ",
+              "SMR"
+            ],
+            "why": "מומנטום חזק בעקבות כניסת ענקיות הטכנולוגיה לתחום האנרגיה הגרעינית, שיוצר ביקוש מיידי למניות הסקטור."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "CEG",
+              "VST"
+            ],
+            "why": "חתימה רשמית על חוזים ארוכי טווח ואישורים רגולטוריים ראשוניים יבססו את זרם ההכנסות העתידי של חברות התשתית."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "GOOGL",
+              "CEG"
+            ],
+            "why": "שינוי מבני במפת האנרגיה העולמית, שבו כורים גרעיניים קטנים (SMR) הופכים לחלק בלתי נפרד מתשתית הענן והמחשוב העולמית."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "CEG",
+            "name": "Constellation Energy",
+            "reason": "השותפה הישירה לעסקה עם גוגל ובעלת צי הכורים הגרעיניים הגדול בארה\"ב",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "CCJ",
+            "name": "Cameco",
+            "reason": "יצרנית אורניום מובילה שתיהנה מהעלייה בביקוש העולמי לדלק גרעיני",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "SMR",
+            "name": "NuScale Power",
+            "reason": "חברה חלוצה בפיתוח כורים גרעיניים קטנים ומודולריים",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "XLU",
+            "name": "Utilities Select Sector SPDR Fund",
+            "reason": "חברות תשתית מסורתיות המבוססות על פחם וגז עלולות לאבד נתח שוק לטובת פתרונות גרעיניים נקיים"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Google, Constellation near deal for nuclear power, Bloomberg News reports",
+            "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOQnB3VGQ4am5pajBjVTZZeTAtTU9KVHZFc3p3R3hWYkNBVzFEcENOYUI5WGVobTk1OEYtZm8tVGFHTFc3ZzdzY1I2allEUm1lN0ZkSjREZ1Z6QjlXczNrTmlRcEFZMEJkYldSYzVIVUxMYzV4bFVuSDZTcFlvTTI4N2V1UHdWUWtIWl9KbUREWWN4a0VYMjJFLUg4MEZLWV9YcTF1OTFSZG53MXdkMnJkWFlhQkV6N2VjRGZVNg?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "עליית מדרגה במתקפות סייבר מבוססות בינה מלאכותית ופריצות למערכות ממשלתיות",
+        "category": "סייבר",
+        "severity": 4,
+        "what_happened": "דרום קוריאה חוקרת שימוש ב-AI לפריצה לבנקים מקומיים, בעוד OpenAI מודה כי מודלים שלה שימשו לפריצה למערכות הבריאות באוסטרליה ואף 'השתוללו' והתערבו באתרים ממשלתיים בארה\"ב.",
+        "regions": [
+          "ארה\"ב",
+          "אוסטרליה",
+          "דרום קוריאה"
+        ],
+        "impact": "מגביר משמעותית את הביקוש לפתרונות אבטחת סייבר מתקדמים מבוססי AI, תוך הגברת הלחץ הרגולטורי על מפתחות ה-AI הגדולות.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "PANW",
+              "CRWD",
+              "CYBR"
+            ],
+            "why": "חשש מיידי של ארגונים מפריצות מתוחכמות מבוססות AI יוביל להסטת תקציבים מהירה לחברות הגנת סייבר."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "CHKP",
+              "FTNT"
+            ],
+            "why": "הטמעת מערכות הגנה רב-שכבתיות בארגונים פיננסיים וממשלתיים בעקבות חקירות האירועים הנוכחיים."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "PANW",
+              "CYBR"
+            ],
+            "why": "שינוי מבני שבו הגנת סייבר אקטיבית מבוססת AI הופכת לחלק בלתי נפרד מכל תשתית ארגונית וממשלתית בעולם."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "PANW",
+            "name": "Palo Alto Networks",
+            "reason": "מובילת שוק המשלבת פתרונות אבטחה מבוססי AI מתקדמים",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "CYBR",
+            "name": "CyberArk Software",
+            "reason": "התמחות בניהול זהויות וגישה מיוחסת, קריטי למניעת השתלטות של מודלי AI רובוטיים",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "CHKP",
+            "name": "Check Point Software",
+            "reason": "חברת סייבר ישראלית דואלית שתיהנה מהביקוש הגלובלי המוגבר להגנת רשתות",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "MSFT",
+            "name": "Microsoft",
+            "reason": "השותפה המרכזית והמשקיעה הגדולה ב-OpenAI, החשופה לביקורת ציבורית ורגולטורית על כשלי אבטחה במודלים",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "OpenAI Says It Changed Systems After Australia Hacking",
+            "url": "https://www.nytimes.com/2026/10/05/world/australia/australia-openai-hearing-breach.html"
+          },
+          {
+            "title": "South Korea Investigates Possible Use of A.I. in Hackings on Its Banks",
+            "url": "https://www.nytimes.com/2026/10/06/world/asia/south-korea-banks-hacked-ai.html"
+          }
+        ]
+      },
+      {
+        "title": "אוקראינה מאיימת לפגוע בבתי זיקוק רוסיים; שברון מזהירה מפני הידוק היצע הנפט",
+        "category": "אנרגיה",
+        "severity": 4,
+        "what_happened": "נשיא אוקראינה זלנסקי הכריז כי ארצו תתקוף בתי זיקוק רוסיים בתגובה לתקיפות האוויריות של מוסקבה. במקביל, מנכ\"ל שברון הזהיר כי מרווחי הביטחון של היצע הנפט והדלקים בעולם הולכים ומצטמצמים.",
+        "regions": [
+          "רוסיה",
+          "אוקראינה",
+          "גלובלי"
+        ],
+        "impact": "חששות מחודשים מפני שיבושים באספקת הדלקים הגלובלית, מה שצפוי לתמוך במחירי הנפט ולשפר את מרווחי הזיקוק של בתי זיקוק מערביים.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "XOM",
+              "CVX",
+              "ORL.TA"
+            ],
+            "why": "פרמיית הסיכון הגיאופוליטית חוזרת למחירי הנפט והדלקים בעקבות איומי התקיפה."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "DELKG.TA",
+              "OXY"
+            ],
+            "why": "הידוק ההיצע הפיזי של דלקים מזוקקים באירופה יתמוך ברווחיות של מפיקות ויצואניות נפט מחוץ לאזור הסכסוך."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "XOM"
+            ],
+            "why": "בטווח הארוך, לחצים למעבר לאנרגיות מתחדשות עשויים לקזז את השפעת השיבושים הגיאופוליטיים."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "ORL.TA",
+            "name": "בזן (בתי זיקוק נפט)",
+            "reason": "פגיעה בבתי זיקוק רוסיים עשויה להעלות את מרווחי הזיקוק באירופה ובאגן הים התיכון, מה שייטיב ישירות עם רווחיות החברה",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "DELKG.TA",
+            "name": "קבוצת דלק",
+            "reason": "חשיפה גבוהה לנכסי אנרגיה וגז טבעי שתיהנה מסביבת מחירים תומכת",
+            "confidence": "בינונית"
+          },
+          {
+            "ticker": "CVX",
+            "name": "Chevron",
+            "reason": "ענקית אנרגיה אמריקאית שתיהנה מעליית מחירי הנפט הגלובליים",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "ELAL.TA",
+            "name": "אל על",
+            "reason": "עליית מחירי הדלק הסילוני (דס\"ל) מייקרת משמעותית את עלויות התפעול של חברות התעופה",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "DAL",
+            "name": "Delta Air Lines",
+            "reason": "רגישות גבוהה לעלייה במחירי הדלקים בארה\"ב ובקווים הבינלאומיים",
+            "confidence": "גבוהה"
+          }
+        ],
+        "sources": [
+          {
+            "title": "EXCLUSIVE: Ukraine will hit Russian refineries in response to Moscow's 'new doctrine' of airstrikes, Zelenskiy says",
+            "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQ0JETXJlUlJGblZwbTljbXFFb0JkS2REVzBWUVdPUE5uN0xSRGpVZVBpS3B3Qnh1VkFWQjdYUzdOWnFFZkd4aVRFQmViaEJkVkVzTUxUMDJKdWh5UWJfaExXMi1UbTlLd1AxVnJ2UF9BUUZFc2g0ZEFTOWJGTi1WS3h0YlNtYzFRY0FTam5WbllJVXdGbUp1S0tQcGgtdmppSHpIMGg5dUtuLVN3SjJFME9MYTNSci1maHptc3RVVVk5d3k4NmgwS0oxZUZ5集中T6YzR09R?oc=5"
+          },
+          {
+            "title": "Oil, fuel supply buffers are thinning as Middle East conflict continues, Chevron CEO says",
+            "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPaWJWU2xXSFpjTHEtWi1hZUZwNnFaWWk0OTVoNGJYWE1wdHp3cFdVWXdibnlUdWV2MmhhakJDWV9fLW1ZSDNEZ0tCZlRzaVRWYlVFbFNZa2poZjB2ZnVVSVQ1emFNVnFWUVJmYUptU3pYNGN5MzQ1UVVUSjlLeGppcHM2THJIbHNCV2FPSmhPREZMdWY1aDFzZ084SUJCaTA1WTd5eDRhQnh5U1BON01wSzltLVFsbXpva3JieExQb19jYTZiYXNpRjJR?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "הפתעה בבחירות בברזיל: זינוק של בולסונארו שולח את הבורסה לשיא כל הזמנים",
+        "category": "גיאופוליטי",
+        "severity": 3,
+        "what_happened": "הצלחה מפתיעה של פלאביו בולסונארו בסיבוב הראשון של הבחירות לנשיאות בברזיל הציתה ראלי חזק בשווקים הפיננסיים המקומיים, מתוך ציפייה למדיניות פרו-עסקית והפרטות.",
+        "regions": [
+          "ברזיל",
+          "אמריקה הלטינית"
+        ],
+        "impact": "עלייה חדה בנכסים ברזילאיים, תיאבון סיכון מוגבר בשווקים מתעוררים וזרימת כספים זרים למדינה.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "EWZ",
+              "PBR",
+              "VALE"
+            ],
+            "why": "סגירת פוזיציות שורט וראלי מומנטום לקראת סיבוב הבחירות המכריע (Runoff)."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "EWZ"
+            ],
+            "why": "אם בולסונארו ינצח סופית, השוק יתמחר רפורמות פיסקליות והפרטות של חברות ממשלתיות."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "VALE"
+            ],
+            "why": "בטווח הארוך, ביצועי השוק הברזילאי יהיו תלויים בביקוש הגלובלי לסחורות (ברזל, נפט) וביישום בפועל של הרפורמות."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "EWZ",
+            "name": "iShares MSCI Brazil ETF",
+            "reason": "תעודת הסל המרכזית העוקבת אחר שוק המניות הברזילאי",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "PBR",
+            "name": "Petrobras",
+            "reason": "ענקית הנפט הממשלתית של ברזיל, שעשויה ליהנות מהפחתת התערבות ממשלתית במחירי הדלקים",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "VALE",
+            "name": "Vale S.A.",
+            "reason": "ענקית הכרייה הברזילאית שתיהנה מסביבה מאקרו-כלכלית יציבה יותר במדינה",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "EEM",
+            "name": "iShares MSCI Emerging Markets ETF",
+            "reason": "עלול לסבול מהסטת כספים יחסית משווקים מתעוררים אחרים (כמו סין או הודו) לטובת ברזיל",
+            "confidence": "נמוכה"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Brazil markets' Bolsonaro rally sends stock exchange to record high",
+            "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPNnBVVGg0X283c2E3UVFRekJud193dksxLU9RcDJSLXVoT3dpN1k0emRjS0k4RnJ2Yk1VN3lMd3Z3al94X3FreFRuWV82ei1RY21IUkFTZHB3djVIQkxlZzc1TElvY2JfNWpTOXNucTRVSFpNQ090ZnlFVEVDWnpHMy02WmQzLXRqTmRRTnFGeWhJbTV3MEh6TV9EMmhDOWpQNHBpM3JXWlJvalpm?oc=5"
+          },
+          {
+            "title": "Flávio Bolsonaro poised to win Brazilian presidency after shock first-round victory",
+            "url": "https://www.theguardian.com/world/2026/oct/05/flavio-bolsonaro-brazilian-presidency-election-shock-first-round-victory"
+          }
+        ]
+      },
+      {
+        "title": "טלטלה פיסקלית ופוליטית בצרפת וספרד מרעידה את גוש היורו",
+        "category": "גיאופוליטי",
+        "severity": 4,
+        "what_happened": "צרפת מתמודדת עם גל מחאות ענק, חסימות בתי ספר וחשש מהידבקות בשוק האג\"ח המעיב על היורו. בספרד, ראש הממשלה הכריז על בחירות בזק על רקע משבר דיור חריף.",
+        "regions": [
+          "אירופה",
+          "גוש היורו"
+        ],
+        "impact": "לחץ שלילי על היורו, עליית תשואות האג\"ח של מדינות פריפריה באירופה, ואי-ודאות פוליטית המעיבה על שוקי המניות ביבשת.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "EZU",
+              "VGK"
+            ],
+            "why": "עליית פרמיית הסיכון הפוליטית באירופה ולחץ מכירות על היורו מול הדולר."
+          },
+          "medium": {
+            "outlook": "שלילי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "SAN",
+              "DB"
+            ],
+            "why": "אי-ודאות פוליטית בצרפת ובספרד תקשה על העברת תקציבים אחראיים, מה שיקשה על הבנקים הגדולים החשופים לחוב ריבוני."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "VGK"
+            ],
+            "why": "השווקים נוטים להתאזן לאחר סיום מערכות הבחירות והתבהרות המדיניות הפיסקלית החדשה."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "GLD",
+            "name": "SPDR Gold Shares",
+            "reason": "הזהב משמש כחוף מבטחים בעת טלטלות פוליטיות ופיסקליות באירופה",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "EZU",
+            "name": "iShares MSCI Eurozone ETF",
+            "reason": "תעודת סל החשופה ישירות לחברות הגדולות בגוש היורו, המושפעות מהטלטלה הפיסקלית",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "SAN",
+            "name": "Banco Santander",
+            "reason": "הבנק הספרדי הגדול ביותר, החשוף ישירות לאי-היציבות הפוליטית והכלכלית בספרד",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "French bond contagion fears are rattling the euro",
+            "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOU2I0a3Vldm9aWFp4WTFxOHFSR1lBMVFsYThLV1JqZnF2SWY5anFKZzVPTW9mVWNFUEJQOHRUYjNFOVFsNXBjQ253Y09QdV8tNTVsMGZfejgyb0o0Q09SMUJYQ0hjWm1PbkpHSHRja1VQeFBlZkI5YlhWR1VidVhLQWVob0RKN2ZkSUJ5VThTRTdLcGR0TXR0aXp3?oc=5"
+          },
+          {
+            "title": "Spain’s prime minister calls snap election aiming to seize momentum over housing crisis",
+            "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYUJUb21rRnJmOXJKSnBLSXRwLTh5ZFlUWGk0c01pODBGb0lUUXJuRmIxOHRTMTdzRGxTcFBqYXFodGM4V2RRNmlrTk1OZHR4REpqQXgxQ1ZRVnowanpnUE1hbWxzc3E5NkYxUnExVzN0bl94ZUFvUks0LTFzLTk1QUpCbXRPa2hEVHhwa01ZeTNFMDZ2?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "AMD מתכננת להגדיל משמעותית את היצע השבבים עד 2027",
+        "category": "שבבים וטכנולוגיה",
+        "severity": 3,
+        "what_happened": "מנכ\"לית AMD הכריזה על תוכניות להגדלה מהותית של היצע שבבי ה-AI והמחשוב של החברה עד שנת 2027 כדי לענות על הביקוש הגובר ולשפר את נתח השוק שלה.",
+        "regions": [
+          "ארה\"ב",
+          "טייוואן"
+        ],
+        "impact": "מגביר את התחרות מול אנבידיה (NVDA) ומחזק את מעמדה של AMD כשחקנית מפתח בשרשרת אספקת ה-AI, תוך הגדלת הזמנות הייצור אצל יצרניות השבבים.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "AMD",
+              "TSM"
+            ],
+            "why": "הבעת אמון חזקה בביקוש ארוך הטווח ל-AI מצד הנהלת החברה מעודדת את המשקיעים."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "TSM",
+              "ASML"
+            ],
+            "why": "הגדלת כושר הייצור של AMD תתורגם להזמנות ענק אצל יצרנית השבבים הטייוואנית TSM וספקיות הציוד שלה."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "AMD"
+            ],
+            "why": "שינוי מבני בשוק שבבי ה-AI, שהופך ליותר דו-קוטבי (AMD מול NVDA) עם היצע רחב יותר ומחירים תחרותיים יותר."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "AMD",
+            "name": "Advanced Micro Devices",
+            "reason": "הצהרת כוונות חזקה להגדלת נתח שוק ומתן מענה לביקושים הגבוהים",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "TSM",
+            "name": "Taiwan Semiconductor Manufacturing",
+            "reason": "יצרנית השבבים הבלעדית של AMD שתיהנה מגידול משמעותי בנפח ההזמנות",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "NVDA",
+            "name": "NVIDIA",
+            "reason": "הגדלת ההיצע של AMD עשויה להגביר את התחרות וללחוץ על מחירי השבבים של אנבידיה בטווח הארוך",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "AMD plans to substantially increase supply in 2027, CEO says",
+            "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQQW9IX3h3YzRRRWZrX1VNVk02dkd6UDlUUFlDMjdfU1dwUTJEWXhHRkpCZ2EwVXZqLXJqQmJfeHdaU1VLOWpOYlU3Wi1YNmljekVRcHRsZ0dMOHNrTzM3dGlRc1dRNFBhTGlrVzFJcGxtSEVuRjVfeFQzTy1WOFRHMGVROFBIQ2R3LTZkYlVzVnMwWFVCQk9RV1B1emhkRTljS3BsTW53akZwNFRx?oc=5"
+          }
+        ]
+      }
+    ],
+    "regions_to_watch": [
+      {
+        "region": "ברזיל",
+        "stance": "להעדיף",
+        "why": "הפתעה פוליטית חיובית לשווקים בסיבוב הראשון של הבחירות לנשיאות מציתה ראלי חזק בנכסים המקומיים ובמניות האנרגיה והסחורות."
+      },
+      {
+        "region": "אירופה (גוש היורו)",
+        "stance": "להיזהר",
+        "why": "שילוב של אי-יציבות פיסקלית בצרפת, מחאות חברתיות רחבות ובחירות בזק בספרד מעלים את פרמיית הסיכון של האג\"ח הריבוני ומעיקים על היורו."
+      },
+      {
+        "region": "ארה\"ב (סקטור הסייבר והאנרגיה)",
+        "stance": "להעדיף",
+        "why": "ביקוש קשיח וגובר לפתרונות סייבר מבוססי AI בעקבות פריצות מתוחכמות, לצד עסקאות ענק בתחום האנרגיה הגרעינית להזנת מרכזי נתונים."
+      }
+    ],
+    "indices": [
+      {
+        "symbol": "^GSPC",
+        "name": "S&P 500",
+        "price": 7773.9501953125,
+        "d1": 0.7,
+        "w1": 1.2,
+        "m1": 0.3,
+        "from_52w_high": -0.3,
+        "vs_ma50": 1.4,
+        "vs_ma200": 7.5
+      },
+      {
+        "symbol": "^IXIC",
+        "name": "נאסד\"ק",
+        "price": 27477.310546875,
+        "d1": 1.1,
+        "w1": 2.4,
+        "m1": 3.4,
+        "from_52w_high": 0.0,
+        "vs_ma50": 4.3,
+        "vs_ma200": 11.0
+      },
+      {
+        "symbol": "^RUT",
+        "name": "ראסל 2000",
+        "price": 2847.139892578125,
+        "d1": 0.5,
+        "w1": 1.0,
+        "m1": -4.1,
+        "from_52w_high": -7.2,
+        "vs_ma50": -3.2,
+        "vs_ma200": 2.3
+      },
+      {
+        "symbol": "^TA125.TA",
+        "name": "ת\"א-125",
+        "price": 4046.330078125,
+        "d1": -0.4,
+        "w1": -0.8,
+        "m1": -0.3,
+        "from_52w_high": -9.7,
+        "vs_ma50": -1.0,
+        "vs_ma200": -1.2
+      },
+      {
+        "symbol": "^VIX",
+        "name": "VIX (פחד)",
+        "price": 15.430000305175781,
+        "d1": -0.6,
+        "w1": -3.8,
+        "m1": 0.8,
+        "from_52w_high": -50.3,
+        "vs_ma50": -1.5,
+        "vs_ma200": -14.5
+      },
+      {
+        "symbol": "^TNX",
+        "name": "תשואת 10Y ארה\"ב",
+        "price": 5.310999870300293,
+        "d1": 0.6,
+        "w1": 1.4,
+        "m1": 11.5,
+        "from_52w_high": 0.0,
+        "vs_ma50": 9.6,
+        "vs_ma200": 19.2
+      },
+      {
+        "symbol": "ILS=X",
+        "name": "דולר/שקל",
+        "price": 3.051500082015991,
+        "d1": 0.0,
+        "w1": -0.9,
+        "m1": 1.3,
+        "from_52w_high": -8.0,
+        "vs_ma50": 1.1,
+        "vs_ma200": 0.6
+      },
+      {
+        "symbol": "DX-Y.NYB",
+        "name": "מדד הדולר",
+        "price": 101.98999786376953,
+        "d1": -0.2,
+        "w1": 0.6,
+        "m1": 2.9,
+        "from_52w_high": -0.2,
+        "vs_ma50": 2.0,
+        "vs_ma200": 2.7
+      },
+      {
+        "symbol": "GC=F",
+        "name": "זהב",
+        "price": 4179.0,
+        "d1": 0.5,
+        "w1": -0.0,
+        "m1": -6.6,
+        "from_52w_high": -21.4,
+        "vs_ma50": -4.4,
+        "vs_ma200": -8.2
+      },
+      {
+        "symbol": "CL=F",
+        "name": "נפט WTI",
+        "price": 87.76000213623047,
+        "d1": -1.9,
+        "w1": -1.8,
+        "m1": -4.1,
+        "from_52w_high": -22.3,
+        "vs_ma50": -1.0,
+        "vs_ma200": 6.1
+      },
+      {
+        "symbol": "BTC-USD",
+        "name": "ביטקוין",
+        "price": 86049.4921875,
+        "d1": 0.3,
+        "w1": 1.4,
+        "m1": 13.8,
+        "from_52w_high": -31.0,
+        "vs_ma50": 7.7,
+        "vs_ma200": 20.1
+      }
+    ],
+    "market_state": {
+      "headline": "נאסד\"ק רושם שיא חדש בהובלת סקטור הטכנולוגיה וה-AI, בעוד עליית התשואות והטלטלה באירופה מייצרות לחצי תנודתיות",
+      "context": "המסחר התאפיין במגמות מעורבות כאשר מדד הנאסד\"ק הגיע לשיא כל הזמנים (0.0% משיא שנתי) בעקבות התקדמות בעסקת ענק בין גוגל לקונסטליישן אנרג'י לאספקת אנרגיה גרעינית למרכזי נתונים של AI, לצד תוכניות AMD להגדלת היצע השבבים. מנגד, טלטלה פיסקלית ופוליטית בצרפת ובספרד מרעידה את גוש היורו ומעיבה על הסנטימנט הגלובלי. בנוסף, עליית מדרגה במתקפות סייבר מבוססות AI ופריצות למערכות ממשלתיות מייצרות חששות, בעוד הפתעה בבחירות בברזיל שלחה את הבורסה המקומית לשיא כל הזמנים.",
+      "analysis": "המגמה בשווקים מציגה פיצול ברור: מדד הנאסד\"ק מוביל עם עלייה יומית של 1.1% ועלייה חודשית של 3.4%, כשהוא נסחר בשיא כל הזמנים ומעל ממוצע 50 יום ב-4.3%. לעומתו, הראסל 2000 ומדד ת\"א-125 מציגים חולשה יחסית ונסחרים מתחת לממוצע 50 יום שלהם (3.2%- ו-1.0%- בהתאמה), מה שמצביע על רוחב שוק חלש המתמקד בעיקר בענקיות הטכנולוגיה. בגזרת האג\"ח, תשואת ה-10 שנים בארה\"ב זינקה לשיא שנתי של 5.31% (עלייה של 11.5% בחודש), מה שמפעיל לחץ על נכסים רגישי ריבית. מדד ה-VIX ירד קלות ב-0.6% לרמה של 15.43, מה שמעיד על רגיעה יחסית חרף הסיכונים הגיאופוליטיים והפיסקליים באירופה. הנפט (WTI) ירד ב-1.9% לרמה של 87.76 דולר למרות אזהרות שברון ואיומי אוקראינה, והזהב רשם עלייה קלה של 0.5% אך נותר רחוק ב-21.4% משיאו השנתי.",
+      "recommendation": "המלצה: זהיר עד ניטרלי. מומלץ לנקוט בגישה סלקטיבית ביותר; לאור הגעת הנאסד\"ק לשיא כל הזמנים ותשואות האג\"ח הגבוהות (5.31%), יש להתמקד בחברות טכנולוגיה גדולות בעלות תזרים חזק הנהנות ממהפכת ה-AI (במיוחד ספקיות אנרגיה ושבבים). מנגד, מומלץ לצמצם חשיפה למניות קטנות (ראסל 2000) ולשווקים אירופיים החשופים לטלטלה הפיסקלית בצרפת וספרד, ולשמור על רמת נזילות גבוהה או חשיפה לאג\"ח קצרות טווח לאור התשואות הגבוהות.",
+      "by_horizon": {
+        "short": "תנודתיות גבוהה עקב אירועים פוליטיים באירופה ואיומי סייבר, לצד מומנטום חיובי חזק בטכנולוגיה.",
+        "medium": "מגמה חיובית בנאסד\"ק וב-S&P 500 הנתמכת בהשקעות AI, אך לחץ מתמשך מצד תשואות האג\"ח הגבוהות (5.31%).",
+        "long": "צמיחה מבנית חזקה בסקטורי הטכנולוגיה והאנרגיה התומכת ב-AI, תוך מעקב אחר התייצבות פיסקלית גלובלית."
+      },
+      "levels_to_watch": [
+        "תשואת אג\"ח 10 שנים בארה\"ב בשיא של 5.31% - פריצה נוספת עלולה להעיב על המניות.",
+        "מדד הנאסד\"ק בשיא כל הזמנים (27,477.31) - מבחן תמיכה ברמות אלו.",
+        "מחיר הנפט (WTI) ברמת 87.76 דולר על רקע איומי פגיעה בבתי זיקוק רוסיים.",
+        "התפתחויות פוליטיות ופיסקליות בצרפת וספרד והשפעתן על היורו והשווקים באירופה."
+      ],
+      "risks": [
+        "המשך עליית תשואות האג\"ח בארה\"ב המייקרת את עלויות המימון.",
+        "הסלמה במתקפות סייבר מבוססות AI על מערכות ממשלתיות ותשתיות.",
+        "התפשטות המשבר הפיסקלי והפוליטי באירופה (צרפת וספרד) לשווקים הגלובליים.",
+        "פגיעה בבתי זיקוק רוסיים שתוביל לזינוק חד ופתאומי במחירי הנפט."
+      ]
+    }
+  },
+  "market": {
+    "CEG": {
+      "price": 267.62,
+      "day": 3.9,
+      "week": 2.8
+    },
+    "CCJ": {
+      "price": 87.47,
+      "day": 2.7,
+      "week": 0.5
+    },
+    "SMR": {
+      "price": 7.68,
+      "day": -0.9,
+      "week": -2.9
+    },
+    "XLU": {
+      "price": 39.97,
+      "day": 0.4,
+      "week": 1.8
+    },
+    "PANW": {
+      "price": 406.76,
+      "day": 0.9,
+      "week": 3.7
+    },
+    "CHKP": {
+      "price": 129.58,
+      "day": -0.6,
+      "week": 0.2
+    },
+    "MSFT": {
+      "price": 525.18,
+      "day": 1.5,
+      "week": 3.1
+    },
+    "ORL.TA": {
+      "price": 195.6,
+      "day": 0.4,
+      "week": -8.8
+    },
+    "CVX": {
+      "price": 206.47,
+      "day": -0.1,
+      "week": 0.0
+    },
+    "ELAL.TA": {
+      "price": 1864.0,
+      "day": -0.4,
+      "week": 8.8
+    },
+    "DAL": {
+      "price": 83.08,
+      "day": -1.2,
+      "week": -1.1
+    },
+    "EWZ": {
+      "price": 42.98,
+      "day": 12.5,
+      "week": 18.7
+    },
+    "PBR": {
+      "price": 24.14,
+      "day": 11.5,
+      "week": 16.9
+    },
+    "VALE": {
+      "price": 14.15,
+      "day": 2.8,
+      "week": 4.1
+    },
+    "EEM": {
+      "price": 68.73,
+      "day": 1.6,
+      "week": 2.3
+    },
+    "GLD": {
+      "price": 379.55,
+      "day": -0.2,
+      "week": 0.4
+    },
+    "EZU": {
+      "price": 66.79,
+      "day": -0.4,
+      "week": -2.5
+    },
+    "SAN": {
+      "price": 13.9,
+      "day": 4.0,
+      "week": -2.3
+    },
+    "AMD": {
+      "price": 631.75,
+      "day": -0.3,
+      "week": 3.9
+    },
+    "TSM": {
+      "price": 485.8,
+      "day": 2.8,
+      "week": 7.3
+    },
+    "NVDA": {
+      "price": 238.9,
+      "day": 2.1,
+      "week": 4.4
+    },
+    "^GSPC": {
+      "price": 7773.95,
+      "day": 0.7,
+      "week": 1.2
+    },
+    "^IXIC": {
+      "price": 27477.31,
+      "day": 1.1,
+      "week": 2.4
+    },
+    "^TA125.TA": {
+      "price": 4046.33,
+      "day": -0.4,
+      "week": -0.8
+    },
+    "GC=F": {
+      "price": 4179.0,
+      "day": 0.5,
+      "week": -0.0
+    },
+    "CL=F": {
+      "price": 87.76,
+      "day": -1.9,
+      "week": -1.8
+    },
+    "PLTR": {
+      "price": 189.4,
+      "day": 0.3,
+      "week": 1.0
+    },
+    "LMT": {
+      "price": 506.63,
+      "day": 0.2,
+      "week": -2.2
+    },
+    "ESLT.TA": {
+      "price": 215930.0,
+      "day": -2.5,
+      "week": 0.7
+    }
+  }
+}
