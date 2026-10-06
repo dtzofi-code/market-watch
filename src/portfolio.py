@@ -46,6 +46,9 @@ def metrics_for(symbol: str):
             "from_52w_high": round((last / float(close.max()) - 1) * 100, 1),
             "vs_ma50": round((last / float(close.tail(50).mean()) - 1) * 100, 1) if len(close) >= 50 else None,
             "vs_ma200": round((last / float(close.tail(200).mean()) - 1) * 100, 1) if len(close) >= 200 else None,
+            "ma50": float(close.tail(50).mean()) if len(close) >= 50 else None,
+            "ma200": float(close.tail(200).mean()) if len(close) >= 200 else None,
+            "high52": float(close.max()), "low52": float(close.min()),
             "rsi14": _rsi(close),
             "rel_volume": round(float(vol.iloc[-1]) / float(vol.tail(20).mean()), 1) if len(vol) >= 20 and vol.tail(20).mean() else None,
         }
@@ -66,9 +69,9 @@ def build(holdings: list) -> dict:
         sym = h.get("yf") or (h["ticker"] if h.get("type") in ("stock", "etf") else None)
         m = metrics_for(sym) if sym else None
         cur = h.get("currency", "USD")
+        if m and sym and sym.endswith(".TA"):  # TASE quotes are in agorot -> convert price levels to shekels
+            m = {**m, **{k: m[k] / 100 for k in ("price", "ma50", "ma200", "high52", "low52") if m.get(k)}}
         price = m["price"] if m else None
-        if price and sym and sym.endswith(".TA"):
-            price /= 100  # TASE quotes are in agorot
         lp = h.get("last_price")  # broker's last price (used when there is no market data, or when it is 0 = no quote)
         if lp is not None and (lp == 0 or not price):
             price = lp
@@ -106,8 +109,11 @@ def build(holdings: list) -> dict:
 def for_ai(pf: dict) -> list:
     """Percent-only view of the portfolio - safe to send to a third-party model."""
     keep = ("d1", "w1", "m1", "m3", "from_52w_high", "vs_ma50", "vs_ma200", "rsi14", "rel_volume")
+    levels = ("ma50", "ma200", "high52", "low52")
     return [{"ticker": r["ticker"], "name": r["name"], "type": r["type"], "weight_pct": r["weight"],
-             "pnl_pct": r["pnl_pct"], "has_market_data": r["has_data"],
+             "pnl_pct": r["pnl_pct"], "has_market_data": r["has_data"], "currency": r["currency"],
+             **({"price": round(r["price"], 4)} if r["has_data"] and r["price"] else {}),  # public market data, not private
+             **{k: round(r["m"][k], 4) for k in levels if r["m"].get(k)},
              **{k: r["m"].get(k) for k in keep if r["m"].get(k) is not None}} for r in pf["rows"]]
 
 
@@ -136,6 +142,7 @@ def annotate(pf: dict, pa: dict) -> None:
             continue
         cur = row.get("currency") or "USD"
         to_usd = (1 / fx) if cur == "ILS" else 1.0
+        _levels(pos, row, cur)
         for k in ("short", "medium", "long"):
             h = pos.get(k)
             if not h:
@@ -169,3 +176,27 @@ def annotate(pf: dict, pa: dict) -> None:
         pa["cash_summary"] = {
             lbl: f"מכירות ≈ ${v[0]:,.0f}, קניות ≈ ${v[1]:,.0f}, נטו {'מזומן שמתפנה' if v[0] >= v[1] else 'נדרש מזומן'} ≈ ${abs(v[0] - v[1]):,.0f}"
             for (k, lbl) in (("short", "קצר"), ("medium", "בינוני"), ("long", "ארוך")) for v in [flow[k]] if v[0] or v[1]}
+
+
+def _num(x):
+    try:
+        return float(x) if x is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _levels(pos: dict, row: dict, cur: str) -> None:
+    """Validate the model's price levels against the real price (guards against invented numbers)."""
+    px = row.get("price")
+    if not (row.get("has_data") and px):
+        return
+    buy, sell, stop = _num(pos.get("buy_below")), _num(pos.get("sell_above")), _num(pos.get("stop"))
+    ok = lambda v, lo, hi: v is not None and px * lo <= v <= px * hi
+    parts = [f"מחיר נוכחי {SIGN.get(cur, '')}{px:,.2f}"]
+    if ok(buy, 0.5, 1.02):
+        parts.append(f"קנייה עד {SIGN.get(cur, '')}{buy:,.2f}")
+    if ok(sell, 1.0, 1.8):
+        parts.append(f"יעד מכירה {SIGN.get(cur, '')}{sell:,.2f}")
+    if ok(stop, 0.4, 0.995):
+        parts.append(f"סטופ {SIGN.get(cur, '')}{stop:,.2f}")
+    pos["levels_text"] = " · ".join(parts)

@@ -90,7 +90,7 @@ DEMO_PA = {
     "exposure_to_today": "משבר הזיכרון תומך בחלק גדול מהתיק.", "concentration": "ריכוז גבוה בסקטור השבבים ובדולר.",
     "risks": ["תיקון בסקטור השבבים"],
     "positions": [
-        {"ticker": "NVDA", "analysis": "מומנטום חזק, אך משקל גבוה בתיק.", "watch": "שבירת ממוצע 50 יום",
+        {"ticker": "NVDA", "analysis": "מומנטום חזק, אך משקל גבוה בתיק.", "buy_below": 210, "sell_above": 270, "stop": 200, "levels_note": "הדגמה", "watch": "שבירת ממוצע 50 יום",
          "short": {"action": "להחזיק", "size_pct": 0, "why": "מומנטום חיובי"}, "medium": {"action": "להקטין", "size_pct": 20, "why": "ריכוזיות"}, "long": {"action": "להחזיק", "why": "מגמת AI"}},
         {"ticker": "5134135", "analysis": "קרן ללא נתוני שוק; ניתוח איכותי בלבד.", "watch": "",
          "short": {"action": "להחזיק", "why": "אין נתונים"}, "medium": {"action": "לעקוב", "why": "תלוי בסחורות"}, "long": {"action": "להחזיק", "why": "פיזור"}},

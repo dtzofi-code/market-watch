@@ -24,9 +24,11 @@ def _pf_lines(pf, pa) -> list:
     parts.append(f"מצב: {_e(pa.get('health'))}")
     out = ["", "<b>💼 התיק שלי</b>", " · ".join(parts)]
     out += [f"• {_e(x)}" for x in pa.get("top_actions", [])[:3]]
-    sized = [(p.get("ticker"), p["short"]) for p in pa.get("positions", []) if p.get("short") and p["short"].get("size_text")]
+    sized = [(p.get("ticker"), p["short"], p.get("levels_text")) for p in pa.get("positions", []) if p.get("short") and p["short"].get("size_text")]
     if sized:
-        out += ["", "<b>קנייה/מכירה לטווח קצר</b>"] + [f"• <b>{_e(tk)}</b> {_e(h.get('action'))}: {_e(h['size_text'])}" for tk, h in sized[:6]]
+        out += ["", "<b>קנייה/מכירה לטווח קצר</b>"]
+        for tk, h, lv in sized[:6]:
+            out.append(f"• <b>{_e(tk)}</b> {_e(h.get('action'))}: {_e(h['size_text'])}" + (f"\n   💲 {_e(lv)}" if lv else ""))
     cs = (pa.get("cash_summary") or {}).get("קצר")
     if cs:
         out.append(f"תזרים (קצר): {_e(cs)}")
