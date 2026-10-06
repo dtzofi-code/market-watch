@@ -23,7 +23,14 @@ def _pf_lines(pf, pa) -> list:
         parts.append(f"רו\"ה כולל: {t['pnl_pct']:+.1f}%")
     parts.append(f"מצב: {_e(pa.get('health'))}")
     out = ["", "<b>💼 התיק שלי</b>", " · ".join(parts)]
-    out += [f"• {_e(x)}" for x in pa.get("top_actions", [])[:3]]
+    for x in pa.get("top_actions", [])[:4]:
+        x = x if isinstance(x, dict) else {"text": x}
+        line = f"• {('<b>' + _e(x['ticker']) + '</b> – ') if x.get('ticker') else ''}{_e(x.get('text'))}"
+        if x.get("size_text"):
+            line += f"\n   כמה: {_e(x['size_text'])}"
+        if x.get("levels_text"):
+            line += f"\n   💲 {_e(x['levels_text'])}"
+        out.append(line)
     sized = [(p.get("ticker"), p["short"], p.get("levels_text")) for p in pa.get("positions", []) if p.get("short") and p["short"].get("size_text")]
     if sized:
         out += ["", "<b>קנייה/מכירה לטווח קצר</b>"]

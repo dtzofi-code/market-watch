@@ -170,6 +170,16 @@ def annotate(pf: dict, pa: dict) -> None:
                     text += f" (≈ {_money(amount, cur)}, ≈ {amount / row['unit_price']:,.0f} יח׳)"
                     flow[k][1] += amount_usd
                 h["size_text"] = text
+    # key actions: link each to its position/horizon so amounts and price levels are attached by the code
+    pos_by = {p.get("ticker"): p for p in pa.get("positions", [])}
+    acts = []
+    for a in pa.get("top_actions", []):
+        a = {"text": a} if isinstance(a, str) else dict(a)
+        pos = pos_by.get(a.get("ticker"))
+        h = (pos or {}).get(a.get("horizon") if a.get("horizon") in ("short", "medium", "long") else "short") or {}
+        a["action"], a["size_text"], a["levels_text"] = h.get("action"), h.get("size_text"), (pos or {}).get("levels_text")
+        acts.append(a)
+    pa["top_actions"] = acts
     if sized and pf["totals"].get("cash_usd"):
         pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}"
     if sized:

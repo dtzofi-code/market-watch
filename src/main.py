@@ -86,7 +86,7 @@ DEMO_PORTFOLIO = [
 ]
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
-    "top_actions": ["לבחון הקטנת ריכוזיות ב-NVDA", "להמשיך להחזיק את הקרן"],
+    "top_actions": [{"ticker": "NVDA", "horizon": "medium", "text": "להקטין חשיפה כדי להפחית ריכוזיות"}, {"ticker": "5134135", "horizon": "short", "text": "להמשיך להחזיק את הקרן"}],
     "exposure_to_today": "משבר הזיכרון תומך בחלק גדול מהתיק.", "concentration": "ריכוז גבוה בסקטור השבבים ובדולר.",
     "risks": ["תיקון בסקטור השבבים"],
     "positions": [
