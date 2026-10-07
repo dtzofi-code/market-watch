@@ -22,6 +22,37 @@ def load() -> list:
     return items["holdings"] if isinstance(items, dict) else items
 
 
+def load_goal():
+    """Optional goal from the same private JSON: {"goal": {"target_ils", "deadline", "start_ils", "start_date"}, "holdings": [...]}."""
+    raw = os.environ.get("PORTFOLIO_JSON")
+    if not raw and os.path.exists(LOCAL):
+        raw = open(LOCAL, encoding="utf-8").read()
+    data = json.loads(raw) if raw else None
+    return data.get("goal") if isinstance(data, dict) else None
+
+
+def goal_status(pf: dict, goal: dict) -> dict:
+    """Progress towards the target. Note: value changes include deposits/withdrawals (not tracked)."""
+    from datetime import date
+    today = date.today()
+    deadline = date.fromisoformat(goal["deadline"])
+    start_d = date.fromisoformat(goal["start_date"])
+    cur = pf["totals"]["total_usd"] * pf["totals"]["fx"]
+    target, start = float(goal["target_ils"]), float(goal["start_ils"])
+    weeks_left = max((deadline - today).days / 7, 0.01)
+    total_days = max((deadline - start_d).days, 1)
+    elapsed = min(max((today - start_d).days, 0), total_days)
+    expected = start + (target - start) * elapsed / total_days  # straight-line path
+    req = target / cur - 1
+    return {
+        "target_ils": target, "current_ils": cur, "gap_ils": target - cur, "weeks_left": round(weeks_left, 1),
+        "required_total_pct": round(req * 100, 1), "required_weekly_pct": round(((1 + req) ** (1 / weeks_left) - 1) * 100, 2),
+        "progress_pct": round((cur - start) / (target - start) * 100, 1) if target != start else None,
+        "expected_now_ils": expected, "vs_path_pct": round((cur / expected - 1) * 100, 1) if expected else None,
+        "on_track": cur >= expected,
+    }
+
+
 def _rsi(close, n=14):
     d = close.diff().dropna()
     if len(d) < n:

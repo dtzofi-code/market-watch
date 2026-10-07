@@ -189,6 +189,7 @@ PORTFOLIO_SYSTEM = """אתה יועץ השקעות-אנליסט המנתח תי�
 לכל נייר המלצה נפרדת לכל טווח, מתוך: "להחזיק", "להגדיל", "להקטין", "למכור", "לעקוב". ההמלצות חייבות להתחשב במשקל (ריכוזיות) וברווח/הפסד.
 גודל פעולה: לכל המלצה "להקטין"/"למכור" ציין size_pct = אחוז מהפוזיציה למכור (1-100; "למכור" = 100 אלא אם יש סיבה לחלקי). לכל המלצה "להגדיל" ציין size_pct = אחוז מערך התיק כולו להוסיף (0.5-5, לעולם לא מעל 5). ל"להחזיק"/"לעקוב" size_pct=0.
 מחירי כניסה ויציאה: לכל נייר עם נתוני שוק (יש לו price) ציין במחיר המטבע של הנייר: buy_below = מחיר מקסימלי לקנייה/הוספה (פקודת לימיט, בדרך כלל ליד תמיכה כמו ממוצע 50/200 או תיקון), sell_above = יעד למכירה/הקטנה, stop = סטופ-לוס הגנתי. עגן את המחירים ברמות שקיבלת (price, ma50, ma200, high52, low52), בתוך טווח סביר מהמחיר הנוכחי; אל תמציא מחירים. אם אין המלצה להוסיף/להקטין, השאר null. ללא נתוני שוק: null.
+יעד: אם סופק יעד, כתוב goal_assessment כנה. אסור להמליץ על מינוף, אופציות, מכירה בחסר או הגדלת ריכוזיות רק כדי להגיע ליעד; אם היעד אינו ריאלי ללא סיכון קיצוני - אמור זאת במפורש. אחרת השאר goal_assessment ריק.
 פעולות מרכזיות: 3-5 פעולות לפי עדיפות. כל אחת חייבת להתייחס לנייר אחד (ticker) ולטווח (horizon), ולהתאים בדיוק לפעולה שהמלצת עליה באותו נייר ובאותו טווח (אותה action). אל תכתוב סכומים בטקסט - המערכת תוסיף אותם.
 הגיון: אל תמליץ על הוספות גדולות לנייר שכבר ריכוזי בתיק, ואל תמליץ בו-זמנית להגדיל ולהקטין את אותו נייר באותו טווח. הסכומים בשקלים/דולרים יחושבו בנפרד על ידי המערכת.
 כתוב בעברית. החזר JSON תקין בלבד:
@@ -199,15 +200,18 @@ PORTFOLIO_SYSTEM = """אתה יועץ השקעות-אנליסט המנתח תי�
  "concentration": "ריכוזיות/חשיפה לפי סקטור, מדינה, מטבע",
  "exposure_to_today": "איך אירועי היום משפיעים על התיק",
  "risks": [""],
+ "goal_assessment": {"verdict": "הערכה כנה האם היעד ריאלי (אם סופק יעד), ללא ייפוי", "what_must_go_right": "מה צריך לקרות כדי להגיע אליו", "alternatives": ["חלופות: הפקדה, יעד ריאלי יותר, אופק ארוך יותר"]},
  "top_actions": [{"ticker": "", "horizon": "short|medium|long", "text": "הפעולה והסיבה במשפט אחד"}]
 }"""
 
 
-def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = None) -> dict:
+def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = None, goal: dict = None) -> dict:
     ev = "; ".join(f"{e.get('title')}: {e.get('impact','')}" for e in analysis.get("events", []))
     user = ("תיק (אחוזים בלבד):\n" + json.dumps(holdings_view, ensure_ascii=False) +
             f"\n\nסיכום היום: {analysis.get('summary','')}\nאירועים: {ev}" +
-            (f"\nמצב שוק: {market_state.get('headline','')} {market_state.get('recommendation','')}" if market_state else ""))
+            (f"\nמצב שוק: {market_state.get('headline','')} {market_state.get('recommendation','')}" if market_state else "") +
+            (f"\nיעד המשתמש: נדרשת תשואה של {goal['required_total_pct']}% בתוך {goal['weeks_left']} שבועות (כ-{goal['required_weekly_pct']}% בשבוע ברציפות). "
+             f"הוא כרגע {'מעל' if goal['on_track'] else 'מתחת'} לקו ישר אל היעד ({goal['vs_path_pct']:+.1f}%)." if goal else ""))
     return _call(user, PORTFOLIO_SYSTEM)
 
 

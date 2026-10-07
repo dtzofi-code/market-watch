@@ -84,6 +84,7 @@ DEMO_PORTFOLIO = [
     {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 100, "cost": 100.0, "currency": "USD"},
     {"ticker": "5134135", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
 ]
+DEMO_GOAL = {"target_ils": 65000, "deadline": "2026-12-31", "start_ils": 41600, "start_date": "2026-10-07"}
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
     "top_actions": [{"ticker": "NVDA", "horizon": "medium", "text": "להקטין חשיפה כדי להפחית ריכוזיות"}, {"ticker": "5134135", "horizon": "short", "text": "להמשיך להחזיק את הקרן"}],
@@ -124,11 +125,13 @@ def _portfolio(args, analysis, ms=None):
         if not holdings:
             return None, None
         pf = portfolio.build(holdings)
+        goal = portfolio.goal_status(pf, DEMO_GOAL if args.demo else portfolio.load_goal()) if (args.demo or portfolio.load_goal()) else None
         if args.demo:
             pa = json.loads(json.dumps(DEMO_PA))
         else:
             from analyze import analyze_portfolio
-            pa = analyze_portfolio(portfolio.for_ai(pf), analysis, ms)
+            pa = analyze_portfolio(portfolio.for_ai(pf), analysis, ms, goal)
+        pa["goal"] = goal
         portfolio.annotate(pf, pa)  # percentages -> concrete amounts, computed locally
         return pf, pa
     except Exception as exc:  # message omitted on purpose: never risk echoing private data to logs

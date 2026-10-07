@@ -23,6 +23,9 @@ def _pf_lines(pf, pa) -> list:
         parts.append(f"רו\"ה כולל: {t['pnl_pct']:+.1f}%")
     parts.append(f"מצב: {_e(pa.get('health'))}")
     out = ["", "<b>💼 התיק שלי</b>", " · ".join(parts)]
+    g = pa.get("goal")
+    if g:
+        out.append(f"🎯 יעד {g['target_ils']:,.0f} ₪: שווי ≈ {g['current_ils']:,.0f} ₪, נדרש {g['required_total_pct']:+.1f}% ב-{g['weeks_left']} שבועות ({'בקצב' if g['on_track'] else 'מאחורי הקצב'})")
     for x in pa.get("top_actions", [])[:4]:
         x = x if isinstance(x, dict) else {"text": x}
         line = f"• {('<b>' + _e(x['ticker']) + '</b> – ') if x.get('ticker') else ''}{_e(x.get('text'))}"
