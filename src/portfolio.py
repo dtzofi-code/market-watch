@@ -117,7 +117,7 @@ def build(holdings: list) -> dict:
             value_usd, invested_usd = value * to_usd, invested * to_usd
             pnl = round((value / invested - 1) * 100, 1) if invested else None
         rows.append({
-            **{k: h.get(k) for k in ("ticker", "name", "type", "currency")},
+            **{k: h.get(k) for k in ("ticker", "name", "type", "currency", "hold", "group")},
             "has_data": bool(m), "m": m or {}, "price": price,
             "qty": qty if has_amounts else None, "unit_price": price if price else (cost if has_amounts else None),
             "value_usd": value_usd, "invested_usd": invested_usd, "pnl_pct": pnl, "weight": None,
@@ -143,6 +143,7 @@ def for_ai(pf: dict) -> list:
     levels = ("ma50", "ma200", "high52", "low52")
     return [{"ticker": r["ticker"], "name": r["name"], "type": r["type"], "weight_pct": r["weight"],
              "pnl_pct": r["pnl_pct"], "has_market_data": r["has_data"], "currency": r["currency"],
+             **({"user_hold": True} if r.get("hold") else {}),
              **({"price": round(r["price"], 4)} if r["has_data"] and r["price"] else {}),  # public market data, not private
              **{k: round(r["m"][k], 4) for k in levels if r["m"].get(k)},
              **{k: r["m"].get(k) for k in keep if r["m"].get(k) is not None}} for r in pf["rows"]]
@@ -174,11 +175,15 @@ def annotate(pf: dict, pa: dict) -> None:
         cur = row.get("currency") or "USD"
         to_usd = (1 / fx) if cur == "ILS" else 1.0
         _levels(pos, row, cur)
+        pos["held"] = bool(row.get("hold"))
         for k in ("short", "medium", "long"):
             h = pos.get(k)
             if not h:
                 continue
             act = h.get("action")
+            if row.get("hold") and act in SELL:  # user decision wins: never propose selling a position they chose to hold
+                h["action"], h["size_pct"], act = "להחזיק", 0, "להחזיק"
+                h["why"] = "מוחזק לפי החלטתך. " + (h.get("why") or "")
             try:
                 pct = float(h.get("size_pct")) if h.get("size_pct") is not None else None
             except (TypeError, ValueError):
@@ -203,14 +208,25 @@ def annotate(pf: dict, pa: dict) -> None:
                 h["size_text"] = text
     # key actions: link each to its position/horizon so amounts and price levels are attached by the code
     pos_by = {p.get("ticker"): p for p in pa.get("positions", [])}
+    held = {r["ticker"] for r in pf["rows"] if r.get("hold")}
     acts = []
     for a in pa.get("top_actions", []):
         a = {"text": a} if isinstance(a, str) else dict(a)
+        if a.get("ticker") in held and any(w in str(a.get("text", "")) for w in ("מכור", "למכור", "להקטין", "הקטנ", "מכירה")):
+            continue  # don't surface sell actions for positions the user chose to hold
         pos = pos_by.get(a.get("ticker"))
         h = (pos or {}).get(a.get("horizon") if a.get("horizon") in ("short", "medium", "long") else "short") or {}
         a["action"], a["size_text"], a["levels_text"] = h.get("action"), h.get("size_text"), (pos or {}).get("levels_text")
         acts.append(a)
     pa["top_actions"] = acts
+    groups = {}
+    for r in pf["rows"]:
+        if r.get("group") and r.get("weight") is not None:
+            g = groups.setdefault(r["group"], [0.0, []])
+            g[0] += r["weight"]
+            g[1].append(r["ticker"])
+    if groups:
+        pa["group_exposure"] = [f"חשיפה ל{k}: {v[0]:.1f}% מהתיק ({', '.join(v[1])})" for k, v in groups.items()]
     if sized and pf["totals"].get("cash_usd"):
         pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}"
     if sized:

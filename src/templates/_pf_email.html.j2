@@ -11,13 +11,14 @@
 <div style="color:#8a94a6;font-size:11px">ההתקדמות כוללת גם הפקדות/משיכות, שאינן מנוטרות.</div></div>{% endif %}
 {% if pa.top_actions %}<div style="background:#eef3ff;border-radius:8px;padding:8px 10px;margin:8px 0"><b>פעולות מרכזיות</b>{% for x in pa.top_actions %}<div style="margin:4px 0">• {% if x.ticker %}<b dir="ltr">{{ x.ticker }}</b> – {% endif %}{{ x.text }}{% if x.action %} <b>[{{ x.action }}]</b>{% endif %}{% if x.size_text %}<br><span style="margin-inline-start:12px"><b>כמה: {{ x.size_text }}</b></span>{% endif %}{% if x.levels_text %}<br><span style="margin-inline-start:12px">💲 {{ x.levels_text }}</span>{% endif %}</div>{% endfor %}</div>{% endif %}
 {% if pa.cash_summary or pa.cash_note %}<div style="background:#fff8e6;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>תזרים מוצע</b>{% if pa.cash_note %}<div>{{ pa.cash_note }}</div>{% endif %}{% for lbl, txt in pa.cash_summary.items() %}<div>{{ lbl }}: {{ txt }}</div>{% endfor %}</div>{% endif %}
+{% if pa.group_exposure %}<p style="margin:6px 0"><b>חשיפה מרוכזת (מוחזקת לפי החלטתך):</b> {{ pa.group_exposure|join(' · ') }}</p>{% endif %}
 {% if pa.exposure_to_today %}<p style="margin:6px 0"><b>חשיפה לאירועי היום:</b> {{ pa.exposure_to_today }}</p>{% endif %}
 {% if pa.concentration %}<p style="margin:6px 0"><b>ריכוזיות:</b> {{ pa.concentration }}</p>{% endif %}
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
 <tr style="color:#5c6675;text-align:right"><th>נייר</th><th>משקל</th><th>רו"ה</th><th>יום</th><th>קצר</th><th>בינוני</th><th>ארוך</th></tr>
 {% set pos = {} %}{% for p in pa.positions %}{% if pos.update({p.ticker: p}) %}{% endif %}{% endfor %}
 {% for r in pf.rows %}{% set p = pos.get(r.ticker) %}
-<tr style="border-top:1px solid #eee;vertical-align:top"><td><b dir="ltr">{{ r.ticker }}</b><br><span style="color:#5c6675">{{ r.name }}</span></td>
+<tr style="border-top:1px solid #eee;vertical-align:top"><td><b dir="ltr">{{ r.ticker }}</b>{% if r.hold %} 🔒{% endif %}<br><span style="color:#5c6675">{{ r.name }}</span></td>
 <td dir="ltr">{% if r.weight is not none %}{{ '%.1f'|format(r.weight) }}%{% else %}–{% endif %}</td>
 <td dir="ltr" style="color:{{ '#0f8a4b' if (r.pnl_pct or 0)>=0 else '#c62828' }}">{% if r.pnl_pct is not none %}{{ '%+.0f'|format(r.pnl_pct) }}%{% else %}–{% endif %}</td>
 <td dir="ltr" style="color:{{ '#0f8a4b' if (r.m.get('d1') or 0)>=0 else '#c62828' }}">{% if r.m.get('d1') is not none %}{{ '%+.1f'|format(r.m.get('d1')) }}%{% else %}–{% endif %}</td>
