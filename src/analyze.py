@@ -65,8 +65,10 @@ def _gemini_candidates(key: str) -> list:
     ok = [n for n in names if "flash" in n and not any(x in n for x in bad)]
     # aliases/stable first, then lite; previews last
     ok.sort(key=lambda n: (("preview" in n or "exp" in n), "lite" in n, not n.endswith("-latest")))
+    # try one full model first, then the lighter (usually less loaded) ones, then the rest
     lite = [n for n in ok if "lite" in n and "preview" not in n]
-    ok = ok[:3] + lite[:2] + [n for n in ok[3:] if n not in lite[:2]]  # make sure a lite fallback is tried early
+    rest = [n for n in ok if n not in lite]
+    ok = rest[:1] + lite[:2] + rest[1:]
     return ok or [GEMINI_MODEL]
 
 
@@ -77,7 +79,7 @@ def _gemini_call(key: str, model: str, user: str, system: str):
         json={"systemInstruction": {"parts": [{"text": system}]},
               "contents": [{"parts": [{"text": user}]}],
               "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}},
-        timeout=150,
+        timeout=100,
     )
 
 
@@ -85,16 +87,16 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
     """Free tier via Google AI Studio key (no billing); tries models in order, retries overload."""
     key = os.environ["GEMINI_API_KEY"]
     errors = []
-    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", "320"))  # hard cap per analysis call
+    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", "360"))  # hard cap per analysis call
     for model in _gemini_candidates(key)[:8]:
         for attempt in range(2):
             if time.time() > deadline:
                 raise RuntimeError("Gemini time budget exceeded: " + "; ".join(errors[-6:]))
             try:
                 r = _gemini_call(key, model, user, system)
-            except requests.RequestException as exc:  # timeout / connection: try again, then next model
+            except requests.RequestException as exc:  # timeout / connection: don't wait on this model again
                 errors.append(f"{model}: {type(exc).__name__}")
-                continue
+                break
             if r.ok:
                 try:
                     text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -106,7 +108,7 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
                     break
             errors.append(f"{model}: {r.status_code}")
             if r.status_code in (500, 503):  # transient: wait and retry same model
-                time.sleep(10 * (attempt + 1))
+                time.sleep(5 * (attempt + 1))
                 continue
             if r.status_code not in (400, 404, 429):
                 raise RuntimeError(f"Gemini {r.status_code}: {r.text[:300]}")
