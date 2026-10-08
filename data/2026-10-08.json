@@ -1,0 +1,645 @@
+{
+  "analysis": {
+    "summary": "היממה האחרונה מתאפיינת בהסלמה גיאופוליטית חריפה במזרח התיכון עם תקיפות חות'יות על נמלי תעופה בסעודיה ושיבושים קשים במצר הורמוז, לצד לחצי מאקרו בעקבות פרוטוקול הפד המרמז על העלאת ריבית נוספת. מנגד, דוחות שיא של TSMC וסמסונג מדגישים את עוצמתו הנמשכת של סקטור השבבים וה-AI.",
+    "market_mood": "risk-off",
+    "events": [
+      {
+        "title": "הסלמה חריפה במפרץ הפרסי: תקיפות חות'יות על סעודיה ושיבושי שיט בהורמוז",
+        "category": "גיאופוליטי",
+        "severity": 5,
+        "what_happened": "המורדים החות'ים ביצעו מתקפות קטלניות על נמלי תעופה בסעודיה (כולל ריאד) ופגעו במכליות נפט במצר הורמוז. תעבורת המכליות באזור ירדה לשפל של חודשיים ומחירי הנפט זינקו.",
+        "regions": [
+          "המזרח התיכון",
+          "גלובלי"
+        ],
+        "impact": "עלייה חדה במחירי הנפט הגולמי והשילוח הימי, פגיעה קשה בחברות תעופה ותיירות, ועלייה בביקוש למניות ביטחון ואנרגיה.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "XOM",
+              "CVX",
+              "FRO",
+              "ZIM",
+              "DLEKG.TA"
+            ],
+            "why": "עלייה מיידית במחירי הנפט הגולמי ובתעריפי ההובלה הימית (מכליות) עקב שיבושי נתיבים ועליית פרמיות הסיכון."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "LMT",
+              "RTX",
+              "ESLT.TA"
+            ],
+            "why": "הצטיידות מוגברת במערכות הגנה אווירית וטילים מצד מדינות המפרץ והמערב בעקבות האיום החות'י הגובר."
+          },
+          "long": {
+            "outlook": "שלילי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "ELAL.TA",
+              "DAL",
+              "AAL"
+            ],
+            "why": "פגיעה מתמשכת בנתיבי הטיסה הגלובליים, התייקרות קבועה של הדלק הסילוני ופגיעה ברווחיות חברות התעופה."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "FRO",
+            "name": "Frontline plc",
+            "reason": "עלייה חדה בתעריפי מכליות הנפט בשל הארכת נתיבי השיט",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "DLEKG.TA",
+            "name": "קבוצת דלק",
+            "reason": "עליית מחירי האנרגיה הגלובליים משפרת את מרווחי הפקת הגז והנפט",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "ESLT.TA",
+            "name": "אלביט מערכות",
+            "reason": "ביקוש מוגבר לפתרונות הגנה אווירית, כטב\"מים ומערכות לחימה",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "ELAL.TA",
+            "name": "אל על",
+            "reason": "התייקרות מחירי הדלק הסילוני ועלייה בפרמיות הביטוח לטיסות באזור המזרח התיכון"
+          },
+          {
+            "ticker": "DAL",
+            "name": "Delta Air Lines",
+            "reason": "עליית מחירי הנפט פוגעת ישירות במרווחי הרווח של חברות התעופה הגלובליות"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Yemen's Houthis say they attacked Riyadh airport with ballistic missile",
+            "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPREc3b1M4OVVFbEtXWE45ZWpjeDNiNGpGVnZIdEJQSUU2R2dmdzF4V3hFZ1RMSlgyX0Fmc295aXo3bGtsbHpYSlM5MUVjLXJsM1ZISFV4NVFQN04wY0M4ZFRud3pzVUd2ZjN4S1dRSzNkenVacC1naWFmdUMtRUVYUlQ3MWY4dHRyOHRkTThCcUYxV0NFOU9qNE5fUW92RmlfYmk3Z0ZqWDlfc2VmNVhHS0tPX2k2Ql94SHlCeThTUzJBUQ?oc=5"
+          },
+          {
+            "title": "Oil jumps as Middle East supply concerns persist amid shipping attacks",
+            "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZlloTmR5SkZfME9kcjlVcENtQzFrdmc2cnJfTWthWWJYcFIwZFFGNUs5Y2Y2TkR0MjE2STZ3WXktSXJRRmRiXzZYTnQ4clNNZlNQempZRzFPTERYUXpFM1d0SUJoUzFyN3FLRTg0d3UtckZWbWpWM01DNVJIUEdBTTkyd0dFaDgwX0llWXBtMXV1dVROdXUwVUF6VG9Ca3BReDdJTzNhT0d3RjcwUVF5TS12N1ZWNzJXdlRz?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "דוחות שיא ל-TSMC וסמסונג מאששים את עוצמת מהפכת ה-AI",
+        "category": "שבבים וטכנולוגיה",
+        "severity": 4,
+        "what_happened": "חברת TSMC דיווחה על הכנסות שיא ברבעון השלישי שעקפו את תחזיות השוק, בעוד סמסונג צופה רווח של 80 מיליארד דולר על רקע הביקוש הגובר לשבבי זיכרון ו-AI.",
+        "regions": [
+          "ארה\"ב",
+          "טייוואן",
+          "דרום קוריאה"
+        ],
+        "impact": "חיזוק סקטור הטכנולוגיה והשבבים, המאזן חלקית את הסנטימנט השלילי בשווקים הנגרם מעליית תשואות האג\"ח.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "TSM",
+              "NVDA",
+              "ASML"
+            ],
+            "why": "תוצאות כספיות חזקות מהצפוי מפיגות את החששות מהאטה בביקושים לחומרת בינה מלאכותית."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "MU",
+              "AVGO",
+              "AMAT"
+            ],
+            "why": "התרחבות שוק ה-AI לשרתים, סמארטפונים ומחשבים אישיים תומכת בביקוש לשבבי זיכרון וציוד ייצור."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "TSM",
+              "INTC"
+            ],
+            "why": "הקמת מפעלים חדשים בארה\"ב ואירופה (Onshoring) ושינוי מבני בשרשרת האספקה הגלובלית של מוליכים למחצה."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "TSM",
+            "name": "Taiwan Semiconductor Manufacturing Co.",
+            "reason": "תוצאות שיא ברבעון השלישי וביקוש קשיח מצד ענקיות הטכנולוגיה",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "NVDA",
+            "name": "NVIDIA Corporation",
+            "reason": "הלקוחה המרכזית של TSMC נהנית מאישור מחדש של עוצמת הביקוש לשבבי AI",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "INTC",
+            "name": "Intel Corporation",
+            "reason": "המשך פיגור טכנולוגי מול TSMC וסמסונג בתחום השבבים המתקדמים ל-AI"
+          }
+        ],
+        "sources": [
+          {
+            "title": "TSMC's third-quarter revenue surges to record, beating market forecast",
+            "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeVBYZ3dYR1hTREs5alJLQ2RsTHl3d3NMRVhKVVpQb1pYem92N1ZDdWl6MjNpWmswZWZfa1h2ak5NSjTURQ?oc=5"
+          },
+          {
+            "title": "Samsung flags $80 billion profit on AI boom",
+            "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOM00tZmVPZWtsRV9qcGV1VEtMajUtWXVxZlZVdU9HblZLWHBTZjNtQ0NuZHBJRjFOX2ktN0VkUmFERDBwNnhySHNPNTZ6bmZnZ08tTTN6WlhsMi1vR1Fnb2NBa2ZCZXNlcjRPOE1SVERxYnhJeGZmN0s1V0ZWWW4wSU45Z3gxRTBXZGVwRVpDX2F5Vm1aMzhDODI5cDFXU2RhX0pBOHpfeFNqNjg?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "פרוטוקול הפד ועליית תשואות האג\"ח מעיקים על וול סטריט",
+        "category": "אחר",
+        "severity": 4,
+        "what_happened": "פרוטוקול הפדרל ריזרב רמז על העלאת ריבית נוספת השנה בשל אינפלציה דביקה. בעקבות זאת, תשואות האג\"ח הממשלתיות ל-10 שנים זינקו ומדדי המניות המובילים נסוגו משיאיהם.",
+        "regions": [
+          "ארה\"ב",
+          "אירופה",
+          "גלובלי"
+        ],
+        "impact": "לחץ שלילי על מניות צמיחה וטכנולוגיה עקב עליית שיעור ההיוון, ועלייה באטרקטיביות של נכסים חסרי סיכון.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "SPY",
+              "QQQ",
+              "TLT"
+            ],
+            "why": "התאמת הערכות השווי של השוק לסביבת ריבית גבוהה יותר לזמן ממושך יותר (Higher for Longer)."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "JPM",
+              "KRE"
+            ],
+            "why": "הבנקים עשויים להרוויח ממרווחי ריבית גבוהים יותר, אך עלולים לסבול מהאטה כלכלית ומחיקות אשראי."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "SPY"
+            ],
+            "why": "התייצבות האינפלציה וחזרה לצמיחה כלכלית מתונה ובריאה יותר בטווח הארוך."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "JPM",
+            "name": "JPMorgan Chase & Co.",
+            "reason": "נהנה מסביבת ריבית גבוהה התומכת במרווחי הריבית נטו",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "TLT",
+            "name": "iShares 20+ Year Treasury Bond ETF",
+            "reason": "ירידת מחירי האג\"ח הארוכות כתוצאה מעליית התשואות בשוק"
+          },
+          {
+            "ticker": "QQQ",
+            "name": "Invesco QQQ Trust",
+            "reason": "מניות הטכנולוגיה והצמיחה רגישות במיוחד לעליית הריבית ושיעורי ההיוון"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Wall Street ends lower, off record highs, as Treasury yields climb",
+            "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYlBxMHUzb2ZDaHpMY3JBZUl2Rk9XSE94bjQ2aFVndHhYeU4zS1Rwb2I1SlFJWjVpaE9sS0V4c2ZiQ2JsMzd0R0lydzlFejhJVkNYbU5ZTGVjeW9tWUJtTmUzX2VwY0N1SnpLVmdvQWRvM20xS25hRmhXRDdHVUppRk9hS2JhVExxdVUtX0hfQlNqWnd0OUhHWEpaa2w1Z3hXNVRkaw?oc=5"
+          },
+          {
+            "title": "Fed minutes: Another rate hike likely coming this year to combat persistent inflation",
+            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQ1dTbk5oWnMwOTlyWElUT2VXeGFtY21kMWtKbWJfa3ZmTlhwWGRydkpBdWF3Y0oxY3FjX0h5d2NYYkpnZVI1endPNnR0TzlyYWswV0pWbkx1aFljYkJFVkxNanlzSExIaTdBTFZrdVZFbnFwRm9NdXUtNDBrTGN0REc2ZWVOMTFWRE9mYnBEZnNTbFNGV3dONndqSFM4QQ?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "מתקפת סייבר מתוחכמת על בנקים בדרום קוריאה באמצעות כלי AI סיניים",
+        "category": "סייבר",
+        "severity": 3,
+        "what_happened": "חברת קראודסטרייק חשפה כי האקרים השתמשו בכלי בינה מלאכותית שפותחו בסין כדי לתקוף בנקים בדרום קוריאה, מה שמציג עליית מדרגה באיומי הסייבר המבוססי AI.",
+        "regions": [
+          "דרום קוריאה",
+          "סין",
+          "ארה\"ב"
+        ],
+        "impact": "הגברת ההשקעות באבטחת מידע מבוססת AI וביקוש מוגבר לחברות סייבר מובילות המספקות פתרונות הגנה מתקדמים.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "CRWD",
+              "PANW",
+              "CYBR"
+            ],
+            "why": "מודעות גוברת לאיומים מתוחכמים מניעה רכישות דחופות של פתרונות הגנה על ידי מוסדות פיננסיים."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "CHKP",
+              "FTNT"
+            ],
+            "why": "שדרוג מערכות הגנה ארגוניות ובנקאיות ברחבי העולם כדי להתמודד עם איומי AI התקפיים."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "CRWD",
+              "PANW"
+            ],
+            "why": "שילוב קבוע של כלי הגנת AI כחלק מתשתיות קריטיות לאומיות ופיננסיות גלובליות."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "CRWD",
+            "name": "CrowdStrike Holdings, Inc.",
+            "reason": "חשיפת התקיפה מחזקת את מעמדה כמובילה טכנולוגית באיתור איומים מתקדמים",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "CYBR",
+            "name": "CyberArk Software Ltd.",
+            "reason": "ביקוש מוגבר להגנה על זהויות וגישה מיוחסת במוסדות פיננסיים",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "KB",
+            "name": "KB Financial Group Inc.",
+            "reason": "חששות מפגיעה במוניטין ועלויות אבטחה מוגברות לבנקים דרום קוריאניים"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Hacker Used Chinese-Developed A.I. Tool to Target South Korean Banks, CrowdStrike Says",
+            "url": "https://www.nytimes.com/2026/10/08/world/australia/south-korea-bank-hack-china-us-ai.html"
+          }
+        ]
+      },
+      {
+        "title": "הסופה הטרופית 'איזאיאס' מאיימת על מפרץ מקסיקו; חברות אנרגיה מצמצמות תפוקה",
+        "category": "אנרגיה",
+        "severity": 3,
+        "what_happened": "הסופה הטרופית 'איזאיאס' צפויה להתחזק להוריקן ולפגוע בחוף המפרץ של ארה\"ב. ענקיות האנרגיה של ושברון כבר החלו לצמצם את תפוקת הנפט והגז באזור.",
+        "regions": [
+          "ארה\"ב"
+        ],
+        "impact": "צמצום היצע הנפט בטווח הקצר, לחץ לעליית מחירים, ופגיעה פוטנציאלית בחברות ביטוח עקב נזקי רכוש.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "XOM",
+              "CVX"
+            ],
+            "why": "השבתת אספקה זמנית במפרץ מקסיקו תומכת במחירי הנפט והגז בטווח הקצר."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "PGR",
+              "ALL"
+            ],
+            "why": "חברות הביטוח עשויות לספוג תביעות פיצויים בטווח הקצר, אך יתאימו את הפרמיות בהמשך."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "NEE"
+            ],
+            "why": "השקעה מוגברת בתשתיות אנרגיה עמידות בפני פגעי מזג אוויר קיצוניים ושינויי אקלים."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "XOM",
+            "name": "Exxon Mobil Corporation",
+            "reason": "עליית מחירי הנפט עקב צמצום היצע זמני במפרץ מקסיקו",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "PGR",
+            "name": "The Progressive Corporation",
+            "reason": "חשש מהפסדים ותביעות ביטוח רבות כתוצאה מנזקי ההוריקן",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Shell, Chevron cut Gulf of Mexico output as Tropical Storm Isaias approaches",
+            "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNUNOZjNFVW95UmFQQ0JVdVhUdHE2c3RxTVhHQUt5aG41cWFOOFotd0FibWVMU0cxNlVxLVRhUlRxQ0dqOERpMGJnQUR0SFRwUzhJS2FvVjhtQW1RVzB5cHF2U2VVYUdCZV9wN29UV3dxcmlYOXJrMnBGZ3pOMEpGdDRWM0ZENEtESFZFTWlzQzV4VWFmenF2RzlzTGNObER2Y3c4clkxbTBxZVBBUEF3YzM5RUNtRl8ya3d0Wmt3?oc=5"
+          }
+        ]
+      }
+    ],
+    "regions_to_watch": [
+      {
+        "region": "המזרח התיכון",
+        "stance": "להיזהר",
+        "why": "הסלמה צבאית ישירה בין החות'ים לסעודיה ושיבושי שיט במצר הורמוז מעלים את פרמיית הסיכון האזורית ופוגעים בחברות תעופה ותיירות."
+      },
+      {
+        "region": "ארה\"ב (טכנולוגיה ושבבים)",
+        "stance": "להעדיף",
+        "why": "תוצאות כספיות חזקות במיוחד של מובילות הסקטור (TSMC, סמסונג) מעידות על ביקוש קשיח ל-AI, המהווה עוגן יציב גם בסביבת מאקרו מאתגרת."
+      },
+      {
+        "region": "אירופה",
+        "stance": "להיזהר",
+        "why": "לחצי אינפלציה, עליית תשואות אג\"ח ממשלתיות ומחאות חברתיות נרחבות בצרפת מעיבים על הסנטימנט הכלכלי ביבשת."
+      }
+    ],
+    "indices": [
+      {
+        "symbol": "^GSPC",
+        "name": "S&P 500",
+        "price": 7801.77001953125,
+        "d1": -0.2,
+        "w1": 2.0,
+        "m1": 1.7,
+        "from_52w_high": -0.2,
+        "vs_ma50": 1.6,
+        "vs_ma200": 7.7
+      },
+      {
+        "symbol": "^IXIC",
+        "name": "נאסד\"ק",
+        "price": 27538.689453125,
+        "d1": -0.2,
+        "w1": 2.5,
+        "m1": 4.2,
+        "from_52w_high": -0.2,
+        "vs_ma50": 4.1,
+        "vs_ma200": 11.0
+      },
+      {
+        "symbol": "^RUT",
+        "name": "ראסל 2000",
+        "price": 2793.199951171875,
+        "d1": -1.3,
+        "w1": -0.1,
+        "m1": -5.6,
+        "from_52w_high": -9.0,
+        "vs_ma50": -4.9,
+        "vs_ma200": 0.2
+      },
+      {
+        "symbol": "^TA125.TA",
+        "name": "ת\"א-125",
+        "price": 3916.550048828125,
+        "d1": -0.4,
+        "w1": -3.9,
+        "m1": -5.4,
+        "from_52w_high": -12.6,
+        "vs_ma50": -4.0,
+        "vs_ma200": -4.5
+      },
+      {
+        "symbol": "^VIX",
+        "name": "VIX (פחד)",
+        "price": 15.760000228881836,
+        "d1": 4.5,
+        "w1": -3.8,
+        "m1": -4.3,
+        "from_52w_high": -49.2,
+        "vs_ma50": 1.6,
+        "vs_ma200": -12.7
+      },
+      {
+        "symbol": "^TNX",
+        "name": "תשואת 10Y ארה\"ב",
+        "price": 5.2769999504089355,
+        "d1": 0.2,
+        "w1": -0.3,
+        "m1": 9.8,
+        "from_52w_high": -0.6,
+        "vs_ma50": 8.3,
+        "vs_ma200": 18.1
+      },
+      {
+        "symbol": "ILS=X",
+        "name": "דולר/שקל",
+        "price": 3.0825400352478027,
+        "d1": 1.3,
+        "w1": 0.3,
+        "m1": 2.4,
+        "from_52w_high": -7.1,
+        "vs_ma50": 2.1,
+        "vs_ma200": 1.7
+      },
+      {
+        "symbol": "DX-Y.NYB",
+        "name": "מדד הדולר",
+        "price": 102.41400146484375,
+        "d1": 0.2,
+        "w1": 0.3,
+        "m1": 3.7,
+        "from_52w_high": 0.0,
+        "vs_ma50": 2.3,
+        "vs_ma200": 3.1
+      },
+      {
+        "symbol": "GC=F",
+        "name": "זהב",
+        "price": 4143.0,
+        "d1": 0.1,
+        "w1": -1.4,
+        "m1": -7.1,
+        "from_52w_high": -22.1,
+        "vs_ma50": -5.3,
+        "vs_ma200": -8.9
+      },
+      {
+        "symbol": "CL=F",
+        "name": "נפט WTI",
+        "price": 92.33999633789062,
+        "d1": 4.6,
+        "w1": -0.6,
+        "m1": -3.9,
+        "from_52w_high": -18.2,
+        "vs_ma50": 3.7,
+        "vs_ma200": 11.2
+      },
+      {
+        "symbol": "BTC-USD",
+        "name": "ביטקוין",
+        "price": 82664.9375,
+        "d1": -0.7,
+        "w1": -2.5,
+        "m1": 8.2,
+        "from_52w_high": -33.0,
+        "vs_ma50": 2.6,
+        "vs_ma200": 15.1
+      }
+    ],
+    "market_state": {
+      "headline": "מדדי הטכנולוגיה וה-S&P 500 נאחזים בשיאים, בעוד זינוק בנפט, תשואות אג\"ח של 5.28% והסלמה גיאופוליטית מעיקים על רוחב השוק.",
+      "context": "המדדים המובילים בוול סטריט רשמו נסיגה מתונה בלבד של 0.2% (S&P 500 ונאסד\"ק), הנתמכת בדוחות כספיים חזקים של TSMC וסמסונג המאשרים את המשך מומנטום ה-AI. מנגד, הסלמה חריפה במפרץ הפרסי עקב תקיפות חות'יות ושיבושי שיט במצר הורמוז, לצד השבתות תפוקה עקב הסופה במפרץ מקסיקו, הזניקו את נפט ה-WTI ב-4.6% לרמה של 92.34 דולר לחבית. במקביל, פרוטוקול הפד שהעיד על אפשרות להעלאת ריבית נוספת תמך בעליית תשואת האג\"ח ל-10 שנים ל-5.28% והתחזקות מדד הדולר לשיא שנתי, כאשר שער הדולר-שקל טיפס ב-1.3% לרמה של 3.08.",
+      "analysis": "מגמת העלייה של מדדי המניות הגדולים נשמרת בטווח הבינוני-ארוך (נאסד\"ק ו-S&P 500 מעל ממוצעי 50 ו-200 יום ובמרחק 0.2% בלבד משיאם), אך קיימת התפצלות חדה ברוחב השוק. הראסל 2000 ירד היום ב-1.3% ומצוי 4.9% מתחת לממוצע 50 יום, ומדד ת\"א-125 מפגר ב-12.6% משיאו השנתי – עדות לפגיעות החברות הקטנות והמקומיות. תשואת אג\"ח ארה\"ב ל-10 שנים ברמה של 5.28% (עלייה של 9.8% בחודש) מהווה משקולת כבדה על תמחור הנכסים ותנאי הנזילות. מדד ה-VIX קפץ ב-4.5% ל-15.76, ומשקף עלייה ברמת החשש אך טרם פריצת אי-ודאות קיצונית. הנפט הגבוה (92.34 דולר) מהווה איום ישיר על האינפלציה ועל תוואי הריבית העתידי.",
+      "recommendation": "סטנס כללי: זהיר-סלקטיבי. מומלץ לתעדף חברות טכנולוגיה גדולות ומובילות שבבים בעלות תזרים חזק מבוסס AI, לצד החזקה טקטית בסקטור האנרגיה כגידור לסיכונים הגיאופוליטיים והסערות בארה\"ב. במקביל, יש לצמצם חשיפה לחברות קטנות (Small-Cap) המושפעות לרעה מסביבת הריבית הגבוהה, ולשמור על הגנות מט\"ח לנוכח הפיחות בשקל.",
+      "by_horizon": {
+        "short": "זהיר: תנודתיות גוברת עקב הזינוק בנפט, תשואות אג\"ח בשיא והסלמה ביטחונית במפרץ; שמירה על נזילות גבוהה וניהול סיכונים.",
+        "medium": "ניטרלי: השוק נתמך ברווחיות חברות השבבים וה-AI, אך מוגבל על ידי סביבת ריבית מגבילה ורוחב שוק חלש.",
+        "long": "חיובי סלקטיבי: מגמות הצמיחה הטכנולוגיות נותרו איתנות, עם יתרון מובהק למניות איכות (Quality) בעלות מאזנים חזקים."
+      },
+      "levels_to_watch": [
+        "תשואת אג\"ח ארה\"ב ל-10 שנים סביב 5.28% והתנהגותה סמוך לשיא השנתי (-0.6%)",
+        "מחיר נפט WTI ברמת 92.34 דולר לחבית והתפתחויות ביטחוניות במצר הורמוז",
+        "מדד S&P 500 ברמת 7,801.77 נקודות ויכולתו להחזיק מעל ממוצע 50 יום",
+        "מדד VIX ובחינת התבססות מעל רמת 15.76 נקודות",
+        "שער דולר/שקל ברמת 3.0825 על רקע ההתרחשויות האזוריות"
+      ],
+      "risks": [
+        "הסלמה צבאית נוספת במפרץ הפרסי ופגיעה באספקת הנפט שתתדלק אינפלציה",
+        "המשך עליית תשואות האג\"ח מעבר ל-5.28% ופוטנציאל להעלאת ריבית נוספת של הפד",
+        "התדרדרות נוספת ברוחב השוק ופגיעה במניות קטנות (ראסל 2000 במינוס 5.6% חודשי)",
+        "איומי סייבר על המערכת הפיננסית ושיבושי מזג אוויר במפרץ מקסיקו"
+      ]
+    }
+  },
+  "market": {
+    "FRO": {
+      "price": 53.06,
+      "day": 0.5,
+      "week": 7.7
+    },
+    "DLEKG.TA": {
+      "price": 8093.0,
+      "day": 0.9,
+      "week": -2.3
+    },
+    "ESLT.TA": {
+      "price": 204220.0,
+      "day": -1.0,
+      "week": -2.3
+    },
+    "ELAL.TA": {
+      "price": 1822.0,
+      "day": 1.7,
+      "week": -5.6
+    },
+    "DAL": {
+      "price": 82.97,
+      "day": -0.8,
+      "week": -0.6
+    },
+    "TSM": {
+      "price": 472.2,
+      "day": -2.1,
+      "week": 3.5
+    },
+    "NVDA": {
+      "price": 237.47,
+      "day": -0.7,
+      "week": 4.0
+    },
+    "INTC": {
+      "price": 113.12,
+      "day": 0.6,
+      "week": -5.9
+    },
+    "JPM": {
+      "price": 329.58,
+      "day": -0.5,
+      "week": 0.1
+    },
+    "TLT": {
+      "price": 77.15,
+      "day": -0.2,
+      "week": -0.4
+    },
+    "QQQ": {
+      "price": 757.73,
+      "day": -0.3,
+      "week": 2.4
+    },
+    "CRWD": {
+      "price": 265.44,
+      "day": -4.8,
+      "week": 0.3
+    },
+    "KB": {
+      "price": 124.73,
+      "day": -0.0,
+      "week": 1.3
+    },
+    "XOM": {
+      "price": 164.05,
+      "day": -0.3,
+      "week": 0.8
+    },
+    "PGR": {
+      "price": 214.12,
+      "day": 1.0,
+      "week": 3.3
+    },
+    "^GSPC": {
+      "price": 7801.77,
+      "day": -0.2,
+      "week": 2.0
+    },
+    "^IXIC": {
+      "price": 27538.69,
+      "day": -0.2,
+      "week": 2.5
+    },
+    "^TA125.TA": {
+      "price": 3916.55,
+      "day": -0.4,
+      "week": -3.9
+    },
+    "GC=F": {
+      "price": 4143.3,
+      "day": 0.1,
+      "week": -1.4
+    },
+    "CL=F": {
+      "price": 92.32,
+      "day": 4.6,
+      "week": -0.6
+    },
+    "PLTR": {
+      "price": 194.12,
+      "day": 1.1,
+      "week": 3.8
+    },
+    "LMT": {
+      "price": 499.22,
+      "day": -2.1,
+      "week": -2.0
+    }
+  }
+}
