@@ -41,3 +41,12 @@ Use Tel Aviv tickers with the .TA suffix and US tickers plain.
 
 # Tickers always shown in the market snapshot.
 WATCHLIST = ["^GSPC", "^IXIC", "^TA125.TA", "GC=F", "CL=F", "NVDA", "PLTR", "LMT", "ESLT.TA", "ELAL.TA"]
+
+# Investment-candidate universe: the model may only pick tickers from here (guards against invented symbols).
+CANDIDATES = {
+    "טכנולוגיה ובינה מלאכותית": ["MSFT", "GOOGL", "META", "AMZN", "ORCL", "PLTR", "CRM", "NOW", "XLK", "VGT"],
+    "שבבים, זיכרון ותשתית": ["NVDA", "AVGO", "AMD", "TSM", "ASML", "MU", "AMAT", "LRCX", "SMH", "SOXX"],
+    "אנרגיה": ["XOM", "CVX", "COP", "OXY", "SLB", "EOG", "CEG", "XLE", "VDE", "URA"],
+    "ביטחון וסייבר": ["LMT", "RTX", "NOC", "GD", "CRWD", "PANW", "FTNT", "ITA", "CIBR"],
+    "גידור וקרנות רחבות": ["GLD", "SLV", "SPY", "VOO", "USMV", "TLT"],
+}

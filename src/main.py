@@ -84,6 +84,13 @@ DEMO_PORTFOLIO = [
     {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 100, "cost": 100.0, "currency": "USD"},
     {"ticker": "5134135", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
 ]
+DEMO["candidates"] = {"theme": "הדגמה: מתיחות באנרגיה וביקוש לשבבים.", "picks": {
+    "אנרגיה": [{"ticker": "XLE", "name": "Energy Select Sector SPDR", "type": "etf", "price": 90.0, "d1": 0.8, "w1": 2.1, "m1": 4.0, "from_52w_high": -6.0,
+                "thesis": "שיבושי אספקה ומתיחות בהורמוז תומכים במחירי הנפט.", "horizon": "בינוני", "conviction": "בינונית", "risk": "הפסקת אש חדה תוריד את מחירי הנפט.",
+                "buy_below": 88.0, "target": 100.0, "stop": 82.0}],
+    "שבבים, זיכרון ותשתית": [{"ticker": "SMH", "name": "VanEck Semiconductor ETF", "type": "etf", "price": 300.0, "d1": 0.5, "w1": 1.0, "m1": 3.0, "from_52w_high": -4.0,
+                "thesis": "מחסור בזיכרון מקדם ביקוש לתעשייה כולה.", "horizon": "בינוני", "conviction": "בינונית", "risk": "תנודתיות גבוהה וריכוז ב-NVDA.",
+                "buy_below": 290.0, "target": 340.0, "stop": 270.0}]}}
 DEMO_GOAL = {"target_ils": 65000, "deadline": "2026-12-31", "start_ils": 41600, "start_date": "2026-10-07"}
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
@@ -204,12 +211,22 @@ def main():
                 analysis["market_state"] = analyze_market_state(analysis["indices"], analysis)
         except Exception as exc:
             print(f"[market_state] failed: {type(exc).__name__}: {exc}")
+    if not args.demo:
+        try:  # investment candidates by category (public market data + world picture; no portfolio data)
+            import candidates
+            from analyze import analyze_candidates
+            data = candidates.gather()
+            analysis["candidates"] = candidates.validate(analyze_candidates(data, analysis, analysis.get("market_state")), data)
+        except Exception as exc:
+            print(f"[candidates] failed: {type(exc).__name__}: {exc}")
     os.makedirs(os.path.join(OUT(), "data"), exist_ok=True)
     with open(os.path.join(OUT(), "data", f"{date}.json"), "w", encoding="utf-8") as f:
         json.dump({"analysis": analysis, "market": market}, f, ensure_ascii=False, indent=2)
 
     pf, pa = _portfolio(args, analysis, analysis.get("market_state"))  # after data/ is saved: portfolio never lands there
-    out = render(analysis, market, date, pf, pa)
+    import candidates as _c
+    cand_extra = _c.personalize(analysis.get("candidates"), pf)  # private: exposure + affordable units -> email only
+    out = render(analysis, market, date, pf, pa, cand_extra)
     if args.demo:
         with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])

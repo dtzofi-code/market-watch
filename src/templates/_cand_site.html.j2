@@ -1,0 +1,13 @@
+{% if a.candidates and a.candidates.picks %}
+<h2>מועמדים להשקעה לפי קטגוריות</h2>
+{% if a.candidates.theme %}<div class="card"><strong>תמונת המצב שמנחה את הבחירה:</strong> {{ a.candidates.theme }}</div>{% endif %}
+{% for cat, picks in a.candidates.picks.items() %}{% if picks %}
+<div class="card"><h3 style="margin:0 0 6px">{{ cat }}</h3>
+{% for p in picks %}<div class="stk"><span class="tk">{{ p.ticker }}</span> {{ p.name }}{% if p.type == 'etf' %} <small>(קרן סל)</small>{% endif %}
+  <span class="pct">${{ '%.2f'|format(p.price) }}{% if p.w1 is not none %} · <span class="{{ 'up' if p.w1>=0 else 'down' }}">{{ '%+.1f'|format(p.w1) }}% שבוע</span>{% endif %}</span>
+  <br><small>{{ p.thesis }}</small>
+  <br><small>אופק: {{ p.horizon }} · ביטחון: {{ p.conviction }}{% if p.buy_below %} · קנייה עד ${{ '%.2f'|format(p.buy_below) }}{% endif %}{% if p.target %} · יעד ${{ '%.2f'|format(p.target) }}{% endif %}{% if p.stop %} · סטופ ${{ '%.2f'|format(p.stop) }}{% endif %}</small>
+  {% if p.risk %}<br><small>⚠ {{ p.risk }}</small>{% endif %}</div>{% endfor %}</div>
+{% endif %}{% endfor %}
+<p style="color:var(--muted);font-size:.85rem">מועמדים הם ניתוח אוטומטי של AI מתוך רשימה קבועה, ואינם ייעוץ השקעות.</p>
+{% endif %}

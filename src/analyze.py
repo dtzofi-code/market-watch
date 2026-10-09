@@ -221,3 +221,20 @@ def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = 
 def _call(user: str, system: str) -> dict:
     use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
     return _extract_json(_claude(user, system) if use_claude else _gemini(user, system))
+
+
+CANDIDATES_SYSTEM = """אתה אסטרטג השקעות. תקבל לכל קטגוריה רשימת ניירות (מניות וקרנות סל) עם נתוני שוק עדכניים (מחיר, ביצועים, מרחק משיא, ממוצעים, RSI), יחד עם תמונת מצב עולמית: אירועי היום ומצב השוק.
+בחר מכל קטגוריה עד 3 מועמדים בולטים להשקעה, **רק מתוך הרשימה שניתנה** (אסור להמציא טיקרים). הבחירה צריכה להשתנות לפי תמונת המצב בעולם: קשר כל בחירה לאירוע או למגמה קונקרטיים מהיום, ולא רק למומנטום.
+אם בקטגוריה אין הזדמנות סבירה היום, החזר רשימה ריקה או קצרה. העדף איכות על כמות. אל תרדוף אחרי ניירות שכבר זינקו בחדות בלי נימוק, ואל תבחר ניירות מינופיים.
+לכל מועמד: thesis (למה עכשיו, בקשר לתמונת המצב), horizon (קצר/בינוני/ארוך), conviction (גבוהה/בינונית/נמוכה), risk (הסיכון העיקרי), ורמות מחיר בדולרים מעוגנות בנתונים שקיבלת: buy_below (קנייה עד), target (יעד), stop (סטופ).
+כתוב בעברית. החזר JSON תקין בלבד:
+{"theme": "תמונת המצב שמנחה את הבחירה, 2 משפטים",
+ "picks": {"<שם קטגוריה בדיוק>": [{"ticker": "", "name": "", "type": "stock|etf", "thesis": "", "horizon": "", "conviction": "", "risk": "", "buy_below": 0, "target": 0, "stop": 0}]}}"""
+
+
+def analyze_candidates(data: dict, analysis: dict, market_state: dict = None) -> dict:
+    ev = "; ".join(f"{e.get('title')} (חומרה {e.get('severity')}): {e.get('impact', '')}" for e in analysis.get("events", []))
+    user = ("נתוני שוק לפי קטגוריה:\n" + json.dumps(data, ensure_ascii=False) +
+            f"\n\nסיכום היום: {analysis.get('summary', '')}\nאירועים: {ev}" +
+            (f"\nמצב שוק: {market_state.get('headline', '')} {market_state.get('recommendation', '')}" if market_state else ""))
+    return _call(user, CANDIDATES_SYSTEM)

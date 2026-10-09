@@ -51,6 +51,10 @@ def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None) -> str:
     if ms:
         lines += ["", f"<b>📊 {_e(ms.get('headline'))}</b>", _e(ms.get("recommendation"))]
     lines += _pf_lines(pf, pa)
+    cands = (a.get("candidates") or {}).get("picks") or {}
+    top = [(cat, picks[0]) for cat, picks in cands.items() if picks]
+    if top:
+        lines += ["", "<b>🔎 מועמדים להשקעה</b>"] + [f"• {_e(cat)}: <b>{_e(p['ticker'])}</b> (${p['price']:.2f}) – {_e(p.get('thesis'))}" for cat, p in top[:5]]
     for e in a.get("events", [])[:5]:
         w = ", ".join(s.get("ticker", "") for s in e.get("winners", [])[:4] if s.get("ticker"))
         l = ", ".join(s.get("ticker", "") for s in e.get("losers", [])[:3] if s.get("ticker"))

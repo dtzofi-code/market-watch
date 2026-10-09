@@ -1,0 +1,17 @@
+{% if a.candidates and a.candidates.picks %}
+<div style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;margin:12px 0;line-height:1.6;font-size:14px">
+<b style="font-size:16px">🔎 מועמדים להשקעה לפי קטגוריות</b>
+{% if a.candidates.theme %}<div style="color:#5c6675;font-size:13px;margin:4px 0">{{ a.candidates.theme }}</div>{% endif %}
+{% for cat, picks in a.candidates.picks.items() %}{% if picks %}
+<div style="margin-top:8px"><b>{{ cat }}</b></div>
+{% for p in picks %}{% set x = cx.get(p.ticker) %}
+<div style="border-top:1px solid #eee;padding:4px 0"><b dir="ltr">{{ p.ticker }}</b> {{ p.name }}{% if p.type == 'etf' %} (קרן סל){% endif %}
+<span dir="ltr"> ${{ '%.2f'|format(p.price) }}</span>{% if p.w1 is not none %} <span dir="ltr" style="color:{{ '#0f8a4b' if p.w1>=0 else '#c62828' }}">{{ '%+.1f'|format(p.w1) }}%</span>{% endif %}
+<br>{{ p.thesis }}
+<br><span style="color:#5c6675;font-size:13px">אופק {{ p.horizon }} · ביטחון {{ p.conviction }}{% if p.buy_below %} · קנייה עד ${{ '%.2f'|format(p.buy_below) }}{% endif %}{% if p.target %} · יעד ${{ '%.2f'|format(p.target) }}{% endif %}{% if p.stop %} · סטופ ${{ '%.2f'|format(p.stop) }}{% endif %}</span>
+{% if p.risk %}<br><span style="font-size:13px">⚠ {{ p.risk }}</span>{% endif %}
+{% if x %}<br><span style="font-size:13px;color:#1d4ed8">{% if x.weight %}כבר בתיק: {{ '%.1f'|format(x.weight) }}% · {% endif %}{% if x.units %}המזומן שלך (${{ '%.0f'|format(x.cash) }}) מספיק לכ-{{ x.units }} יח׳{% else %}המזומן שלך אינו מספיק ליחידה אחת{% endif %}</span>{% endif %}</div>
+{% endfor %}{% endif %}{% endfor %}
+<div style="color:#8a94a6;font-size:12px;margin-top:6px">מועמדים הם ניתוח אוטומטי של AI מתוך רשימה קבועה, ואינם ייעוץ השקעות.</div>
+</div>
+{% endif %}
