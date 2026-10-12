@@ -213,7 +213,7 @@ def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = 
     user = ("תיק (אחוזים בלבד):\n" + json.dumps(holdings_view, ensure_ascii=False) +
             f"\n\nסיכום היום: {analysis.get('summary','')}\nאירועים: {ev}" +
             (f"\nמצב שוק: {market_state.get('headline','')} {market_state.get('recommendation','')}" if market_state else "") +
-            (f"\nיעד המשתמש: נדרשת תשואה של {goal['required_total_pct']}% בתוך {goal['weeks_left']} שבועות (כ-{goal['required_weekly_pct']}% בשבוע ברציפות). "
+            (f"\nיעד המשתמש: נדרשת תשואה של {goal['required_total_pct']}% (לאחר ניכוי הפקדות חודשיות מתוכננות) בתוך {goal['weeks_left']} שבועות (כ-{goal['required_weekly_pct']}% בשבוע ברציפות). "
              f"הוא כרגע {'מעל' if goal['on_track'] else 'מתחת'} לקו ישר אל היעד ({goal['vs_path_pct']:+.1f}%)." if goal else ""))
     return _call(user, PORTFOLIO_SYSTEM)
 

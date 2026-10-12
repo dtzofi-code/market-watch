@@ -43,8 +43,11 @@ def goal_status(pf: dict, goal: dict) -> dict:
     total_days = max((deadline - start_d).days, 1)
     elapsed = min(max((today - start_d).days, 0), total_days)
     expected = start + (target - start) * elapsed / total_days  # straight-line path
-    req = target / cur - 1
+    deposit_usd = float(goal.get("monthly_deposit_usd") or 0)
+    future_dep = deposit_usd * pf["totals"]["fx"] * (weeks_left / 4.345)  # planned deposits until the deadline
+    req = (target - future_dep) / cur - 1  # return the existing portfolio still has to deliver
     return {
+        "monthly_deposit_usd": deposit_usd, "future_deposits_ils": future_dep,
         "target_ils": target, "current_ils": cur, "gap_ils": target - cur, "weeks_left": round(weeks_left, 1),
         "required_total_pct": round(req * 100, 1), "required_weekly_pct": round(((1 + req) ** (1 / weeks_left) - 1) * 100, 2),
         "progress_pct": round((cur - start) / (target - start) * 100, 1) if target != start else None,

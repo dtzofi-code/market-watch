@@ -5,6 +5,7 @@
 <p style="margin:6px 0">{{ pa.summary }}</p>
 {% if pa.goal %}{% set g = pa.goal %}<div style="background:#eefaf1;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>🎯 יעד: {{ '{:,.0f}'.format(g.target_ils) }} ₪ עד סוף השנה</b>
 <div>שווי נוכחי ≈ {{ '{:,.0f}'.format(g.current_ils) }} ₪ · פער ≈ {{ '{:,.0f}'.format(g.gap_ils) }} ₪ · נותרו {{ g.weeks_left }} שבועות</div>
+{% if g.future_deposits_ils %}<div>הפקדות מתוכננות עד היעד: ≈ {{ '{:,.0f}'.format(g.future_deposits_ils) }} ₪ ({{ '%.0f'|format(g.monthly_deposit_usd) }}$ לחודש) – נכללות בחישוב</div>{% endif %}
 <div>תשואה נדרשת: <b dir="ltr">{{ '%+.1f'|format(g.required_total_pct) }}%</b> (כ-<span dir="ltr">{{ g.required_weekly_pct }}%</span> בשבוע ברציפות){% if g.progress_pct is not none %} · התקדמות {{ g.progress_pct }}% מהדרך{% endif %}</div>
 <div>ביחס לקו ישר אל היעד: <b style="color:{{ '#0f8a4b' if g.on_track else '#c62828' }}">{{ '%+.1f'|format(g.vs_path_pct) }}%</b> ({{ 'בקצב' if g.on_track else 'מאחורי הקצב' }})</div>
 {% if pa.goal_assessment and pa.goal_assessment.verdict %}<div style="margin-top:4px"><b>הערכה:</b> {{ pa.goal_assessment.verdict }}</div>{% if pa.goal_assessment.what_must_go_right %}<div>מה צריך לקרות: {{ pa.goal_assessment.what_must_go_right }}</div>{% endif %}{% if pa.goal_assessment.alternatives %}<div>חלופות: {{ pa.goal_assessment.alternatives|join(' · ') }}</div>{% endif %}{% endif %}
