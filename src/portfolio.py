@@ -117,7 +117,7 @@ def build(holdings: list) -> dict:
             value_usd, invested_usd = value * to_usd, invested * to_usd
             pnl = round((value / invested - 1) * 100, 1) if invested else None
         rows.append({
-            **{k: h.get(k) for k in ("ticker", "name", "type", "currency", "hold", "group")},
+            **{k: h.get(k) for k in ("ticker", "name", "type", "currency", "hold", "group", "pending")},
             "has_data": bool(m), "m": m or {}, "price": price,
             "qty": qty if has_amounts else None, "unit_price": price if price else (cost if has_amounts else None),
             "value_usd": value_usd, "invested_usd": invested_usd, "pnl_pct": pnl, "weight": None,
@@ -132,7 +132,8 @@ def build(holdings: list) -> dict:
     return {"rows": rows, "totals": {
         "pnl_pct": round((total / inv - 1) * 100, 1) if inv else None,
         "day_pct": round(day, 2) if day is not None else None, "fx": round(fx, 2), "n": len(rows), "total_usd": total,
-        "cash_usd": sum(r["value_usd"] for r in sized if r["type"] == "cash"),
+        "cash_usd": sum(r["value_usd"] for r in sized if r["type"] == "cash" and not r.get("pending")),
+        "pending_usd": sum(r["value_usd"] for r in sized if r["type"] == "cash" and r.get("pending")),
         "no_data": sum(1 for r in rows if not r["has_data"]), "sized": bool(total),
     }}
 
@@ -228,7 +229,8 @@ def annotate(pf: dict, pa: dict) -> None:
     if groups:
         pa["group_exposure"] = [f"חשיפה ל{k}: {v[0]:.1f}% מהתיק ({', '.join(v[1])})" for k, v in groups.items()]
     if sized and pf["totals"].get("cash_usd"):
-        pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}"
+        pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}" + (
+            f" (ועוד ≈ ${pf['totals']['pending_usd']:,.0f} שטרם נכנסו מהמכירות)" if pf["totals"].get("pending_usd") else "")
     if sized:
         pa["cash_summary"] = {
             lbl: f"מכירות ≈ ${v[0]:,.0f}, קניות ≈ ${v[1]:,.0f}, נטו {'מזומן שמתפנה' if v[0] >= v[1] else 'נדרש מזומן'} ≈ ${abs(v[0] - v[1]):,.0f}"
