@@ -1,164 +1,19 @@
 {
   "analysis": {
-    "summary": "שווקי המניות העולמיים מציגים מגמה מעורבת לאור מימושים חדים בסקטור השבבים וה-AI, לצד תנודתיות גוברת בשוק האנרגיה בעקבות עסקת הדיזל ארה\"ב-רוסיה ואיומים ביטחוניים בים השחור. במקביל, האיחוד האירופי מחריף את הצעדים המסחריים נגד יבוא רכבים מסין, ונאט\"ו מאיצה השקעות בטכנולוגיות הגנה מפני כטב\"מים.",
+    "summary": "השווקים מפגינים סנטימנט מעורב הנוטה לזהירות, המונע משילוב של תיקון חד בסקטור השבבים וה-AI, עליית מדרגה באיומים הימיים והאוויריים בים השחור ובמפרץ הפרסי, ואי-ודאות בשוק האנרגיה בעקבות מהלכים גיאופוליטיים סביב תזקיקי נפט רוסיים. מניות הטכנולוגיה סופגות לחץ מימושים, בעוד סקטורי הביטחון, הגנת כטב\"מים והסייבר זוכים לתמיכה מבנית חזקה.",
     "market_mood": "mixed",
     "events": [
       {
-        "title": "טלטלה בסקטור השבבים וה-AI: מימושים חדים, רגולציה פיננסית ותחרות מתגברת",
-        "category": "שבבים וטכנולוגיה",
-        "severity": 4,
-        "what_happened": "מניות השבבים ספגו ירידות שערים חדות עקב חששות מבועת הערכות שווי והאטה בביקושים. במקביל, רגולטורים פיננסיים מגבירים את הפיקוח על סיכוני יציבות מבינה מלאכותית, ומיקרוסופט מאיצה מעבר לשבבים בפיתוח עצמי.",
-        "regions": [
-          "ארה\"ב",
-          "גלובלי",
-          "מזרח אסיה"
-        ],
-        "impact": "לחץ כבד על מדדי הטכנולוגיה (Nasdaq), ירידה במניות השבבים המובילות, והסטת הון של משקיעים לעבר חברות ענקיות בעלות תזרימי מזומנים חזקים ותשתיות פנימיות.",
-        "horizons": {
-          "short": {
-            "outlook": "שלילי",
-            "when": "ימים עד שבועות",
-            "tickers": [
-              "NVDA",
-              "AVGO",
-              "TSM"
-            ],
-            "why": "מימושי רווחים חדים, חששות מהערכות שווי מופרזות והצהרות רגולטוריות המייצרות אי-ודאות."
-          },
-          "medium": {
-            "outlook": "ניטרלי",
-            "when": "חודשים (עד כשנה)",
-            "tickers": [
-              "MSFT",
-              "AMAT",
-              "ASML"
-            ],
-            "why": "מעבר של ענקיות הענן (Hyperscalers) לפיתוח שבבים פנימיים להוזלת עלויות, לצד מיקוד בהחזר השקעה (ROI) בפרויקטי AI."
-          },
-          "long": {
-            "outlook": "חיובי",
-            "when": "שנה ומעלה",
-            "tickers": [
-              "NVDA",
-              "TSM",
-              "MSFT"
-            ],
-            "why": "גידול מבני ארוך טווח בביקוש למיחשוב ענן, אוטומציה ופתרונות AI, תוך ביזור שרשראות האספקה הגלובליות."
-          }
-        },
-        "winners": [
-          {
-            "ticker": "MSFT",
-            "name": "Microsoft",
-            "reason": "פיתוח פנימי של שבבי AI מפחית תלות בספקים חיצוניים ומחזק את הרווחיות בטווח הארוך",
-            "confidence": "גבוהה"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "NVDA",
-            "name": "Nvidia",
-            "reason": "לחץ מחירים, אובדן נתח שוק בסין לטובת חברות מקומיות (כמו וואווי) ותחרות מצד לקוחות הענן"
-          }
-        ],
-        "sources": [
-          {
-            "title": "'Brutal session' for chip stocks shows AI trade is turning",
-            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPM3RJWWJHTmtIMnhaYWVyeFFpYV8wZndZMUFOVXM2NkpJdUNfRGlyQzdHeVcwMXkxcXkyWFFZQ3hXS3RpM0NqZUtNcmxNd3NkSGZETmlvTjRRYjJ3X3BXa0FEamh0NDExSTZieGRHam9BdFBiZXdOcTBSUXRPNlFEeTVKOEtkN3JiV25QUEsyekp0OTJRaU5nVA?oc=5"
-          },
-          {
-            "title": "Microsoft plans huge deployment of its own AI chips, with an eye on saving costs",
-            "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWHVSM1ltUmRIUHVldm04ZU5JX2hLc0lhYjZVaDMzMDlkVkxXNUM3OTFFVU1kdlM1R3BneGN5cXp3Ui1Yc211TFF0VUU3ZlpRWjhBRy0yOGJjdlZxR3FmdmFHdFNMRDM3Rnh3WjJMd0d1MHNINEdvdWpBVEc5TTJNMjk1Xy1JNEY2b1g5RkYzWXYtakQ0SmNnMHdoUlRnbjFMSWVBUm9QaVBXbkFNUVgwSDVLdURleTBwMHc?oc=5"
-          }
-        ]
-      },
-      {
-        "title": "תנודתיות בשוק האנרגיה: עסקת הדיזל ארה\"ב-רוסיה ותקיפות כטב\"מים בים השחור",
-        "category": "אנרגיה",
-        "severity": 4,
-        "what_happened": "עסקת הדיזל הנרקמת בין ארה\"ב לרוסיה מעוררת התנגדות פוליטית חריפה באירופה, בעוד תקיפות כטב\"מים בים השחור הובילו שטביעת ספינות. במקביל, החות'ים ממשיכים לאיים על תשתיות אנרגיה בסעודיה.",
-        "regions": [
-          "אירופה",
-          "המיצר הבלטי/הים השחור",
-          "המזרח התיכון",
-          "ארה\"ב"
-        ],
-        "impact": "פרמיית סיכון מוגברת במחירי ההובלה הימית והנפט, לצד מבוכה פוליטית באירופה שתסבך את מדיניות האנרגיה ואת מחירי הדלקים במערב.",
-        "horizons": {
-          "short": {
-            "outlook": "חיובי",
-            "when": "ימים עד שבועות",
-            "tickers": [
-              "XOM",
-              "CVX",
-              "FRO",
-              "ORL.TA"
-            ],
-            "why": "עליית מחירי הנפט וההובלה הימית עקב הפרעות בשרשראות האספקה בים השחור והסלמה בסעודיה."
-          },
-          "medium": {
-            "outlook": "ניטרלי",
-            "when": "חודשים (עד כשנה)",
-            "tickers": [
-              "SHEL",
-              "TTE"
-            ],
-            "why": "דיונים באיחוד האירופי על מס רווחי יתר (Windfall Tax) לחברות אנרגיה לצד התאמת מסלולי השילוח הימי."
-          },
-          "long": {
-            "outlook": "שלילי",
-            "when": "שנה ומעלה",
-            "tickers": [
-              "XOM",
-              "CVX"
-            ],
-            "why": "מעבר מבני מואץ לאנרגיות מתחדשות באירופה במטרה להשתחרר מתלות בנפט וגז ממקורות תנודתיים ופוליטיים."
-          }
-        },
-        "winners": [
-          {
-            "ticker": "FRO",
-            "name": "Frontline",
-            "reason": "שיבושים בנתיבי שיט בים השחור מעלים חציון דמי חכירה של מיכליות נפט",
-            "confidence": "גבוהה"
-          },
-          {
-            "ticker": "ORL.TA",
-            "name": "בתי זיקוק נפט (בזן)",
-            "reason": "עליית מרווחי הזיקוק העולמיים והתייקרות מוצרי דיזל תורמים לתזרימי החברה",
-            "confidence": "בינונית"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "DAL",
-            "name": "Delta Air Lines",
-            "reason": "התייקרות הדלק הסילוני פוגעת בשיעורי הרווחיות של חברות התעופה",
-            "confidence": "גבוהה"
-          }
-        ],
-        "sources": [
-          {
-            "title": "Eleven sailors missing after drone sinks ship off Bulgaria",
-            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZ0lxazhMY3hqT0E3UUxzMUVWb2d1MUpIQzVReEQtSzI2aGtZQjBBdzNCUEI3SThQZ0J1b3ZjeExrbmFpVnZSZW83MFlrUmhGTF9rWHp0dVVRaW9wWl9vZ25wTHNvZ1RqNkY4ZDIyMmNBTzZlUWxNa3RqdC1ubHV2NTBOdWtFVWltZHhTSV9oVzdEeEdTd2xDY2Zfekcza0ZMQm5ILTFJbw?oc=5"
-          },
-          {
-            "title": "U.K. and Europe Recoil From Trump’s Diesel Deal With Putin",
-            "url": "https://www.nytimes.com/2026/10/13/world/europe/trump-putin-diesel-uk-europe-gift.html"
-          }
-        ]
-      },
-      {
-        "title": "הסלמה ביטחונית באירופה ובמזרח התיכון: נאט\"ו מגדילה השקעות בהגנה נגד כטב\"מים",
+        "title": "הסלמה ימית בים השחור: כטב\"מים הטביעו ספינה סמוך לבולגריה והגבירו את כוננות נאט\"ו",
         "category": "גיאופוליטי",
         "severity": 4,
-        "what_happened": "קרן החדשנות של נאט\"ו משנה סדרי עדיפויות ומשקיעה בטכנולוגיות יירוט כטב\"מים לאור לקחי הלחימה באוקראינה. מפקד נאט\"ו הצהיר על מוכנות מלאה, בעוד איומים איראניים בבריטניה ובמפרץ גוברים.",
+        "what_happened": "מתקפת כטב\"מים בים השחור הטביעה כלי שיט סמוך לחופי בולגריה (חברת נאט\"ו) והותירה ימאים נעדרים, מה שהוביל לזימון שגריר רוסיה ולהכרזת נאט\"ו על מיקוד תקציבי מואץ בטכנולוגיות הגנה מפני כטב\"מים.",
         "regions": [
-          "אירופה",
-          "ארה\"ב",
-          "ישראל"
+          "מזרח אירופה",
+          "הים השחור",
+          "אירופה"
         ],
-        "impact": "הזרמת תקציבי עתק לתעשיות הביטחוניות במערב ובישראל, בדגש על מערכות הגנה אווירית, טכנולוגיות גילוי וסייבר התקפי/הגנתי.",
+        "impact": "עלייה מיידית בפרמיות ביטוח ימי עבור ספינות סוחר בים השחור, דחיפה לחברות תעשיות ביטחוניות המתמחות בלוחמת נגד-כטב\"מים (C-UAS) וטילים, והכבדה על חברות שילוח ימי הפועלות באזור.",
         "horizons": {
           "short": {
             "outlook": "חיובי",
@@ -166,74 +21,316 @@
             "tickers": [
               "ESLT.TA",
               "LMT",
-              "RTX"
+              "RTX",
+              "FRO"
             ],
-            "why": "עלייה מידית בביקוש למערכות יירוט טקטיות והגנה מפני מל\"טים."
+            "why": "סנטימנט מלחמתי וקפיצה בפרמיות סיכון ימיות יזניקו את מניות הביטחון וההובלה; רגיעה אפשרית רק אם תובטח שיירת הגנה בינלאומית."
           },
           "medium": {
             "outlook": "חיובי",
             "when": "חודשים (עד כשנה)",
             "tickers": [
-              "NOC",
-              "PLTR",
-              "ESLT.TA"
+              "ESLT.TA",
+              "ARYT.TA",
+              "RTX"
             ],
-            "why": "חתימת חוזים רשתורתיים ארוכי טווח עם מדינות נאט\"ו להצטיידות במערכות AI צבאיות ולוחמה אלקטרונית."
+            "why": "קרנות נאט\"ו ומדינות אירופה יקצו תקציבי רכש ייעודיים ליירוט רחפנים וכטב\"מים מתאבדים כחלק מלקחי העימות."
           },
           "long": {
             "outlook": "חיובי",
             "when": "שנה ומעלה",
             "tickers": [
               "ESLT.TA",
-              "PLTR",
+              "NOC",
               "LMT"
             ],
-            "why": "שינוי מבני בתקציבי הביטחון המערביים, גידול קבוע באחוז התוצר המופנה לביטחון והתעצמות לוחמה אוטונומית."
+            "why": "שינוי דוקטרינרי מבני בלוחמה ימית והגנת גבולות יחייב שילוב קבוע של מערכות לייזר ואלקטרו-אופטיקה בכל צי מסחרי וצבאי."
           }
         },
         "winners": [
           {
             "ticker": "ESLT.TA",
             "name": "אלביט מערכות",
-            "reason": "מובילה עולמית במערכות הגנה מפני כטב\"מים, לוחמה אלקטרונית ומערכות מודיעין טקטיות",
+            "reason": "מובילה עולמית במערכות לוחמה אלקטרונית והגנה נגד כטב\"מים שרושמת ביקושים חסרי תקדים ממדינות אירופה ונאט\"ו.",
             "confidence": "גבוהה"
           },
           {
-            "ticker": "PLTR",
-            "name": "Palantir",
-            "reason": "התרחבות חוזים עם נאט\"ו וצבאות מערביים לאנליטיקה ו-AI בשדה הקרב",
+            "ticker": "RTX",
+            "name": "RTX Corporation",
+            "reason": "יצרנית מובילה של מערכות הגנה אווירית ומכ\"מים המיועדים לנטרול איומים בלתי מאוישים.",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "ARYT.TA",
+            "name": "ארייט תעשיות",
+            "reason": "חשיפה מוגברת לשרשרת האספקה הביטחונית ולמרעומים ותחמושת יירוט.",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "ZIM",
+            "name": "צים",
+            "reason": "עליית מחירי ביטוח ימי וסיכוני ניווט באזורי עימות ימיים מייקרים את עלויות התפעול."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Eleven sailors missing after drone sinks ship off Bulgaria - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZ0lxazhMY3hqT0E3UUxzMUVWb2d1MUpIQzVReEQtSzI2aGtZQjBBdzNCUEI3SThQZ0J1b3ZjeExrbmFpVnZSZW83MFlrUmhGTF9rWHp0dVVRaW9wWl9vZ25wTHNvZ1RqNkY4ZDIyMmNBTzZlUWxNa3RqdC1ubHV2NTBOdWtFVWltZHhTSV9oVzdEeEdTd2xDY2Zfekcza0ZMQm5ILTFJbw?oc=5"
+          },
+          {
+            "title": "NATO fund targets drone defence technologies as Ukraine reshapes priorities - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTXB5YmkxMi15dGRGMVBZN2VVNDZUR2VTUXJoX0NLTkdnQ1Y1LUdZLUo2bGRPUmZOamd6cEZhSklGMVhPeXdoMGNjcXFNNUJfYmtSYzk2V0hMN1ExNFNOSGh0T2oxcVRiallqR3dOWFI3YS1KNE00QW1NSWd6TGxidjVhZnlWSDVGSVlrVUdJa1N1SGJTNzIzQ3JsOTNCSG9HWk5wUklzR1M1akUwU3RQVW5OX29WN290RmtxTk9mSF9LeEU?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "טלטלה במניות השבבים: תחרות מסין, מעבר לפיתוח שבבים פנימי ופשיטות רגל ב-AI",
+        "category": "שבבים וטכנולוגיה",
+        "severity": 4,
+        "what_happened": "סקטור השבבים חווה מסחר תנודתי ושלילי בעקבות ירידה בנתח השוק של אנבידיה בסין מול וואווי, הכרזת מיקרוסופט על פריסת שבבי AI עצמאיים לחיתוך עלויות, ופשיטת רגל של Character.AI שמעלה שאלות לגבי מודלים עסקיים.",
+        "regions": [
+          "ארה\"ב",
+          "סין",
+          "גלובלי"
+        ],
+        "impact": "לחץ מכירות כבד על מובילות השבבים והחומרה, הערכה מחדש של מכפילי רווח בחברות AI, בעוד ענקיות התוכנה והענן עשויות לחסוך בהוצאות הוניות (CapEx) בטווח הארוך.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "NVDA",
+              "AMD",
+              "SMCI",
+              "ASML"
+            ],
+            "why": "סנטימנט מימושי רווחים חריף (Chips off the table) וחששות מקניבליזציה פנימית של לקוחות הענן."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "MSFT",
+              "GOOGL",
+              "NVDA"
+            ],
+            "why": "בידול בין חברות שמייצרות מונטיזציה ממשית מתשתיות לבין סטארטאפים ששורפים מזומנים ונפלטים מהשוק."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "TSM",
+              "ASML",
+              "MSFT"
+            ],
+            "why": "המעבר לשבבים עצמאיים של הייפר-סקיילרים עדיין מצריך ייצור ב-Foundries מתקדמים (TSMC) וציוד ליתוגרפיה (ASML), מה ששומר על ביקוש תשתיתי ארוך טווח."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "MSFT",
+            "name": "Microsoft",
+            "reason": "הצלחה בפריסת שבבי AI מותאמים אישית תפחית תלות בספקים חיצוניים ותשפר את שולי הרווח של חטיבת הענן.",
+            "confidence": "בינונית"
+          },
+          {
+            "ticker": "TSM",
+            "name": "Taiwan Semiconductor Manufacturing",
+            "reason": "ממשיכה להיות יצרנית השבבים (Foundry) בפועל הן עבור אנבידיה והן עבור השבבים הפנימיים של מיקרוסופט.",
             "confidence": "גבוהה"
           }
         ],
         "losers": [
           {
-            "ticker": "EADSY",
-            "name": "Airbus (תעופה אזרחית)",
-            "reason": "חששות משיבושים במרחבים אוויריים באירופה והתייקרות תשומות",
+            "ticker": "NVDA",
+            "name": "NVIDIA",
+            "reason": "אובדן נתחי שוק בסין לטובת חברות מקומיות ואימוץ חלופות עצמאיות על ידי לקוחות הענן הגדולים ביותר שלה.",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "AMD",
+            "name": "Advanced Micro Devices",
+            "reason": "חשיפה לסנטימנט שלילי ולחצי תמחור בשוק מעבדי הגרפיקה והמאיצים.",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "'Brutal session' for chip stocks shows AI trade is turning - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPM1RJWWJHTmtIMnhaYWVyeFFpYV8wZndZMUFOVXM2NkpJdUNfRGlyQzdHeVcwMXkxcXkyWFFZQ3hXS3RpM0NqZUtNcmxNd3NkSGZETmlvTjRRYjJ3X3BXa0FEamh0NDExSTZieGRHam9BdFBiZXdOcTBSUXRPNlFEeTVKOEtkN3JiV25QUEsyekp0OTJRaU5nVA?oc=5"
+          },
+          {
+            "title": "Microsoft plans huge deployment of its own AI chips, with an eye on saving costs - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWHVSM1ltUmRIUHVldm04ZU5JX2hLc0lhYjZVaDMzMDlkVkxXNUM3OTFFVU1kdlM1R3BneGN5cXp3Ui1Yc211TFF0VUU3ZlpRWjhBRy0yOGJjdlZxR3FmdmFHdFNMRDM3Rnh3WjJMd0d1MHNINEdvdWpBVEc5TTJNMjk1Xy1JNEY2b1g5RkYzWXYtakQ0SmNnMHdoUlRnbjFMSWVBUm9QaVBXbkFNUVgwSDVLdURleTBwMHc?oc=5"
+          },
+          {
+            "title": "Nvidia's China AI-chip share falls as Huawei closes gap, report finds - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZ2lCcTJZLWVsU3NJWjJRV2xZd0RXM1NtbWNnQUtfb1RsSjlNVmFEWnVxYVJ5Y0pXS0lWV284NlVCWkp2Qy1jbm5na2ZFeE5BYmNlWFVaVGttNElacjE1SGlaeVBOc1J5Z042bUlOS3JPbWpHcloxVDF5X3B2NG5hSEdCcHp0SGswU3d5VWNNWE02bE1KS0VyTVROTlJxUTRFUzNQM3hrbERWWWh5X21pSFg2ajBBOG02cXdzS1UyV09MY0k?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "איומי תעופה במפרץ הפרסי: מתקפות כטב\"מים של החות'ים על שדות תעופה בסעודיה",
+        "category": "תעופה",
+        "severity": 3,
+        "what_happened": "סעודיה התחייבה לתגובה תקיפה לאחר מתקפות כטב\"מים מתמשכות על שדות תעופה בממלכה המיוחסות לחות'ים, במקביל לחשיפת מזימות בהכוונת איראן נגד בסיסים מערביים.",
+        "regions": [
+          "המזרח התיכון",
+          "המפרץ הפרסי"
+        ],
+        "impact": "איום על קווי תעופה בינלאומיים החוצים את המזרח התיכון, ייקור דמי ביטוח תעופתי וסטיית נתיבים מחברות תעופה זרות, לצד הגברת ביקושים למערכות ביטחון ישראליות ומערביות.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "ELAL.TA",
+              "DAL",
+              "LHA.DE"
+            ],
+            "why": "חברות תעופה גלובליות מבטלות או משהות נתיבים מעל חצי האי ערב; אל על עשויה להמשיך להנות מעודפי ביקוש בישראל עקב ביטולי זרות."
+          },
+          "medium": {
+            "outlook": "חיובי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "ESLT.TA",
+              "LMT",
+              "NOC"
+            ],
+            "why": "סעודיה ומדינות המפרץ יגדילו הצטיידות במערכות הגנה מרחביות נגד טילים ורחפנים."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "ELAL.TA"
+            ],
+            "why": "הנורמליזציה התעופתית במזרח התיכון נותרת שברירית, ומחייבת הוצאות ביטחון קבועות בתשתיות תחבורה."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "ELAL.TA",
+            "name": "אל על",
+            "reason": "חוסר יציבות תעופתית במרחב מרתיע חברות תעופה זרות ומחזק את מעמדה המונופוליסטי של אל על בנתיבי ישראל.",
+            "confidence": "בינונית"
+          },
+          {
+            "ticker": "ESLT.TA",
+            "name": "אלביט מערכות",
+            "reason": "מערכות הגנת מטוסים מפני טילים (C-MUSIC) ומערכות מכ\"ם זוכות לעניין מוגבר בעת איומים על שדות תעופה.",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "DAL",
+            "name": "Delta Air Lines",
+            "reason": "הארכת נתיבי טיסה בינלאומיים ועלויות דלק מוגברות עקב עקיפת אזורי איום במזרח התיכון.",
             "confidence": "נמוכה"
           }
         ],
         "sources": [
           {
-            "title": "NATO fund targets drone defence technologies as Ukraine reshaping priorities",
-            "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTXB5YmkxMi15dGRGMVBZN2VVNDZUR2VTUXJoX0NLTkdnQ1Y1LUdZLUo2bGRPUmZOamd6cEZhSklGMVhPeXdoMGNjcXFNNUJfYmtSYzk2V0HMN1ExNFNOSGh0T2oxcVRiallqR3dOWFI3YS1KNE00QW1NSWd6TGxidjVhZnlWSDVGSVlrVUdJa1N1SGJTNzIzQ3JsOTNCSG9HWk5wUklzR1M1akUwU3RQVW5OX29WN290RmtxTk9mSF9LeEU?oc=5"
+            "title": "Saudi Arabia Faces More Attacks as It Reels From Airport Strikes - NYT",
+            "url": "https://www.nytimes.com/2026/10/12/world/middleeast/iran-houthis-saudi-arabia.html"
           },
           {
-            "title": "MI5 Chief Warns of Growing Iranian and Russian Threats to U.K.",
-            "url": "https://www.nytimes.com/2026/10/13/world/europe/mi5-uk-threat-iran-russia.html"
+            "title": "Saudi minister vows 'serious response' to Houthi attacks on airports - BBC",
+            "url": "https://www.bbc.co.uk/news/articles/cjly0zqq27e4o?at_medium=RSS&at_campaign=rss"
           }
         ]
       },
       {
-        "title": "מלחמת הסחר ברכב החשמלי: האיחוד האירופי מגביל יבוא רכבים היברידיים מסין",
-        "category": "סחר וסנקציות",
+        "title": "סחר וסנקציות אנרגיה: עסקת הדיזל של טראמפ מול פוטין ומס רווחי יתר באיחוד האירופי",
+        "category": "אנרגיה",
         "severity": 3,
-        "what_happened": "האיחוד האירופי הגיע להסכמות על הגבלת יבוא רכבים היברידיים מסין ל-350,000 יחידות בשנה, במטרה להגן על תעשיית הרכב המקומית מפני הצפת השוק.",
+        "what_happened": "דיווחים על הבנות סביב ייצוא דיזל רוסי ביוזמת טראמפ עוררו זעם בקרב בעלות הברית האירופיות ובקונגרס, במקביל לקידום מס רווחי יתר באיחוד האירופי על חברות נפט וגז.",
+        "regions": [
+          "אירופה",
+          "ארה\"ב",
+          "רוסיה"
+        ],
+        "impact": "תנודתיות גבוהה במרווחי הזיקוק של תזקיקים (Crack Spreads), לחץ רגולטורי על ענקיות אנרגיה אירופיות ושיבוש זרימות המסחר המסורתיות בנפט כבד ותזקיקים.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "ORL.TA",
+              "VLO",
+              "XOM"
+            ],
+            "why": "פוטנציאל הגדלת היצע הדיזל הרוסי מכביד על מרווחי הזיקוק בטווח הקצר."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "SHEL",
+              "BP",
+              "TTE"
+            ],
+            "why": "הטלת מיסי רווחי יתר באירופה תפגע בתזרים החופשי לחלוקת דיבידנדים של חברות הדלק האירופיות."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "DLEKG.TA",
+              "XOM",
+              "CVX"
+            ],
+            "why": "חוסר יציבות מבני מול מקורות אנרגיה רוסיים מחייב השקעה ארוכת טווח במאגרים מערביים ובאגן הים התיכון."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "DLEKG.TA",
+            "name": "קבוצת דלק",
+            "reason": "חשיפה למאגרי גז טבעי באגן הים התיכון שאינם מושפעים ישירות מעסקאות הדיזל ונהנים מביקוש קשיח ויציב.",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "ORL.TA",
+            "name": "בזן (בתי זיקוק לנפט)",
+            "reason": "הצפת שווקים פוטנציאלית בדיזל רוסי עשויה לשחוק את מרווחי הזיקוק של בתי זיקוק מקומיים ואזוריים.",
+            "confidence": "בינונית"
+          },
+          {
+            "ticker": "VLO",
+            "name": "Valero Energy",
+            "reason": "יצרנית תזקיקים אמריקאית החשופה לשינויים במרווחי הדיזל העולמיים.",
+            "confidence": "בינונית"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Oil retreats as Russian diesel supply prospects counter Gulf supply risks - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPa2sxWTVlekZ2bXloVXNiOUltMm5iODVOMW9NTUo4Q016ZU02OFQ5TU9relFTcUZSaW8xV0c2YmNVbE5jWW5uQjhKeXNKaWxBcE92SU1fQUU0R2RVamdNUzRhTER3NzEzMFUtRVd3bzVnZ1g0ZmtRek95VHdYbVNNMmNacmlDd3dLTThmaGF2VVJDYTc4c1hQeUZfX0ZGQzZjTXlpLU52U3JuUGpjOHJjWndoS19LandSX0dtMmdUMzNKZw?oc=5"
+          },
+          {
+            "title": "EU looking at oil and gas windfall profit tax, as energy prices soar - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNRkFnZHlycnVIT0dJR21Nd1NXQ215NHNYZGp5WHM5Rk9MeEdBbktzUFhMSmZyWHRUS2o3Vkl6MWdGTVhmeVB4NUxPNG0zeHVSNU0yY2otd2Z0REhpWmhscGxzN3B4RW1CYlJYZmFhUnpucDBYMGJfMHdpSWx3YWtsTlFWc1lzVktYcDZvZXhYU1d1dEF4TklNekJ0cHk0ZVZsUE1aQU5JSVZXbWNLd3c?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "הגנת סחר אירופית: מכסה שנתית של 350 אלף רכבים היברידיים מסין",
+        "category": "סחר וסנקציות",
+        "severity": 2,
+        "what_happened": "האיחוד האירופי קבע מכסה נוקשה של 350,000 רכבים היברידיים מיובאים מסין בשנה, צעד שנועד לבלום את ההשתלטות הסינית על שוק הרכב האירופי ולהגן על יצרניות מקומיות.",
         "regions": [
           "אירופה",
           "סין"
         ],
-        "impact": "הגנה לטווח הקצר על יצרניות רכב אירופיות, אך סיכון לצעדי תגמול מצידה של סין ועליית מחירים לצרכן האירופי.",
+        "impact": "הקלה תחרותית ליצרניות רכב אירופיות מסורתיות, הגבלת קצב הצמיחה של מותגי רכב סיניים באירופה וסיכון לתגובות נגד מסחריות מצד בייג'ינג.",
         "horizons": {
           "short": {
             "outlook": "חיובי",
@@ -242,136 +339,69 @@
               "STLA",
               "VWAGY"
             ],
-            "why": "הקלת הלחץ התחרותי בשוק האירופי עבור יצרניות מסורתיות."
+            "why": "הפחתת הלחץ המיידי על מחירי רכבים היברידיים ושיפור סנטימנט המשקיעים כלפי מניות הרכב האירופיות."
           },
           "medium": {
-            "outlook": "ניטרלי",
+            "outlook": "חיובי",
             "when": "חודשים (עד כשנה)",
             "tickers": [
-              "BYDDF",
-              "VWAGY"
+              "STLA"
             ],
-            "why": "העתקת קווי ייצור ע\"י יצרניות סיניות לתוך תחומי האיחוד האירופי כדי לעקוף את המכסות."
+            "why": "מתן מרווח נשימה לחברות אירופיות להשיק דגמים היברידיים וחשמליים עממיים."
           },
           "long": {
             "outlook": "שלילי",
             "when": "שנה ומעלה",
             "tickers": [
-              "VWAGY",
-              "STLA"
+              "STLA",
+              "VWAGY"
             ],
-            "why": "סנקציות תגמול סיניות על יצוא רכבי יוקרה ופגיעה בקצב המעבר של אירופה לתחבורה ירוקה."
+            "why": "מחסומי סחר פוגעים ביעילות הכלכלית ועלולים לגרור סנקציות תגובה סיניות על מותגי יוקרה וייצוא אירופי."
           }
         },
         "winners": [
           {
             "ticker": "STLA",
             "name": "Stellantis",
-            "reason": "הגנה על נתח השוק האירופי בתחום הרכבים ההיברידיים והמוזלים",
+            "reason": "הגנה רגולטורית על נתח השוק האירופי של מותגיה העממיים מפני תחרות מחירים סינית אגרסיבית.",
             "confidence": "בינונית"
           }
         ],
         "losers": [
           {
             "ticker": "BYDDF",
-            "name": "BYD",
-            "reason": "חסימת נתיב צמיחה מרכזי באירופה וחובה להשקיע בבניית מפעלים יקרים באירופה",
+            "name": "BYD Company",
+            "reason": "חסימת מסלול התרחבות מרכזי באירופה עקב הגבלת מכסות הייבוא של כלי רכב מחושמלים.",
             "confidence": "גבוהה"
           }
         ],
         "sources": [
           {
-            "title": "EU to limit Chinese hybrid vehicle imports to 350,000 a year",
-            "url": "https://www.theguardian.com/environment/2026/oct/12/eu-deal-china-limit-imports-hybrid-electric-vehicles"
-          }
-        ]
-      },
-      {
-        "title": "מתקפת סייבר נרחבת על תשתיות קירור ברשתות מזון באירופה",
-        "category": "סייבר",
-        "severity": 3,
-        "what_happened": "מתקפת סייבר שיתקה מאות מערכות קירור ברשתות סופרמרקטים בצרפת, דבר הגורם לנזקים כלכליים ומדגיש את הפגיעות של תשתיות קריטיות ואזרחיות.",
-        "regions": [
-          "אירופה"
-        ],
-        "impact": "הגברת המודעות והדרישה לפתרונות אבטחת סייבר מקיפים לרשתות קמעונאיות ותשתיות תפעוליות (OT/IoT).",
-        "horizons": {
-          "short": {
-            "outlook": "חיובי",
-            "when": "ימים עד שבועות",
-            "tickers": [
-              "CRWD",
-              "PANW",
-              "CHKP",
-              "CYBR"
-            ],
-            "why": "סנטימנט חיובי למניות הסייבר בעקבות תקריות בולטות באירופה."
-          },
-          "medium": {
-            "outlook": "חיובי",
-            "when": "חודשים (עד כשנה)",
-            "tickers": [
-              "PANW",
-              "FTNT"
-            ],
-            "why": "הרחבת תקציבי אבטחה של חברות קמעונאות ותשתיות להגנה על מערכות OT וקירור."
-          },
-          "long": {
-            "outlook": "חיובי",
-            "when": "שנה ומעלה",
-            "tickers": [
-              "CRWD",
-              "PANW",
-              "CHKP"
-            ],
-            "why": "רגולציה מחמירה באיחוד האירופי המחייבת סטנדרט אבטחה גבוה לכל תשתיות המזון והלוגיסטיקה."
-          }
-        },
-        "winners": [
-          {
-            "ticker": "PANW",
-            "name": "Palo Alto Networks",
-            "reason": "מובילה בפתרונות אבטחת רשתות ותשתיות קריטיות (OT)",
-            "confidence": "גבוהה"
+            "title": "China’s carmakers export more as EU caps hybrid vehicle imports at 350,000 a year - AP News",
+            "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQbGhDbXZKUzRXNWtLeEVyR0RLaXFrUnUxWU8zNTdQZnpwdmo3NzY1cUV4dXY4MVg2YTVqeUVYaHdmdVdwaW5XbU5FNUM5YVZkYkNyeFRrYU1adGRSblBkNXRuWFd1UHp0OWFFY0xYc2N5U0lFT1Q0dGR2N1FOWXZGYldBZUc3bnNCUk5ienA1ci0?oc=5"
           },
           {
-            "ticker": "CHKP",
-            "name": "Check Point",
-            "reason": "חשיפה חזקה לשוק האירופי ודרישה לפתרונות הגנה על תשתיות מבוזרות",
-            "confidence": "בינונית"
-          }
-        ],
-        "losers": [
-          {
-            "ticker": "CA.PA",
-            "name": "Carrefour",
-            "reason": "נזקים ישירים מאובדן סחורה ושיבושים תפעוליים עקב היפגעות מערכות הקירור",
-            "confidence": "בינונית"
-          }
-        ],
-        "sources": [
-          {
-            "title": "Cyberattack Hits Hundreds of Supermarket Refrigeration Systems in France",
-            "url": "https://www.nytimes.com/2026/10/13/world/europe/france-cyberattack-supermarkets-refrigeration.html"
+            "title": "Volkswagen, Stellantis show EV confidence, with lessons from China - Reuters",
+            "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPY0NGVlN0NUtMdEVxbjNXV0c4MUJCUHpQSUZlQzJZTGUtRmw2SnpDb2dzQnpNLWJ6MTdkaXNZWTNlUGU5b3dSUFdWWmZBXzBKSjFoVkhkWWN0bVhhWWtJWnlCY1FCb2NfN00wc0hnNW1aanVZNkQyZG5zemxlTnhWRi13cW9aZ1V5TnM3RUNMYWtpRWNYRGFPRG1OeENsWFBJM2QzdTBYbFkzeU0?oc=5"
           }
         ]
       }
     ],
     "regions_to_watch": [
       {
-        "region": "ארה\"ב",
-        "stance": "ניטרלי",
-        "why": "המשקיעים ממתינים לנתוני אינפלציה ודוחות כספיים של הבנקים, לצד מימושים חדים בסקטור הטכנולוגיה."
-      },
-      {
-        "region": "אירופה",
+        "region": "אירופה ומזרח אירופה",
         "stance": "להיזהר",
-        "why": "חששות מאינפלציית אנרגיה מחודשת, מתקפות סייבר על תשתיות ומתיחות גיאופוליטית מול רוסיה."
+        "why": "חיכוך ישיר מול רוסיה בים השחור, איומי סייבר על תשתיות מזון ואנרגיה, ותוכניות למיסוי רווחי יתר המעיבות על שוק המניות."
       },
       {
-        "region": "ישראל",
+        "region": "ארה\"ב - טכנולוגיה ושבבים",
+        "stance": "להיזהר",
+        "why": "הערכות שווי מתוחות במניות החומרה ל-AI, לחץ מצד פיתוח שבבים עצמאיים של לקוחות הענן הגדולים, ותחרות גוברת מסין."
+      },
+      {
+        "region": "ישראל ותעשיות ביטחוניות",
         "stance": "להעדיף",
-        "why": "התחזקות הביקוש העולמי והמקומי למערכות הגנה ביטחוניות (אלביט) ופתרונות סייבר מעניקה רשת ביטחון לחברות הישראליות המובילות."
+        "why": "ביקוש קשיח וצומח למערכות יירוט, לוחמה אלקטרונית והגנת שדות תעופה וכלי שיט ברקע ההסלמה במפרץ ובים השחור תומך בחברות כמו אלביט מערכות (ESLT.TA)."
       }
     ],
     "indices": [
@@ -411,24 +441,24 @@
       {
         "symbol": "^TA125.TA",
         "name": "ת\"א-125",
-        "price": 3996.719970703125,
-        "d1": 1.7,
-        "w1": -0.8,
+        "price": 3998.550048828125,
+        "d1": 1.8,
+        "w1": -0.7,
         "m1": -5.5,
         "from_52w_high": -10.8,
-        "vs_ma50": -1.8,
-        "vs_ma200": -2.7
+        "vs_ma50": -1.7,
+        "vs_ma200": -2.6
       },
       {
         "symbol": "^VIX",
         "name": "VIX (פחד)",
-        "price": 15.430000305175781,
-        "d1": 1.4,
-        "w1": 2.8,
-        "m1": -9.8,
-        "from_52w_high": -50.3,
-        "vs_ma50": -0.2,
-        "vs_ma200": -14.7
+        "price": 15.40999984741211,
+        "d1": 1.3,
+        "w1": 2.7,
+        "m1": -9.9,
+        "from_52w_high": -50.4,
+        "vs_ma50": -0.3,
+        "vs_ma200": -14.8
       },
       {
         "symbol": "^TNX",
@@ -444,18 +474,18 @@
       {
         "symbol": "ILS=X",
         "name": "דולר/שקל",
-        "price": 3.074120044708252,
-        "d1": 0.4,
+        "price": 3.0725600719451904,
+        "d1": 0.3,
         "w1": 0.7,
         "m1": 0.9,
-        "from_52w_high": -7.3,
+        "from_52w_high": -7.4,
         "vs_ma50": 1.8,
-        "vs_ma200": 1.5
+        "vs_ma200": 1.4
       },
       {
         "symbol": "DX-Y.NYB",
         "name": "מדד הדולר",
-        "price": 102.2699966430664,
+        "price": 102.2750015258789,
         "d1": -0.3,
         "w1": 0.4,
         "m1": 2.8,
@@ -466,7 +496,7 @@
       {
         "symbol": "GC=F",
         "name": "זהב",
-        "price": 4208.0,
+        "price": 4209.2001953125,
         "d1": 0.4,
         "w1": 0.5,
         "m1": -3.3,
@@ -477,240 +507,114 @@
       {
         "symbol": "CL=F",
         "name": "נפט WTI",
-        "price": 92.58000183105469,
-        "d1": -1.2,
-        "w1": 3.5,
-        "m1": -8.7,
-        "from_52w_high": -18.0,
-        "vs_ma50": 3.3,
-        "vs_ma200": 10.8
+        "price": 92.22000122070312,
+        "d1": -1.6,
+        "w1": 3.1,
+        "m1": -9.0,
+        "from_52w_high": -18.4,
+        "vs_ma50": 2.9,
+        "vs_ma200": 10.3
       },
       {
         "symbol": "BTC-USD",
         "name": "ביטקוין",
-        "price": 83197.2734375,
-        "d1": 1.8,
-        "w1": 1.9,
-        "m1": -3.5,
-        "from_52w_high": -27.8,
-        "vs_ma50": 2.6,
-        "vs_ma200": 15.3
+        "price": 83301.5,
+        "d1": 1.9,
+        "w1": 2.0,
+        "m1": -3.3,
+        "from_52w_high": -27.7,
+        "vs_ma50": 2.7,
+        "vs_ma200": 15.5
       }
     ],
     "market_state": {
-      "headline": "עצירה סמוך לשיאים והתרחבות שונות רוחבית על רקע מימושים בטכנולוגיה ותנודתיות באנרגיה",
-      "context": "מדדי המניות המובילים בארה\"ב נסחרים ביציבות סביב שיאיהם, כאשר ה-S&P 500 רחוק רק 0.1% משיאו השנתי, חרף לחצי מימוש שנרשמו בנאסד\"ק (ירידה של 0.4% יומית ו-0.8% שבועית). הלחץ נבע בעיקר מטלטלה ומימושים חדים בסקטור השבבים וה-AI לצד התגברות הרגולציה והתחרות. במקביל, שוק האנרגיה הפגין תנודתיות כאשר הנפט ירד היום ב-1.2% למחיר של 92.58 דולר לחבית, בעקבות עסקת הדיזל ארה\"ב-רוסיה ואיומים ביטחוניים בים השחור. בזירה המקומית, ת\"א-125 רשם התאוששות יומית נאה של 1.7%, אך נותר בפיגור חודשי של 5.5% ומתחת לממוצעים הנעים.",
-      "analysis": "המגמה הראשית במדדים הגדולים נותרת שורית (ה-S&P 500 והנאסד\"ק מעל ממוצע 200 יום ב-7.6% ו-9.6% בהתאמה), אך רוחב השוק מציג חולשה בולטת: הראסל 2000 ירד ב-3.8% בחודש האחרון ונמצא 4.6% מתחת לממוצע 50 יום, מה שמעיד על ביצועי חסר של המניות הקטנות. מדד הפחד (VIX) עומד ברמה מתונה של 15.43 (עלייה קלה של 1.4% היום), מה שמצביע על שאננות יחסית חרף האתגרים. תשואת האג\"ח ל-10 שנים של ארה\"ב שוהה ברמה גבוהה של 5.24% (גבוהה ב-6.8% מממוצע 50 יום), מה שממשיך להכביד על מכפילי התמחור. מדד הדולר (102.27) נחלש קלות היום אך עלה ב-2.8% בחודש האחרון, בעוד שהזהב (4208 דולר) והביטקוין (כ-83,197 דולר) מפגינים עליות יומיות קלות שמצביעות על זרימת נזילות סלקטיבית.",
-      "recommendation": "סטנס: זהיר עד ניטרלי. מומלץ לממש רווחים בסקטור השבבים וה-AI שנמצא תחת לחץ רגולטורי ותחרותי, ולהסיט חשיפה לעבר סקטורי ביטחון והגנה (לאור הגדלת השקעות נאט\"ו) ולחברות יציבות עם תזרים חזק המסוגלות להתמודד עם סביבת ריבית ארוכה של מעל 5.2% באג\"ח ל-10 שנים. בסקטור האנרגיה מומלץ להמתין להתייצבות סביב תנודות הנפט וההתפתחויות הגיאופוליטיות.",
+      "headline": "השווקים מפגינים סנטימנט זהירות ומגמה מעורבת על רקע לחץ בטכנולוגיה והסלמה גיאופוליטית",
+      "context": "המסחר התאפיין בסנטימנט מעורב הנוטה לזהירות, המונע משילוב של תיקון חד בסקטור השבבים וה-AI, עליית מדרגה באיומים הימיים והאוויריים בים השחור ובמפרץ הפרסי, ואי-ודאות בשוק האנרגיה סביב סנקציות תזקיקים. ההסלמה בים השחור הכוללת פגיעה בספינות סמוך לבולגריה, לצד מתקפות כטב\"מים במפרץ הפרסי, הגבירו את כוננות נאט\"ו והשפיעו על הסקטורים השונים. במקביל, מניות הטכנולוגיה והנאסד\"ק ספגו לחץ מימושים בשל תחרות מסין ומעבר לפיתוח שבבים פנימי, בעוד מניות הביטחון והסייבר זכו לתמיכה.",
+      "analysis": "מדד S&P 500 נסחר בקרבת שיא כל הזמנים ברמה של 7,807 נקודות (ירידה קלה של 0.1% יומי אך עלייה של 2.0% חודשי ומרחק של 0.1% בלבד מהשיא השנתי), ונמצא מעל הממוצע הנע ל-50 יום ב-1.3%. הנאסד\"ק ירד ב-0.4% יומי וב-0.8% שבועי, אך שומר על עלייה חודשית של 3.5%. מנגד, מדד הראסל 2000 ממשיךפגר עם ירידה שבועית של 1.8% וחודשית של 3.8%, ונסחר מתחת לממוצע 50 ב-4.6%. מדד הפחד VIX עלה ב-1.3% ל-15.4 נקודות, ותשואות האג\"ח ל-10 שנים עומדות על 5.24%. בשוק הסחורות, נפט WTI ירד ב-1.6% ל-92.2 דולר אך שומר על עלייה שבועית של 3.1%, בעוד הזהב נסחר על 4,209 דולר והביטקוין טיפס ב-1.9% ל-83,301 דולר. ת\"א-125 בלט לחיוב עם עלייה יומית של 1.8% ל-3,998 נקודות.",
+      "recommendation": "הסטנס הכללי הוא זהיר. מומלץ לצמצם חשיפה לסקטור השבבים והטכנולוגיה עקב לחצי מימושים ותחרות גוברת, ולנתב הון לסקטורים דפנסיביים, ביטחון, הגנת כטב\"מים וסייבר הנהנים מהסביבה הגיאופוליטית. יש לשמור על רמות נזילות גבוהות לנוכח התנודתיות בשווקים.",
       "by_horizon": {
-        "short": "זהיר; סימני מימוש בטכנולוגיה ותשואות אג\"ח גבוהות מגבילים את אפסייד המדדים המובילים לטווח המיידי.",
-        "medium": "ניטרלי; שוק המניות הגדול נשען על ממוצעי 50 ו-200 יום, אך יש צורך בבחינת עמידות הרווחיות מול סביבת תשואות של 5.24%.",
-        "long": "חיובי מתון; המגמה הרב-חודשית של ה-S&P 500 והנאסד\"ק נשמרת מעל ממוצע 200 יום, אך יש לברור סקטורים בקפידה."
+        "short": "תנודתיות גבוהה בטכנולוגיה וסקטור האנרגיה עקב אירועים גיאופוליטיים ולחצי מימושים.",
+        "medium": "התאמה סקטוריאלית מחדש לטובת ביטחון ודפנסיביות, לצד מעקב אחר השפעות הריבית והתשואות (5.24% ב-10Y).",
+        "long": "המשך צמיחה מבנית בסקטורים הביטחוניים והטכנולוגיים המובילים, בכפוף ליציבות רגולטורית וגאו-פוליטית."
       },
       "levels_to_watch": [
-        "שיא שנתי ב-S&P 500 (מרחק של 0.1% בלבד מרמת 7807.24)",
-        "תשואת אג\"ח ארה\"ב 10 שנים סביב רמת 5.24% ושיאה השנתי (מרחק של 1.3%)",
-        "רמת התמיכה של מדד ראסל 2000 סביב ממוצע 200 יום (2794.48 עומד 0.2% מעליו)",
-        "רמת 92.58 דולר בנפט WTI ומעקב אחר התפתחויות בים השחור ועסקת הדיזל ארה\"ב-רוסיה"
+        "רמת 7,800 נקודות ב-S&P 500",
+        "תשואת אג\"ח ארה\"ב ל-10 שנים סביב 5.24%",
+        "מדד הפחד VIX מעל רמת 15 נקודות",
+        "התפתחויות ימיות בים השחור ובמפרץ הפרסי"
       ],
       "risks": [
-        "המשך מימושים ולחצי תחרות ורגולציה בסקטורי הטכנולוגיה, השבבים וה-AI",
-        "סביבת תשואות אג\"ח ממשלתיות גבוהה וממושכת (10Y מעל 5.2%) המייקרת עלויות מימון",
-        "התרחבות מלחמת הסחר ומגבלות יבוא (הגבלות האיחוד האירופי על רכבים היברידיים מסין)",
-        "הסלמה ביטחונית וגיאופוליטית באירופה ובמזרח התיכון ואיומי סייבר על תשתיות קריטיות"
+        "הסלמה צבאית נוספת בים השחור ובמפרץ הפרסי הפוגעת בנתיבי המסחר והאנרגיה",
+        "העמקת משבר השבבים ופשיטות רגל בחברות AI",
+        "זינוק חד נוסף בתשואות האג\"ח המעיב על הערכות השווי בשווקים"
       ]
-    },
-    "candidates": {
-      "theme": "מימושים כבדים בסקטור השבבים וה-AI מובילים לרוטציית הון לעבר ענקיות טכנולוגיה מבוססות תזרים, במקביל לדריכות גיאופוליטית המאיצה השקעות ממשלתיות בביטחון, הגנה מפני כטב\"מים ואבטחת סייבר. בסקטור האנרגיה התנודתיות מוגברת והמדדים הגיעו לקניות יתר קיצוניות, ולכן מומלץ להימנע מרדיפה ולהתמקד בהגנה ואיכות.",
-      "picks": {
-        "טכנולוגיה ובינה מלאכותית": [
-          {
-            "ticker": "GOOGL",
-            "name": "Alphabet Inc.",
-            "type": "stock",
-            "price": 352.72,
-            "d1": 0.3,
-            "w1": 1.8,
-            "m1": 4.2,
-            "from_52w_high": -12.3,
-            "thesis": "הסטת הון של משקיעים מחברות שבבים עתירות סיכון לענקיות טק בעלות תזרים מזומנים חזק ומכפיל נוח, תוך שמירה על רמות מחיר סבירות ומדד RSI מתון (52).",
-            "horizon": "בינוני",
-            "conviction": "גבוהה",
-            "risk": "התגברות התחרות בתחום מנועי החיפוש ולחצים רגולטוריים על מונופול הפרסום.",
-            "buy_below": 355.0,
-            "target": 395.0,
-            "stop": 338.0
-          },
-          {
-            "ticker": "AMZN",
-            "name": "Amazon.com Inc.",
-            "type": "stock",
-            "price": 259.53,
-            "d1": -1.1,
-            "w1": 3.2,
-            "m1": 1.1,
-            "from_52w_high": -8.6,
-            "thesis": "תשתית ענן מסיבית (AWS) המספקת הגנה מפני זעזועי חומרה קצרי טווח, נסחרת על ממוצע נע 50 עם מומנטום שבועי חיובי ומרווח התאוששות לשיא.",
-            "horizon": "בינוני",
-            "conviction": "בינונית",
-            "risk": "האטה בצריכה הפרטית בעקבות סביבת ריבית גבוהה וממושכת.",
-            "buy_below": 262.0,
-            "target": 284.0,
-            "stop": 248.0
-          }
-        ],
-        "שבבים, זיכרון ותשתית": [
-          {
-            "ticker": "TSM",
-            "name": "Taiwan Semiconductor Manufacturing Co.",
-            "type": "stock",
-            "price": 444.35,
-            "d1": -2.0,
-            "w1": -8.5,
-            "m1": 2.8,
-            "from_52w_high": -8.5,
-            "thesis": "למרות גל המימושים בסקטור, מדובר בספקית התשתית הבלעדית לשבבי הדור הבא ששומרת על תמיכה בממוצע 50 ומציגה RSI ניטרלי (46) לאחר תיקון משמעותי.",
-            "horizon": "ארוך",
-            "conviction": "בינונית",
-            "risk": "המשך ירידות רוחביות בסקטור ומתיחות גיאופוליטית במצר טייוואן.",
-            "buy_below": 445.0,
-            "target": 485.0,
-            "stop": 420.0
-          }
-        ],
-        "אנרגיה": [],
-        "ביטחון וסייבר": [
-          {
-            "ticker": "GD",
-            "name": "General Dynamics Corporation",
-            "type": "stock",
-            "price": 335.46,
-            "d1": 1.3,
-            "w1": 1.6,
-            "m1": -5.3,
-            "from_52w_high": -14.9,
-            "thesis": "נהנית ישירה מהאצת תקציבי נאט\"ו לטכנולוגיות הגנה יבשתיות ורכבים ממוגנים, במקביל למחזורי מסחר ערים (פי 1.5) ואינדיקטור RSI ברמת תחתית (40).",
-            "horizon": "בינוני",
-            "conviction": "גבוהה",
-            "risk": "עיכובים באישור תקציבי ביטחון בקונגרס או בעיות שרשרת אספקה.",
-            "buy_below": 340.0,
-            "target": 380.0,
-            "stop": 320.0
-          },
-          {
-            "ticker": "PANW",
-            "name": "Palo Alto Networks Inc.",
-            "type": "stock",
-            "price": 403.83,
-            "d1": -3.6,
-            "w1": -0.7,
-            "m1": 22.1,
-            "from_52w_high": -3.8,
-            "thesis": "מתקפת הסייבר על תשתיות קירור באירופה מדגישה את הצורך הדחוף בפתרונות אבטחה לתשתיות קריטיות (OT), תחום בו החברה מובילה שוק עם ביצועים יציבים.",
-            "horizon": "קצר",
-            "conviction": "בינונית",
-            "risk": "תמחור עשיר יחסית לחברות צמיחה בסביבת ריבית מאתגרת.",
-            "buy_below": 405.0,
-            "target": 440.0,
-            "stop": 378.0
-          },
-          {
-            "ticker": "LMT",
-            "name": "Lockheed Martin Corporation",
-            "type": "stock",
-            "price": 511.88,
-            "d1": 0.4,
-            "w1": 1.0,
-            "m1": -2.3,
-            "from_52w_high": -23.4,
-            "thesis": "הזדמנות כניסה נוחה במחיר מופחת (-23% מהשיא, RSI 40) על רקע זינוק בביקוש האירופי למערכות יירוט טילים והגנה אווירית מפני כטב\"מים.",
-            "horizon": "ארוך",
-            "conviction": "בינונית",
-            "risk": "שחיקת רווחיות בחוזים ממשלתיים במחיר קבוע בעקבות אינפלציה.",
-            "buy_below": 515.0,
-            "target": 565.0,
-            "stop": 490.0
-          }
-        ],
-        "גידור וקרנות רחבות": [
-          {
-            "ticker": "USMV",
-            "name": "iShares MSCI USA Min Vol Factor ETF",
-            "type": "etf",
-            "price": 100.73,
-            "d1": 0.2,
-            "w1": 1.8,
-            "m1": 1.5,
-            "from_52w_high": -0.9,
-            "thesis": "חשיפה מנייתית דפנסיבית בתנודתיות נמוכה המגנה על התיק מפני זעזועי השוק בטכנולוגיה ובאנרגיה תוך שמירה על עוצמה יחסית.",
-            "horizon": "בינוני",
-            "conviction": "גבוהה",
-            "risk": "פיגור בתשואה במידה וסקטור הטכנולוגיה יחזור לעליות חדות.",
-            "buy_below": 101.0,
-            "target": 106.0,
-            "stop": 97.5
-          },
-          {
-            "ticker": "GLD",
-            "name": "SPDR Gold Shares",
-            "type": "etf",
-            "price": 382.15,
-            "d1": -0.6,
-            "w1": 0.7,
-            "m1": -4.2,
-            "from_52w_high": -22.9,
-            "thesis": "עוגן מקלט בטוח שעבר מימוש עמוק (-23% מהשיא, RSI 35) ומציע יחס סיכוי-סיכון אטרקטיבי כגידור מול אי-הוודאות הגיאופוליטית בים השחור.",
-            "horizon": "בינוני",
-            "conviction": "בינונית",
-            "risk": "המשך עליית תשואות האג\"ח ל-10 שנים שלוחצת על מחירי המתכות.",
-            "buy_below": 383.0,
-            "target": 415.0,
-            "stop": 365.0
-          }
-        ]
-      }
     }
   },
   "market": {
+    "ESLT.TA": {
+      "price": 205500.0,
+      "day": 1.7,
+      "week": -7.2
+    },
+    "RTX": {
+      "price": 186.66,
+      "day": 0.4,
+      "week": 1.3
+    },
+    "ARYT.TA": {
+      "price": 1292.0,
+      "day": -1.4,
+      "week": -7.1
+    },
+    "ZIM": {
+      "price": 30.9,
+      "day": 3.0,
+      "week": 6.8
+    },
     "MSFT": {
       "price": 541.15,
       "day": 1.1,
       "week": 3.0
+    },
+    "TSM": {
+      "price": 444.35,
+      "day": -2.0,
+      "week": -8.5
     },
     "NVDA": {
       "price": 226.32,
       "day": -1.3,
       "week": -5.3
     },
-    "FRO": {
-      "price": 59.19,
-      "day": 5.5,
-      "week": 10.1
+    "AMD": {
+      "price": 594.24,
+      "day": -2.3,
+      "week": -5.9
     },
-    "ORL.TA": {
-      "price": 194.4,
-      "day": -5.5,
-      "week": -0.3
+    "ELAL.TA": {
+      "price": 1919.0,
+      "day": 4.4,
+      "week": 2.6
     },
     "DAL": {
       "price": 80.11,
       "day": -2.5,
       "week": -3.6
     },
-    "ESLT.TA": {
-      "price": 205200.0,
-      "day": 1.5,
-      "week": -7.4
+    "DLEKG.TA": {
+      "price": 8233.0,
+      "day": 2.3,
+      "week": -0.4
     },
-    "PLTR": {
-      "price": 209.0,
-      "day": -0.0,
-      "week": 10.3
+    "ORL.TA": {
+      "price": 194.2,
+      "day": -5.6,
+      "week": -0.4
     },
-    "EADSY": {
-      "price": 52.37,
-      "day": -0.6,
-      "week": -1.2
+    "VLO": {
+      "price": 436.0,
+      "day": 0.5,
+      "week": 4.0
     },
     "STLA": {
       "price": 4.38,
@@ -721,21 +625,6 @@
       "price": 9.41,
       "day": -2.7,
       "week": -1.2
-    },
-    "PANW": {
-      "price": 403.83,
-      "day": -3.6,
-      "week": -0.7
-    },
-    "CHKP": {
-      "price": 134.32,
-      "day": -2.1,
-      "week": 3.7
-    },
-    "CA.PA": {
-      "price": 15.96,
-      "day": -0.1,
-      "week": 3.0
     },
     "^GSPC": {
       "price": 7807.24,
@@ -748,29 +637,29 @@
       "week": -0.8
     },
     "^TA125.TA": {
-      "price": 3996.72,
-      "day": 1.7,
-      "week": -0.8
+      "price": 3998.55,
+      "day": 1.8,
+      "week": -0.7
     },
     "GC=F": {
-      "price": 4208.1,
+      "price": 4209.2,
       "day": 0.4,
       "week": 0.5
     },
     "CL=F": {
-      "price": 92.58,
-      "day": -1.2,
-      "week": 3.5
+      "price": 92.22,
+      "day": -1.6,
+      "week": 3.1
+    },
+    "PLTR": {
+      "price": 209.0,
+      "day": -0.0,
+      "week": 10.3
     },
     "LMT": {
       "price": 511.88,
       "day": 0.4,
       "week": 1.0
-    },
-    "ELAL.TA": {
-      "price": 1919.0,
-      "day": 4.4,
-      "week": 2.6
     }
   }
 }
