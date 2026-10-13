@@ -106,6 +106,19 @@ DEMO_PA = {
 }
 
 
+def _retry(fn, label, tries=2, pause=60):
+    """Gemini is sometimes overloaded: retry once after a pause. Raises the last error if all attempts fail."""
+    import time
+    for attempt in range(tries):
+        try:
+            return fn()
+        except Exception as exc:
+            print(f"[{label}] attempt {attempt + 1} failed: {type(exc).__name__}")
+            if attempt == tries - 1:
+                raise
+            time.sleep(pause)
+
+
 def _telegram(build):
     """Telegram is a bonus channel: a failure here must never fail the report."""
     try:
@@ -219,7 +232,7 @@ def main():
             from market import indices
             analysis["indices"] = indices()
             if analysis["indices"]:
-                analysis["market_state"] = analyze_market_state(analysis["indices"], analysis)
+                analysis["market_state"] = _retry(lambda: analyze_market_state(analysis["indices"], analysis), "market_state")
         except Exception as exc:
             print(f"[market_state] failed: {type(exc).__name__}: {exc}")
     if not args.demo:
@@ -227,7 +240,8 @@ def main():
             import candidates
             from analyze import analyze_candidates
             data = candidates.gather()
-            analysis["candidates"] = candidates.validate(analyze_candidates(data, analysis, analysis.get("market_state")), data)
+            analysis["candidates"] = candidates.validate(
+                _retry(lambda: analyze_candidates(data, analysis, analysis.get("market_state")), "candidates"), data)
         except Exception as exc:
             print(f"[candidates] failed: {type(exc).__name__}: {exc}")
     os.makedirs(os.path.join(OUT(), "data"), exist_ok=True)
