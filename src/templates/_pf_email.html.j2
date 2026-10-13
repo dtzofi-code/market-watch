@@ -1,7 +1,7 @@
 {% if pf and pa %}{% set t = pf.totals %}
 <div style="background:#fff;border:2px solid #1d4ed8;border-radius:10px;padding:12px 14px;margin:14px 0;line-height:1.6;font-size:14px">
 <b style="font-size:17px">💼 התיק שלי</b>
-<div style="color:#5c6675;font-size:13px">{{ t.n }} ניירות {% if t.day_pct is not none %} · שינוי יומי משוער <span dir="ltr" style="color:{{ '#0f8a4b' if t.day_pct>=0 else '#c62828' }}">{{ '%+.2f'|format(t.day_pct) }}%</span>{% endif %}{% if t.pnl_pct is not none %} · רווח/הפסד כולל <span dir="ltr" style="color:{{ '#0f8a4b' if t.pnl_pct>=0 else '#c62828' }}">{{ '%+.1f'|format(t.pnl_pct) }}%</span>{% endif %} · מצב התיק: {{ pa.health }}</div>
+<div style="color:#5c6675;font-size:13px">{{ t.n }} ניירות {% if t.day_pct is not none %} · שינוי יומי משוער <span dir="ltr" style="color:{{ '#0f8a4b' if t.day_pct>=0 else '#c62828' }}">{{ '%+.2f'|format(t.day_pct) }}%</span>{% endif %}{% if t.pnl_pct is not none %} · רווח/הפסד כולל <span dir="ltr" style="color:{{ '#0f8a4b' if t.pnl_pct>=0 else '#c62828' }}">{{ '%+.1f'|format(t.pnl_pct) }}%</span>{% endif %}{% if pa.health %} · מצב התיק: {{ pa.health }}{% endif %}</div>
 <p style="margin:6px 0">{{ pa.summary }}</p>
 {% if pa.goal %}{% set g = pa.goal %}<div style="background:#eefaf1;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px"><b>🎯 יעד: {{ '{:,.0f}'.format(g.target_ils) }} ₪ עד סוף השנה</b>
 <div>שווי נוכחי ≈ {{ '{:,.0f}'.format(g.current_ils) }} ₪ · פער ≈ {{ '{:,.0f}'.format(g.gap_ils) }} ₪ · נותרו {{ g.weeks_left }} שבועות</div>

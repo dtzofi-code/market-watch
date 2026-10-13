@@ -137,7 +137,18 @@ def _portfolio(args, analysis, ms=None):
             pa = json.loads(json.dumps(DEMO_PA))
         else:
             from analyze import analyze_portfolio
-            pa = analyze_portfolio(portfolio.for_ai(pf), analysis, ms, goal)
+            pa = None
+            for attempt in range(2):  # Gemini is sometimes overloaded: one more try after a pause
+                try:
+                    pa = analyze_portfolio(portfolio.for_ai(pf), analysis, ms, goal)
+                    break
+                except Exception as exc:
+                    print(f"[portfolio] AI attempt {attempt + 1} failed: {type(exc).__name__}")
+                    if attempt == 0:
+                        import time
+                        time.sleep(60)
+            if pa is None:  # still show the numbers (value, P/L, goal) without the AI commentary
+                pa = {"summary": "ניתוח ה-AI לא היה זמין היום (עומס זמני), לכן מוצגים נתוני התיק והיעד בלבד.", "positions": [], "top_actions": [], "risks": []}
         pa["goal"] = goal
         portfolio.annotate(pf, pa)  # percentages -> concrete amounts, computed locally
         return pf, pa
