@@ -56,6 +56,7 @@ def personalize(cands: dict, pf: dict) -> dict:
     extra = {}
     for picks in cands.get("picks", {}).values():
         for p in picks:
-            extra[p["ticker"]] = {"weight": weights.get(p["ticker"]), "units": int(cash // p["price"]) if cash and p["price"] else 0,
-                                  "cash": cash}
+            extra[p["ticker"]] = {"weight": weights.get(p["ticker"]), "cash": cash,
+                                  "units": round(cash / p["price"], 3) if cash and p["price"] else 0,  # fractions allowed
+                                  "per100": round(100 / p["price"], 3) if p["price"] else None}
     return extra

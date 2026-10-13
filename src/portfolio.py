@@ -46,7 +46,16 @@ def goal_status(pf: dict, goal: dict) -> dict:
     deposit_usd = float(goal.get("monthly_deposit_usd") or 0)
     future_dep = deposit_usd * pf["totals"]["fx"] * (weeks_left / 4.345)  # planned deposits until the deadline
     req = (target - future_dep) / cur - 1  # return the existing portfolio still has to deliver
+    # is depositing worth it? projected value for a few annual-return scenarios, and the monthly deposit needed to hit the target
+    t_years, months_left, fx = weeks_left / 52, weeks_left / 4.345, pf["totals"]["fx"]
+    scen = []
+    for r in (0.0, 0.10, 0.20):
+        proj = cur * (1 + r * t_years) + future_dep * (1 + r * t_years / 2)
+        gap = target - proj
+        scen.append({"annual_return_pct": int(r * 100), "projected_ils": proj, "gap_ils": gap,
+                     "monthly_deposit_needed_usd": max(deposit_usd + gap / months_left / fx, 0) if months_left else None})
     return {
+        "deposit_analysis": scen, "market_gain_10pct_ils": cur * 0.10 * t_years,
         "monthly_deposit_usd": deposit_usd, "future_deposits_ils": future_dep,
         "target_ils": target, "current_ils": cur, "gap_ils": target - cur, "weeks_left": round(weeks_left, 1),
         "required_total_pct": round(req * 100, 1), "required_weekly_pct": round(((1 + req) ** (1 / weeks_left) - 1) * 100, 2),
@@ -158,6 +167,11 @@ SELL = {"למכור": 100.0, "להקטין": 25.0}  # default share of the posit
 BUY = {"להגדיל": 2.0}  # default share of the whole portfolio
 
 
+def _u(x: float) -> str:
+    """Units, fractions allowed (the broker supports partial shares)."""
+    return f"{x:,.2f}".rstrip("0").rstrip(".") if x >= 0.01 else f"{x:.3f}"
+
+
 def _money(x: float, cur: str) -> str:
     return f"{SIGN.get(cur, cur + ' ')}{x:,.0f}"
 
@@ -198,7 +212,7 @@ def annotate(pf: dict, pa: dict) -> None:
                 if sized and row.get("qty") and row.get("unit_price"):
                     units = row["qty"] * pct / 100
                     amount = units * row["unit_price"]
-                    text += f" (≈ {units:,.0f} יח׳, ≈ {_money(amount, cur)})"
+                    text += f" (≈ {_u(units)} יח׳, ≈ {_money(amount, cur)})"
                     flow[k][0] += amount * to_usd
                 h["size_text"] = text
             elif act in BUY:
@@ -207,7 +221,7 @@ def annotate(pf: dict, pa: dict) -> None:
                 if sized and total_usd and row.get("unit_price"):
                     amount_usd = total_usd * pct / 100
                     amount = amount_usd / to_usd
-                    text += f" (≈ {_money(amount, cur)}, ≈ {amount / row['unit_price']:,.0f} יח׳)"
+                    text += f" (≈ {_money(amount, cur)}, ≈ {_u(amount / row['unit_price'])} יח׳)"
                     flow[k][1] += amount_usd
                 h["size_text"] = text
     # key actions: link each to its position/horizon so amounts and price levels are attached by the code
@@ -231,6 +245,8 @@ def annotate(pf: dict, pa: dict) -> None:
             g[1].append(r["ticker"])
     if groups:
         pa["group_exposure"] = [f"חשיפה ל{k}: {v[0]:.1f}% מהתיק ({', '.join(v[1])})" for k, v in groups.items()]
+    if sized and not pf["totals"].get("cash_usd"):
+        pa["cash_note"] = "אין כרגע מזומן פנוי: קניות יכולות להיות ממומנות ממכירות/הקטנות או מהפקדה חדשה."
     if sized and pf["totals"].get("cash_usd"):
         pa["cash_note"] = f"מזומן זמין בתיק: ≈ ${pf['totals']['cash_usd']:,.0f}" + (
             f" (ועוד ≈ ${pf['totals']['pending_usd']:,.0f} שטרם נכנסו מהמכירות)" if pf["totals"].get("pending_usd") else "")

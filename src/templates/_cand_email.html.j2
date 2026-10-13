@@ -10,7 +10,7 @@
 <br>{{ p.thesis }}
 <br><span style="color:#5c6675;font-size:13px">אופק {{ p.horizon }} · ביטחון {{ p.conviction }}{% if p.buy_below %} · קנייה עד ${{ '%.2f'|format(p.buy_below) }}{% endif %}{% if p.target %} · יעד ${{ '%.2f'|format(p.target) }}{% endif %}{% if p.stop %} · סטופ ${{ '%.2f'|format(p.stop) }}{% endif %}</span>
 {% if p.risk %}<br><span style="font-size:13px">⚠ {{ p.risk }}</span>{% endif %}
-{% if x %}<br><span style="font-size:13px;color:#1d4ed8">{% if x.weight %}כבר בתיק: {{ '%.1f'|format(x.weight) }}% · {% endif %}{% if x.units %}המזומן שלך (${{ '%.0f'|format(x.cash) }}) מספיק לכ-{{ x.units }} יח׳{% else %}המזומן שלך אינו מספיק ליחידה אחת{% endif %}</span>{% endif %}</div>
+{% if x %}<br><span style="font-size:13px;color:#1d4ed8">{% if x.weight %}כבר בתיק: {{ '%.1f'|format(x.weight) }}% · {% endif %}{% if x.units %}המזומן שלך (${{ '%.0f'|format(x.cash) }}) מספיק לכ-{{ x.units }} יח׳ (אפשר גם חלק מיחידה){% else %}אין מזומן פנוי כרגע{% endif %}{% if x.per100 %} · כל $100 = כ-{{ x.per100 }} יח׳{% endif %}</span>{% endif %}</div>
 {% endfor %}{% endif %}{% endfor %}
 <div style="color:#8a94a6;font-size:12px;margin-top:6px">מועמדים הם ניתוח אוטומטי של AI מתוך רשימה קבועה, ואינם ייעוץ השקעות.</div>
 </div>
