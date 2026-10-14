@@ -172,6 +172,26 @@ def _u(x: float) -> str:
     return f"{x:,.2f}".rstrip("0").rstrip(".") if x >= 0.01 else f"{x:.3f}"
 
 
+def _facts(row: dict) -> str:
+    """Deterministic facts behind a recommendation (computed here, not by the model)."""
+    m, parts = row.get("m") or {}, []
+    if row.get("weight") is not None:
+        parts.append(f"משקל בתיק {row['weight']:.1f}%")
+    if row.get("pnl_pct") is not None:
+        parts.append(f"רווח/הפסד {row['pnl_pct']:+.0f}% מהעלות")
+    for k, lbl in (("w1", "שבוע"), ("m1", "חודש"), ("m3", "3 חודשים")):
+        if m.get(k) is not None:
+            parts.append(f"{lbl} {m[k]:+.1f}%")
+    if m.get("from_52w_high") is not None:
+        parts.append(f"{m['from_52w_high']:+.0f}% מהשיא השנתי")
+    if m.get("vs_ma200") is not None:
+        parts.append(f"{m['vs_ma200']:+.0f}% מול ממוצע 200 יום")
+    if m.get("rsi14") is not None:
+        rsi = float(m["rsi14"])
+        parts.append(f"RSI {rsi:.0f}" + (" (מכירת יתר)" if rsi < 30 else " (קנייה-יתר)" if rsi > 70 else ""))
+    return " · ".join(parts)
+
+
 def _money(x: float, cur: str) -> str:
     return f"{SIGN.get(cur, cur + ' ')}{x:,.0f}"
 
@@ -194,6 +214,8 @@ def annotate(pf: dict, pa: dict) -> None:
         to_usd = (1 / fx) if cur == "ILS" else 1.0
         _levels(pos, row, cur)
         pos["held"] = bool(row.get("hold"))
+        if any((pos.get(k) or {}).get("action") in (*SELL, *BUY) for k in ("short", "medium", "long")):
+            pos["facts_text"] = _facts(row)
         for k in ("short", "medium", "long"):
             h = pos.get(k)
             if not h:
@@ -206,8 +228,10 @@ def annotate(pf: dict, pa: dict) -> None:
                 pct = float(h.get("size_pct")) if h.get("size_pct") is not None else None
             except (TypeError, ValueError):
                 pct = None
-            if act in SELL:
-                pct = min(max(pct if pct else SELL[act], 0), 100)
+            if act in SELL and not pct:  # the model gave no size: don't invent one (no silent 100%)
+                h["size_text"] = "גודל לא צוין (לא חושב סכום)"
+            elif act in SELL:
+                pct = min(max(pct, 0), 100)
                 text = f"מכירה של כ-{pct:.0f}% מהפוזיציה"
                 if sized and row.get("qty") and row.get("unit_price"):
                     units = row["qty"] * pct / 100
@@ -235,6 +259,8 @@ def annotate(pf: dict, pa: dict) -> None:
         pos = pos_by.get(a.get("ticker"))
         h = (pos or {}).get(a.get("horizon") if a.get("horizon") in ("short", "medium", "long") else "short") or {}
         a["action"], a["size_text"], a["levels_text"] = h.get("action"), h.get("size_text"), (pos or {}).get("levels_text")
+        a["why"] = h.get("why")
+        a["facts_text"] = _facts(next((r for r in pf["rows"] if r["ticker"] == a.get("ticker")), {})) if pos else None
         acts.append(a)
     pa["top_actions"] = acts
     groups = {}

@@ -31,6 +31,8 @@ def _pf_lines(pf, pa) -> list:
         line = f"• {('<b>' + _e(x['ticker']) + '</b> – ') if x.get('ticker') else ''}{_e(x.get('text'))}"
         if x.get("size_text"):
             line += f"\n   כמה: {_e(x['size_text'])}"
+        if x.get("why"):
+            line += f"\n   למה: {_e(x['why'])}"
         if x.get("levels_text"):
             line += f"\n   💲 {_e(x['levels_text'])}"
         out.append(line)
