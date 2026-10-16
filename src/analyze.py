@@ -144,11 +144,11 @@ def _fallback_models(base: str, key: str, kind: str) -> list:
     items = r.json().get("data", [])
     if kind == "openrouter":
         items = [m for m in items if str(m.get("id", "")).endswith(":free")]
-        bad = ("vision", "-vl", "embed", "audio", "image", "guard", "safety", "coder", "r1-distill")
+        bad = ("embed", "audio", "image", "guard", "safety", "coder", "-code", "2.6b", "tts", "whisper")
         items = [m for m in items if not any(b in m["id"].lower() for b in bad)]
         items.sort(key=lambda m: -int(m.get("context_length") or 0))
-        # prefer well-known strong general models first, then the rest by context size
-        pref = ("llama-3.3-70b", "llama-3.1-405b", "qwen", "deepseek", "gemma", "mistral", "gpt-oss")
+        # strong general models first (verified to return valid Hebrew JSON), then the rest by context size
+        pref = ("gemma-4-31b", "nemotron-3.5-super", "nemotron-3-super", "gemma-4", "llama-3.3-70b", "qwen", "nemotron", "deepseek", "mistral", "gpt-oss")
         items.sort(key=lambda m: next((i for i, p in enumerate(pref) if p in m["id"].lower()), len(pref)))
     else:
         items = [m for m in items if not any(b in str(m.get("id")).lower() for b in ("whisper", "guard", "tts", "embed"))]
@@ -176,7 +176,7 @@ def _fallback(user: str, system: str):
             if not r.ok:
                 errors.append(f"{model}: {r.status_code}")
                 continue
-            text = r.json()["choices"][0]["message"]["content"]
+            text = r.json()["choices"][0]["message"]["content"] or ""
             _extract_json(text)  # must be valid JSON
             print(f"[fallback] using {kind}:{model}")
             return text
@@ -190,6 +190,8 @@ def _generate(user: str, system: str = SYSTEM) -> str:
     use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
     if use_claude:
         return _claude(user, system)
+    if os.environ.get("FORCE_FALLBACK") and _fallback_config():  # test switch: skip Gemini entirely
+        return _fallback(user, system)
     try:
         return _gemini(user, system)
     except Exception as exc:
