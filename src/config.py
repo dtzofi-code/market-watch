@@ -47,6 +47,8 @@ CANDIDATES = {
     "טכנולוגיה ובינה מלאכותית": ["MSFT", "GOOGL", "META", "AMZN", "ORCL", "PLTR", "CRM", "NOW", "XLK", "VGT"],
     "שבבים, זיכרון ותשתית": ["NVDA", "AVGO", "AMD", "TSM", "ASML", "MU", "AMAT", "LRCX", "SMH", "SOXX"],
     "אנרגיה": ["XOM", "CVX", "COP", "OXY", "SLB", "EOG", "CEG", "XLE", "VDE", "URA"],
+    "זיקוק נפט (בתי זיקוק)": ["VLO", "MPC", "PSX", "PBF", "DK", "CVI"],
+    "בריאות וביו-רפואה": ["LLY", "NVO", "PFE", "MRK", "JNJ", "ABBV", "AMGN", "GILD", "VRTX", "REGN", "XLV", "IBB", "XBI"],
     "ביטחון וסייבר": ["LMT", "RTX", "NOC", "GD", "CRWD", "PANW", "FTNT", "ITA", "CIBR"],
     "גידור וקרנות רחבות": ["GLD", "SLV", "SPY", "VOO", "USMV", "TLT"],
 }
