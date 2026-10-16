@@ -1,0 +1,508 @@
+{
+  "analysis": {
+    "summary": "שווקי המניות העולמיים מושפעים מחששות גוברים סביב תחום הטכנולוגיה וה-AI, לצד חידוש העימותים באנרגיה בין רוסיה ואוקראינה והסלמה במזרח התיכון המעודדים לחצי אינפלציה ומחירי נפט גבוהים. השוק מתאפיין בתנודתיות גבוהה וסנטימנט מעורב.",
+    "market_mood": "mixed",
+    "events": [
+      {
+        "title": "משבר מניות הטכנולוגיה וחששות סביב השקעות AI",
+        "category": "שבבים וטכנולוגיה",
+        "severity": 5,
+        "what_happened": "מניות הטכנולוגיה והשבבים בארה\"ב חוו ירידות חדות ומחיקת שווי של טריליונים על רקע משבר בחברות תשתיות ענן כמו CoreWeave וחששות ממשקיעי חוב ו-CDS סביב תקציבי ענק ב-AI.",
+        "regions": [
+          "ארה\"ב",
+          "עולמי"
+        ],
+        "impact": "לחץ שלילי רוחבי על סקטור הטכנולוגיה והשבבים, לצד מעבר של משקיעים לסקטורים דפנסיביים יותר כמו בריאות ותשתיות.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "NVDA",
+              "TSM",
+              "ASML"
+            ],
+            "why": "פאניקה בשווקים, מימוש נכסים וחיסול פוזיציות ממונפות ימשיכו להכביד בטווח הקצר."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "NVDA",
+              "MSFT",
+              "GOOGL"
+            ],
+            "why": "התכנסות להערכות שווי ריאליות יותר ובחינה מדוקדקת של החזר ההשקעה (ROI) בפרויקטי AI."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "NVDA",
+              "TSM"
+            ],
+            "why": "הביקוש המבני לשבבים מתקדמים ובינה מלאכותית ימשיך לצמוח למרות התיקון הנוכחי בשווקים."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "XLV",
+            "name": "Health Care Select Sector SPDR Fund",
+            "reason": "מעבר משקיעים לסקטורים דפנסיביים ויציבים יותר בתקופות תנודתיות טכנולוגיות.",
+            "confidence": "גבוהה"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "NVDA",
+            "name": "NVIDIA Corp",
+            "reason": "נפגע ישירות מהחשש להאטה בהשקעות תשתית ענן ו-AI."
+          },
+          {
+            "ticker": "TSM",
+            "name": "Taiwan Semiconductor Manufacturing",
+            "reason": "ירידה בביקושים קצרי טווח לשבבים עקב טלטלת סקטור ה-AI."
+          }
+        ],
+        "sources": [
+          {
+            "title": "US chip stocks set to wipe out $2 trillion after latest selloff",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVDZEYU5ySFdLYUlmY29XeGxBbzZ1Nk92dHprTE44dzd5V19Yd09NdmUxUFpXMHhxdzYwenJiUjJQRFhPOXhBcHptTW9rY2J2Y01kM1loR3VQMVBXRG9mR2hQbkdWVnNGQVpCN01KelozT1h4aGx0RjRYeUZHRVRCYnlLWlpXWmpwbFRmRG4tSFR1RkNpRHNTb0lueU1VdWlpSjVFVGljZw?oc=5"
+          },
+          {
+            "title": "S&P 500 ends higher as traders shift from AI to healthcare",
+            "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZTRob0s4X3hCYkZQZzFfeUxuU1ZlN0tPT2hvelcwcW9QdU9yeVN1ZUZfR253ZUNoN3NjUlRHbG9aS0wzMmVGLUpNOVcyTUlHOWo3WERDX1psTXlmWGthb0JPN19GMGxnT2pkYkRWQ0R1THEyODhoWnZTd1NIQjdZbm5fLXNYb0M2c1g2YU02TENSSi1xSFZMQzRuUTc?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "חידוש תקיפות אוקראינה על בתי זיקוק ברוסיה ומשבר אנרגיה",
+        "category": "אנרגיה",
+        "severity": 4,
+        "what_happened": "אוקראינה חידשה את ההתקפות על בתי הזיקוק ברוסיה למרות התנגדות אמריקאית, מה שהוביל להתרסקות הפסקת האש בתחום האנרגיה ולעלייה בסיכוני האספקה הגלובליים.",
+        "regions": [
+          "רוסיה",
+          "אוקראינה",
+          "אירופה",
+          "ארה\"ב"
+        ],
+        "impact": "תמיכה במחירי הנפט והדלקים הגלובליים, ולחץ על מניות תעופה ותחבורה בשל עלויות דלק גבוהות.",
+        "horizons": {
+          "short": {
+            "outlook": "חיובי",
+            "when": "ימים עד שבועות",
+            "tickers": [
+              "XOM",
+              "CVX",
+              "FRO"
+            ],
+            "why": "שיבושים באספקה מקפיצים את מחירי האנרגיה ומחירי התובלה הימית (מיכליות)."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [
+              "XOM",
+              "OXY"
+            ],
+            "why": "שחרור עתודות נפט ודלק על ידי ה-IEA עשוי למתן חלק מהעליות בהמשך."
+          },
+          "long": {
+            "outlook": "חיובי",
+            "when": "שנה ומעלה",
+            "tickers": [
+              "LMT",
+              "RTX",
+              "ESLT.TA"
+            ],
+            "why": "המשך הסכסוך מחייב תקציבי ביטחון והשקעות ארוכות טווח באנרגיה עצמאית באירופה."
+          }
+        },
+        "winners": [
+          {
+            "ticker": "XOM",
+            "name": "Exxon Mobil Corp",
+            "reason": "נהנית ממחירי אנרגיה גבוהים ומרווחי זיקוק חזקים.",
+            "confidence": "גבוהה"
+          },
+          {
+            "ticker": "FRO",
+            "name": "Frontline PLC",
+            "reason": "עלייה בעלויות השילוח ובביקוש למיכליות נפט.",
+            "confidence": "בינונית"
+          }
+        ],
+        "losers": [
+          {
+            "ticker": "DAL",
+            "name": "Delta Air Lines",
+            "reason": "עלויות דלק סילוני גבוהות פוגעות בשולי הרווח."
+          },
+          {
+            "ticker": "AAL",
+            "name": "American Airlines",
+            "reason": "פגיעה ברווחיות עקב התייקרות ההוצאות התפעוליות על דלק."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Ukraine abandons truce and attacks Russian oil refinery as Zelenskyy says he feels betrayed by Trump",
+            "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOanVvOXBrUl9qVzlNb3ljaFNMclJtU0JkcGMwOHg3WngxQnJhSUc4VzZGV0hvRDBBek9DejBaaTNwWVVSd0thaUt4dXJWZGVEVHdaeXNHQXVpV3pmZVJwN2o2ZDFrTXNGTVdaLTcwY1haLXBlWTRRNnpZSXFFSmllQ0xEdTZHLVRhREJCU3Q3WHlycGhCcEdTSXpjX0VDb1BXYXFiaGp5VjBXQQ?oc=5"
+          },
+          {
+            "title": "Global fuel oil market stays tight as conflicts hit Mideast, Russia supplies, Vitol says",
+            "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdjV1SVlVZE9yUElzNHR6OGdPbjI2UW1CT3NNMjNINkgyV2N6aEZwcUZqNWRXcWoySHNKVGZNcUdMVWs3WEcyeXVBOFdxRjFpVVQtNDJMU05LTEdERlgtckVhQlk0Y3htcHlKQzR4VGxseXRyVG9QTHM4Qlk2YmpjWGtGaWRqTWtxNWplWEM1Ny1WSDNvMVJkUlE1Y0pXakNxMFBNUjJwUGpXMEMwb21GaHU0SEkzYWtRSlVneEdEN3hqSjBMbDM2TzB3?oc=5"
+          }
+        ]
+      },
+      {
+        "title": "איומי הורדת דירוג אינדקסים למשקים מתפתחים (אינדונזיה וטורקיה)",
+        "category": "גיאופוליטי",
+        "severity": 3,
+        "what_happened": "MSCI איימה להוציא את אינדונזיה ממדדיה הגלובליים ועיכבה שינויים במדד טורקיה, מה שגרם לצניחה חדה בשוק המניות האינדונזי לשפל היסטורי מאז 1998.",
+        "regions": [
+          "אינדונזיה",
+          "טורקיה",
+          "אסיה"
+        ],
+        "impact": "בריחת הון זר משווקים מתפתחים אלו, פגיעה באמון המשקיעים וטלטלה במניות המקומיות.",
+        "horizons": {
+          "short": {
+            "outlook": "שלילי",
+            "when": "ימים עד שבועות",
+            "tickers": [],
+            "why": "מכירות כפויות של קרנות סל וגופים מוסדיים העוקבים אחר מדדי MSCI."
+          },
+          "medium": {
+            "outlook": "ניטרלי",
+            "when": "חודשים (עד כשנה)",
+            "tickers": [],
+            "why": "התייצבות הדרגתית לאחר שהרגולטורים המקומיים יבצעו רפורמות נדרשות."
+          },
+          "long": {
+            "outlook": "ניטרלי",
+            "when": "שנה ומעלה",
+            "tickers": [],
+            "why": "החזרת אמון המשקיעים תלויה ביציבות מאקרו-כלכלית ארוכת טווח."
+          }
+        },
+        "winners": [],
+        "losers": [],
+        "sources": [
+          {
+            "title": "Indonesia stocks sink most since 1998 after MSCI flags 'standalone' downgrade",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTGZDclBEV0w3ZFJ3bE8tckwwTE1YTXBXTG1GdGNfN2Vkb1BsaXFoZVo1QUF4YUhzanBOM05HNmR6X1gyalBGR05HQk5NM1VhY0VGbUhqb0dIN2txQklscWtMaVd3MVE3QTdISTRVbDZXdEpXa25EUHpZejdrZ1ozdFlOOTBBT2VfT3VFcmh5UmpjRWFoelZTUEZKOTl5UEhrc1dpWVQ3ZUpMd1NmVE8ybA?oc=5"
+          },
+          {
+            "title": "MSCI freezes certain Turkey index changes, warns of potential market downgrade",
+            "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOcUZEVFFWaFBnQ2FpV24tTElBdW51dWh2cVNhS3I3NTNJcjFYa1dYNjRSOHlSR0phVDFZeldDb3dLLVdlOGdRbW1rWWt5TjVvZkNnN1R2MUE0LTRuU2VUZDljZlBaUmpwMml4MTNJam5VQ3FnSEEzN0NCQVNuTUFvbjdLVF9nRHdhUGMxd0hGak9DTHN4S3ZzS09fLUh2U1Rsd2t0T3A1OUszN1FlLWRmQWVDbkFfM0s3b19WOXdubmExclE?oc=5"
+          }
+        ]
+      }
+    ],
+    "regions_to_watch": [
+      {
+        "region": "ארה\"ב",
+        "stance": "להיזהר",
+        "why": "תנודתיות גבוהה בסקטור הטכנולוגיה והחששות מבועת AI מכבידים על השוק הרחב."
+      },
+      {
+        "region": "אירופה",
+        "stance": "ניטרלי",
+        "why": "השפעות ישירות ממשבר האנרגיה המחודש ועלויות הדלק, לצד סיכונים גיאופוליטיים בגבולות."
+      }
+    ],
+    "indices": [
+      {
+        "symbol": "^GSPC",
+        "name": "S&P 500",
+        "price": 7744.06005859375,
+        "d1": 0.3,
+        "w1": -0.3,
+        "m1": 2.5,
+        "from_52w_high": -1.0,
+        "vs_ma50": 0.5,
+        "vs_ma200": 6.6
+      },
+      {
+        "symbol": "^IXIC",
+        "name": "נאסד\"ק",
+        "price": 26713.029296875,
+        "d1": 0.1,
+        "w1": -1.8,
+        "m1": 2.8,
+        "from_52w_high": -3.2,
+        "vs_ma50": 0.3,
+        "vs_ma200": 7.3
+      },
+      {
+        "symbol": "^RUT",
+        "name": "ראסל 2000",
+        "price": 2767.27001953125,
+        "d1": 1.4,
+        "w1": -1.0,
+        "m1": -3.2,
+        "from_52w_high": -9.8,
+        "vs_ma50": -5.0,
+        "vs_ma200": -0.9
+      },
+      {
+        "symbol": "^TA125.TA",
+        "name": "ת\"א-125",
+        "price": 4099.27001953125,
+        "d1": 1.9,
+        "w1": 4.4,
+        "m1": -0.5,
+        "from_52w_high": -8.5,
+        "vs_ma50": 0.7,
+        "vs_ma200": -0.3
+      },
+      {
+        "symbol": "^VIX",
+        "name": "VIX (פחד)",
+        "price": 16.079999923706055,
+        "d1": -2.3,
+        "w1": 8.4,
+        "m1": 4.1,
+        "from_52w_high": -48.2,
+        "vs_ma50": 3.6,
+        "vs_ma200": -11.2
+      },
+      {
+        "symbol": "^TNX",
+        "name": "תשואת 10Y ארה\"ב",
+        "price": 5.089000225067139,
+        "d1": -1.9,
+        "w1": -2.7,
+        "m1": 1.7,
+        "from_52w_high": -4.2,
+        "vs_ma50": 3.1,
+        "vs_ma200": 13.1
+      },
+      {
+        "symbol": "ILS=X",
+        "name": "דולר/שקל",
+        "price": 3.090780019760132,
+        "d1": -0.2,
+        "w1": 0.9,
+        "m1": 2.1,
+        "from_52w_high": -6.6,
+        "vs_ma50": 2.2,
+        "vs_ma200": 2.1
+      },
+      {
+        "symbol": "DX-Y.NYB",
+        "name": "מדד הדולר",
+        "price": 101.81700134277344,
+        "d1": -0.2,
+        "w1": -0.4,
+        "m1": 1.6,
+        "from_52w_high": -0.7,
+        "vs_ma50": 1.5,
+        "vs_ma200": 2.4
+      },
+      {
+        "symbol": "GC=F",
+        "name": "זהב",
+        "price": 4208.2001953125,
+        "d1": 0.9,
+        "w1": -0.2,
+        "m1": -4.4,
+        "from_52w_high": -20.9,
+        "vs_ma50": -3.8,
+        "vs_ma200": -7.3
+      },
+      {
+        "symbol": "CL=F",
+        "name": "נפט WTI",
+        "price": 95.69000244140625,
+        "d1": -2.3,
+        "w1": 4.2,
+        "m1": -6.1,
+        "from_52w_high": -15.3,
+        "vs_ma50": 5.3,
+        "vs_ma200": 13.7
+      },
+      {
+        "symbol": "BTC-USD",
+        "name": "ביטקוין",
+        "price": 82189.296875,
+        "d1": 0.1,
+        "w1": -1.8,
+        "m1": -2.2,
+        "from_52w_high": -28.2,
+        "vs_ma50": 1.1,
+        "vs_ma200": 13.6
+      }
+    ],
+    "market_state": {
+      "headline": "המדדים המובילים בארה\"ב רושמים עליות יומיות קלות על רקע סנטימנט מעורב וחששות גוברים סביב סקטור הטכנולוגיה ואינפלציית האנרגיה.",
+      "context": "המסחר המקומי והגלובלי מושפע מחששות סביב השקעות ה-AI ומשבר מניות הטכנולוגיה, לצד חידוש העימותים באנרגיה בין רוסיה ואוקראינה והסלמה במזרח התיכון המעודדים לחצי אינפלציה. למרות זאת, מדד ה-S&P 500 רשם עלייה יומית של 0.3% והנאסד\"ק עלה ב-0.1%, בעוד הראסל 2000 בלט לחיוב עם זינוק יומי של 1.4%. מחירי הנפט נסחרים ברמה של 95.69 דולר לחבית לאחר ירידה יומית של 2.3% אך עלייה שבועית של 4.2%, המשקפים את חוסר היציבות הגיאופוליטית.",
+      "analysis": "מדד ה-S&P 500 נסחר סביב 7,744 נקודות, כשהוא מציג עלייה חודשית של 2.5% ושוהה כ-1% בלבד מהשיא השنתי, תוך שמירה על רמה גבוהה ממוצע ה-50 יום. הנאסד\"ק רשם ירידה שבועית של 1.8% אך שומר על תשואה חודשית חיובית של 2.8% ושוהה 3.2% מהשיא השנתי. מדד הפחד VIX ירד ב-2.3% ל-16.08 נקודות, אך הוא עדיין גבוה ב-8.4% בסיכום שבועי המעיד על תנודתיות ברקע. תשואת האג\"ח ל-10 שנים של ארה\"ב ירדה ב-1.9% ל-5.089%, אך נותרה גבוהה משמעותית מעל ממוצע 200 הימים (ב-13.1%). מדד ת\"א-125 הפגין עוצמה עם עלייה יומית של 1.9% וזינוק שבועי של 4.4%. מדד הדולר נסחר בירידה קלה ל-101.81 נקודות.",
+      "recommendation": "המלצה: סטנס ניטרלי עד זהיר עקב התנודתיות הגבוהה ואי-הדאגה סביב אינפלציית האנרגיה ומניות הטכנולוגיה. יש לפעול בזהירות בסקטור הטכנולוגיה והבינה המלאכותית, לשמור על חשיפה דפנסיבית בסקטורי האנרגיה, ולבחון הזדמנויות סלקטיביות במניות קטנות (ראסל 2000) ובשווקים מקומיים המפגינים עוצמה כמו תל אביב.",
+      "by_horizon": {
+        "short": "תנודתיות גבוהה וסנטימנט מעורב סביב מניות הטכנולוגיה ואירועי האנרגיה.",
+        "medium": "בחינת יכולתם של מדדי המניות לשמור על רמות ממוצע ה-50 יום אל מול לחצי אינפלציה ותשואות אג\"ח גבוהות.",
+        "long": "מגמה חיובית ארוכת טווח הנתמכת בקרבה לשיאים שנתיים, אך מותנית בהתפתחויות הגיאופוליטיות והמאקרו-כלכליות."
+      },
+      "levels_to_watch": [
+        "S&P 500 סביב רמת השיא השנתי (מרחק של 1.0%) וממוצע 50 יום",
+        "תשואת אג\"ח ארה\"ב ל-10 שנים סביב רמת ה-5.08%",
+        "מדד הפחד VIX סביב רמת ה-16 נקודות",
+        "מחיר נפט WTI סביב רמת ה-95.69 דולר לחבית"
+      ],
+      "risks": [
+        "משבר מתמשך במניות הטכנולוגיה והשקעות ה-AI",
+        "הסלמה בסיכונים הגיאופוליטיים והשפעתם על מחירי האנרגיה (רוסיה-אוקראינה והמזרח התיכון)",
+        "תשואות אג\"ח גבוהות המעידות על לחצי אינפלציה מתמשכים",
+        "איומי הורדת דירוג אינדקסים למשקים מתפתחים"
+      ]
+    },
+    "candidates": {
+      "theme": "השווקים מתמודדים עם חששות גוברים סביב השקעות ה-AI ולחצי אינפלציה שמקורם בהסלמה באנרגיה. האסטרטגיה דורשת זהירות בסקטור הטכנולוגיה והשבבים, לצד התמקדות בנכסים דפנסיביים ובחשיפה סלקטיבית לאנרגיה.",
+      "picks": {
+        "טכנולוגיה ובינה מלאכותית": [],
+        "שבבים, זיכרון ותשתית": [],
+        "אנרגיה": [
+          {
+            "ticker": "XOM",
+            "name": "Exxon Mobil",
+            "type": "stock",
+            "price": 174.68,
+            "d1": -1.3,
+            "w1": 3.7,
+            "m1": 7.0,
+            "from_52w_high": -1.3,
+            "thesis": "על רקע תקיפות בתי הזיקוק ברוסיה ועליית מחירי הנפט, ענקיות האנרגיה נהנות מרווחיות חזקה ומספקות הגנה מפני אינפלציה.",
+            "horizon": "בינוני",
+            "conviction": "גבוהה",
+            "risk": "ירידה חדה במחירי הנפט הגולמי או האטה כלכלית גלوبלית",
+            "buy_below": 174.0,
+            "target": 190.0,
+            "stop": 162.0
+          }
+        ],
+        "ביטחון וסייבר": [
+          {
+            "ticker": "LMT",
+            "name": "Lockheed Martin",
+            "type": "stock",
+            "price": 532.64,
+            "d1": 2.0,
+            "w1": 4.9,
+            "m1": -0.9,
+            "from_52w_high": -20.3,
+            "thesis": "המתיחות הגיאופוליטית במזרח התיכון ובאירופה מחזקת את הביקושים למוצרי ביטחון והגנה, המהווים מקלט בטוח בתקופות של תנודתיות.",
+            "horizon": "בינוני",
+            "conviction": "בינונית",
+            "risk": "קיצוצים בתקציבי הביטחון הממשלתיים",
+            "buy_below": 530.0,
+            "target": 575.0,
+            "stop": 505.0
+          }
+        ],
+        "גידור וקרנות רחבות": [
+          {
+            "ticker": "USMV",
+            "name": "iShares MSCI USA Min Vol Factor ETF",
+            "type": "etf",
+            "price": 101.58,
+            "d1": 0.9,
+            "w1": 1.6,
+            "m1": 3.1,
+            "from_52w_high": -0.1,
+            "thesis": "הסנטימנט המעורב בשוק והחששות מבועת הטכנולוגיה מחייבים מעבר לקרנות בעלות תנודתיות נמוכה המייצרות יציבות לתיק.",
+            "horizon": "קצר",
+            "conviction": "גבוהה",
+            "risk": "פיגור משמעותי אחרי השוק במקרה של ראלי אלים וחזרה לעליות חדות",
+            "buy_below": 101.5,
+            "target": 108.0,
+            "stop": 98.5
+          }
+        ]
+      }
+    }
+  },
+  "market": {
+    "XLV": {
+      "price": 177.19,
+      "day": 1.9,
+      "week": 5.4
+    },
+    "NVDA": {
+      "price": 217.23,
+      "day": -1.8,
+      "week": -5.7
+    },
+    "TSM": {
+      "price": 422.25,
+      "day": -1.8,
+      "week": -7.8
+    },
+    "XOM": {
+      "price": 174.68,
+      "day": -1.3,
+      "week": 3.7
+    },
+    "FRO": {
+      "price": 52.54,
+      "day": -6.6,
+      "week": -6.6
+    },
+    "DAL": {
+      "price": 78.08,
+      "day": 2.2,
+      "week": -4.7
+    },
+    "AAL": {
+      "price": 12.28,
+      "day": 4.2,
+      "week": -4.1
+    },
+    "^GSPC": {
+      "price": 7744.06,
+      "day": 0.3,
+      "week": -0.3
+    },
+    "^IXIC": {
+      "price": 26713.03,
+      "day": 0.1,
+      "week": -1.8
+    },
+    "^TA125.TA": {
+      "price": 4099.27,
+      "day": 1.9,
+      "week": 4.4
+    },
+    "GC=F": {
+      "price": 4208.1,
+      "day": 0.9,
+      "week": -0.2
+    },
+    "CL=F": {
+      "price": 95.69,
+      "day": -2.3,
+      "week": 4.2
+    },
+    "PLTR": {
+      "price": 200.5,
+      "day": -0.2,
+      "week": 0.9
+    },
+    "LMT": {
+      "price": 532.64,
+      "day": 2.0,
+      "week": 4.9
+    },
+    "ESLT.TA": {
+      "price": 230500.0,
+      "day": 6.3,
+      "week": 12.1
+    },
+    "ELAL.TA": {
+      "price": 1852.0,
+      "day": -1.3,
+      "week": 1.2
+    }
+  }
+}
