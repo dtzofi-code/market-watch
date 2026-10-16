@@ -8,6 +8,17 @@ LIMIT = 4000  # Telegram max is 4096 characters
 MOOD = {"risk-on": "נטייה לסיכון", "risk-off": "בריחה מסיכון", "mixed": "מעורב"}
 
 
+def _fit(lines: list) -> str:
+    """Join lines but never cut in the middle of an HTML tag: drop whole lines once the limit is reached."""
+    out, size = [], 0
+    for ln in lines:
+        if size + len(ln) + 1 > LIMIT:
+            break
+        out.append(ln)
+        size += len(ln) + 1
+    return "\n".join(out)
+
+
 def _e(x) -> str:
     return html.escape(str(x or ""))
 
@@ -75,7 +86,7 @@ def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None) -> str:
     if site_url:
         lines += ["", f'<a href="{_e(site_url)}">לדוח המלא באתר</a>']
     lines += ["", "<i>אינו ייעוץ השקעות</i>"]
-    return "\n".join(lines)[:LIMIT]
+    return _fit(lines)
 
 
 def weekly_text(a: dict, rng: str, site_url: str, pf=None, pa=None) -> str:
@@ -88,7 +99,7 @@ def weekly_text(a: dict, rng: str, site_url: str, pf=None, pa=None) -> str:
     if site_url:
         lines += ["", f'<a href="{_e(site_url)}weekly.html">לסיכום המלא</a>']
     lines += ["", "<i>אינו ייעוץ השקעות</i>"]
-    return "\n".join(lines)[:LIMIT]
+    return _fit(lines)
 
 
 def send(text: str) -> bool:
