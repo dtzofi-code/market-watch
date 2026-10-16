@@ -229,7 +229,7 @@ def main():
         from collect import collect
         headlines = collect()
         print(f"[main] {len(headlines)} headlines")
-        analysis = analyze(headlines) if headlines else {"summary": "לא נאספו כותרות היום.", "events": [], "regions_to_watch": []}
+        analysis = _retry(lambda: analyze(headlines), "events", tries=3, pause=90) if headlines else {"summary": "לא נאספו כותרות היום.", "events": [], "regions_to_watch": []}
 
     market = snapshot(tickers_from(analysis))
     if not args.demo:
