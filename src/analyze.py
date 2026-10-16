@@ -87,7 +87,8 @@ def _gemini(user: str, system: str = SYSTEM) -> str:
     """Free tier via Google AI Studio key (no billing); tries models in order, retries overload."""
     key = os.environ["GEMINI_API_KEY"]
     errors = []
-    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", "360"))  # hard cap per analysis call
+    default_budget = "150" if (os.environ.get("OPENROUTER_API_KEY") or os.environ.get("GROQ_API_KEY")) else "360"  # leave time for the fallback
+    deadline = time.time() + int(os.environ.get("GEMINI_BUDGET_SEC", default_budget))  # hard cap per analysis call
     for model in _gemini_candidates(key)[:8]:
         for attempt in range(2):
             if time.time() > deadline:
@@ -124,12 +125,85 @@ def _claude(user: str, system: str = SYSTEM) -> str:
     return "".join(b.text for b in msg.content if b.type == "text")
 
 
+# ---- free fallback provider (OpenAI-compatible API: OpenRouter or Groq) --------------------------------------------
+def _fallback_config():
+    """(base_url, api_key, kind) for the configured free fallback, or None."""
+    if os.environ.get("OPENROUTER_API_KEY"):
+        return "https://openrouter.ai/api/v1", os.environ["OPENROUTER_API_KEY"], "openrouter"
+    if os.environ.get("GROQ_API_KEY"):
+        return "https://api.groq.com/openai/v1", os.environ["GROQ_API_KEY"], "groq"
+    return None
+
+
+def _fallback_models(base: str, key: str, kind: str) -> list:
+    """Free text models, largest context first. FALLBACK_MODEL overrides."""
+    if os.environ.get("FALLBACK_MODEL"):
+        return [os.environ["FALLBACK_MODEL"]]
+    r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"}, timeout=30)
+    r.raise_for_status()
+    items = r.json().get("data", [])
+    if kind == "openrouter":
+        items = [m for m in items if str(m.get("id", "")).endswith(":free")]
+        bad = ("vision", "-vl", "embed", "audio", "image", "guard", "safety", "coder", "r1-distill")
+        items = [m for m in items if not any(b in m["id"].lower() for b in bad)]
+        items.sort(key=lambda m: -int(m.get("context_length") or 0))
+        # prefer well-known strong general models first, then the rest by context size
+        pref = ("llama-3.3-70b", "llama-3.1-405b", "qwen", "deepseek", "gemma", "mistral", "gpt-oss")
+        items.sort(key=lambda m: next((i for i, p in enumerate(pref) if p in m["id"].lower()), len(pref)))
+    else:
+        items = [m for m in items if not any(b in str(m.get("id")).lower() for b in ("whisper", "guard", "tts", "embed"))]
+        items.sort(key=lambda m: -int(m.get("context_window") or 0))
+    ids = [m["id"] for m in items]
+    print("[fallback] candidate models:", ", ".join(ids[:8]))
+    return ids
+
+
+def _fallback(user: str, system: str):
+    cfg = _fallback_config()
+    if not cfg:
+        raise RuntimeError("no fallback provider configured")
+    base, key, kind = cfg
+    errors, deadline = [], time.time() + int(os.environ.get("FALLBACK_BUDGET_SEC", "300"))
+    for model in _fallback_models(base, key, kind)[:6]:
+        if time.time() > deadline:
+            break
+        try:
+            r = requests.post(f"{base}/chat/completions", timeout=120,
+                              headers={"Authorization": f"Bearer {key}"},
+                              json={"model": model, "temperature": 0.3,
+                                    "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+                                    "response_format": {"type": "json_object"}})
+            if not r.ok:
+                errors.append(f"{model}: {r.status_code}")
+                continue
+            text = r.json()["choices"][0]["message"]["content"]
+            _extract_json(text)  # must be valid JSON
+            print(f"[fallback] using {kind}:{model}")
+            return text
+        except Exception as exc:
+            errors.append(f"{model}: {type(exc).__name__}")
+    raise RuntimeError("fallback failed: " + "; ".join(errors))
+
+
+def _generate(user: str, system: str = SYSTEM) -> str:
+    """Primary provider, then the free fallback if the primary fails."""
+    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
+    if use_claude:
+        return _claude(user, system)
+    try:
+        return _gemini(user, system)
+    except Exception as exc:
+        if not _fallback_config():
+            raise
+        print(f"[analyze] primary failed ({type(exc).__name__}); trying fallback")
+        return _fallback(user, system)
+
+
 def analyze(headlines: list) -> dict:
     lines = "\n".join(f"{i+1}. [{h['source']}] {h['title']} <{h['url']}>" for i, h in enumerate(headlines))
     user = f"כותרות היממה האחרונה:\n{lines}"
     # Gemini (free) by default; Claude only if explicitly selected.
-    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
-    return _extract_json(_claude(user) if use_claude else _gemini(user))
+    return _extract_json(_generate(user))
 
 
 WEEKLY_SYSTEM = """אתה אנליסט מאקרו בכיר. תקבל את סיכומי הדוחות היומיים של 7 הימים האחרונים (אירועים, חומרה, מניות, ומצב שוק).
@@ -160,8 +234,7 @@ def analyze_weekly(days: list) -> dict:
             for e in a.get("events", []))
         parts.append(f"## {d['date']}\nסיכום: {a.get('summary','')}\nאירועים: {evs}")
     user = "\n\n".join(parts)
-    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
-    return _extract_json(_claude(user, WEEKLY_SYSTEM) if use_claude else _gemini(user, WEEKLY_SYSTEM))
+    return _extract_json(_generate(user, WEEKLY_SYSTEM))
 
 
 MARKET_SYSTEM = """אתה אסטרטג שוק הון בכיר. תקבל מדדי שוק עדכניים (מחיר, שינוי יומי/שבועי/חודשי, מרחק משיא שנתי, מול ממוצע 50 יום) וסיכום אירועי היום.
@@ -222,8 +295,7 @@ def analyze_portfolio(holdings_view: list, analysis: dict, market_state: dict = 
 
 
 def _call(user: str, system: str) -> dict:
-    use_claude = os.environ.get("ANALYSIS_PROVIDER") == "claude" and os.environ.get("ANTHROPIC_API_KEY")
-    return _extract_json(_claude(user, system) if use_claude else _gemini(user, system))
+    return _extract_json(_generate(user, system))
 
 
 CANDIDATES_SYSTEM = """אתה אסטרטג השקעות. תקבל לכל קטגוריה רשימת ניירות (מניות וקרנות סל) עם נתוני שוק עדכניים (מחיר, ביצועים, מרחק משיא, ממוצעים, RSI), יחד עם תמונת מצב עולמית: אירועי היום ומצב השוק.
