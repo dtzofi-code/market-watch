@@ -53,6 +53,9 @@ def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None) -> str:
     if ms:
         lines += ["", f"<b>📊 {_e(ms.get('headline'))}</b>", _e(ms.get("recommendation"))]
     lines += _pf_lines(pf, pa)
+    themes = (a.get("trends") or {}).get("themes") or []
+    if themes:
+        lines += ["", "<b>🌍 מגמות בעולם</b>"] + [f"• <b>{_e(th['name'])}</b> ({_e(th.get('stage'))}): {_e(th.get('why_now'))}" for th in themes[:4]]
     cands = (a.get("candidates") or {}).get("picks") or {}
     top = [(cat, picks[0]) for cat, picks in cands.items() if picks]
     if top:

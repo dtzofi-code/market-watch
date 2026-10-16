@@ -241,3 +241,21 @@ def analyze_candidates(data: dict, analysis: dict, market_state: dict = None) ->
             f"\n\nסיכום היום: {analysis.get('summary', '')}\nאירועים: {ev}" +
             (f"\nמצב שוק: {market_state.get('headline', '')} {market_state.get('recommendation', '')}" if market_state else ""))
     return _call(user, CANDIDATES_SYSTEM)
+
+
+THEMES_SYSTEM = """אתה חוקר מגמות שוק. המשתמש הוא משקיע פרטי שאינו מומחה, והמטרה של הדוח היא לחשוף לו מגמות ונושאים בעולם שהוא כנראה לא מכיר ולא עוקב אחריהם.
+תקבל טבלה של קרנות סל על סקטורים, תעשיות, נושאים ומדינות, עם ביצועים (w1/m1/m3/m6 באחוזים), חוזק יחסי מול S&P500 (rel1, rel3), תאוצה (accel: האם החודש האחרון מהיר מהקצב הקודם), מרחק משיא שנתי ומול ממוצע 200 יום, וגם סיכום אירועי היום.
+בחר עד 6 נושאים בולטים. העדף: (1) נושאים בתאוצה או בחוזק יחסי גבוה שהמשתמש כנראה לא מכיר (למשל אורניום, מתכות נדירות, חלל, הודו), ולא רק טכנולוגיה כללית; (2) לפחות נושא אחד "נשכח או מתהפך" אם קיים (חלש לאורך זמן אבל החודש האחרון משתפר); (3) קשר לאירועי היום ולמגמות מאקרו. אל תחזור על אותו נושא פעמיים. אל תמציא נתונים.
+לכל נושא: name (שם בעברית), etfs (1-2 טיקרים מהטבלה בלבד), stage (מוקדם | באמצע | מאוחר | נמתח יתר), explain (הסבר פשוט של 2 משפטים למי שלא מכיר את התחום: מה זה ומה מניע אותו), why_now (למה זז עכשיו, עם נתונים מהטבלה ואירוע אם יש), risk (הסיכון העיקרי), horizon (קצר | בינוני | ארוך), how_to_play (קרן סל או מניות, ובמה להיזהר).
+כתוב בעברית. החזר JSON תקין בלבד:
+{"summary": "מה קורה בעולם לפי הסריקה, 2-3 משפטים",
+ "themes": [{"name": "", "etfs": [""], "stage": "", "explain": "", "why_now": "", "risk": "", "horizon": "", "how_to_play": ""}]}"""
+
+
+def analyze_themes(rows: list, analysis: dict, market_state: dict = None) -> dict:
+    ev = "; ".join(f"{e.get('title')} (חומרה {e.get('severity')}): {e.get('impact', '')}" for e in analysis.get("events", []))
+    slim = [{k: r.get(k) for k in ("ticker", "name", "w1", "m1", "m3", "m6", "rel1", "rel3", "accel", "from_52w_high", "vs_ma200")} for r in rows]
+    user = ("טבלת קרנות (ממוינת לפי חוזק יחסי ל-3 חודשים):\n" + json.dumps(slim, ensure_ascii=False) +
+            f"\n\nסיכום היום: {analysis.get('summary', '')}\nאירועים: {ev}" +
+            (f"\nמצב שוק: {market_state.get('headline', '')} {market_state.get('recommendation', '')}" if market_state else ""))
+    return _call(user, THEMES_SYSTEM)

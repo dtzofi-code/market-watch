@@ -1,0 +1,19 @@
+{% if a.trends and a.trends.themes %}
+<h2>מגמות בעולם שכדאי להכיר</h2>
+{% if a.trends.summary %}<div class="card"><strong>תמונת הסריקה:</strong> {{ a.trends.summary }}</div>{% endif %}
+{% for t in a.trends.themes %}
+<div class="card ev"><h3>{{ t.name }} <span class="tags"><span>שלב: {{ t.stage }}</span><span>אופק: {{ t.horizon }}</span>{% for e in t.etfs %}<span class="tk">{{ e }}</span>{% endfor %}</span></h3>
+  <p><strong>מה זה?</strong> {{ t.explain }}</p>
+  <p><strong>למה עכשיו:</strong> {{ t.why_now }}</p>
+  {% if t.stats %}<p class="pct" style="color:var(--muted)">{% if t.stats.m1 is not none %}חודש {{ '%+.1f'|format(t.stats.m1) }}%{% endif %}{% if t.stats.m3 is not none %} · 3 חודשים {{ '%+.1f'|format(t.stats.m3) }}%{% endif %}{% if t.stats.rel3 is not none %} · מול S&P {{ '%+.1f'|format(t.stats.rel3) }}%{% endif %}</p>{% endif %}
+  <p><strong>איך לשחק:</strong> {{ t.how_to_play }}</p>
+  <p>⚠ {{ t.risk }}</p>
+  {% for p in t.picks %}<div class="stk"><span class="tk">{{ p.ticker }}</span> {{ p.name }}{% if p.type == 'etf' %} <small>(קרן סל)</small>{% endif %} <span class="pct">${{ '%.2f'|format(p.price) }}</span>
+    <br><small>{{ p.thesis }}</small>
+    <br><small>אופק: {{ p.horizon }} · ביטחון: {{ p.conviction }}{% if p.buy_below %} · קנייה עד ${{ '%.2f'|format(p.buy_below) }}{% endif %}{% if p.target %} · יעד ${{ '%.2f'|format(p.target) }}{% endif %}{% if p.stop %} · סטופ ${{ '%.2f'|format(p.stop) }}{% endif %}</small></div>{% endfor %}
+</div>
+{% endfor %}
+{% if a.trends.leaders %}<div class="card"><strong>מובילים בסריקה:</strong> {% for r in a.trends.leaders %}{{ r.name }} ({{ '%+.0f'|format(r.rel3) }}% מול S&P){% if not loop.last %} · {% endif %}{% endfor %}
+{% if a.trends.laggards %}<br><strong>מפגרים:</strong> {% for r in a.trends.laggards %}{{ r.name }} ({{ '%+.0f'|format(r.rel3) }}%){% if not loop.last %} · {% endif %}{% endfor %}{% endif %}</div>{% endif %}
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+{% endif %}

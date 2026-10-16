@@ -91,6 +91,12 @@ DEMO["candidates"] = {"theme": "הדגמה: מתיחות באנרגיה וביק
     "שבבים, זיכרון ותשתית": [{"ticker": "SMH", "name": "VanEck Semiconductor ETF", "type": "etf", "price": 300.0, "d1": 0.5, "w1": 1.0, "m1": 3.0, "from_52w_high": -4.0,
                 "thesis": "מחסור בזיכרון מקדם ביקוש לתעשייה כולה.", "horizon": "בינוני", "conviction": "בינונית", "risk": "תנודתיות גבוהה וריכוז ב-NVDA.",
                 "buy_below": 290.0, "target": 340.0, "stop": 270.0}]}}
+DEMO["trends"] = {"summary": "הדגמה: אנרגיה גרעינית ומתכות נדירות מובילות.", "leaders": [{"ticker": "URA", "name": "אורניום", "m1": 12.0, "m3": 30.0, "rel3": 22.0}], "laggards": [],
+    "themes": [{"name": "אורניום ואנרגיה גרעינית", "etfs": ["URA"], "stage": "באמצע", "explain": "אורניום הוא הדלק של תחנות כוח גרעיניות. הביקוש עולה בגלל צריכת חשמל של מרכזי נתונים.",
+                "why_now": "URA עלתה 30% ב-3 חודשים, 22 נק' מעל S&P.", "risk": "תנודתיות גבוהה ותלות במדיניות.", "horizon": "ארוך", "how_to_play": "קרן סל לפיזור.",
+                "stats": {"m1": 12.0, "m3": 30.0, "rel3": 22.0, "from_52w_high": -4.0},
+                "picks": [{"ticker": "URA", "name": "Global X Uranium ETF", "type": "etf", "price": 50.0, "d1": 1.0, "w1": 2.0, "m1": 12.0, "from_52w_high": -4.0,
+                           "thesis": "חשיפה רחבה לתחום בקרן אחת.", "horizon": "ארוך", "conviction": "בינונית", "risk": "תנודתיות.", "buy_below": 48.0, "target": 60.0, "stop": 44.0}]}]}
 DEMO_GOAL = {"target_ils": 65000, "deadline": "2026-12-31", "start_ils": 41600, "start_date": "2026-10-07"}
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
@@ -236,21 +242,27 @@ def main():
         except Exception as exc:
             print(f"[market_state] failed: {type(exc).__name__}: {exc}")
     if not args.demo:
-        try:  # investment candidates by category (public market data + world picture; no portfolio data)
-            import candidates
-            from analyze import analyze_candidates
-            data = candidates.gather()
-            analysis["candidates"] = candidates.validate(
-                _retry(lambda: analyze_candidates(data, analysis, analysis.get("market_state")), "candidates"), data)
+        try:  # trend discovery: scan broad ETF universe, explain unfamiliar themes, pick from real holdings (public data only)
+            import discovery
+            analysis["trends"] = discovery.discover(analysis, analysis.get("market_state"), _retry)
         except Exception as exc:
-            print(f"[candidates] failed: {type(exc).__name__}: {exc}")
+            print(f"[trends] failed: {type(exc).__name__}: {exc}")
+            try:  # fallback: fixed-category candidates
+                import candidates
+                from analyze import analyze_candidates
+                data = candidates.gather()
+                analysis["candidates"] = candidates.validate(
+                    _retry(lambda: analyze_candidates(data, analysis, analysis.get("market_state")), "candidates"), data)
+            except Exception as exc2:
+                print(f"[candidates] failed: {type(exc2).__name__}: {exc2}")
     os.makedirs(os.path.join(OUT(), "data"), exist_ok=True)
     with open(os.path.join(OUT(), "data", f"{date}.json"), "w", encoding="utf-8") as f:
         json.dump({"analysis": analysis, "market": market}, f, ensure_ascii=False, indent=2)
 
     pf, pa = _portfolio(args, analysis, analysis.get("market_state"))  # after data/ is saved: portfolio never lands there
     import candidates as _c
-    cand_extra = _c.personalize(analysis.get("candidates"), pf)  # private: exposure + affordable units -> email only
+    src = analysis.get("candidates") or ({"picks": {t["name"]: t.get("picks", []) for t in analysis["trends"]["themes"]}} if analysis.get("trends") else None)
+    cand_extra = _c.personalize(src, pf)  # private: exposure + affordable units -> email only
     out = render(analysis, market, date, pf, pa, cand_extra)
     if args.demo:
         with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
