@@ -5,6 +5,7 @@
 <h1 style="font-size:22px;margin:0">🌍 דוח שוק יומי – {{ date }}</h1>
 <p style="background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:12px 14px;line-height:1.6">{{ a.summary }}</p>
 
+{% include '_plan_email.html.j2' %}
 {% include '_ms_email.html.j2' %}
 {% include '_pf_email.html.j2' %}
 {% include '_trends_email.html.j2' %}
@@ -20,7 +21,7 @@
   <div style="border-top:1px solid #eee;padding:4px 0"><b>טווח {{ label }}</b> <span style="color:{{ '#0f8a4b' if h.outlook=='חיובי' else ('#c62828' if h.outlook=='שלילי' else '#5c6675') }}">({{ h.outlook }})</span>{% if h.tickers %} <span dir="ltr">{{ h.tickers|join(', ') }}</span>{% endif %} – {{ h.why }}</div>{% endif %}{% endfor %}</div>{% endif %}
   {% if e.winners %}<div style="color:#0f8a4b;font-weight:bold;font-size:14px">📈 כדאי לבחון</div>
   {% for s in e.winners %}<div style="font-size:14px;border-top:1px solid #eee;padding:4px 0"><b dir="ltr">{{ s.ticker }}</b> {{ s.name }}
-    {% if m.get(s.ticker) %}<span dir="ltr" style="color:{{ '#0f8a4b' if m[s.ticker].day>=0 else '#c62828' }}">({{ '%+.1f'|format(m[s.ticker].day) }}% היום)</span>{% endif %} – {{ s.reason }} ({{ s.confidence }})</div>{% endfor %}{% endif %}
+    {% if m.get(s.ticker) %}<span dir="ltr" style="color:{{ '#0f8a4b' if m[s.ticker].day>=0 else '#c62828' }}">({{ '%+.1f'|format(m[s.ticker].day) }}% היום)</span>{% endif %} – {{ s.reason }} ({{ s.confidence }}){% set n = hn.get(s.ticker) %}{% if n %}<br><span style="color:#b45309;font-size:12px">בתיק שלך: {{ n.weight }}%{% if n.avoid_add %} – <b>{{ n.reason }}, לא מתאים להוספה</b>{% endif %}</span>{% endif %}</div>{% endfor %}{% endif %}
   {% if e.losers %}<div style="color:#c62828;font-weight:bold;font-size:14px;margin-top:6px">📉 לזהירות</div>
   {% for s in e.losers %}<div style="font-size:14px;border-top:1px solid #eee;padding:4px 0"><b dir="ltr">{{ s.ticker }}</b> {{ s.name }} – {{ s.reason }}</div>{% endfor %}{% endif %}
 </div>

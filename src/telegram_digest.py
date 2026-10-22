@@ -58,8 +58,22 @@ def _pf_lines(pf, pa) -> list:
     return out
 
 
-def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None) -> str:
+def _plan_lines(plan) -> list:
+    if not (plan and (plan.get('buys') or plan.get('sells'))):
+        return []
+    out = ['', '<b>🎯 תוכנית פעולה</b>']
+    for i, b in enumerate(plan.get('buys', [])[:4], 1):
+        out.append(f"📈 {i}. <b>{_e(b['ticker'])}</b> – {_e(b['amount_text'])}\n   {_e(b.get('why'))}")
+    for s in plan.get('sells', [])[:3]:
+        out.append(f"📉 <b>{_e(s['ticker'])}</b> – {_e(s['action'])}: {_e(s.get('size_text'))}")
+    for a in plan.get('avoid', [])[:2]:
+        out.append(f"⛔ {_e(a['ticker'])}: {_e(a['reason'])}")
+    return out
+
+
+def daily_text(a: dict, date: str, site_url: str, pf=None, pa=None, plan=None) -> str:
     lines = [f"<b>🌍 דוח שוק יומי – {_e(date)}</b>", f"<i>מצב שוק: {MOOD.get(a.get('market_mood'), 'מעורב')}</i>", "", _e(a.get("summary"))]
+    lines += _plan_lines(plan)
     ms = a.get("market_state")
     if ms:
         lines += ["", f"<b>📊 {_e(ms.get('headline'))}</b>", _e(ms.get("recommendation"))]

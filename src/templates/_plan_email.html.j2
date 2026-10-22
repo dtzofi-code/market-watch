@@ -1,0 +1,14 @@
+{% if plan and (plan.buys or plan.sells) %}
+<div style="background:#f0f7ff;border:2px solid #1d4ed8;border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14px;line-height:1.6">
+<b style="font-size:17px">🎯 תוכנית פעולה</b>
+<div style="color:#5c6675;font-size:12px">מאוחד מכל חלקי הדוח (תיק, אירועים, מגמות) ובלי סתירות. מזומן זמין ≈ ${{ '%.0f'|format(plan.cash_usd) }} · תמורת מכירות מוצעות ≈ ${{ '%.0f'|format(plan.proceeds_usd) }} · תקציב לקנייה ≈ ${{ '%.0f'|format(plan.funds_usd) }}</div>
+{% if plan.buys %}<div style="margin-top:8px;color:#0f8a4b"><b>📈 כדאי להשקיע (לפי סדר עדיפות)</b></div>
+{% for b in plan.buys %}<div style="border-top:1px solid #dbe6f5;padding:5px 0"><b dir="ltr">{{ loop.index }}. {{ b.ticker }}</b> {{ b.name }} – <b>{{ b.amount_text }}</b>
+<br>למה: {{ b.why }}
+<br><span style="color:#5c6675;font-size:12px">מקורות: {{ b.sources[:3]|join(' · ') }}{% if b.levels %} · {{ b.levels }}{% endif %}{% if b.price %} · מחיר ${{ '%.2f'|format(b.price) }}{% endif %}{% if b.held %} · כבר בתיק {{ b.held }}%{% endif %}</span></div>{% endfor %}{% endif %}
+{% if plan.sells %}<div style="margin-top:8px;color:#c62828"><b>📉 למכור / להקטין</b></div>
+{% for s in plan.sells %}<div style="border-top:1px solid #dbe6f5;padding:5px 0"><b dir="ltr">{{ s.ticker }}</b> {{ s.name }} – <b>{{ s.action }}: {{ s.size_text }}</b>{% if s.why %}<br>למה: {{ s.why }}{% endif %}</div>{% endfor %}{% endif %}
+{% if plan.avoid %}<div style="margin-top:8px;color:#b45309"><b>⛔ לא להוסיף (סתירה שנפתרה)</b></div>
+{% for a in plan.avoid %}<div style="font-size:13px;padding:2px 0"><b dir="ltr">{{ a.ticker }}</b> – {{ a.reason }}</div>{% endfor %}{% endif %}
+</div>
+{% endif %}

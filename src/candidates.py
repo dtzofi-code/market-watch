@@ -47,7 +47,7 @@ def validate(raw: dict, data: dict) -> dict:
     return {"theme": raw.get("theme"), "picks": result}
 
 
-def personalize(cands: dict, pf: dict) -> dict:
+def personalize(cands: dict, pf: dict, hn: dict = None) -> dict:
     """Private extras for the e-mail only: existing exposure and how many units the cash can buy."""
     if not (pf and cands):
         return {}
@@ -56,7 +56,9 @@ def personalize(cands: dict, pf: dict) -> dict:
     extra = {}
     for picks in cands.get("picks", {}).values():
         for p in picks:
+            note = (hn or {}).get(p["ticker"]) or {}
             extra[p["ticker"]] = {"weight": weights.get(p["ticker"]), "cash": cash,
+                                  "avoid_add": note.get("avoid_add"), "reason": note.get("reason"),
                                   "units": round(cash / p["price"], 3) if cash and p["price"] else 0,  # fractions allowed
                                   "per100": round(100 / p["price"], 3) if p["price"] else None}
     return extra

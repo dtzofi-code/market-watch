@@ -109,6 +109,8 @@ def build(holdings: list) -> dict:
     fx = usd_ils()
     rows = []
     for h in holdings:
+        if h.get("ignore"):  # user asked to ignore this position completely: not valued, not analysed, not shown
+            continue
         sym = h.get("yf") or (h["ticker"] if h.get("type") in ("stock", "etf") else None)
         m = metrics_for(sym) if sym else None
         cur = h.get("currency", "USD")
@@ -238,6 +240,7 @@ def annotate(pf: dict, pa: dict) -> None:
                     amount = units * row["unit_price"]
                     text += f" (≈ {_u(units)} יח׳, ≈ {_money(amount, cur)})"
                     flow[k][0] += amount * to_usd
+                    h["size_usd"] = amount * to_usd
                 h["size_text"] = text
             elif act in BUY:
                 pct = min(max(pct if pct else BUY[act], 0), 10)
@@ -247,6 +250,7 @@ def annotate(pf: dict, pa: dict) -> None:
                     amount = amount_usd / to_usd
                     text += f" (≈ {_money(amount, cur)}, ≈ {_u(amount / row['unit_price'])} יח׳)"
                     flow[k][1] += amount_usd
+                    h["size_usd"] = amount_usd
                 h["size_text"] = text
     # key actions: link each to its position/horizon so amounts and price levels are attached by the code
     pos_by = {p.get("ticker"): p for p in pa.get("positions", [])}

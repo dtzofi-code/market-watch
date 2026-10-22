@@ -194,7 +194,9 @@ def run_weekly(args, date):
     market = snapshot(tickers) if tickers else {}
     start = days[0]["date"] if days else date
     pf, pa = _portfolio(args, {"summary": analysis.get("summary", ""), "events": []})
-    out = render_weekly(analysis, market, date, start, pf, pa)
+    import plan as _plan
+    plan = _plan.build(analysis, pf, pa, _plan.holding_notes(pf, pa)) if (pf and pa) else {}
+    out = render_weekly(analysis, market, date, start, pf, pa, plan)
     if args.demo:
         with open(os.path.join(OUT(), "weekly_email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
@@ -261,9 +263,12 @@ def main():
 
     pf, pa = _portfolio(args, analysis, analysis.get("market_state"))  # after data/ is saved: portfolio never lands there
     import candidates as _c
+    import plan as _plan
+    hn = _plan.holding_notes(pf, pa)  # per-holding stance, so no section contradicts the portfolio analysis
+    plan = _plan.build(analysis, pf, pa, hn)
     src = analysis.get("candidates") or ({"picks": {t["name"]: t.get("picks", []) for t in analysis["trends"]["themes"]}} if analysis.get("trends") else None)
-    cand_extra = _c.personalize(src, pf)  # private: exposure + affordable units -> email only
-    out = render(analysis, market, date, pf, pa, cand_extra)
+    cand_extra = _c.personalize(src, pf, hn)  # private: exposure + affordable units -> email only
+    out = render(analysis, market, date, pf, pa, cand_extra, plan, hn)
     if args.demo:
         with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
@@ -271,7 +276,7 @@ def main():
         from send_email import send
         top = max((e.get("severity", 0) for e in analysis.get("events", [])), default=0)
         send(f"דוח שוק יומי {date} | חומרה מקסימלית {top}/5", out["email_html"])
-        _telegram(lambda t: t.daily_text(analysis, date, os.environ.get("SITE_URL", ""), pf, pa))
+        _telegram(lambda t: t.daily_text(analysis, date, os.environ.get("SITE_URL", ""), pf, pa, plan))
         _whatsapp(lambda w: w.daily_text(analysis, date, os.environ.get("SITE_URL", "")))
     if datetime.now().weekday() == 4 and not args.demo:  # Friday
         try:
