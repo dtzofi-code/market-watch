@@ -150,7 +150,7 @@ def from_rows(rows: list, symbol_map: dict = None) -> dict:
             h["yf"] = sym + ".TA" if (cur == "ILS" and "." not in sym) else sym
         elif typ in ("stock", "etf"):
             hint = f" (TASE symbol '{sym}')" if sym and not ascii_sym else ""
-            warnings.append(f"'{name}'{hint}: no Yahoo ticker found. Map it, e.g. SYMBOL_MAP_FILE with {{\"{name}\": \"MGOR.TA\"}}. It is valued at the last price, without market data.")
+            warnings.append(f"'{name}'{hint}: no Yahoo ticker found. Map it, e.g. SYMBOL_MAP_FILE with {{\"{name}\": \"<TICKER>.TA\"}}. It is valued at the last price, without market data.")
         if price is not None:
             h["last_price"] = price / 100 if (cur == "ILS" and typ != "cash") else price  # TASE quotes are in agorot
         for k in ("hold", "ignore"):

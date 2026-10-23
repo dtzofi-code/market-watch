@@ -1,5 +1,5 @@
 symbol,quantity,avg_cost,currency,type,hold,ignore
-AAPL,4.4,200.31,USD,stock,,
-NVDA,10,41.12,USD,stock,,
-SPY,1.4,549.81,USD,etf,,
+AAPL,10,150,USD,stock,,
+MSFT,5,300,USD,stock,,
+SPY,3,450,USD,etf,,
 USD,500,1,USD,cash,,

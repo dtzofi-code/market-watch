@@ -82,7 +82,7 @@ DEMO["market_state"] = {
 DEMO["indices"] = [{"symbol": "^GSPC", "name": "S&P 500", "price": 5800.0, "d1": 0.4, "w1": -0.8, "m1": 2.1, "from_52w_high": -3.2}]
 DEMO_PORTFOLIO = [
     {"ticker": "NVDA", "name": "NVIDIA", "type": "stock", "qty": 100, "cost": 100.0, "currency": "USD"},
-    {"ticker": "5134135", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
+    {"ticker": "9000001", "name": "קרן מדד (ללא נתוני שוק)", "type": "fund", "qty": 1000, "cost": 10.0, "currency": "ILS"},
 ]
 DEMO["candidates"] = {"theme": "הדגמה: מתיחות באנרגיה וביקוש לשבבים.", "picks": {
     "אנרגיה": [{"ticker": "XLE", "name": "Energy Select Sector SPDR", "type": "etf", "price": 90.0, "d1": 0.8, "w1": 2.1, "m1": 4.0, "from_52w_high": -6.0,
@@ -100,13 +100,13 @@ DEMO["trends"] = {"summary": "הדגמה: אנרגיה גרעינית ומתכו
 DEMO_GOAL = {"target_ils": 50000, "deadline": "2027-06-30", "start_ils": 40000, "start_date": "2026-10-01"}
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
-    "top_actions": [{"ticker": "NVDA", "horizon": "medium", "text": "להקטין חשיפה כדי להפחית ריכוזיות"}, {"ticker": "5134135", "horizon": "short", "text": "להמשיך להחזיק את הקרן"}],
+    "top_actions": [{"ticker": "NVDA", "horizon": "medium", "text": "להקטין חשיפה כדי להפחית ריכוזיות"}, {"ticker": "9000001", "horizon": "short", "text": "להמשיך להחזיק את הקרן"}],
     "exposure_to_today": "משבר הזיכרון תומך בחלק גדול מהתיק.", "concentration": "ריכוז גבוה בסקטור השבבים ובדולר.",
     "risks": ["תיקון בסקטור השבבים"],
     "positions": [
         {"ticker": "NVDA", "analysis": "מומנטום חזק, אך משקל גבוה בתיק.", "buy_below": 210, "sell_above": 270, "stop": 200, "levels_note": "הדגמה", "watch": "שבירת ממוצע 50 יום",
          "short": {"action": "להחזיק", "size_pct": 0, "why": "מומנטום חיובי"}, "medium": {"action": "להקטין", "size_pct": 20, "why": "ריכוזיות"}, "long": {"action": "להחזיק", "why": "מגמת AI"}},
-        {"ticker": "5134135", "analysis": "קרן ללא נתוני שוק; ניתוח איכותי בלבד.", "watch": "",
+        {"ticker": "9000001", "analysis": "קרן ללא נתוני שוק; ניתוח איכותי בלבד.", "watch": "",
          "short": {"action": "להחזיק", "why": "אין נתונים"}, "medium": {"action": "לעקוב", "why": "תלוי בסחורות"}, "long": {"action": "להחזיק", "why": "פיזור"}},
     ],
 }
