@@ -1,6 +1,14 @@
 __pycache__/
 *.pyc
+# generated locally - may contain your portfolio, never commit
+out/
+demo_out/
 email_preview.html
 weekly_email_preview.html
-demo_out/
+# your portfolio files and symbol maps
 portfolio.local.json
+portfolio.json
+portfolio.csv
+portfolio.xlsx
+my_portfolio.*
+symbol_map.json
