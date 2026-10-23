@@ -1,24 +1,106 @@
-# מעקב אירועים ושוק המניות
+# Market Watch – מעקב אירועים, מגמות ותיק מניות
 
-צינור יומי: איסוף כותרות (RSS + GDELT) ← ניתוח עם Gemini (שכבה חינמית; Claude אופציונלי) ← נתוני שוק (yfinance) ← אתר סטטי + מייל (Resend).
+מערכת שרצה אוטומטית כל יום, סורקת חדשות ושווקים בעולם, מזהה אירועים ומגמות (גם כאלה שלא בהכרח הכרת), ומפיקה **דוח בעברית** עם המלצות. אם תעלה קובץ תיק מניות, הדוח יתאים את ההמלצות **אליו**: כמה להקטין, מה להוסיף, באיזה סכום ובאיזה מחיר.
 
-## הרצה מקומית
+> ⚠️ **אינו ייעוץ השקעות.** הדוח נוצר אוטומטית על ידי מודל שפה ומקורות ציבוריים, עלול לטעות, ואינו מותאם לנסיבותיך האישיות. כל החלטה והסיכון עליה הם שלך.
+
+## מה בדוח
+- **תוכנית פעולה** בראש הדוח: מה לקנות (עד 5, לפי עדיפות) ומה למכור או להקטין, עם סכום בדולרים, יחידות (חלקי יחידה מותרים), נימוק ומקורות. הרשימה מאוחדת, כך שלא ייווצרו סתירות (למשל "להקטין NVDA" לצד "לקנות NVDA").
+- **אירועים בעולם** וההשפעה שלהם על סקטורים ומניות, עם הערכה לטווח קצר, בינוני וארוך.
+- **מגמות שכדאי להכיר:** סריקה של כ-55 קרני סל (סקטורים, תעשיות, נושאים, מדינות), הסבר פשוט לכל תחום, ומניות מתוך האחזקות האמיתיות של הקרן.
+- **מצב השוק:** קונטקסט, ניתוח והמלצה, עם מדדים (S&P, נאסד"ק, VIX, תשואות, זהב, נפט ועוד).
+- **ניתוח התיק:** לכל נייר ניתוח, המלצה לפי טווח, נימוק, נתונים (משקל, רווח/הפסד, RSI ועוד) ורמות מחיר (קנייה עד, יעד, סטופ).
+- **יעד אישי (אופציונלי):** מעקב אחרי יעד שווי, כולל הפקדות חודשיות וניתוח כדאיות הפקדה.
+- **סיכום שבועי** בכל יום שישי.
+- **ערוצים:** מייל (Resend), טלגרם, וואטסאפ (CallMeBot, תקציר ציבורי בלבד), ואתר סטטי אופציונלי.
+
+## התחלה מהירה (5 דקות, בלי מפתחות)
 ```bash
+git clone <your-fork-url> market-watch && cd market-watch
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python src/main.py --demo        # נתוני הדגמה, בלי מפתחות; פותח docs/index.html
-GEMINI_API_KEY=... python src/main.py --no-email
+python src/main.py --demo          # נתוני הדגמה בלבד; יוצר demo_out/
 ```
 
-## פריסה (GitHub Actions + Pages)
-1. צור ריפו, דחוף את הקוד.
-2. Settings → Pages → Source: **GitHub Actions**.
-3. Settings → Secrets → Actions: `GEMINI_API_KEY` (חינמי מ-aistudio.google.com/apikey), `RESEND_API_KEY`, `REPORT_TO_EMAIL`.
-4. Actions → daily-report → Run workflow לבדיקה. אחר כך רץ כל יום ~06:30.
+## הרצה עם התיק שלך
+1. **הכן קובץ תיק** (ראה "פורמטים" בהמשך). אפשר להתחיל מ-[portfolio.template.csv](portfolio.template.csv).
+2. **הגדר לפחות מפתח אחד של מודל שפה** (חינמי: [Gemini](https://aistudio.google.com/apikey)):
+   ```bash
+   export GEMINI_API_KEY=...
+   python src/main.py --portfolio my_portfolio.xlsx --no-email
+   ```
+3. הדוח נשמר ב-`out/report.html`. פתח אותו בדפדפן.
 
-הערה: ללא דומיין מאומת ב-Resend, השולח `onboarding@resend.dev` יכול לשלוח רק לכתובת בעלת החשבון. להגדרת שולח אחר: `RESEND_FROM`.
+אפשר להוסיף יעד: `--goal-target 60000 --goal-date 2027-04-30 --deposit 300` (שווי ב-₪, הפקדה חודשית ב-$).
 
-## טלגרם (אופציונלי)
-1. ב-Telegram פתח את @BotFather ← `/newbot` ← קבל טוקן.
-2. שלח הודעה כלשהי לבוט החדש שלך.
-3. העתק את הטוקן והרץ `pbpaste | gh secret set TELEGRAM_BOT_TOKEN -R <owner>/market-watch`.
-4. מצא את ה-chat id ב-`https://api.telegram.org/bot<TOKEN>/getUpdates` (שדה `chat.id`) והגדר `TELEGRAM_CHAT_ID` באותו אופן.
+## פורמטי קובץ תיק
+הייבוא מזהה עמודות לפי שם (עברית או אנגלית), ולא דורש עריכה ברוב ייצואי הברוקרים.
+
+| פורמט | סיומת | הערות |
+|---|---|---|
+| **CSV / XLSX כללי** | `.csv` `.xlsx` | עמודות: `symbol, quantity, avg_cost, currency` ואופציונלי `type, hold, ignore, name, group` |
+| **ייצוא ברוקר ישראלי** | `.xlsx` | עמודות כמו "שם נייר, מספר נייר, כמות נוכחית, שער, מחיר ממוצע במטבע מקור". הסימול נשלף משם הנייר |
+| **ייצוא ברוקר אמריקאי בעברית** | `.csv` | עמודות כמו "סימול המניה, כמות, מחיר עלות" |
+| **JSON** | `.json` | הפורמט הפנימי; ראה [portfolio.example.json](portfolio.example.json) |
+
+**שדות:** `symbol` (טיקר), `quantity` (כמות, אפשר חלקית), `avg_cost` (מחיר עלות ליחידה במטבע הנייר), `currency` (`USD`/`ILS`), `type` (`stock`/`etf`/`fund`/`bond`/`cash`), `hold` (`1` = החלטת משתמש להחזיק, המערכת לא תמליץ למכור), `ignore` (`1` = להתעלם לחלוטין).
+
+**מזומן:** שורה עם `type=cash` (למשל `USD,500,1,USD,cash`). הוא משמש כתקציב לקנייה.
+
+**ניירות ישראליים:** לנייר בבורסה בתל אביב נדרש סימול Yahoo, למשל `MGOR.TA`. אם הסימול בקובץ הוא עברי, המערכת תציג אזהרה. הוסף קובץ מיפוי והגדר `SYMBOL_MAP_FILE=symbol_map.json`:
+```json
+{"מגה אור": "MGOR.TA"}
+```
+קרנות נאמנות ישראליות וניירות בלי נתוני שוק נכללים בשווי, אבל מנותחים איכותית בלבד.
+
+בדיקת הייבוא לפני ההרצה: `python src/importer.py my_portfolio.xlsx` (מדפיס את מה שזוהה ואזהרות). הוספת `-o portfolio.json` מייצרת JSON פנימי.
+
+## הגדרת מפתחות ושירותים
+כולם אופציונליים חוץ ממודל שפה אחד לפחות. שמור אותם כמשתני סביבה, ובהרצה בענן כ-Secrets.
+
+| שירות | משתנים | הערות |
+|---|---|---|
+| **Gemini** (ראשי, חינמי) | `GEMINI_API_KEY` | השכבה החינמית עמוסה לפעמים, ולכן יש גיבוי |
+| **גיבוי חינמי** | `OPENROUTER_API_KEY` (או `GROQ_API_KEY`) | מופעל אוטומטית כש-Gemini נכשל. איטי יותר ואיכות משתנה |
+| **Claude** (בתשלום) | `ANTHROPIC_API_KEY`, `ANALYSIS_PROVIDER=claude` | אם תעדיף ספק יציב |
+| **מייל** | `RESEND_API_KEY`, `REPORT_TO_EMAIL` (אפשר כמה, מופרדים בפסיק) | [resend.com](https://resend.com). בלי דומיין מאומת אפשר לשלוח רק לבעל החשבון |
+| **טלגרם** | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | בוט דרך @BotFather; שלח לו הודעה לפני שמחפשים את ה-chat id |
+| **וואטסאפ** | `WHATSAPP_PHONE`, `CALLMEBOT_APIKEY` | שירות לא רשמי; נשלח תקציר ציבורי בלבד, בלי התיק |
+
+## הרצה אוטומטית ב-GitHub Actions
+1. צור **ריפו פרטי** משכפול של הקוד (ראה "פרטיות" – חשוב).
+2. הוסף Secrets (Settings ← Secrets and variables ← Actions): מפתחות הערוצים, ו-`PORTFOLIO_JSON` עם התיק:
+   ```bash
+   python src/importer.py my_portfolio.xlsx -o portfolio.json
+   gh secret set PORTFOLIO_JSON < portfolio.json
+   ```
+3. הרץ ידנית: `gh workflow run daily-report`. אחר כך הוא רץ כל יום.
+4. אתר סטטי הוא אופציונלי: הגדר משתנה ריפו `PUBLISH_SITE=true` והפעל Pages (Source: GitHub Actions).
+
+הערה: הרצות מתוזמנות של GitHub מתעכבות לפעמים בשעות. ה-workflow מוגדר להרצות חוזרות במהלך היום, ואם הדוח כבר נוצר הן לא עושות כלום. לשעה קבועה השתמש בטריגר חיצוני.
+
+## פרטיות ואבטחה
+- **התיק לעולם לא נכנס לקוד או ל-git.** הוא נקרא מקובץ מקומי או מ-Secret. קובצי תיק נפוצים כבר ב-`.gitignore`.
+- **ריפו פרטי מומלץ.** האתר והדוחות היומיים (`docs/`, `data/`) מכילים רק ניתוח שוק כללי, ובלי פרטי תיק, אבל ריפו ציבורי חושף את הכתובת שלך ואת הרעיונות שפורסמו.
+- **מה נשלח למודל השפה:** אחוזים בלבד (משקל בתיק, רווח/הפסד באחוזים, מדדים טכניים, מחירי שוק ציבוריים). **לא** כמויות, סכומים או סכום התיק. הסכומים מחושבים מקומית, אחרי תשובת המודל.
+- **השכבות החינמיות** של ספקי מודלים עשויות להשתמש בקלט לשיפור המוצר. אם זה לא מקובל עליך, השתמש בספק בתשלום.
+- **יומנים:** המערכת לא מדפיסה כמויות, סכומים או שווי. אל תוסיף הדפסות כאלה.
+- **וואטסאפ** מועבר דרך צד שלישי, ולכן נשלח בו רק תקציר ציבורי.
+
+## מגבלות ידועות
+- **שפה:** הדוח בעברית בלבד.
+- **נתוני שוק:** מ-Yahoo Finance (ספרייה לא רשמית), עם עיכובים ופערים אפשריים.
+- **איכות המודלים החינמיים משתנה**, וייתכנו שגיאות בנימוקים או בנתונים. בדוק לפני שאתה פועל.
+- **עומס:** השכבות החינמיות נכשלות לפעמים; יש ניסיונות חוזרים וגיבוי, אבל דוח עלול לצאת חלקי או איטי.
+- **המלצות קנייה/מכירה** מבוססות על מחירים אחרונים, ללא עמלות, מיסים והגבלות של הברוקר שלך, ובלי ידיעה של מצבך הכלכלי.
+- **ניירות ישראליים** דורשים מיפוי סימול ידני (ראה למעלה).
+
+## עלויות
+כל המערכת רצה בחינם: GitHub Actions (ריפו פרטי: מכסה חינמית מוגבלת), Gemini/OpenRouter (שכבות חינמיות), Resend (שכבה חינמית), נתוני שוק ו-RSS. ספק בתשלום (Claude/OpenAI) הוא אופציה בלבד.
+
+## מבנה
+ראה [SYSTEM.md](SYSTEM.md) לארכיטקטורה, תיאור המודולים, משתני הסביבה וקווים מנחים להרחבה.
+
+---
+### English summary
+Daily pipeline: collect world headlines → AI analysis (Hebrew) → market data (yfinance) → personalised report by e-mail / Telegram / static site. Feed it a portfolio file (`.xlsx`, `.csv`, `.json`) and it returns a reconciled **action plan** (what to buy/sell, how much, at what price). Run `python src/main.py --demo` for an offline demo, or `python src/main.py --portfolio my.xlsx --no-email` with `GEMINI_API_KEY` set; the report lands in `out/report.html`. The portfolio is never committed and the model only receives percentages, never amounts. Not investment advice. Report language: Hebrew.

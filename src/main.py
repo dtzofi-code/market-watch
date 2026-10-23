@@ -97,7 +97,7 @@ DEMO["trends"] = {"summary": "הדגמה: אנרגיה גרעינית ומתכו
                 "stats": {"m1": 12.0, "m3": 30.0, "rel3": 22.0, "from_52w_high": -4.0},
                 "picks": [{"ticker": "URA", "name": "Global X Uranium ETF", "type": "etf", "price": 50.0, "d1": 1.0, "w1": 2.0, "m1": 12.0, "from_52w_high": -4.0,
                            "thesis": "חשיפה רחבה לתחום בקרן אחת.", "horizon": "ארוך", "conviction": "בינונית", "risk": "תנודתיות.", "buy_below": 48.0, "target": 60.0, "stop": 44.0}]}]}
-DEMO_GOAL = {"target_ils": 65000, "deadline": "2026-12-31", "start_ils": 41600, "start_date": "2026-10-07"}
+DEMO_GOAL = {"target_ils": 50000, "deadline": "2027-06-30", "start_ils": 40000, "start_date": "2026-10-01"}
 DEMO_PA = {
     "summary": "הדגמה: תיק מרוכז בשבבים. הקרן מוחזקת ללא נתוני שוק.", "health": "בינוני",
     "top_actions": [{"ticker": "NVDA", "horizon": "medium", "text": "להקטין חשיפה כדי להפחית ריכוזיות"}, {"ticker": "5134135", "horizon": "short", "text": "להמשיך להחזיק את הקרן"}],
@@ -212,8 +212,17 @@ def main():
     ap.add_argument("--no-email", action="store_true")
     ap.add_argument("--demo", action="store_true")
     ap.add_argument("--weekly", action="store_true", help="weekly summary only")
+    ap.add_argument("--portfolio", help="portfolio file (.xlsx / .csv / .json); see README for the supported formats")
+    ap.add_argument("--goal-target", type=float, help="optional goal: target portfolio value in ILS")
+    ap.add_argument("--goal-date", help="optional goal deadline, YYYY-MM-DD")
+    ap.add_argument("--deposit", type=float, help="optional planned monthly deposit in USD")
     args = ap.parse_args()
     date = datetime.now().strftime("%Y-%m-%d")
+    if args.portfolio:
+        os.environ["PORTFOLIO_FILE"] = os.path.abspath(args.portfolio)
+    if args.goal_target and args.goal_date:
+        os.environ["GOAL_TARGET_ILS"], os.environ["GOAL_DEADLINE"] = str(args.goal_target), args.goal_date
+        os.environ["MONTHLY_DEPOSIT_USD"] = str(args.deposit or 0)
     if args.demo:
         os.environ["DEMO_OUT"] = os.path.join(ROOT, "demo_out")
     if args.weekly:
@@ -272,7 +281,14 @@ def main():
     if args.demo:
         with open(os.path.join(OUT(), "email_preview.html"), "w", encoding="utf-8") as f:
             f.write(out["email_html"])
-    if not (args.no_email or args.demo):
+    if not args.demo:  # always keep a local copy of the report (gitignored), handy when no e-mail is configured
+        os.makedirs(os.path.join(ROOT, "out"), exist_ok=True)
+        with open(os.path.join(ROOT, "out", "report.html"), "w", encoding="utf-8") as f:
+            f.write(out["email_html"])
+        print("[main] report saved to out/report.html")
+    if not (args.no_email or args.demo) and not (os.environ.get("RESEND_API_KEY") and os.environ.get("REPORT_TO_EMAIL")):
+        print("[email] RESEND_API_KEY / REPORT_TO_EMAIL not set - skipping e-mail (open out/report.html instead)")
+    elif not (args.no_email or args.demo):
         from send_email import send
         top = max((e.get("severity", 0) for e in analysis.get("events", [])), default=0)
         send(f"דוח שוק יומי {date} | חומרה מקסימלית {top}/5", out["email_html"])

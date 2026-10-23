@@ -6,29 +6,54 @@ Only percentages (weights, P/L %) are ever sent to the AI, never quantities or a
 """
 import json
 import os
+import re
 
 from render import ROOT
 
 LOCAL = os.path.join(ROOT, "portfolio.local.json")
 
 
-def load() -> list:
+_CACHE = {}
+
+
+def _read() -> dict:
+    key = (os.environ.get("PORTFOLIO_FILE"), os.environ.get("PORTFOLIO_JSON"), os.path.exists(LOCAL))
+    if key not in _CACHE:  # parse once per run (warnings are printed once)
+        _CACHE.clear()
+        _CACHE[key] = _read_uncached()
+    return _CACHE[key]
+
+
+def _read_uncached() -> dict:
+    """Portfolio source, in order: PORTFOLIO_FILE (xlsx/csv/json) -> PORTFOLIO_JSON secret -> portfolio.local.json."""
+    path = os.environ.get("PORTFOLIO_FILE")
+    if path:
+        import importer
+        res = importer.load_file(path)
+        for w in res.get("warnings", []):
+            print("[portfolio] WARNING:", w)
+        return res
     raw = os.environ.get("PORTFOLIO_JSON")
     if not raw and os.path.exists(LOCAL):
         raw = open(LOCAL, encoding="utf-8").read()
     if not raw:
-        return []
-    items = json.loads(raw)
-    return items["holdings"] if isinstance(items, dict) else items
+        return {"holdings": [], "goal": None}
+    data = json.loads(raw)
+    return data if isinstance(data, dict) else {"holdings": data, "goal": None}
+
+
+def load() -> list:
+    return _read().get("holdings") or []
 
 
 def load_goal():
-    """Optional goal from the same private JSON: {"goal": {"target_ils", "deadline", "start_ils", "start_date"}, "holdings": [...]}."""
-    raw = os.environ.get("PORTFOLIO_JSON")
-    if not raw and os.path.exists(LOCAL):
-        raw = open(LOCAL, encoding="utf-8").read()
-    data = json.loads(raw) if raw else None
-    return data.get("goal") if isinstance(data, dict) else None
+    """Optional goal: {"target_ils", "deadline", "monthly_deposit_usd"} (+ start_ils/start_date, defaulted on first use).
+    From the portfolio JSON, or the GOAL_TARGET_ILS / GOAL_DEADLINE / MONTHLY_DEPOSIT_USD environment variables."""
+    goal = _read().get("goal")
+    if not goal and os.environ.get("GOAL_TARGET_ILS") and os.environ.get("GOAL_DEADLINE"):
+        goal = {"target_ils": float(os.environ["GOAL_TARGET_ILS"]), "deadline": os.environ["GOAL_DEADLINE"],
+                "monthly_deposit_usd": float(os.environ.get("MONTHLY_DEPOSIT_USD") or 0)}
+    return goal
 
 
 def goal_status(pf: dict, goal: dict) -> dict:
@@ -36,9 +61,9 @@ def goal_status(pf: dict, goal: dict) -> dict:
     from datetime import date
     today = date.today()
     deadline = date.fromisoformat(goal["deadline"])
-    start_d = date.fromisoformat(goal["start_date"])
+    start_d = date.fromisoformat(goal["start_date"]) if goal.get("start_date") else today  # first run: start from today
     cur = pf["totals"]["total_usd"] * pf["totals"]["fx"]
-    target, start = float(goal["target_ils"]), float(goal["start_ils"])
+    target, start = float(goal["target_ils"]), float(goal.get("start_ils") or cur)
     weeks_left = max((deadline - today).days / 7, 0.01)
     total_days = max((deadline - start_d).days, 1)
     elapsed = min(max((today - start_d).days, 0), total_days)
@@ -111,7 +136,8 @@ def build(holdings: list) -> dict:
     for h in holdings:
         if h.get("ignore"):  # user asked to ignore this position completely: not valued, not analysed, not shown
             continue
-        sym = h.get("yf") or (h["ticker"] if h.get("type") in ("stock", "etf") else None)
+        t0 = str(h.get("ticker") or "")
+        sym = h.get("yf") or (t0 if h.get("type") in ("stock", "etf") and re.match(r"^[A-Z][A-Z0-9.\-]{0,9}$", t0) else None)
         m = metrics_for(sym) if sym else None
         cur = h.get("currency", "USD")
         if m and sym and sym.endswith(".TA"):  # TASE quotes are in agorot -> convert price levels to shekels

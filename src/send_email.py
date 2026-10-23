@@ -10,7 +10,7 @@ def send(subject: str, html: str):
     r = requests.post(
         "https://api.resend.com/emails",
         headers={"Authorization": f"Bearer {key}"},
-        json={"from": sender, "to": [to], "subject": subject, "html": html},
+        json={"from": sender, "to": [x.strip() for x in to.split(",") if x.strip()], "subject": subject, "html": html},
         timeout=30,
     )
     r.raise_for_status()
