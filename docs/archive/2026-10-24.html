@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+
+.hz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+@media(max-width:640px){.hz{grid-template-columns:1fr}}
+.hzc{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.hzc b{display:block}.hzc small{color:var(--muted)}
+.o-חיובי{color:var(--up)}.o-שלילי{color:var(--down)}.o-ניטרלי{color:var(--muted)}
+nav a{margin-inline-end:14px;font-weight:600}
+ul.l{margin:4px 0;padding-inline-start:20px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="../index.html">יומי</a><a href="../weekly.html">סיכום שבועי</a></nav>
+  <p>דוח ליום 24/10/2026 · <span class="mood">מצב שוק: בריחה מסיכון</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> שווקי המניות העולמיים מתמודדים עם לחצים מצד זינוק במחירי הנפט והחששות מהחמרה גיאופוליטית במזרח התיכון סביב איומי איראן והחות&#39;ים, לצד מתחים סביב שירותי הלוויין של Starlink ואנרגיה. במקביל, שוק הטכנולוגיה והענן רושם ביקושי שיא לצד רגולציה מתהדקת על תשתיות קריטיות ושבבים.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>הסלמה ביטחונית במפרץ ובמזרח התיכון ואיומי איראן על תשתיות אנרגיה<span class="sev sev5" title="חומרה">5</span></h3>
+  <div class="tags"><span>אנרגיה</span><span>מזרח התיכון</span><span>ארה&#34;ב</span><span>עולמי</span></div>
+  <p>איראן מתכננת תקיפות ופגיעה בכבלי תקשורת תת-ימיים באזור המפרץ ובמתקני אנרגיה, לצד עימותים מתמשכים של החות&#39;ים ופינוי עובדים של ארמקו בסעודיה. ארה&#34;ב שוקלת פעולות צבאיות נוספות ושחרור חירום מרזרבות הנפט.</p>
+  <p><strong>השפעה על השוק:</strong> העלאת מחירי הנפט והגז לשיא של חודשים, פגיעה בסקטור התעופה והתחבורה, וחיזוק מניות האנרגיה המסורתיות והביטחוניות.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">XOM, CVX, OXY, LMT, RTX, ESLT.TA</span></small><br>מחירי האנרגיה הגבוהים והחשש מהפרות אספקה מקפיצים את מניות האנרגיה והתעשייה הביטחונית באופן מיידי.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">XOM, CVX</span></small><br>התערבויות ממשלתיות כמו שחרור מלאי חירום עשויים למתן חלק מהעליות, אך הסיכון הגיאופוליטי יישאר גבוה.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">PLTR, LMT, RTX, ESLT.TA</span></small><br>שינוי מבני בתקציבי הביטחון של מדינות המערב והמפרץ, לצד האצת ההשקה של תשתיות אנרגיה חלופיות ואבטחת נתיבי סחר.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">XOM</span> Exxon Mobil
+        <span class="pct up">+2.8% יום · +2.4% שבוע</span>
+        <br><small>נהנית ישירות מעליית מחירי הנפט והביקוש הגובר לאנרגיה אלטרנטיבית. · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">ESLT.TA</span> Elbit Systems
+        <span class="pct up">+0.5% יום · +1.0% שבוע</span>
+        <br><small>ביקושים גבוהים למוצרים ביטחוניים בעקבות ההסלמה באזור. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">DAL</span> Delta Air Lines
+        <span class="pct down">-3.1% יום</span>
+        <br><small>עלויות דלק סילוני גבוהות המעיבות על רווחיות חברות התעופה.</small></div></div>
+  </div>
+  <div class="src"><a href="https://www.reuters.com" rel="noopener">Iran has detailed plans to hit Gulf undersea cables if war resumes</a></div>
+</div>
+
+<div class="card ev">
+  <h3>הגדרת הליום כחומר קריטי לשבבים והמשך ביקושי ענן חזקים<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>שבבים וטכנולוגיה</span><span>ארה&#34;ב</span><span>עולמי</span></div>
+  <p>הפנטגון וגורמים בארה&#34;ב הגדירו את ההליום כחומר קריטי לתעשיית השבבים, ובמקביל מנכ&#34;ל אמזון דיווח כי יכולות הענן של החברה נמכרו לחלוטין עד 2027.</p>
+  <p><strong>השפעה על השוק:</strong> חיזוק שרשרת האספקה של ענקיות השבבים והענן, לצד התמקדות משקיעים בסקטור התשתיות הדיגיטליות למרות תיקון רוחבי בשוק.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">AMZN, NVDA, TSM</span></small><br>ביקושים חזקים וסולד-אאוט בתחום הענן מעידים על המשך צמיחת הבינה המלאכותית למרות תנודתיות בשוק.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">AMZN, MSFT, NVDA</span></small><br>השקעות ענק בחוות שרתים ויכולות ענן תומכות בהכנסות יציבות של ספקיות הענן הגדולות.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">AMZN, NVDA, ASML</span></small><br>שינוי מבני בביקוש הגלובלי לכוח מחשוב, בינה מלאכותית ואבטחת חומרי גלם קריטיים לתעשיית המוליכים למחצה.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">AMZN</span> Amazon.com
+        <span class="pct down">-1.0% יום · -0.8% שבוע</span>
+        <br><small>יכולות הענן שלה נמכרו במלואן עד 2027, מה שמבטיח צמיחה חזקה בהכנסות AWS. · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">NVDA</span> NVIDIA
+        <span class="pct down">-0.6% יום · -1.5% שבוע</span>
+        <br><small>נהנית מביקושי שיא למעבדי AI ולתשתיות ענן. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">INTC</span> Intel Corp
+        <span class="pct up">+1.7% יום</span>
+        <br><small>עשויה להיפגע ממחסור או התייקרות של חומרי גלם קריטיים כמו הליום אם שרשרת האספקה תיבחן מחדש.</small></div></div>
+  </div>
+  <div class="src"><a href="https://www.reuters.com" rel="noopener">Amazon cloud capacity sold out through 2027</a></div>
+</div>
+
+<div class="card ev">
+  <h3>מתיחות רגולטורית סביב שירותי Starlink וטלקום בארה&#34;ב ובאוקראינה<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>גיאופוליטי</span><span>ארה&#34;ב</span><span>אוקראינה</span><span>עולמי</span></div>
+  <p>דוחן חושף כי ארה&#34;ב ביקשה ממאסק לשנות את שירותי Starlink באוקראינה ובמזרח התיכון, במקביל לחששות של חברות טלקום מסחריות משיחות מתקדמות של SpaceX לכניסה לתדרי תאי טלפון סלולרי.</p>
+  <p><strong>השפעה על השוק:</strong> לחץ על מניות חברות הטלקום המסורתיות והגברת אי-הוודאות סביב השפעת גופים פרטיים על מדיניות חוץ וביטחון.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">T, VZ, TMUS</span></small><br>החשש מתחרות ישירה מצד לווייני SpaceX בתחום הסלולר מכביד על מניות חברות הטלקום הגדולות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">T, VZ</span></small><br>תהליכי רגולציה ואישורים מול ה-FCC עשויים להאט את כניסת SpaceX לשוק הסלולרי המסורתי.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה</small><br>שינוי מבני בקישוריות הגלובלית עם שילוב תקשורת לוויינית ישירה למכשירים ניידים.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      </div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">VZ</span> Verizon Communications
+        <span class="pct down">-1.2% יום</span>
+        <br><small>מאוימת מתחרות פוטנציאלית של Starlink בתחום הקישוריות הסלולרית.</small></div><div class="stk"><span class="tk">T</span> AT&amp;T
+        <span class="pct down">-8.0% יום</span>
+        <br><small>לחץ מצד משקיעים על רקע כניסת שחקני חלל לשוק התקשורת הניידת.</small></div></div>
+  </div>
+  <div class="src"><a href="https://www.reuters.com" rel="noopener">US telecom operators wobble after report SpaceX in talks for cell sites</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>מזרח התיכון</td><td>להיזהר</td><td>הסיכון הגיאופוליטי הגבוה, איומי הפגיעה בתשתיות אנרגיה ותקשורת, והחשש מהסлמה צבאית רחבה.</td></tr><tr><td>ארה&#34;ב</td><td>ניטרלי</td><td>שוק המניות חווה תנודתיות וסגירה שלילית על רקע מחירי הנפט הגבוהים והתאמות בתיקי השקעות לקראת אמצע השנה ובחירות.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>השווקים נסחרים בירידות על רקע זינוק بمחירי הנפט והסלמה גיאופוליטית במזרח התיכון</strong></p>
+  <p><strong>קונטקסט:</strong> המסחר מושפע ישירות מהחששות מהחמרה גיאופוליטית והסלמה ביטחונית במפרץ ובמזרח התיכון, הכוללת איומי איראן על תשתיות אנרגיה שדחפו את מחיר הנפט (WTI) לעלייה חדה של 3.8% לרמה של 103.27 דולר. במקביל, שוק הטכנולוגיה והענן מתמודד עם רגולציה מתהדקת על תשתיות קריטיות ושבבים, לצד מתחים סביב שירותי Starlink. נתוני המדדים מראים לחץ שלילי על S&amp;P 500 שירד ב-0.5% ונסחר כ-2.5% מהשיא השנתי, בזמן שמדד הפחד (VIX) קפץ ב-2.2% ל-19.45.</p>
+  <p><strong>ניתוח:</strong> המגמה בשווקים זהירה ונוטה לירידות, עם מומנטום שלילי קצר טווח במדדי המניות המרכזיים. ה-S&amp;P 500 והנאסד&#34;ק נסחרים מתחת לממוצע נע 50 יום, כאשר הנאסד&#34;ק רשם ירידה חודשית של 3.7% ומתרחק ב-6% משיאו השנתי. רוחב השוק חלש והראסל 2000 רחוק כ-9.5% מהשיא השנתי ונמצא מתחת לממוצע 200 יום. מחירי האנרגיה בולטים בעוצמתם עם נפט שנמצא 21.1% מעל ממוצע 200 יום, בעוד הזהב רושם חולשה משמעותית ויורד ב-1.3% יומית ו-4.1% שבועית. תשואת האג&#34;ח ל-10 שנים עולה ל-4.98% וממשיכה להוות אלטרנטיבה תחרותית למניות.</p>
+  <p><strong>המלצה:</strong> סטנס זהיר עד הגנתי בשל אי-הודאות הגיאופוליטית ועליית מחירי האנרגיה. מומלץ לשמור על נזילות גבוהה, להקצות משקל יתר לסקטור האנרגיה והתשתיות שנהנים מעליות הנפט, ולהימנע מחשיפת יתר לסקטורי הטכנולוגיה והצמיחה עד להתייצבות המדדים מעל הממוצעים הנעים.</p>
+  <div class="hz">
+  <div class="hzc"><b>טווח קצר</b>המתנה להתרת פלונטר ההסלמה במזרח התיכון ותנודתיות גבוהה סביב רמות תמיכה.</div><div class="hzc"><b>טווח בינוני</b>בחינת השפעת אינפלציית האנרגיה על ריבית הפדרל רזרב ושוק האג&#34;ח.</div><div class="hzc"><b>טווח ארוך</b>השקעה בררנית בסקטורים חסינים ובתשתיות קריטיות ושבבים בהתאם לרגולציה המתפתחת.</div></div>
+  <div class="grid">
+    <div class="col"><h4>לעקוב אחרי</h4><ul class="l"><li>מדד הפחד VIX סביב רמת 20 נקודות</li><li>מחיר הנפט WTI סביב רף 103-105 דולר</li><li>תשואת אג&#34;ח ארה&#34;ב ל-10 שנים סביב 5.0%</li></ul></div>
+    <div class="col"><h4>סיכונים</h4><ul class="l"><li>הסלמה צבאית רחבה במפרץ ופגיעה פיזית בתשתיות אנרגיה</li><li>זינוק נוסף באינפלציה עקב מחירי האנרגיה שיאלץ את הבנקים המרכזיים לשמור על ריבית גבוהה</li><li>החמרה ברגולציה על שרשרת אספקת השבבים והתשתיות הקריטיות</li></ul></div>
+  </div>
+</div>
+<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+<tr><td>S&amp;P 500</td><td class="pct">7623.68</td>
+<td class="pct down">-0.5%</td><td class="pct down">-0.5%</td><td class="pct down">-1.0%</td><td class="pct down">-2.5%</td></tr><tr><td>נאסד&#34;ק</td><td class="pct">25955.34</td>
+<td class="pct down">-0.2%</td><td class="pct down">-0.7%</td><td class="pct down">-3.7%</td><td class="pct down">-6.0%</td></tr><tr><td>ראסל 2000</td><td class="pct">2775.90</td>
+<td class="pct down">-0.3%</td><td class="pct up">+2.0%</td><td class="pct down">-2.1%</td><td class="pct down">-9.5%</td></tr><tr><td>ת&#34;א-125</td><td class="pct">4034.99</td>
+<td class="pct down">-0.8%</td><td class="pct down">-1.4%</td><td class="pct down">-3.3%</td><td class="pct down">-10.0%</td></tr><tr><td>VIX (פחד)</td><td class="pct">19.45</td>
+<td class="pct up">+2.2%</td><td class="pct down">-2.7%</td><td class="pct up">+24.1%</td><td class="pct down">-37.4%</td></tr><tr><td>תשואת 10Y ארה&#34;ב</td><td class="pct">4.99</td>
+<td class="pct up">+0.7%</td><td class="pct down">-2.2%</td><td class="pct down">-3.4%</td><td class="pct down">-6.1%</td></tr><tr><td>דולר/שקל</td><td class="pct">3.10</td>
+<td class="pct up">+0.4%</td><td class="pct down">-0.1%</td><td class="pct up">+2.2%</td><td class="pct down">-6.0%</td></tr><tr><td>מדד הדולר</td><td class="pct">101.81</td>
+<td class="pct up">+0.2%</td><td class="pct up">-0.0%</td><td class="pct up">+0.5%</td><td class="pct down">-0.8%</td></tr><tr><td>זהב</td><td class="pct">4007.90</td>
+<td class="pct down">-1.3%</td><td class="pct down">-4.1%</td><td class="pct down">-6.7%</td><td class="pct down">-24.6%</td></tr><tr><td>נפט WTI</td><td class="pct">103.27</td>
+<td class="pct up">+3.8%</td><td class="pct up">+1.8%</td><td class="pct up">+9.2%</td><td class="pct down">-8.6%</td></tr><tr><td>ביטקוין</td><td class="pct">80599.74</td>
+<td class="pct down">-0.6%</td><td class="pct down">-1.5%</td><td class="pct down">-4.9%</td><td class="pct down">-29.6%</td></tr>
+</table></div>
+
+
+<h2>מגמות בעולם שכדאי להכיר</h2>
+<div class="card"><strong>תמונת הסריקה:</strong> השווקים העולמיים מושפעים מהסלמה גיאופוליטית חריפה במזרח התיכון ומזינוק חד במחירי הנפט והאנרגיה. בעוד סקטורי האנרגיה והתשתיות המסורתיות רושמים עוצמה יוצאת דופן וזינוק חד, סקטורי הטכנולוגיה, הצמיחה והמתכות הנדירות סובלים מלחצי מימוש ומירידות שערים.</div>
+
+<div class="card ev"><h3>הפקת אנרגיה ונפט מסורתי <span class="tags"><span>שלב: נמתח יתר</span><span>אופק: קצר</span><span class="tk">XLE</span><span class="tk">XOP</span></span></h3>
+  <p><strong>מה זה?</strong> קרנות המשקיעות בחברות המפיקות ומפיצות נפט וגז טבעי. התחום נהנה באופן ישיר מעליות במחירי האנרגיה הגולמית.</p>
+  <p><strong>למה עכשיו:</strong> ברקע האיומים מאיראן וההסלמה במזרח התיכון, מחירי הנפט מזנקים והקרן מציגה תשואה חודשית של כ-10.8% וחוזק יחסי גבוה מאוד מול השוק.</p>
+  <p class="pct" style="color:var(--muted)">חודש +10.8% · 3 חודשים +19.5% · מול S&P +16.4%</p>
+  <p><strong>איך לשחק:</strong> ETF מסוג XLE או XOP. להיזהר מרדיפה אחרי השוק בשיא המחירים עקב תנודתיות גבוהה.</p>
+  <p>⚠ היפוך פתאומי במצב הגיאופוליטי או רגיעה במפרץ עלולים לגרום לנפילה מהירה במחירי האנרגיה.</p>
+  <div class="stk"><span class="tk">SLB</span> Schlumberger <span class="pct">$53.06</span>
+    <br><small>הסלמה במפרץ ובמזרח התיכון מחייבת את ענקיות האנרגיה להגדיל השקעות בקידוחים ותשתיות להבטחת רציפות אספקה, מה שמאיץ את הביקושים לשירותי שדות נפט כמו SLB.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $53.06 · יעד $60.00 · סטופ $49.50</small></div><div class="stk"><span class="tk">XOM</span> Exxon Mobil <span class="pct">$183.21</span>
+    <br><small>זינוק מחירי הנפט בעקבות איומי איראן על נתיבי השיט והתשתיות מעניק רוח גבית חזקה למפיקות הענק בעלות מאזנים חזקים ויכולת ייצור יציבה.</small>
+    <br><small>אופק: קצר · ביטחון: גבוהה · קנייה עד $183.21 · יעד $200.00 · סטופ $174.00</small></div>
+</div>
+
+<div class="card ev"><h3>מחשוב ענן ותשתיות דיגיטליות <span class="tags"><span>שלב: אמצע</span><span>אופק: בינוני</span><span class="tk">SKYY</span></span></h3>
+  <p><strong>מה זה?</strong> השקעה בחברות המספקות תשתיות ענן, אחסון מידע ושירותי מחשוב מרוחקים לעסקים. התחום מונע מהמעבר הגלובלי לדיגיטציה ולבינה מלאכותית.</p>
+  <p><strong>למה עכשיו:</strong> למרות טלטלות רוחביות בשוק, הענן מפגין עמידות מרשימה עם תשואה שבועית של 5.6% וקרבה לשיא שנתי, נתון הנתמך בביקושים חזקים.</p>
+  <p class="pct" style="color:var(--muted)">חודש +0.3% · 3 חודשים +23.2% · מול S&P +20.1%</p>
+  <p><strong>איך לשחק:</strong> קרן הסל SKYY. להיזהר מחשיפה מוגזמת אם מדדי הטכנולוגיה הכלליים ימשיכו לשבור את הממוצע הנע.</p>
+  <p>⚠ הדוק רגולטורי על ענקיות הטכנולוגיה והאטה פוטנציאלית בהשקעות ה-IT של חברות.</p>
+  
+</div>
+
+<div class="card ev"><h3>ברזיל ושווקים מתעוררים נבחרים <span class="tags"><span>שלב: מוקדם</span><span>אופק: בינוני</span><span class="tk">EWZ</span></span></h3>
+  <p><strong>מה זה?</strong> חשיפה לכלכלה ולשוק המניות של ברזיל, המבוסס במידה רבה על סחורות, חקלאות ובנקים. הכלכלה נהנית פעמים רבות ממחזורי סחורות עולמיים.</p>
+  <p><strong>למה עכשיו:</strong> ברזיל מציגה תאוצה חזקה במיוחד עם זינוק של 15.4% בחודש האחרון וחוזק יחסי מרשים של 16.3% מול מדד S&amp;P500.</p>
+  <p class="pct" style="color:var(--muted)">חודש +15.4% · 3 חודשים +18.7% · מול S&P +15.6%</p>
+  <p><strong>איך לשחק:</strong> קרן הסל EWZ. להיזהר מנזילות נמוכה ביחס למדדים האמריקאיים המרכזיים.</p>
+  <p>⚠ תנודתיות מטבע מקומית, אי-הודאות פוליטית בשווקים מתעוררים ורגישות למדדי המאקרו בארה&#34;ב.</p>
+  <div class="stk"><span class="tk">EWZ</span> iShares MSCI Brazil ETF <small>(קרן סל)</small> <span class="pct">$42.59</span>
+    <br><small>בזמן שהשווקים המפותחים סובלים מלחצים ואי-הודאות גיאופוליטית, שווקים מתעוררים מבוססי סחורות כמו ברזיל נהנים מפריחת מחירי האנרגיה והחומרי הגלם.</small>
+    <br><small>אופק: קצר · ביטחון: בינונית · קנייה עד $42.59 · יעד $46.50 · סטופ $40.20</small></div>
+</div>
+
+<div class="card ev"><h3>מתכות נדירות ואנרגיה ירוקה (נשכח ומתהפך) <span class="tags"><span>שלב: מאוחר</span><span>אופק: ארוך</span><span class="tk">REMX</span></span></h3>
+  <p><strong>מה זה?</strong> השקעה בחברות הכרייה וההפקה של מתכות נדירות (כמו הליום וליתיום) החיוניות לייצור שבבים מתקדמים, טכנולוגיה ואנרגיה מתחדשת.</p>
+  <p><strong>למה עכשיו:</strong> התחום ספג מכות קשות לאחרונה וירד בכ-53% מהשיא השנתי, אך הגדרת חומרים אלו כקריטיים לשבבים עשויה לסמן תחתית ונקודת מפנה לטווח הארוך.</p>
+  <p class="pct" style="color:var(--muted)">חודש -23.1% · 3 חודשים -25.1% · מול S&P -28.2%</p>
+  <p><strong>איך לשחק:</strong> קרן הסל REMX. מיועד למשקיעים בעלי קיבה רגישה בלבד עקב היסטוריית צניחות חדות.</p>
+  <p>⚠ תנודתיות קיצונית, עודף היצע זמני בשוק וחשיפה לשינויי רגולציה סביבתית ומסחר בינלאומי.</p>
+  
+</div>
+
+<div class="card ev"><h3>תעשיית הביטחון והאווירונוטיקה <span class="tags"><span>שלב: מוקדם</span><span>אופק: ארוך</span><span class="tk">ITA</span><span class="tk">SHLD</span></span></h3>
+  <p><strong>מה זה?</strong> השקעה בחברות בטחוניות, יצרניות ציוד צבאי, טכנולוגיות תעופה והגנה מרחבי העולם. התחום מונע מגידול בתקציבי הביטחון הגלובליים.</p>
+  <p><strong>למה עכשיו:</strong> למרות לחצים קצרי טווח, הסלמה ביטחונית גלובלית ואיומים מרובים מציבים את סקטור הביטחון כמועמד מרכזי לקבלת רוח גבית ממשלתית ותקציבית.</p>
+  <p class="pct" style="color:var(--muted)">חודש -4.9% · 3 חודשים -17.0% · מול S&P -20.1%</p>
+  <p><strong>איך לשחק:</strong> קרן הסל ITA או SHLD. להיזהר מתמחור גבוה מראש של החברות הגדולות בענף.</p>
+  <p>⚠ שינויים בתקציבי הביטחון של ארה&#34;ב ואירופה או סיום מהיר של עימותים אזוריים.</p>
+  <div class="stk"><span class="tk">LMT</span> Lockheed Martin <span class="pct">$604.18</span>
+    <br><small>ההחמרה הגיאופוליטית והעימותים במזרח התיכון ממריצים את הביקושים למערכות הגנה מתקדמות, ו-LMT נהנית ממומנטום חזק ותקציבי ביטחון גדלים.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $604.18 · יעד $670.00 · סטופ $575.00</small></div>
+</div>
+
+<div class="card ev"><h3>בנקים אזוריים בארה&#34;ב <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">KRE</span></span></h3>
+  <p><strong>מה זה?</strong> בנקים קטנים ובינוניים הפועלים באזורים שונים בארה&#34;ב ומתמקדים במתן הלאוואות לעסקים מקומיים ולנדל&#34;ן מסחרי.</p>
+  <p><strong>למה עכשיו:</strong> </p>
+  <p class="pct" style="color:var(--muted)">חודש +2.1% · 3 חודשים -3.5% · מול S&P -6.6%</p>
+  <p><strong>איך לשחק:</strong> קרן הסל KRE. להיזהר מתנודתיות חדה בסביבת אי-ודאות של ריבית.</p>
+  <p>⚠ רגישות גבוהה למדיניות הריבית של הבנק המרכזי וסיכונים הקשורים להלוואות נדל&#34;ן מסחרי.</p>
+  
+</div>
+
+<div class="card"><strong>מובילים בסריקה:</strong> נפט (חוזים) (+33% מול S&P) · ביטקוין (קרן) (+22% מול S&P) · מחשוב ענן (+20% מול S&P) · תוכנה (+18% מול S&P) · הפקת נפט וגז (+17% מול S&P)
+<br><strong>מפגרים:</strong> אווירונוטיקה וביטחון (-20%) · אנרגיה סולארית (-23%) · מתכות נדירות (-28%)</div>
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+
+
+
+<h2>נתוני טיקרים</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">XOM</td><td class="pct">183.21</td>
+<td class="pct up">+2.8%</td>
+<td class="pct up">+2.4%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">230870.0</td>
+<td class="pct up">+0.5%</td>
+<td class="pct up">+1.0%</td></tr><tr><td class="tk">DAL</td><td class="pct">76.78</td>
+<td class="pct down">-3.1%</td>
+<td class="pct up">+1.9%</td></tr><tr><td class="tk">AMZN</td><td class="pct">248.0</td>
+<td class="pct down">-1.0%</td>
+<td class="pct down">-0.8%</td></tr><tr><td class="tk">NVDA</td><td class="pct">210.96</td>
+<td class="pct down">-0.6%</td>
+<td class="pct down">-1.5%</td></tr><tr><td class="tk">INTC</td><td class="pct">86.96</td>
+<td class="pct up">+1.7%</td>
+<td class="pct down">-3.2%</td></tr><tr><td class="tk">VZ</td><td class="pct">44.66</td>
+<td class="pct down">-1.2%</td>
+<td class="pct down">-0.3%</td></tr><tr><td class="tk">T</td><td class="pct">20.93</td>
+<td class="pct down">-8.0%</td>
+<td class="pct down">-10.7%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7623.68</td>
+<td class="pct down">-0.5%</td>
+<td class="pct down">-0.5%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">25955.34</td>
+<td class="pct down">-0.2%</td>
+<td class="pct down">-0.7%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">4034.99</td>
+<td class="pct down">-0.8%</td>
+<td class="pct down">-1.4%</td></tr><tr><td class="tk">GC=F</td><td class="pct">4007.9</td>
+<td class="pct down">-1.3%</td>
+<td class="pct down">-4.1%</td></tr><tr><td class="tk">CL=F</td><td class="pct">103.27</td>
+<td class="pct up">+3.8%</td>
+<td class="pct up">+1.8%</td></tr><tr><td class="tk">PLTR</td><td class="pct">196.75</td>
+<td class="pct up">+0.3%</td>
+<td class="pct up">+5.8%</td></tr><tr><td class="tk">LMT</td><td class="pct">604.18</td>
+<td class="pct up">+2.4%</td>
+<td class="pct up">+9.4%</td></tr><tr><td class="tk">ELAL.TA</td><td class="pct">1926.0</td>
+<td class="pct down">-3.0%</td>
+<td class="pct up">+4.2%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
