@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+
+.hz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+@media(max-width:640px){.hz{grid-template-columns:1fr}}
+.hzc{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.hzc b{display:block}.hzc small{color:var(--muted)}
+.o-חיובי{color:var(--up)}.o-שלילי{color:var(--down)}.o-ניטרלי{color:var(--muted)}
+nav a{margin-inline-end:14px;font-weight:600}
+ul.l{margin:4px 0;padding-inline-start:20px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="../index.html">יומי</a><a href="../weekly.html">סיכום שבועי</a></nav>
+  <p>דוח ליום 29/10/2026 · <span class="mood">מצב שוק: מעורב</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> שווקי המניות נסחרים במגמה מעורבת על רקע תוצאות ענקית האנרגיה Shell ותחזיות מחיר נפט גבוהות בעקבות המתיחות במפרץ ובמזרח התיכון, לצד אכזבה מדוחות אלפאבית (Google) שגררה את החוזים לעצבנות. הפדרל ריזרב שמר על הריבית ללא שינוי, ומנגד שוקי האנרגיה והתחבורה באירופה מתמודדים עם אתגרים חריפים.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>זינוק ברווחי ענקיות האנרגיה ועליית מחירי הנפט על רקע המתיחות במפרץ<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>אנרגיה</span><span>עולמי</span><span>אמצע הדרך/מפרץ</span><span>אירופה</span></div>
+  <p>חברת Shell דיווחה על רווח רבעוני חריג של 10.8 מיליארד דולר הודות למרווחי זיקוק גבוהים שנגזרו ממצב החירום במפרץ ובמזרח התיכון. במקביל, UBS העלתה את תחזית מחיר הנפט ל-110 דולר לחבית עד סוף 2026.</p>
+  <p><strong>השפעה על השוק:</strong> חברות האנרגיה נהנות מזרזי מזומנים חזקים והגדלת רכישות עצמיות (buybacks), בעוד שחברות התעופה והצרכנים סובלים מעלויות דלק גבוהות שמאיימות על השוליים.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">SHEL, XOM, CVX, TTE, DELEK.TA</span></small><br>דוחות חזקים ותחזיות מחיר נפט כלפי מעלה מספקים רוח גבית מיידית לסקטור האנרגיה.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">SHEL, XOM, FRO, STNG</span></small><br>שמירה על מרווחי זיקוק גבוהים עקב סיכוני היצע ומצור ימי צפויה להמשיך לייצר תזרימי מזומנים אדירים.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-ניטרלי">· ניטרלי</span></b><small>שנה ומעלה · <span class="tk">SHEL, XOM</span></small><br>מעבר ארוך טווח לאנרגיה מתחדשת עלול לצמצם את הביקוש המסורתי, אך תשתיות הדלק יישארו קריטיות בטווח הנראה לעין.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">SHEL</span> Shell plc
+        <span class="pct up">+0.4% יום · -0.2% שבוע</span>
+        <br><small>רווחים עודפים של 10.8 מיליארד דולר והגדלת רכישה עצמית של מניות. · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">XOM</span> Exxon Mobil
+        <span class="pct up">+1.2% יום · +2.2% שבוע</span>
+        <br><small>נהנית מסביבת מחירי אנרגיה גבוהה ומרווחי זיקוק משופרים. · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">DELEK.TA</span> Delek Group
+        
+        <br><small>חשיפה ישירה לשוק האנרגיה המקומי והבינלאומי המרוויח מסביבת מחירים גבוהה. · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">AAL</span> American Airlines
+        <span class="pct down">-0.2% יום</span>
+        <br><small>התייקרות חדות בעלויות הדלק לטיסות פוגעת בשולי הרווח.</small></div><div class="stk"><span class="tk">DAL</span> Delta Air Lines
+        <span class="pct down">-1.4% יום</span>
+        <br><small>עלויות תפעול גבוהות עקב זינוק מחירי הנפט.</small></div></div>
+  </div>
+  <div class="src"><a href="https://www.theguardian.com/business/2026/oct/29/shell-profits-double-iran-war-pushes-up-profit-margin-on-oil" rel="noopener">Shell profits double to $10.8bn as Iran war pushes up profit margin on oil</a></div>
+</div>
+
+<div class="card ev">
+  <h3>אכזבה מדוחות אלפאבית (Google) ואיומי סיכון בסקטור הטכנולוגיה והבינה המלאכותית<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>שבבים וטכנולוגיה</span><span>ארה&#34;ב</span><span>עולמי</span></div>
+  <p>חברת אלפאבית (Google) פספסה את ציפיות וול סטריט והמניה נפלה במסחר המאוחר, מה שהשפיע לרעה על החוזים העתידיים ועל סנטימנט הסיכון הכולל (Risk-off). במקביל, שוק ההון מתמקד בשאלת החזר ההשקעה העצום (Cash is king) על תשתיות AI.</p>
+  <p><strong>השפעה על השוק:</strong> לחץ על מדדי הטכנולוגיה המובילים (Nasdaq) ובחינה מדוקדקת של תקציבי ההשקעה ב-AI אל מול תזרימי המזומנים של ענקיות הטכנולוגיה.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">GOOGL, MSFT, NVDA</span></small><br>אכזבה בתוצאות Google יוצרת אפקט הדליפה (Spillover) שלילי על סקטור ה-Big Tech בטווח הקצר.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">GOOGL, NVDA, TSM</span></small><br>המשקיעים ידרוש הוכחות קונקרטיות לרווחיות ישירה מיישומי AI כדי להצדיק את תמחור השוק.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">MSFT, NVDA, GOOGL</span></small><br>הביקוש המבני לטכנולוגיות AI ושבבים מתקדמים נותר בעינו, למרות תקופות של התאמות תמחור.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">NVDA</span> NVIDIA
+        <span class="pct down">-1.2% יום · -3.0% שבוע</span>
+        <br><small>ממשיכה להוות את עמוד השדרה של תשתיות ה-AI למרות תנודתיות הסנטימנט. · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">GOOGL</span> Alphabet Inc
+        <span class="pct up">+1.3% יום</span>
+        <br><small>פספוס תחזיות הרווח והכנסות שגרר ירידות חדות במסחר המאוחר.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNR25CYmFOU2xObG0wQ1N1eTI1WktadzJwZl8tdmFXV3N3eGJRWGw3T0VjaWJBMmliTXVfVlFaNDlzU1FVTnpySjhJZ0dmOVZWZ2dCY2FRVDV3ZktrZkg2OV9ZdnZNZzdENkRSR1p5aE1oalJPS0NKYVRoOWRqanI0blR3S2oybzU2bkJ5dTFkX1BBekJ0aTdmQUJyQ0JGYVhZVEw5Zkpwdms?oc=5" rel="noopener">Google misses Wall Street expectations, Alphabet stock sinks in early after-hours trading</a></div>
+</div>
+
+<div class="card ev">
+  <h3>השארת ריבית הפד ללא שינוי והתחזקות החששות הגיאופוליטיים והכלכליים<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>גיאופוליטי</span><span>ארה&#34;ב</span><span>מזרח תיכון</span></div>
+  <p>הפדרל ריזרב החליט להותיר את הריבית על כנה תוך הדגשת חוזקת הכלכלה, אך האותות המעורבים לגבי שוק האג&#34;ח (Treasuries) והאינפלציה מייצרים תנודתיות. במקביל, מתיחות צבאית ואיומי תקיפה במזרח התיכון ממשיכים להעיב על השווקים.</p>
+  <p><strong>השפעה על השוק:</strong> השפעה מעורבת על שוקי המניות והאג&#34;ח עם העדפה לנכסים דפנסיביים וחוסר ודאות לגבי קצב הורדת הריבית העתידית.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-ניטרלי">· ניטרלי</span></b><small>ימים עד שבועות · <span class="tk">SPY, QQQ, TLT</span></small><br>המשקיעים מעכלים את החלטת הפד וממתינים לנתוני אינפלציה נוספים.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">JPM, BAC</span></small><br>סביבת ריבית גבוהה מהצפוי לאורך זמן תומכת בהכנסות הבנקים מריבית נטו (NII).</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">SPY</span></small><br>חוסנה של הכלכלה האמריקאית ממשיך לספק בסיס צמיחה איתן לחברות המובילות.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">JPM</span> JPMorgan Chase
+        <span class="pct up">+1.0% יום · +1.2% שבוע</span>
+        <br><small>נהנית מסביבת ריבית גבוהה המייצרת מרווחי ריבית איתנים. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">TLT</span> iShares 20+ Year Treasury Bond ETF
+        <span class="pct down">-0.8% יום</span>
+        <br><small>תשואות אג&#34;ח תנודתיות עלולות לפגוע בשווי נכסים ארוכי טווח.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQVNrQUVwN1c3SjBCODU1TXUwRy1hQ2lIQUxFZkJ3dGhXa0NZalhVTFFoeTU4MlB3VDRwWE1QRktITG5FZnd1eUVDTjRUankwRGgzRkRKTGdwZDVDbWUyTWVKNlRKVld5RVdaTllzZkVhdXUzNkZUOU5RWWNOQVJTY2xuaDJZZXlybC05LXRmTmpPb2RvVlliLWxBUXZVRldXU3kyY2pWb1ZmZlFNUU1KMmN4aV9wMk9Lai01YXcza0JqdDQ?oc=5" rel="noopener">Wall Street ends higher as Fed holds key rate steady, focus turns to earnings</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>ארה&#34;ב</td><td>ניטרלי</td><td>תנודתיות בעונת הדוחות של ענקיות הטכנולוגיה לצד מדיניות מוניטרית זהירה של הפד יוצרות סביבת מסחר בררנית.</td></tr><tr><td>המפרץ והמזרח התיכון</td><td>להעדיף</td><td>חשיפה ישירה לסקטור האנרגיה הנהנה ממחירי נפט גבוהים ומרווחי זיקוק שיא עקב סיכוני שרשרת אספקה.</td></tr><tr><td>אירופה</td><td>להיזהר</td><td>לחצי אינפלציה, משברי אנרגיה וחוסר יציבות פוליטית ממשיכים להכביד על ביצועי השווקים והתעשייה המקומית.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>שווקי המניות נסחרים במגמה מעורבת על רקע דוחות מעורבים בטכנולוגיה, זינוק במחירי הנפט והשארת ריבית הפד ללא שינוי.</strong></p>
+  <p><strong>קונטקסט:</strong> המסחר מתנהל באווירה עצבנית לאחר אכזבה מדוחות אלפאבית שהעיבה על סקטור הטכנולוגיה, לצד תוצאות חזקות בענקיות האנרגיה כמו Shell ותחזיות למחיר נפט גבוה בעקבות המתיחות במפרץ ובמזרח התיכון. הפדרל ריזרב בחר להשאיר את הריבית ללא שינוי, מה שממשיך להשפיע על תשואות האג&#34;ח ובפרט על תשואת האג&#34;ח ל-10 שנים שנסחרת ברמה של 5.04%. במקביל, שוק המט&#34;ח רושם תנועות בולטות ובראשן זינוק של 3% בדולר/שקל לרמה של 3.11.</p>
+  <p><strong>ניתוח:</strong> מדד ה-S&amp;P 500 עלה ב-0.3% ונסחר קרוב מאוד לשיא השנתי שלו (-1.0% בלבד מהשיא), בעוד הנאסד&#34;ק רשם עלייה דומה אך מציג חולשה חודשית של 0.9% ושוכן מעט מתחת לממוצע 50 היום. הראסל 2000 רשם עלייה שבועית נאה של 1.8%, אך עדיין מרוחק 7.8% מהשיא השנתי. מדד הפחד VIX עלה ב-1.1% ל-17.09 נקודות. מחירי הסחורות מציגים מגמות מעורבות: נפט ה-WTI נסחר בעלייה חודשית חדה של 12.4% ונמצא 7.8% מעל ממוצע 50 היום סביב 101.66 דולר לחבית, בעוד הזהב ממשיך לרדת ונמצא 24.1% מתחת לשיא השנתי. הביטקוין נסחר בירידה יומית של 1.4% סביב 80,104 דולר, אך שומר על פער חיובי מול ממוצע 200 היום.</p>
+  <p><strong>המלצה:</strong> נקוט בסטנס זהיר ומבוסס סקטורים. מומלץ להגדיל חשיפה לסקטור האנרגיה הנהנה מעליות מחירי הנפט ומדוחות חזקים, לצמצם או לברור בקפידה החזקות בסקטור הטכנולוגיה והבינה המלאכותית על רקע אכזבת דוחות אלפאבית, ולהמתין להתייצבות בריביות ובשוקי המט&#34;ח המקומיים.</p>
+  <div class="hz">
+  <div class="hzc"><b>טווח קצר</b>היצמדות למגמה מעורבת והתמודדות עם תנודתיות גבוהה בטכנולוגיה ובאנרגיה על בסיס דוחות כספיים ואירועים גיאופוליטיים.</div><div class="hzc"><b>טווח בינוני</b>מעקב אחר מגמת האינפלציה ותגובות הפד לנתוני המאקרו, לצד השפעת מחירי הנפט הגבוהים על שרשרת האספקה.</div><div class="hzc"><b>טווח ארוך</b>השקעה ברורה לפי חוזק סקטוריאלי, מתן עדיפות לנכסים המגודרים מפני אינפלציה ואנרגיה, לצד בחינת ההשפעות ארוכות הטווח של ריביות גבוהות (תשואת 10Y מעל 5%).</div></div>
+  <div class="grid">
+    <div class="col"><h4>לעקוב אחרי</h4><ul class="l"><li>תשואת אג&#34;ח 10 שנים סביב אזור 5.04%</li><li>מדד הפחד VIX סביב רמת 17.09</li><li>מחיר נפט WTI סביב רמת 101.66 דולר</li><li>שער דולר/שקל סביב 3.11</li></ul></div>
+    <div class="col"><h4>סיכונים</h4><ul class="l"><li>החמרה במתיחות הגיאופוליטית במפרץ ובמזרח התיכון שתדחוף את מחירי האנרגיה מעלה ותייצר לחצים אינפלציוניים</li><li>אכזבות נוספות מדוחות ענקיות הטכנולוגיה והבינה המלאכותית</li><li>שמירת ריבית גבוהה לאורך זמן על ידי הפדרל ריזרב המשפיעה על תשואות האג&#34;ח ומחירי הנכסים</li></ul></div>
+  </div>
+</div>
+<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+<tr><td>S&amp;P 500</td><td class="pct">7743.98</td>
+<td class="pct up">+0.3%</td><td class="pct down">-0.2%</td><td class="pct up">+1.0%</td><td class="pct down">-1.0%</td></tr><tr><td>נאסד&#34;ק</td><td class="pct">26549.85</td>
+<td class="pct up">+0.3%</td><td class="pct down">-0.6%</td><td class="pct down">-0.9%</td><td class="pct down">-3.8%</td></tr><tr><td>ראסל 2000</td><td class="pct">2830.51</td>
+<td class="pct up">+0.4%</td><td class="pct up">+1.8%</td><td class="pct up">+0.8%</td><td class="pct down">-7.8%</td></tr><tr><td>ת&#34;א-125</td><td class="pct">3999.95</td>
+<td class="pct down">-0.2%</td><td class="pct down">-2.6%</td><td class="pct down">-1.9%</td><td class="pct down">-10.7%</td></tr><tr><td>VIX (פחד)</td><td class="pct">17.09</td>
+<td class="pct up">+1.1%</td><td class="pct down">-10.2%</td><td class="pct up">+4.6%</td><td class="pct down">-45.0%</td></tr><tr><td>תשואת 10Y ארה&#34;ב</td><td class="pct">5.05</td>
+<td class="pct up">+1.0%</td><td class="pct down">-2.0%</td><td class="pct down">-4.0%</td><td class="pct down">-5.0%</td></tr><tr><td>דולר/שקל</td><td class="pct">3.11</td>
+<td class="pct up">+3.0%</td><td class="pct up">+0.9%</td><td class="pct up">+1.6%</td><td class="pct down">-5.2%</td></tr><tr><td>מדד הדולר</td><td class="pct">102.28</td>
+<td class="pct up">+0.1%</td><td class="pct up">+0.7%</td><td class="pct up">+0.8%</td><td class="pct down">-0.3%</td></tr><tr><td>זהב</td><td class="pct">4037.80</td>
+<td class="pct down">-0.3%</td><td class="pct down">-0.6%</td><td class="pct down">-3.6%</td><td class="pct down">-24.1%</td></tr><tr><td>נפט WTI</td><td class="pct">101.66</td>
+<td class="pct down">-1.1%</td><td class="pct up">+2.2%</td><td class="pct up">+12.4%</td><td class="pct down">-10.0%</td></tr><tr><td>ביטקוין</td><td class="pct">80104.21</td>
+<td class="pct down">-1.4%</td><td class="pct down">-0.8%</td><td class="pct down">-1.9%</td><td class="pct down">-27.6%</td></tr>
+</table></div>
+
+
+<h2>מגמות בעולם שכדאי להכיר</h2>
+<div class="card"><strong>תמונת הסריקה:</strong> השוק חווה תנודתיות על רקע אכזבה מדוחות ענקיות הטכנולוגיה (כמו אלפאבית) לצד זינוקחד בחירי הנפט והאנרגיה בעקבות מתיחות גיאופוליטית במפרץ והחלטת הפד להשאיר את הריבית ללא שינוי. המגמה הבולטת היא מעבר מסקטורי הצמיחה והטכנולוגיה אל עבר סקטורי האנרגיה והסחורות שנהנים מרוח גבית חזקה.</div>
+
+<div class="card ev"><h3>אנרגיה והפקת נפט וגז <span class="tags"><span>שלב: מתחזק</span><span>אופק: קצר</span><span class="tk">XLE</span><span class="tk">XOP</span></span></h3>
+  <p><strong>מה זה?</strong> השקעה בחברות העוסקות בחיפוש, הפקה וזיקוק של נפט וגז טבעי. התחום מונע ישירות ממחירי האנרגיה בעולם ומהביקוש לדלקים.</p>
+  <p><strong>למה עכשיו:</strong> זינוק חדות במחירי הנפט בעקבות המתיחות במפרץ ובמזרח התיכון, לצד דוחות חזקים ורווחי שיא של ענקיות האנרגיה. קרן XLE מציגה זינוק חודשי של 11.2% וחוזק יחסי מרשים מול השוק.</p>
+  <p class="pct" style="color:var(--muted)">חודש +11.2% · 3 חודשים +16.8% · מול S&P +12.4%</p>
+  <p><strong>איך לשחק:</strong> קרן סל רחבה כמו XLE. יש להיזהר מתנודתיות חדה שמושפעת מהודעות פוליטיות יומיות.</p>
+  <p>⚠ ירידה פתאומית במחירי הנפט עקב רגיעה גיאופוליטית או האטה כלכלית גלובלית שתפגע בביקוש.</p>
+  <div class="stk"><span class="tk">XOM</span> Exxon Mobil Corp <span class="pct">$182.02</span>
+    <br><small>נהנית ישירות מעליית מחירי הנפט ומתיחות במפרץ, עם תזרים מזומנים איתן ויכולת חלוקה חזקה למשקיעים על רקע דוחות חזקים בסקטור.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $182.00 · יעד $198.00 · סטופ $173.00</small></div><div class="stk"><span class="tk">XLE</span> Energy Select Sector SPDR Fund <small>(קרן סל)</small> <span class="pct">$68.45</span>
+    <br><small>חשיפה רחבה לסקטור האנרגיה הנהנה מרוח גבית חזקה של מחירי נפט גבוהים והתגוננות מפני תנודתיות בטכנולוגיה.</small>
+    <br><small>אופק: קצר · ביטחון: גבוהה · קנייה עד $68.50 · יעד $74.00 · סטופ $65.50</small></div>
+</div>
+
+<div class="card ev"><h3>שירותי שדות נפט <span class="tags"><span>שלב: מוקדם</span><span>אופק: קצר</span><span class="tk">OIH</span></span></h3>
+  <p><strong>מה זה?</strong> חברות המספקות ציוד, טכנולוגיה ושירותי קידוח לחברות האנרגיה. הן נהנות כאשר מחירי הנפט גבוהים וחברות האנרגיה מגדילות את תקציבי הפיתוח והחיפוש שלהן.</p>
+  <p><strong>למה עכשיו:</strong> עליית מחירי הנפט והביקוש המוגבר לתשתיות הפקה גורמים לתאוצה חיובית בביצועים, עם עלייה של 3.9% בשבוע האחרון וחוזק יחסי חיובי.</p>
+  <p class="pct" style="color:var(--muted)">חודש +7.6% · 3 חודשים +8.9% · מול S&P +4.5%</p>
+  <p><strong>איך לשחק:</strong> קרן סל OIH. יש לזכור שמדובר בסקטור תנודתי מאוד שרגיש לשינויים קטנים בציפיות.</p>
+  <p>⚠ תלות מוחלטת בנכונות חברות האנרגיה להשקיע בקידוחים חדשים.</p>
+  <div class="stk"><span class="tk">SLB</span> Schlumberger NV <span class="pct">$53.75</span>
+    <br><small>חברת שירותי הנפט המובילה נהנית מהגברת הפעילות והקידוחים של חברות האנרגיה בתגובה למחירים הגבוהים ולצורך בהגדלת תפוקה.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $54.00 · יעד $60.00 · סטופ $50.50</small></div>
+</div>
+
+<div class="card ev"><h3>מוצרי צריכה בסיסיים <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">XLP</span></span></h3>
+  <p><strong>מה זה?</strong> חברות המייצרות ומשווקות מוצרים חיוניים ליומיום כמו מזון, משקאות ומוצרי היגיינה. תחום זה נחשב לדפנסיבי ומספק יציבות בזמנים של אי-ודאות כלכלית.</p>
+  <p><strong>למה עכשיו:</strong> על רקע השארת הריבית ללא שינוי, חששות סביב דוחות הטכנולוגיה והתנודתיות הכללית, המשקיעים נוהרים לנכסים דפנסיביים. קרן XLP מציגה תשואה חודשית של 6.1% וחוזק יחסי גבוה מול S&amp;P500.</p>
+  <p class="pct" style="color:var(--muted)">חודש +6.1% · 3 חודשים +2.3% · מול S&P -2.1%</p>
+  <p><strong>איך לשחק:</strong> קרן סל XLP. הגנה טובה לתיק בתקופות של עצבנות בשווקים.</p>
+  <p>⚠ ביצועים נמוכים יחסית בתקופות של שוורים (Bull Markets) שבהן משקיעים מעדיפים סיכון גבוה.</p>
+  <div class="stk"><span class="tk">WMT</span> Walmart Inc <span class="pct">$118.77</span>
+    <br><small>מהווה מקלט בטוח בסביבה של חוסר ודאות אינפלציונית והותרת הריבית על כנה, עם ביקוש יציב למוצרי צריכה בסיסיים.</small>
+    <br><small>אופק: ארוך · ביטחון: גבוהה · קנייה עד $119.00 · יעד $130.00 · סטופ $112.00</small></div>
+</div>
+
+<div class="card ev"><h3>בנקים אזוריים <span class="tags"><span>שלב: מוקדם</span><span>אופק: בינוני</span><span class="tk">KRE</span></span></h3>
+  <p><strong>מה זה?</strong> בנקים מקומיים ואזוריים בארה&#34;ב המעניקים אשראי לעסקים קטנים ובינוניים ולצרכנים פרטיים. פעילותם מושפעת מרמת הריבית ומבריאות הכלכלה המקומית.</p>
+  <p><strong>למה עכשיו:</strong> החלטת הפד לשמור על הריבית ללא שינוי לצד תאוצה חיובית (accel של 7.2) ועלייה של 3.3% בחודש האחרון מראות התעוררות בסקטור זה לאחר תקופה מאתגרת.</p>
+  <p class="pct" style="color:var(--muted)">חודש +3.3% · 3 חודשים -4.5% · מול S&P -8.9%</p>
+  <p><strong>איך לשחק:</strong> קרן סל KRE. מומלץ לעקוב אחרי נתוני המאקרו בארה&#34;ב ואשראי בנקאי.</p>
+  <p>⚠ חשיפה לבעיות אשראי או לשינויים פתאומיים במדיניות הריבית של הבנק המרכזי.</p>
+  
+</div>
+
+<div class="card ev"><h3>נדל&#34;ן מניב <span class="tags"><span>שלב: נשכח או מתהפך</span><span>אופק: בינוני</span><span class="tk">XLRE</span></span></h3>
+  <p><strong>מה זה?</strong> קרנות השקעה בנדל&#34;ן (REITs) המחזיקות בנכסים מניבים כמו משרדים, מרכזים מסחריים ומחסנים לוגיסטיים. תחום זה נפגע קשות בעבר מסביבת ריבית גבוהה.</p>
+  <p><strong>למה עכשיו:</strong> התייצבות מסוימת בציפיות הריבית והתחלת התאוששות חודשית (עליה של 1.9% בחודש האחרון ותאוצה חיובית) מלמדות על עניין מחדש מצד משקיעים המחפשים תשואת דיבידנד.</p>
+  <p class="pct" style="color:var(--muted)">חודש +1.9% · 3 חודשים -6.2% · מול S&P -10.6%</p>
+  <p><strong>איך לשחק:</strong> קרן סל XLRE. להשקיע בזהירות תוך בחינת רגישות הריבית של הנכסים.</p>
+  <p>⚠ עלייה מחודשת בתשואות האג&#34;ח הממשלתיות שתחזיר את האטרקטיביות ממניות הנדל&#34;ן.</p>
+  
+</div>
+
+<div class="card ev"><h3>אג&#34;ח ממשלתי אמריקאי ארוך <span class="tags"><span>שלב: מוקדם</span><span>אופק: קצר</span><span class="tk">TLT</span></span></h3>
+  <p><strong>מה זה?</strong> איגרות חוב שהונפקו על ידי ממשלת ארה&#34;ב לתקופות ארוכות. הן מהוות את מקלט הבטוחות המסורתי של המשקיעים בעת משבר או חוסר ודאות.</p>
+  <p><strong>למה עכשיו:</strong> החששות הגיאופוליטיים ואכזבת דוחות הטכנולוגיה דוחפים משקיעים לחפש הגנה, מה שמתבטא בתאוצה חיובית (6.3) ועלייה של 3.9% בחודש האחרון.</p>
+  <p class="pct" style="color:var(--muted)">חודש +3.9% · 3 חודשים -1.0% · מול S&P -5.4%</p>
+  <p><strong>איך לשחק:</strong> קרן סל TLT. כלי מצוין לגידור התיק מפני נפילות במניות.</p>
+  <p>⚠ שחיקת ערך במקרה של אינפלציה עיקשת שתחייב את הפד להעלות ריבית או לשמור אותה גבוהה לאורך זמן.</p>
+  
+</div>
+
+<div class="card"><strong>מובילים בסריקה:</strong> נפט (חוזים) (+26% מול S&P) · ביטקוין (קרן) (+21% מול S&P) · מחשוב ענן (+19% מול S&P) · תוכנה (+16% מול S&P) · סייבר (+16% מול S&P)
+<br><strong>מפגרים:</strong> אנרגיה סולארית (-22%) · אינטרנט סיני (-22%) · מתכות נדירות (-23%)</div>
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+
+
+
+<h2>נתוני טיקרים</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">SHEL</td><td class="pct">105.19</td>
+<td class="pct up">+0.4%</td>
+<td class="pct down">-0.2%</td></tr><tr><td class="tk">XOM</td><td class="pct">182.02</td>
+<td class="pct up">+1.2%</td>
+<td class="pct up">+2.2%</td></tr><tr><td class="tk">AAL</td><td class="pct">12.58</td>
+<td class="pct down">-0.2%</td>
+<td class="pct up">+2.8%</td></tr><tr><td class="tk">DAL</td><td class="pct">80.35</td>
+<td class="pct down">-1.4%</td>
+<td class="pct up">+3.5%</td></tr><tr><td class="tk">NVDA</td><td class="pct">215.38</td>
+<td class="pct down">-1.2%</td>
+<td class="pct down">-3.0%</td></tr><tr><td class="tk">GOOGL</td><td class="pct">324.89</td>
+<td class="pct up">+1.3%</td>
+<td class="pct down">-2.9%</td></tr><tr><td class="tk">JPM</td><td class="pct">339.3</td>
+<td class="pct up">+1.0%</td>
+<td class="pct up">+1.2%</td></tr><tr><td class="tk">TLT</td><td class="pct">80.99</td>
+<td class="pct down">-0.8%</td>
+<td class="pct up">+0.9%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7743.98</td>
+<td class="pct up">+0.3%</td>
+<td class="pct down">-0.2%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">26549.85</td>
+<td class="pct up">+0.3%</td>
+<td class="pct down">-0.6%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">3999.95</td>
+<td class="pct down">-0.2%</td>
+<td class="pct down">-2.6%</td></tr><tr><td class="tk">GC=F</td><td class="pct">4037.3</td>
+<td class="pct down">-0.4%</td>
+<td class="pct down">-0.6%</td></tr><tr><td class="tk">CL=F</td><td class="pct">101.66</td>
+<td class="pct down">-1.1%</td>
+<td class="pct up">+2.2%</td></tr><tr><td class="tk">PLTR</td><td class="pct">196.81</td>
+<td class="pct down">-1.0%</td>
+<td class="pct down">-2.4%</td></tr><tr><td class="tk">LMT</td><td class="pct">629.75</td>
+<td class="pct up">+1.1%</td>
+<td class="pct up">+14.2%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">242980.0</td>
+<td class="pct up">+0.2%</td>
+<td class="pct up">+5.7%</td></tr><tr><td class="tk">ELAL.TA</td><td class="pct">1862.0</td>
+<td class="pct down">-0.3%</td>
+<td class="pct down">-6.2%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
