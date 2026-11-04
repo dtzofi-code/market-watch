@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+
+.hz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+@media(max-width:640px){.hz{grid-template-columns:1fr}}
+.hzc{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.hzc b{display:block}.hzc small{color:var(--muted)}
+.o-חיובי{color:var(--up)}.o-שלילי{color:var(--down)}.o-ניטרלי{color:var(--muted)}
+nav a{margin-inline-end:14px;font-weight:600}
+ul.l{margin:4px 0;padding-inline-start:20px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="../index.html">יומי</a><a href="../weekly.html">סיכום שבועי</a></nav>
+  <p>דוח ליום 04/11/2026 · <span class="mood">מצב שוק: מעורב</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> המפלגה הדמוקרטית רשמה ניצחון מוחץ בבחירות האמצע בארה״ב, מה שהוביל לראלי בשווקים, ירידה בדולר וחששות סקטוריאליים סביב מרכזי נתונים. במקביל, המתיחות במפרץ ובמפרץ הורמוז ממשיכה לדחוף את מחירי האנרגיה מעלה, בעוד ענקיות הפארמה והשבבים ממשיכות להציג חדשות חזקות.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>ניצחון סוחף לדמוקרטים בבחירות האמצע בארה&#34;ב (Blue Wave)<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>גיאופוליטי</span><span>ארה&#34;ב</span></div>
+  <p>הדמוקרטים זכו בשליטה מלאה בקונגרס (בית הנבחרים והסנאט) במסגרת תבוסה היסטורית לרפובליканס ולמועמדי טראמפ. תוצאות אלו משקפות אכזבה ממדיניות החוץ ומאיומי המלחמה מול איראן.</p>
+  <p><strong>השפעה על השוק:</strong> השוק הגיב בראלי מניות ובחלשות הדולר עקב ציפייה להקלת רגולציה או שינוי סדרי עדיפויות תקציביים, אך מניות טכנולוגיה ומרכזי נתונים חוו לחץ עקב חשש מרגולציה נוקשה יותר והטלת מסים.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">SPY, QQQ</span></small><br>הפחתת חוסר הוודאות הפוליטית והתאוששות השווקים בעקבות תוצאות ברורות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">MSFT, GOOGL</span></small><br>חשש מקידומי רגולציה על Big Tech ומדיניות מיסוי מחמירה מצד קונגרס דמוקרטי.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-שלילי">· שלילי</span></b><small>שנה ומעלה</small><br>שינוי מבני בתקציבי תשתיות וממשל שיכול לפגוע במגזרים מסוימים עקב העדפת מדיניות ירוקה וחברתית.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">SPY</span> S&amp;P 500 ETF
+        <span class="pct up">+0.3% יום · -2.0% שבוע</span>
+        <br><small>סיום חוסר הוודאות הפוליטית מביא לגל עליות רוחבי בשוק. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">QQQ</span> Invesco QQQ Trust
+        <span class="pct up">+0.6% יום</span>
+        <br><small>חשש מהכבדת רגולציה על סקטור הטכנולוגיה.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNQ0lOMEdFS2NKSF9XVlZQUnNpWEgyRFN5d3prSnJKUFgyUmFZUEw5SWhQN0h5MEhEZk1GaVlyc1R2SzBsMmlSNjJtVDZ2YXMyN2ZPZGd2ZldGT1ZEQU51OElNNVA2emJPd2RnbFdxdmo0TWFaZHdmUXltbHlveXVnbHRPT21UTUJyX19ySlVNWk1MR0pZZlVzMzdrZTlOTUJKMi1UeWp1Q1BlOVlUaW1zSUxn?oc=5" rel="noopener">Democrats seize Congress in sweeping midterm repudiation of Trump</a></div>
+</div>
+
+<div class="card ev">
+  <h3>הסלמה במפרץ הורמוז ואי-ודאות גיאופוליטית סביב איראן<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>אנרגיה</span><span>המפרץ הפרסי</span><span>המזרח התיכון</span></div>
+  <p>דיווחים על מכליות בבעלות או בהשפעה אזורית שנפגעו ממושים קרוב למצר הורמוז, לצד חששות מתמשכים מהתלקחות מול איראן שקיבלה ביטוי בתוצאות בחירות האמצע.</p>
+  <p><strong>השפעה על השוק:</strong> עלייה במחירי הנפט והזהב (כנכס מקלט בטוח), ולחץ על שולי הרווח של חברות תעופה ושירותי אנרגיה עקב זינוק בעלויות הדלק וההובלה.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">XOM, CVX, OXY</span></small><br>זינוק במחירי הנפט הגולמי תומך ישירות בחברות האנרגיה.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">FRO, STNG</span></small><br>עלויות הובלה ימיות ותעריפי מיכליות גבוהים לאור הסיכונים בנתיבי שיبح מרכזיים.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-ניטרלי">· ניטרלי</span></b><small>שנה ומעלה</small><br>התאמה מבنية של שרשראות אספקה עולמיות ומעבר מואץ לאנרגיה אלטרנטיבית.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">XOM</span> Exxon Mobil
+        <span class="pct down">-1.2% יום · -1.4% שבוע</span>
+        <br><small>מרוויחה ישירות מעליית מחירי הנפט בעקבות סיכוני ההיצע במפרץ. · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">CVX</span> Chevron
+        <span class="pct down">-1.1% יום · -1.3% שבוע</span>
+        <br><small>חשיפה גבוהה למחירי האנרגיה והפקת נפט גולמי. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">DAL</span> Delta Air Lines
+        <span class="pct down">-0.2% יום</span>
+        <br><small>הוצאות הדלק מזנקות בעקבות משבר האנרגיה.</small></div><div class="stk"><span class="tk">LUV</span> Southwest Airlines
+        
+        <br><small>פגיעה ברווחיות עקב התייקרות תשומות האנרגיה.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxQbjcyLUxfeTMxaHFnbENrc2tqdlowSDFqWU5DUWtqOWhVUUdSYWdSbFpBRGQ4VHI3Rm5DbDVsLTV6bkM4d3FjcmVPRnpsQlJ6RkNSLWNZX0ZtWURvUExKaGZ2M2diWUFvZWZfSE5FN01PR2FXc1pSN1kyeXhHX0ZFS0k4S1FjSDJLc2ZfbGx2cm9TYW9JSThiZVZIeFQxTnVBXzAwYnhlaGxsN3lwQkxOZTdFRVVpc3RPa2J2M0JZNVduZXA3Z2pz?oc=5" rel="noopener">Iran&#39;s IRGC says four tankers ablaze after hitting mines near Strait of Hormuz</a></div>
+</div>
+
+<div class="card ev">
+  <h3>צמיחה חזקה ועדכון תחזית חיובי לנובו נורדיסק<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>בריאות</span><span>אירופה</span><span>ארה&#34;ב</span></div>
+  <p>חברת הפארמה הדנית נובו נורדיסק העלתה פעם נוספת את התחזית לשנת 2026 לאחר שגלולת ה-Wegovy עקפה את תחזיות האנליסטים.</p>
+  <p><strong>השפעה על השוק:</strong> חיזוק הביטחון בסקטור הפארמה וההשמנה, תמיכה במניות החברה ובספקים קשורים.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">NVO</span></small><br>תוצאות חזקות ועקיפת תחזיות מעודדות זרימת הון לנייר.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">NVO</span></small><br>ביקושים אדירים לתרופות הרזיה והתרחבות כושר הייצור.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">NVO</span></small><br>שינוי מבני בשוק הבריאות והטיפול בהשמנת יתר עולמית.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">NVO</span> Novo Nordisk
+        <span class="pct down">-0.6% יום · +3.9% שבוע</span>
+        <br><small>ביקושים גבוהים למוצרי הרזיה מובילים לעקיפת תחזיות צמיחה. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      </div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQUXNSTmhfQVhISGNaNGRPM1A5R1hwalZvbm93d3lkc0thd0dZMGdLZ3h6WTI4NnVQeGxZYVdhc2IzY3M3UXUtMlBQVmtZWlMtQmhDYXhCZ1JuREQzZlhwQVVRR0tiTEZybndZdHBKbG5ZcXR1c2p6Tm5yNHRXYVNNVUs2VjViQVB6dWc3c24tTHd3UkNRN1NIdXZ1alB3TkljNGNXSUZn?oc=5" rel="noopener">Novo Nordisk hikes 2026 outlook again as Wegovy pill beats forecasts</a></div>
+</div>
+
+<div class="card ev">
+  <h3>אזהרת רווח ועלויות ארגון מחדש ב-BMW<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>אחר</span><span>אירופה</span><span>גלובלי</span></div>
+  <p>יצרנית הרכב הגרמנית BMW הוציאה אזהרת רווח נוספת בשל לחצים גוברים ועלויות גבוהות הנובעות מתהליכי ארגון מחדש.</p>
+  <p><strong>השפעה על השוק:</strong> פגיעה בסקטור הרכב האירופאי, לחץ שלילי על ספקי רכב ועל שותפים בתעשייה.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">BMW.DE</span></small><br>אכזבה נוספת ממשקיעים והנמכת תחזיות רווחיות קצרות טווח.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה)</small><br>הצלחת תהליכי ההתייעלות והארגון מחדש תלויה במצב המאקרו האירופאי.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-ניטרלי">· ניטרלי</span></b><small>שנה ומעלה</small><br>מעבר מורכב וארוך טווח לרכבים חשמליים תחת לחצי תחרות גוברים.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      </div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">BMW.DE</span> BMW AG
+        <span class="pct up">+1.0% יום</span>
+        <br><small>שחיקת רווחיות ועלויות restructuring גבוהות הפוגעות בתוצאות הכספיות.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOWXlGRjMxNHF4V2dKdm9ZZFJHbXpmZ0ZDVm1MZDJUOHNXTng1YzFOOEtDM0hlN3A2WXpObUhDMnlWT3ZfZXozQXZiQXZvazRNUEFQSFQ4NkNDWlQ2SHBsTk9XLUQ4TjVWYUZDZTVZNklTM2R0NXZ2aHZVRnZETVFmVVROVTItdWNTVWF5NnM4eTNyVnBDTFZKUUpETQ?oc=5" rel="noopener">BMW warns on profit again as restructuring costs bite</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>ארה&#34;ב</td><td>להעדיף</td><td>סיום בחירות האמצע מפיג את אי-הוודאות המאקרו-פוליטית ותומך בראלי רחב בשווקים, למרות אתגרי הרגולציה האפשריים על סקטור הטכנולוגיה.</td></tr><tr><td>אירופה</td><td>להיזהר</td><td>חולשה בסקטור התעשייה והרכב (כדוגמת אזהרות הרווח של BMW) לצד סיכוני אבטחה ואי-סטביליות פוליטית מקומית.</td></tr><tr><td>המזרח התיכון</td><td>להיזהר</td><td>המשך סיכונים גיאופוליטיים ופגיעות בנתיבי אנרגיה מרכזיים (מפרץ הורמוז) שומרים על תנודתיות גבוהה במחירי הנפט והסיכון האזורי.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>התאוששות יומית במדדים המובילים בעקבות תוצאות בחירות האמצע, לצד צניחה במדד הפחד וזינוק בזהב</strong></p>
+  <p><strong>קונטקסט:</strong> תוצאות בחירות האמצע בארה&#34;ב והניצחון הדמוקרטי הניעו ראלי יומי במדדים המובילים, בהובלת מדד הנאסד&#34;ק שעלה ב-0.8% וה-S&amp;P 500 שעלה ב-0.4%. לצד זאת, נרשמה הרגעה בטווח הקצר כאשר מדד ה-VIX צלל ב-12.1% לרמה של 18.3 נקודות. במקביל, אי-הודאות הגיאופוליטית וההסלמה במפרץ הורמוז ממשיכות לתמוך במחירי האנרגיה (נפט ברמת 95.3 דולר לחבית) ובביקוש לזהב.</p>
+  <p><strong>ניתוח:</strong> למרות העליות היומיות, המגמה בשוק בשבוע ובחודש האחרונים נותרה שלילית, כאשר הנאסד&#34;ק מציג ירידה חודשית של 7.7% וה-S&amp;P 500 מתחת לממוצע 50 יום ב-1.6%. תשואת האג&#34;ח ל-10 שנים בארה&#34;ב עלתה ב-1.2% לרמת 4.95%, עובדה המוסיפה לחץ על תמחור הנכסים. מדד הדולר נחלש ב-0.4%, מה שסייע לזינוק של 2.8% במחיר הזהב לרמה של 4,050.9 דולר. בשוק המקומי, הדולר/שקל רשם עלייה יומית של 0.6% לרמה של 3.16 שקלים, כחלק ממגמת החלשות שבועית של 4.5% בשקל.</p>
+  <p><strong>המלצה:</strong> זהיר. מומלץ לנצל עליות נקודתיות להפחתת סיכון במניות טכנולוגיה ומרכזי נתונים עקב חששות רגולטוריים, תוך הסטת חלק מהתיק לסקטורים דפנסיביים כמו פארמה ואנרגיה הנהנים ממומנטום פונדמנטלי וגיאופוליטי.</p>
+  <div class="hz">
+  <div class="hzc"><b>טווח קצר</b>ניטרלי-זהיר - תגובה חיובית ראשונית לתוצאות הבחירות וירידת ה-VIX, אך המדדים עדיין מתחת לממוצעי 50 יום.</div><div class="hzc"><b>טווח בינוני</b>זהיר - מגמה חודשית שלילית, תשואות אג&#34;ח מתקרבות ל-5% ומתיחות גיאופוליטית מתמשכת.</div><div class="hzc"><b>טווח ארוך</b>ניטרלי-אגרסיבי - המדדים העיקריים בארה&#34;ב עדיין נסחרים מעל ממוצע 200 יום (S&amp;P 500 ב-3.5%+), מה שמשמר את מגמת הבסיס.</div></div>
+  <div class="grid">
+    <div class="col"><h4>לעקוב אחרי</h4><ul class="l"><li>תשואת אג&#34;ח ארה&#34;ב ל-10 שנים סביב רמת 5.0%</li><li>התנגדות ממוצע 50 יום ב-S&amp;P 500 (גבוה ב-1.6% מהרמה הנוכחית)</li><li>רמת 95 דולר לחבית בנפט WTI והתפתחויות במפרץ הורמוז</li></ul></div>
+    <div class="col"><h4>סיכונים</h4><ul class="l"><li>הסלמה גיאופוליטית נוספת במפרץ הורמוז שתזניק את מחירי הנפט והאינפלציה</li><li>חציית רמת 5.0% בתשואות האג&#34;ח ל-10 שנים בארה&#34;ב</li><li>שינויי מדיניות ורגולציה תחת הרוב הדמוקרטי המשפיעים על חברות טכנולוגיה ומרכזי נתונים</li></ul></div>
+  </div>
+</div>
+<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+<tr><td>S&amp;P 500</td><td class="pct">7568.92</td>
+<td class="pct up">+0.4%</td><td class="pct down">-2.0%</td><td class="pct down">-2.6%</td><td class="pct down">-3.2%</td></tr><tr><td>נאסד&#34;ק</td><td class="pct">25372.01</td>
+<td class="pct up">+0.8%</td><td class="pct down">-4.2%</td><td class="pct down">-7.7%</td><td class="pct down">-8.1%</td></tr><tr><td>ראסל 2000</td><td class="pct">2812.45</td>
+<td class="pct up">+0.2%</td><td class="pct down">-0.2%</td><td class="pct down">-1.2%</td><td class="pct down">-8.3%</td></tr><tr><td>ת&#34;א-125</td><td class="pct">3922.88</td>
+<td class="pct up">+0.0%</td><td class="pct down">-2.1%</td><td class="pct down">-3.5%</td><td class="pct down">-12.5%</td></tr><tr><td>VIX (פחד)</td><td class="pct">18.30</td>
+<td class="pct down">-12.1%</td><td class="pct up">+8.2%</td><td class="pct up">+21.9%</td><td class="pct down">-41.1%</td></tr><tr><td>תשואת 10Y ארה&#34;ב</td><td class="pct">4.95</td>
+<td class="pct up">+1.2%</td><td class="pct down">-0.8%</td><td class="pct down">-6.8%</td><td class="pct down">-6.8%</td></tr><tr><td>דולר/שקל</td><td class="pct">3.16</td>
+<td class="pct up">+0.6%</td><td class="pct up">+4.5%</td><td class="pct up">+3.4%</td><td class="pct down">-3.8%</td></tr><tr><td>מדד הדולר</td><td class="pct">101.43</td>
+<td class="pct down">-0.4%</td><td class="pct down">-0.7%</td><td class="pct down">-0.4%</td><td class="pct down">-1.1%</td></tr><tr><td>זהב</td><td class="pct">4050.90</td>
+<td class="pct up">+2.8%</td><td class="pct up">-0.0%</td><td class="pct down">-3.3%</td><td class="pct down">-23.8%</td></tr><tr><td>נפט WTI</td><td class="pct">95.29</td>
+<td class="pct down">-0.8%</td><td class="pct down">-7.3%</td><td class="pct up">+6.5%</td><td class="pct down">-15.6%</td></tr><tr><td>ביטקוין</td><td class="pct">78465.71</td>
+<td class="pct up">+1.4%</td><td class="pct up">+1.6%</td><td class="pct down">-3.8%</td><td class="pct down">-26.0%</td></tr>
+</table></div>
+
+
+<h2>מגמות בעולם שכדאי להכיר</h2>
+<div class="card"><strong>תמונת הסריקה:</strong> הסריקה מצביעה על תזוזה חדה ממוקדי הטכנולוגיה אל עבר סקטורים דפנסיביים, אנרגיה ותשתיות, בעקבות אירועים גיאופוליטיים ותוצאות בחירות האמצע בארה&#34;ב. הסלמה במפרץ הורמוז מזניקה את תחומי האנרגיה והביטחון, בעוד חששות מרגולציה על מרכזי נתונים דוחפים משקיעים לתחומי הבריאות והבנייה. כמו כן, ניכרת התאוששות מחודשת בשוק ההודי ובסקטור הבנייה למגורים.</div>
+
+<div class="card ev"><h3>נפט ואנרגיה גלובלית <span class="tags"><span>שלב: נמתח יתר</span><span>אופק: קצר</span><span class="tk">USO</span><span class="tk">XLE</span></span></h3>
+  <p><strong>מה זה?</strong> תחום האנרגיה עוסק בהפקה, זיקוק ומסחר בנפט וגז טבעי. המגזר מושפע ישירות מהיצע וביקוש עולמיים ומאירועים גיאופוליטיים המשבשים את נתיבי המסחר.</p>
+  <p><strong>למה עכשיו:</strong> זינוק מחירי הנפט מונע מהסלמה במפרץ הורמוז, כאשר USO רשמה תשואה של 37.7% ב-3 חודשים וחוזק יחסי (rel3) של 39.5%.</p>
+  <p class="pct" style="color:var(--muted)">חודש +9.8% · 3 חודשים +37.7% · מול S&P +39.5%</p>
+  <p><strong>איך לשחק:</strong> מומלץ לנהוג בזהירות עקב מתיחות יתר, ולהעדיף פיזור במניות אנרגיה (XLE) על פני חוזים עתידיים ישירים.</p>
+  <p>⚠ רגיעה מהירה במתיחות הגיאופוליטית או ירידה בביקוש העולמי עלולות להוביל למימוש מהיר.</p>
+  <div class="stk"><span class="tk">XOM</span> Exxon Mobil Corp <span class="pct">$177.46</span>
+    <br><small>נהנית ישירות מהמתח הגיאופוליטי במפרץ הורמוז ומעליית מחירי הנפט, עם תמיכה טכנית חזקה מעל הממוצע הנע ל-50 יום.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $175.00 · יעד $195.00 · סטופ $165.00</small></div><div class="stk"><span class="tk">CVX</span> Chevron Corp <span class="pct">$225.27</span>
+    <br><small>מומנטום חזק בסקטור האנרגיה על רקע שיבושים אפשריים בהובלת נפט גלובלית ומדדי RSI בריאים.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $220.00 · יעד $245.00 · סטופ $210.00</small></div>
+</div>
+
+<div class="card ev"><h3>בריאות ומכשור רפואי <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">XLV</span><span class="tk">IHI</span></span></h3>
+  <p><strong>מה זה?</strong> סקטור המאגד חברות תרופות, ציוד רפואי וטכנולוגיות טיפוליות שנהנות מביקוש קשיח ואינו תלוי במצב הכלכלי. התחום נהנה לאחרונה מחדשנות בתרופות להרזיה וממעבר משקיעים לאפיקים דפנסיביים.</p>
+  <p><strong>למה עכשיו:</strong> XLV מציגה תאוצה חזקה של 8.6% וענייה של 9.9% בחודש האחרון, ברקע עדכון תחזית חיובי מנובו נורדיסק והסטת כספים לסקטורים יציבים.</p>
+  <p class="pct" style="color:var(--muted)">חודש +9.9% · 3 חודשים +12.5% · מול S&P +14.3%</p>
+  <p><strong>איך לשחק:</strong> קרן סל רחבה כמו XLV או IHI המפזרת את הסיכון בין ענקיות תרופות ליצרניות ציוד רפואי.</p>
+  <p>⚠ שינויי מדיניות או פיקוח מוגבר על מחירי תרופות בעקבות שינויים פוליטיים בארה&#34;ב.</p>
+  <div class="stk"><span class="tk">LLY</span> Eli Lilly &amp; Co <span class="pct">$1409.38</span>
+    <br><small>הודעות חיוביות וחדשות חזקות בסקטור הפארמה ותרופות ההשמנה מעניקות לחברה דחיפה פונדמנטלית איתנה להתמודדות עם אי-הודאות בשווקים.</small>
+    <br><small>אופק: ארוך · ביטחון: גבוהה · קנייה עד $1380.00 · יעד $1550.00 · סטופ $1300.00</small></div><div class="stk"><span class="tk">UNH</span> UnitedHealth Group Inc <span class="pct">$404.44</span>
+    <br><small>סקטור הבריאות משמש כמקלט דפנסיבי מוביל בתקופה של שינויים רגולטוריים ומערכות בחירות בארה&#34;ב.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $400.00 · יעד $440.00 · סטופ $380.00</small></div>
+</div>
+
+<div class="card ev"><h3>תעשיות ביטחוניות <span class="tags"><span>שלב: מוקדם</span><span>אופק: ארוך</span><span class="tk">ITA</span><span class="tk">SHLD</span></span></h3>
+  <p><strong>מה זה?</strong> חברות המפתחות ומייצרות מערכות נשק, תעופה צבאית וטכנולוגיות הגנה עבור ממשלות ברחבי העולם. המגזר חווה עדנה עקב גידול בתקציבי הביטחון הלאומיים בעולם.</p>
+  <p><strong>למה עכשיו:</strong> הקרן ITA מציגה תאוצה חיובית של 13.7% עם עלייה של 4.8% בשבוע האחרון, כתוצאה מאיומים גיאופוליטיים מוגברים במפרץ הורמוז.</p>
+  <p class="pct" style="color:var(--muted)">חודש +4.4% · 3 חודשים -14.2% · מול S&P -12.4%</p>
+  <p><strong>איך לשחק:</strong> השקעה דרך קרנות סל מגוונות כמו ITA להשתתפות במגמת ההצטיידות הביטחונית לטווח הארוך.</p>
+  <p>⚠ הסכמי רגיעה גלובליים או עיכובים במימוש תקציבי הצטיידות ממשלתיים.</p>
+  <div class="stk"><span class="tk">LMT</span> Lockheed Martin Corp <span class="pct">$639.00</span>
+    <br><small>הסביבה הגיאופוליטית המתוחה לצד ביקוש יציב לתקציבי ביטחון מעניקים למניה יתרון מובהק למרות RSI גבוה.</small>
+    <br><small>אופק: ארוך · ביטחון: גבוהה · קנייה עד $630.00 · יעד $690.00 · סטופ $595.00</small></div>
+</div>
+
+<div class="card ev"><h3>בנייה ונדל&#34;ן למגורים <span class="tags"><span>שלב: מוקדם</span><span>אופק: בינוני</span><span class="tk">ITB</span></span></h3>
+  <p><strong>מה זה?</strong> תעשיית הבנייה למגורים בארה&#34;ב כוללת קבלנים, יזמים וספקי חומרי בנייה. הסקטור מושפע משיעורי הריבית על משכנתאות וממחסור מתמשך בהיצע הדיור.</p>
+  <p><strong>למה עכשיו:</strong> נושא מתהפך מובהק: ITB זינקה ב-9.3% בחודש האחרון עם תאוצה מרשימה של 17.2% (למרות תשואה שלילית ב-3 חודשים), בעקבות תוצאות הבחירות והיחלשות הדולר.</p>
+  <p class="pct" style="color:var(--muted)">חודש +9.3% · 3 חודשים -6.5% · מול S&P -4.7%</p>
+  <p><strong>איך לשחק:</strong> כניסה מדורגת בקרן ITB תוך מעקב הדוק אחר מגמת הריבית בארה&#34;ב.</p>
+  <p>⚠ עלייה מחודשת בתשואות האג&#34;ח והריביות למגורים שתקפיא את הביקוש לבתים.</p>
+  
+</div>
+
+<div class="card ev"><h3>כלכלת הודו <span class="tags"><span>שלב: מוקדם</span><span>אופק: ארוך</span><span class="tk">INDA</span></span></h3>
+  <p><strong>מה זה?</strong> חשיפה למניות המובילות בשוק ההודי, שנהנה מדמוגרפיה צעירה, צמיחה כלכלית מהירה ומעבר ייצור עולמי לתחומיו. זו אחת הכלכלות המתפתחות הבולטות בעולם.</p>
+  <p><strong>למה עכשיו:</strong> INDA מציגה התהפכות מגמה עם תאוצה חיובית של 8.5% וענייה של 4.2% בשבוע האחרון, לאחר תקופה של ביצועים חלשים.</p>
+  <p class="pct" style="color:var(--muted)">חודש +4.6% · 3 חודשים -3.2% · מול S&P -1.4%</p>
+  <p><strong>איך לשחק:</strong> השקעה הדרגתית בקרן INDA לטובת חשיפה לטווח ארוך למנוע הצמיחה ההודי.</p>
+  <p>⚠ תנודתיות בשער הרופי ההודי וסיכוני אינפלציה מקומיים.</p>
+  
+</div>
+
+<div class="card"><strong>מובילים בסריקה:</strong> נפט (חוזים) (+40% מול S&P) · ביטקוין (קרן) (+22% מול S&P) · אנרגיה (נפט וגז) (+19% מול S&P) · הפקת נפט וגז (+18% מול S&P) · בריאות (+14% מול S&P)
+<br><strong>מפגרים:</strong> אינטרנט סיני (-17%) · אורניום ואנרגיה גרעינית (-21%) · מתכות נדירות (-30%)</div>
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+
+
+
+<h2>נתוני טיקרים</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">SPY</td><td class="pct">754.35</td>
+<td class="pct up">+0.3%</td>
+<td class="pct down">-2.0%</td></tr><tr><td class="tk">QQQ</td><td class="pct">685.28</td>
+<td class="pct up">+0.6%</td>
+<td class="pct down">-5.0%</td></tr><tr><td class="tk">XOM</td><td class="pct">177.46</td>
+<td class="pct down">-1.2%</td>
+<td class="pct down">-1.4%</td></tr><tr><td class="tk">CVX</td><td class="pct">225.27</td>
+<td class="pct down">-1.1%</td>
+<td class="pct down">-1.3%</td></tr><tr><td class="tk">DAL</td><td class="pct">83.28</td>
+<td class="pct down">-0.2%</td>
+<td class="pct up">+2.2%</td></tr><tr><td class="tk">NVO</td><td class="pct">40.19</td>
+<td class="pct down">-0.6%</td>
+<td class="pct up">+3.9%</td></tr><tr><td class="tk">BMW.DE</td><td class="pct">58.4</td>
+<td class="pct up">+1.0%</td>
+<td class="pct up">+1.8%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7568.92</td>
+<td class="pct up">+0.4%</td>
+<td class="pct down">-2.0%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">25372.01</td>
+<td class="pct up">+0.8%</td>
+<td class="pct down">-4.2%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">3922.88</td>
+<td class="pct up">+0.0%</td>
+<td class="pct down">-2.1%</td></tr><tr><td class="tk">GC=F</td><td class="pct">4050.9</td>
+<td class="pct up">+2.8%</td>
+<td class="pct up">-0.0%</td></tr><tr><td class="tk">CL=F</td><td class="pct">95.29</td>
+<td class="pct down">-0.8%</td>
+<td class="pct down">-7.3%</td></tr><tr><td class="tk">NVDA</td><td class="pct">206.69</td>
+<td class="pct up">+2.3%</td>
+<td class="pct down">-5.2%</td></tr><tr><td class="tk">PLTR</td><td class="pct">175.4</td>
+<td class="pct down">-1.6%</td>
+<td class="pct down">-11.7%</td></tr><tr><td class="tk">LMT</td><td class="pct">639.0</td>
+<td class="pct down">-0.6%</td>
+<td class="pct up">+2.6%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">235620.0</td>
+<td class="pct down">-1.2%</td>
+<td class="pct down">-2.9%</td></tr><tr><td class="tk">ELAL.TA</td><td class="pct">1963.0</td>
+<td class="pct down">-0.9%</td>
+<td class="pct up">+5.1%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
