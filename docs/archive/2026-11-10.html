@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+
+.hz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+@media(max-width:640px){.hz{grid-template-columns:1fr}}
+.hzc{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.hzc b{display:block}.hzc small{color:var(--muted)}
+.o-חיובי{color:var(--up)}.o-שלילי{color:var(--down)}.o-ניטרלי{color:var(--muted)}
+nav a{margin-inline-end:14px;font-weight:600}
+ul.l{margin:4px 0;padding-inline-start:20px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="../index.html">יומי</a><a href="../weekly.html">סיכום שבועי</a></nav>
+  <p>דוח ליום 10/11/2026 · <span class="mood">מצב שוק: מעורב</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> שווקי המניות רושמים התאוששות לאחר ירידות על רקע ירידה במחירי הנפט וציפ נתונים מאקרו, אך סנטימנט הסיכון מושפע לרעה מחקירת ה-FBI סביב מנכ&#34;ל Nvidia ג&#39;נסן הואנג והקשרים לסין. במקביל, המתיחות הגיאופוליטית במזרח התיכון ובאירופה נמשכת לצד שיחות שלום ראשונות באבו דאבי סביב מלחמת רוסיה-אוקראינה.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>חקירת ה-FBI והחשדות סביב מנכ&#34;ל Nvidia<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>שבבים וטכנולוגיה</span><span>ארה&#34;ב</span><span>סין</span><span>טיוואן</span></div>
+  <p>ה-FBI פתח בחקירה לגבי קשריו של מנכ&#34;ל Nvidia, ג&#39;נסן הואנג, עם איש עסקים/סוכן סיני לכאורה, מה שמעורר חששות מודיעיניים וצפוי להאיץ רגולציה מחמירה על ייצוא שבבי AI לסין.</p>
+  <p><strong>השפעה על השוק:</strong> מניות השבבים ובפרט Nvidia סובלות מחוסר ודאות ומשקל יתר שלילי, בזמן שהסְקְטָר טכנולוגיה עשוי לספוג מגבלות רגולטוריות נוספות מצד הממשל בארה&#34;ב.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">NVDA, AMD, INTC</span></small><br>לחץ מכירות נקודתי, פאניקה תקשורתית וחשש מבדיקות ממשלתיות דחופות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">NVDA, TSM, ASML</span></small><br>התאמת שרשראות האספקה לדרישות הציות החדשות, אך הביקוש העולמי ל-AI נותר חזק בבסיסו.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-שלילי">· שלילי</span></b><small>שנה ומעלה · <span class="tk">NVDA</span></small><br>שינוי מבני במשטר הסנקציות והקשחת תנאי הייצוא הטכנולוגי לסין, מה שעלול לפגוע באופן קבוע בנתח השוק הסיני של ענקיות השבבים.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">AVGO</span> Broadcom
+        <span class="pct up">+8.8% יום · -0.9% שבוע</span>
+        <br><small>גיוון גיאוגרפי והתאמה הדוקה יותר לרגולציה האמריקאית · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">NVDA</span> Nvidia
+        <span class="pct down">-4.3% יום</span>
+        <br><small>הסתבכות ישירה של המנכ&#34;ל בחקירת מודיעין ופגיעה באמון המשקיעים</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPQWY3b0NNRFBNRG5jZVdXM05URnhOV19vQ24zV29la0k2S3FzZmN4ZzB3WlRwSXJMbHB6RE90MFVEZ2p4UUhMQUFlV0RMdmVZZUUxeFFEa2ljZTFlTlhXOFozaEczRlpPS2dmRXgxcGw2ZWdpNVJQVEltazV5UUZMUmpNMUdoX2NJRG1wVnJhbFRCTHBwbE1LcjZnMk4?oc=5" rel="noopener">FBI investigating Nvidia CEO Jensen Huang&#39;s affair with an alleged Chinese agent, Trump says</a></div>
+</div>
+
+<div class="card ev">
+  <h3>התקדמות בשיחות הפלנטר אוף סטאטוס ומתיחות איראנית במזרח התיכון ובאירופה<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>גיאופוליטי</span><span>מזרח תיכון</span><span>אירופה</span><span>ארה&#34;ב</span></div>
+  <p>שיחות שתווכו על ידי ארה&#34;ב בין רוסיה ואוקראינה החלו באבו דאבי במקביל להזזת מטוסים אמריקאיים בבסיסים בבריטניה מחשש לאיומים מאיראן.</p>
+  <p><strong>השפעה על השוק:</strong> מחירי הנפט מתנודדים מטה על רקע הורדת רף ההסלמה, אך תשומת הלב מופנית לסיכוני אבטחת סייבר ותשתיות אנרגיה.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-ניטרלי">· ניטרלי</span></b><small>ימים עד שבועות · <span class="tk">XOM, CVX, ESLT.TA</span></small><br>תנודתיות במחירי האנרגיה והביטחון על בסיס כותרות יומיות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-חיובי">· חיובי</span></b><small>חודשים (עד כשנה) · <span class="tk">LMT, RTX, ESLT.TA</span></small><br>המשך תקציבי ביטחון גבוהים באירופה ובארה&#34;ב למרות מאמצי דיפלומטיה.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">PLTR, RTX</span></small><br>מעבר מבני להשקעות ענק באבטחת סייבר, הגנה אווירית ותשתיות קריטיות נגד מתקפות היברידיות.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">PLTR</span> Palantir Technologies
+        <span class="pct up">+5.5% יום · -5.1% שבוע</span>
+        <br><small>ביקוש מוגבר לפתרונות מודיעין וטכנולוגיית הגנה · ביטחון: גבוהה</small></div><div class="stk"><span class="tk">ESLT.TA</span> Elbit Systems
+        <span class="pct up">+1.9% יום · -2.8% שבוע</span>
+        <br><small>נהנית מגידול בתקציבי הביטחון המערביים · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">DAL</span> Delta Air Lines
+        <span class="pct up">+5.3% יום</span>
+        <br><small>השפעות אפשריות של שיבושי טיסות ומתקפות במרחב האווירי</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOQWFsNkFITi02Z1V3NGtpMndYU1JJZ1RKOUNYWW9tbWJvcHRpdDAwNGJzQlg1bURIS2pzMXA0UWRNRF9WY25QM1ppRTR0T1lqRzNRSTlzanQyeUY2WC1uOFJWQ3Mwd3pyMVFQcl8zTkZZeERfSTJQQ0g4WXFlWmpvdlI5RzNFeDNnVUUtdnZsVURBN2JPMmpYSEJUa2pXOWM?oc=5" rel="noopener">US-mediated talks on ending the war between Russia and Ukraine begin in Abu Dhabi</a></div>
+</div>
+
+<div class="card ev">
+  <h3>עודף המסחר של סין עובר את טריליון הדולר על גב בום ה-AI<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>סחר וסנקציות</span><span>סין</span><span>אסיה</span><span>ארה&#34;ב</span></div>
+  <p>נתוני סחר חדשים מראים כי עודף המסחר של סין חצה את רף טריליון הדולר במהירות שיא, בעיקר הודות לייצוא מוגבר הקשור לבינה מלאכותית וטכנולוגיה.</p>
+  <p><strong>השפעה על השוק:</strong> מחזק את שרשראות האספקה האסיאתיות אך מגביר את הלחץ הפוליטי בארה&#34;ב ובאירופה להטלת מכסים נוספים.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-חיובי">· חיובי</span></b><small>ימים עד שבועות · <span class="tk">BABA, JD, BIDU</span></small><br>נתוני ייצוא חזקים תומכים במניות הטכנולוגיה והמסחר בסין.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה)</small><br>סיכון לרגולציית מכסים ומלחמת סחר מחודשת מצד הממשל האמריקאי.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-שלילי">· שלילי</span></b><small>שנה ומעלה</small><br>פיצול מבני של הכלכלה הגלובלית לגושים מסחריים מבודדים.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">FXI</span> iShares China Large-Cap ETF
+        <span class="pct down">-0.8% יום · +4.4% שבוע</span>
+        <br><small>רווח מנתוני ייצוא חזקים וחציית רפים היסטוריים · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">MCD</span> McDonald&#39;s
+        <span class="pct up">+1.8% יום</span>
+        <br><small>חשש מירידת כוח קנייה בגלל מלחמות סחר ומכסים</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSkdyZ0hqUllXMmZjUVB1QnBoMXFCYWdEUldHN3hPWVo3MFNNbWlGX2dmWWVtdVVnTU5icUpXRGl3a09jSWpEN0x3VXJQQnNOZkxCbVhnREhXdWFoa25HbXIzUlZqVXVaVXd3T19HcmdxWGxHbjl5WC0zeDB5S3Q0SUxTNUREYm9lTE5IU0JJdXBSd1h5Q21uNHFfNGtqSi1tMkFmY1FDTWxEUmJ1enE3TUZSTWhYWVdjVHhoM2t0SmU4dVU?oc=5" rel="noopener">China&#39;s trade surplus soars past $1 trillion as AI boom powers exports</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>ארה&#34;ב</td><td>להיזהר</td><td>אי-ודאות פוליטית ורגולטורית סביב חקירת מנכ&#34;ל Nvidia ונתוני האינפלציה הקרובים.</td></tr><tr><td>סין</td><td>ניטרלי</td><td>מצד אחד נתוני ייצוא וסחר חזקים מאוד, מצד שני סיכון גובר לסנקציות טכנולוגיות.</td></tr><tr><td>אירופה</td><td>ניטרלי</td><td>מתמודדת עם סיכוני סייבר ממוקדים (כמו האק התשתיות בצרפת) ואי-ודאות גיאופוליטית בשכנותה.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>התאוששות חדה במדדים בארה&#34;ב בהובלת מניות השווי הקטן והטכנולוגיה, בצל צניחה במחירי הנפט וחששות מחקירת מנכ&#34;ל אנבידיה</strong></p>
+  <p><strong>קונטקסט:</strong> שווקי המניות רשמו עליות שערים בולטות (נאסד&#34;ק +2.7%, S&amp;P 500 +2.3%, ראסל 2000 +3.1%), כשהם נתמכים בירידה של 10.9% במחירי הנפט (WTI) השבוע ל-85.62 דולר וציפייה לנתוני מאקרו. עם זאת, הסנטימנט מושפע מחקירת ה-FBI סביב מנכ&#34;ל Nvidia והקשרים לסין, לצד המשך המתיחות הגיאופוליטית ושיחות שלום ראשוניות באבו דאבי בנוגע לאוקראינה. במקביל, נרשם עודף מסחר חסר תקדים בסין שחצה את רף הטריליון דולר הודות לבום ב-AI.</p>
+  <p><strong>ניתוח:</strong> למרות הזינוק היומי, המגמה החודשית נותרה שלילית במדדים המובילים (נאסד&#34;ק 7.7%-, S&amp;P 500 3.3%-), כשתשואת אג&#34;ח ארה&#34;ב ל-10 שנים נותרה ברמה גבוהה של 4.86%. רוחב השוק מראה עוצמה יחסית במניות הקטנות (ראסל 2000 עולה 1.2% החודש ועדיין מעל ממוצע 50 יום ב-0.2%), בעוד הנאסד&#34;ק נסחר 4.5% מתחת לממוצע הנע 50 יום שלו. מדד הפחד VIX עלה ב-1.2% ל-20.15 נקודות (גבוה ב-17.8% מממוצע 50 יום), מה שמעיד על עצבנות נמשכת בשוק, בעוד הדולר/שקל ירד ב-0.7% ל-3.16 שקלים.</p>
+  <p><strong>המלצה:</strong> סטנס ניטרלי עד זהיר. מומלץ לנצל את עליות ההתאוששות היומיות לאיזון מחדש של התיקים ולא להיכנס להרפתקאות אגרסיביות כל עוד המדדים המובילים מתחת לממוצעי 50 יום וה-VIX מעל 20. בסקטור הטכנולוגיה מומלץ לנקוט משנה זהירות לאור סיכונים רגולטוריים סביב שבבים, בעוד בסקטורים עם רגישות חיובית לירידת נפט יש מקום לבחינה מקומית.</p>
+  <div class="hz">
+  <div class="hzc"><b>טווח קצר</b>זהיר: תנודתיות גבוהה נמשכת כאשר ה-VIX מעל 20 וקיים סיכון לכותרות שליליות סביב חקירת אנבידיה.</div><div class="hzc"><b>טווח בינוני</b>ניטרלי: דרושה פריצה חזרה של ממוצע 50 יום ב-S&amp;P 500 ובנאסד&#34;ק כדי לאשר חזרה למסלול עליות יציב.</div><div class="hzc"><b>טווח ארוך</b>חיובי מרוסן: המדדים המובילים בארה&#34;ב שומרים על רמה חיובית ביחס לממוצע 200 יום (+3.0% ב-S&amp;P 500).</div></div>
+  <div class="grid">
+    <div class="col"><h4>לעקוב אחרי</h4><ul class="l"><li>ממוצע 50 יום ב-S&amp;P 500 (מרחק של 1.6%-)</li><li>רמת 20 נקודות במדד VIX</li><li>רמת 85 דולר בנפט WTI</li><li>התפתחויות רגולטוריות ומשפטיות סביב אנבידיה</li></ul></div>
+    <div class="col"><h4>סיכונים</h4><ul class="l"><li>התרחבות חקירת ה-FBI נגד Nvidia ופגיעה בסקטור השבבים</li><li>לחצי אינפלציה או תשואות אג&#34;ח ל-10 שנים מעל 4.86%</li><li>הסלמה מחודשת במתיחות הגיאופוליטית במזרח התיכון או באירופה</li></ul></div>
+  </div>
+</div>
+<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+<tr><td>S&amp;P 500</td><td class="pct">7549.94</td>
+<td class="pct up">+2.3%</td><td class="pct up">+0.1%</td><td class="pct down">-3.3%</td><td class="pct down">-3.4%</td></tr><tr><td>נאסד&#34;ק</td><td class="pct">25253.14</td>
+<td class="pct up">+2.7%</td><td class="pct up">+0.4%</td><td class="pct down">-7.7%</td><td class="pct down">-8.5%</td></tr><tr><td>ראסל 2000</td><td class="pct">2840.81</td>
+<td class="pct up">+3.1%</td><td class="pct up">+1.2%</td><td class="pct up">+1.2%</td><td class="pct down">-7.4%</td></tr><tr><td>ת&#34;א-125</td><td class="pct">3938.48</td>
+<td class="pct up">+1.0%</td><td class="pct up">+0.4%</td><td class="pct up">+0.3%</td><td class="pct down">-12.1%</td></tr><tr><td>VIX (פחד)</td><td class="pct">20.15</td>
+<td class="pct up">+1.2%</td><td class="pct down">-3.3%</td><td class="pct up">+32.5%</td><td class="pct down">-35.1%</td></tr><tr><td>תשואת 10Y ארה&#34;ב</td><td class="pct">4.86</td>
+<td class="pct up">+0.1%</td><td class="pct down">-0.6%</td><td class="pct down">-7.2%</td><td class="pct down">-8.4%</td></tr><tr><td>דולר/שקל</td><td class="pct">3.16</td>
+<td class="pct down">-0.7%</td><td class="pct up">+0.7%</td><td class="pct up">+3.2%</td><td class="pct down">-3.7%</td></tr><tr><td>מדד הדולר</td><td class="pct">101.71</td>
+<td class="pct up">+0.1%</td><td class="pct down">-0.2%</td><td class="pct down">-0.9%</td><td class="pct down">-0.9%</td></tr><tr><td>זהב</td><td class="pct">4083.50</td>
+<td class="pct down">-0.8%</td><td class="pct up">+3.6%</td><td class="pct down">-2.6%</td><td class="pct down">-23.2%</td></tr><tr><td>נפט WTI</td><td class="pct">85.62</td>
+<td class="pct down">-1.4%</td><td class="pct down">-10.9%</td><td class="pct down">-8.7%</td><td class="pct down">-24.2%</td></tr><tr><td>ביטקוין</td><td class="pct">74198.58</td>
+<td class="pct down">-1.4%</td><td class="pct down">-2.3%</td><td class="pct down">-10.5%</td><td class="pct down">-30.0%</td></tr>
+</table></div>
+
+
+<h2>מגמות בעולם שכדאי להכיר</h2>
+<div class="card"><strong>תמונת הסריקה:</strong> השוק חווה רוטציה סקטוריאלית חדה מחוץ לטכנולוגיה ומניות השבבים (בעקבות החששות והחקירה סביב אנבידיה) אל עבר סקטורים דפנסיביים, נדל&#34;ן ותחומים הרגישים לטובה מירידת מחירי הנפט. במקביל, מסתמנים סימני התאוששות ותאוצה חיובית בשווקים מתעוררים כגון הודו ובתחומים שהיו מוזנחים בתקופה האחרונה.</div>
+
+<div class="card ev"><h3>בריאות ומכשור רפואי <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">XLV</span><span class="tk">IHI</span></span></h3>
+  <p><strong>מה זה?</strong> סקטור הבריאות כולל חברות תרופות, ציוד רפואי ושרותי רפואה שנהנות מביקוש קשיח ויציב ללא תלות במצב הכלכלי. הסקטור נהנה ממגמות דמוגרפיות ארוכות טווח של מזדקנות האוכלוסייה ומחדשנות טכנולוגית רפואית.</p>
+  <p><strong>למה עכשיו:</strong> רוטציה של משקיעים אל עבר ביטחון דפנסיבי על רקע החקירה בטכנולוגיה. XLV מציגה חוזק יחסי גבוה (rel1 של 13.6%) וקרן IHI מציגה תאוצה חזקה של 17.4% עם עלייה של 13.2% בחודש האחרון.</p>
+  <p class="pct" style="color:var(--muted)">חודש +10.3% · 3 חודשים +12.5% · מול S&P +14.6%</p>
+  <p><strong>איך לשחק:</strong> השקעה ב-XLV לחשיפה רחבה ורגועה או ב-IHI לצמיחה במכשור רפואי; להיזהר מקנייה בשיא קרוב.</p>
+  <p>⚠ לחצים רגולטוריים ופיקוח על מחירי תרופות בארה&#34;ב.</p>
+  <div class="stk"><span class="tk">UNH</span> UnitedHealth Group <span class="pct">$397.62</span>
+    <br><small>חברה דפנסיבית חזקה המהווה מקלט בטוח בזמן חוסר ודאות בסקטור הטכנולוגיה, כאשר מדד ה-RSI הנמוך (35) מצביע על תמחור נוח לאחר תיקון.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $400.00 · יעד $430.00 · סטופ $375.00</small></div><div class="stk"><span class="tk">XLV</span> Health Care Select Sector SPDR Fund <small>(קרן סל)</small> <span class="pct">$188.33</span>
+    <br><small>קרן סל המעניקה פיזור רחב ודפנסיבי לסקטור הבריאות כדי להגן על התיק מפני התנודתיות בשווקים.</small>
+    <br><small>אופק: ארוך · ביטחון: גבוהה · קנייה עד $188.50 · יעד $198.00 · סטופ $179.00</small></div>
+</div>
+
+<div class="card ev"><h3>בניית בתים ונדל&#34;ן <span class="tags"><span>שלב: מוקדם</span><span>אופק: בינוני</span><span class="tk">ITB</span><span class="tk">XLRE</span></span></h3>
+  <p><strong>מה זה?</strong> תעשיית בניית הבתים כוללת חברות המקימות ומפתחות שכונות מגורים ותשתיות נדל&#34;ן בארה&#34;ב. התחום נהנה ממחסור כרוני במבני מגורים ומציפייה להקלה הדרגתית בעלויות המימון.</p>
+  <p><strong>למה עכשיו:</strong> תמה שנשכחה ומציגה כעת היפוך מגמה חד: ITB מציגה זינוק חודשי של 17.3% ותאוצה אדירה (accel) של 26.1%, בגיבוי ירידת מחירי הנפט והתייצבות בתשואות האג&#34;ח.</p>
+  <p class="pct" style="color:var(--muted)">חודש +17.3% · 3 חודשים -0.2% · מול S&P +1.9%</p>
+  <p><strong>איך לשחק:</strong> קרן ITB למעקב אחרי קבלני המגורים; יש להיזהר מתנודתיות סביב נתוני אינפלציה מעודכנים.</p>
+  <p>⚠ הישארות ריביות המשכנתא ברמות גבוהות לאורך זמן.</p>
+  <div class="stk"><span class="tk">DLR</span> Digital Realty Trust <span class="pct">$180.10</span>
+    <br><small>תשתיות דאטה-סנטרס הנהנות מביקוש ארוך טווח, נסחרת קרוב לממוצע 50 יום ומציעה שילוב של יציבות וצמיחה.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $181.00 · יעד $198.00 · סטופ $172.00</small></div><div class="stk"><span class="tk">XLRE</span> Real Estate Select Sector SPDR Fund <small>(קרן סל)</small> <span class="pct">$44.64</span>
+    <br><small>פיזור סקטוריאלי בנדל&#34;ן המעניק הגנה דפנסיבית ותשואת דיבידנד בתקופה של חששות מרגולציה בטכנולוגיה.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $44.70 · יעד $47.50 · סטופ $42.00</small></div>
+</div>
+
+<div class="card ev"><h3>הודו - אלטרנטיבת צמיחה אסייתית <span class="tags"><span>שלב: באמצע</span><span>אופק: ארוך</span><span class="tk">INDA</span></span></h3>
+  <p><strong>מה זה?</strong> הודו היא מהכלכלות הצומחות במהירות בעולם, הנהנית מדמוגרפיה צעירה, תיעוש מואץ והעתקת מפעלים גלובליים לשטחה. המדינה מהווה יעד מרכזי למשקיעים המחפשים צמיחה באסיה שאינה תלויה בסין.</p>
+  <p><strong>למה עכשיו:</strong> המתיחות והחששות הרגולטוריים סביב סין וטכנולוגיה מעבירים הון להודו, שמציגה עלייה של 11.7% בחודש האחרון ותאוצה של 16.2%.</p>
+  <p class="pct" style="color:var(--muted)">חודש +11.7% · 3 חודשים +2.6% · מול S&P +4.7%</p>
+  <p><strong>איך לשחק:</strong> השקעה ב-INDA לחשיפה מגוונת לחברות המובילות בהודו; להיזהר ממימושי רווחים לאחר גל עליות מהיר.</p>
+  <p>⚠ תמחור מניות מקומי גבוה וסיכוני פיחות במטבע הרופי.</p>
+  <div class="stk"><span class="tk">INDA</span> iShares MSCI India ETF <small>(קרן סל)</small> <span class="pct">$51.41</span>
+    <br><small>השוק ההודי ממשיך ליהנות מהסטת שרשראות אספקה מסין על רקע הגברת החקירות והמתיחות הגיאופוליטית מול ארה&#34;ב.</small>
+    <br><small>אופק: ארוך · ביטחון: גבוהה · קנייה עד $51.50 · יעד $55.50 · סטופ $48.00</small></div>
+</div>
+
+<div class="card ev"><h3>תעופה ותחבורה אווירית <span class="tags"><span>שלב: מוקדם</span><span>אופק: קצר</span><span class="tk">JETS</span></span></h3>
+  <p><strong>מה זה?</strong> סקטור התעופה כולל חברות תעופה מסחריות, ספקיות לוגיסטיקה ויצרניות מטוסים. הרווחיות בתחום תלויה מאוד במחירי הדלק הסילוני, מהווה הוצאה תפעולית מרכזית.</p>
+  <p><strong>למה עכשיו:</strong> צניחה חדה במחירי הנפט (USO ירד ב-9.1% בשבוע האחרון) משפרת מיידית את רווחיות הענף, כפי שמשתקף בעלייה חודשית של 10.0% ותאוצה חיובית של 17.4% ב-JETS.</p>
+  <p class="pct" style="color:var(--muted)">חודש +10.0% · 3 חודשים -4.7% · מול S&P -2.6%</p>
+  <p><strong>איך לשחק:</strong> מסחר דרך JETS; מומלץ להיזהר מהחזקה לטווח ארוך מדי בשל התנודתיות הגבוהה במחירי הדלק.</p>
+  <p>⚠ זינוק מחודש במחירי אנרגיה עקב הסלמה גיאופוליטית.</p>
+  <div class="stk"><span class="tk">JETS</span> U.S. Global Jets ETF <small>(קרן סל)</small> <span class="pct">$30.20</span>
+    <br><small>סקטור התעופה נהנה באופן ישיר מהצניחה במחירי הנפט אשר מורידה משמעותית את עלויות הדלק הסילוני.</small>
+    <br><small>אופק: קצר · ביטחון: בינונית · קנייה עד $30.20 · יעד $33.00 · סטופ $28.00</small></div><div class="stk"><span class="tk">DAL</span> Delta Air Lines <span class="pct">$91.80</span>
+    <br><small>חברה מובילה בסקטור עם מאזן חזק הנהנית מהתרחבות שולי הרווח בעקבות הירידה במחירי האנרגיה.</small>
+    <br><small>אופק: בינוני · ביטחון: גבוהה · קנייה עד $91.80 · יעד $99.00 · סטופ $84.00</small></div>
+</div>
+
+<div class="card ev"><h3>אנרגיה סולארית (סימני התאוששות) <span class="tags"><span>שלב: מוקדם</span><span>אופק: ארוך</span><span class="tk">TAN</span></span></h3>
+  <p><strong>מה זה?</strong> תחום האנרגיה הסולארית מקיף יצרניות פאנלים, ממירים וטכנולוגיות לייצור חשמל נקי מהשמש. הסקטור סבל מירידות חדות בשנה החולפת בשל ריביות גבוהות אך מציג פוטנציאל ארוך טווח.</p>
+  <p><strong>למה עכשיו:</strong> נושא מוזנח שנמצא בניסיון היפוך: לאחר ירידה של 14.3% ב-3 חודשים, הקרן עלתה 7.4% בשבוע האחרון ומציגה תאוצה (accel) של 12.1%.</p>
+  <p class="pct" style="color:var(--muted)">חודש +3.3% · 3 חודשים -14.3% · מול S&P -12.2%</p>
+  <p><strong>איך לשחק:</strong> בניית פוזיציה מדורגת בלבד ב-TAN; להיזהר ממגמה ארוכת טווח שעדיין שלילית (40% משיא שנתי).</p>
+  <p>⚠ שינויי מדיניות ממשלתית ופגיעה בסובסידיות ירוקות.</p>
+  <div class="stk"><span class="tk">FSLR</span> First Solar <span class="pct">$191.61</span>
+    <br><small>נסיגה יומית במחיר מציעה נקודת כניסה נוחה לחברה מובילה המוגנת יחסית ביצור מקומי בארה&#34;ב.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $192.00 · יעד $220.00 · סטופ $178.00</small></div>
+</div>
+
+<div class="card"><strong>מובילים בסריקה:</strong> ביטקוין (קרן) (+20% מול S&P) · בריאות (+15% מול S&P) · נפט (חוזים) (+14% מול S&P) · ביוטכנולוגיה (+12% מול S&P) · מוצרי צריכה בסיסיים (+10% מול S&P)
+<br><strong>מפגרים:</strong> ליתיום וסוללות (-15%) · אורניום ואנרגיה גרעינית (-22%) · מתכות נדירות (-28%)</div>
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+
+
+
+<h2>נתוני טיקרים</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">AVGO</td><td class="pct">319.48</td>
+<td class="pct up">+8.8%</td>
+<td class="pct down">-0.9%</td></tr><tr><td class="tk">NVDA</td><td class="pct">178.67</td>
+<td class="pct down">-4.3%</td>
+<td class="pct down">-11.6%</td></tr><tr><td class="tk">PLTR</td><td class="pct">169.2</td>
+<td class="pct up">+5.5%</td>
+<td class="pct down">-5.1%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">232010.0</td>
+<td class="pct up">+1.9%</td>
+<td class="pct down">-2.8%</td></tr><tr><td class="tk">DAL</td><td class="pct">91.8</td>
+<td class="pct up">+5.3%</td>
+<td class="pct up">+10.0%</td></tr><tr><td class="tk">FXI</td><td class="pct">34.66</td>
+<td class="pct down">-0.8%</td>
+<td class="pct up">+4.4%</td></tr><tr><td class="tk">MCD</td><td class="pct">281.44</td>
+<td class="pct up">+1.8%</td>
+<td class="pct up">+5.9%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7549.94</td>
+<td class="pct up">+2.3%</td>
+<td class="pct up">+0.1%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">25253.14</td>
+<td class="pct up">+2.7%</td>
+<td class="pct up">+0.4%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">3938.48</td>
+<td class="pct up">+1.0%</td>
+<td class="pct up">+0.4%</td></tr><tr><td class="tk">GC=F</td><td class="pct">4083.4</td>
+<td class="pct down">-0.8%</td>
+<td class="pct up">+3.6%</td></tr><tr><td class="tk">CL=F</td><td class="pct">85.62</td>
+<td class="pct down">-1.4%</td>
+<td class="pct down">-10.9%</td></tr><tr><td class="tk">LMT</td><td class="pct">588.19</td>
+<td class="pct up">+3.7%</td>
+<td class="pct down">-8.5%</td></tr><tr><td class="tk">ELAL.TA</td><td class="pct">2013.0</td>
+<td class="pct down">-1.9%</td>
+<td class="pct up">+1.6%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
