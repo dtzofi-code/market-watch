@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב שוק ואירועים</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--muted:#5c6675;--line:#e3e6ec;--accent:#1d4ed8;--up:#0f8a4b;--down:#c62828;
+--s1:#8a94a6;--s2:#2e7d32;--s3:#b7791f;--s4:#d9480f;--s5:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#e8ebf0;--muted:#9aa4b2;--line:#2a303a;--accent:#7aa2ff;--up:#4cc38a;--down:#ff6b6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:.2rem 0 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.mood{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+h2{font-size:1.15rem;margin:28px 0 8px}
+.ev h3{margin:0 0 4px;font-size:1.1rem}
+.sev{display:inline-block;min-width:26px;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.85rem;padding:0 6px;margin-inline-start:8px}
+.sev1{background:var(--s1)}.sev2{background:var(--s2)}.sev3{background:var(--s3)}.sev4{background:var(--s4)}.sev5{background:var(--s5)}
+.tags span{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.8rem;margin:0 0 4px 4px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.col h4{margin:10px 0 4px;font-size:.95rem}
+.col.win h4{color:var(--up)}.col.lose h4{color:var(--down)}
+.stk{border-top:1px solid var(--line);padding:6px 0;font-size:.92rem}
+.tk{font-weight:700;direction:ltr;unicode-bidi:isolate}
+.pct{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.src a{color:var(--accent);font-size:.85rem;margin-inline-end:10px}
+footer{color:var(--muted);font-size:.8rem;margin-top:30px}
+a{color:var(--accent)}
+
+.hz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+@media(max-width:640px){.hz{grid-template-columns:1fr}}
+.hzc{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.hzc b{display:block}.hzc small{color:var(--muted)}
+.o-חיובי{color:var(--up)}.o-שלילי{color:var(--down)}.o-ניטרלי{color:var(--muted)}
+nav a{margin-inline-end:14px;font-weight:600}
+ul.l{margin:4px 0;padding-inline-start:20px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <h1>🌍 מעקב אירועים ושוק המניות</h1>
+  <nav><a href="../index.html">יומי</a><a href="../weekly.html">סיכום שבועי</a></nav>
+  <p>דוח ליום 26/11/2026 · <span class="mood">מצב שוק: מעורב</span></p>
+</header>
+
+<div class="card"><strong>תקציר:</strong> שווקי המניות מתמודדים עם שילוב של לחצים גיאופוליטיים, החמרת הגבלות סחר ומכסים מצד ארה&#34;ב, לצד אירועים ספציפיים בסקטור הטכנולוגיה והאנרגיה. ההכרזות על מכסים חדשים ומגבלות על ייצוא שבבים לסין מכבידות על סקטורי השבבים והטכנולוגיה, בעוד ששיבושים באספקת אנרגיה ואירועים תפעוליים ממשיכים להשפיע על מחירי הנפט והחברות הפועלות בתחום.</div>
+
+
+<h2>אירועים עיקריים</h2>
+
+<div class="card ev">
+  <h3>החמרת מכסים והגבלות סחר מטעם ארה&#34;ב על סין ומדינות נוספות<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>סחר וסנקציות</span><span>ארה&#34;ב</span><span>סין</span><span>אירופה</span><span>הודו</span></div>
+  <p>ממשל ארה&#34;ב הודיע על שורה של מכסים חדשים המכוונים נגד ייצור עודף ומדיניות סובסידיות של סין ומדינות נוספות, במטרה להגן על התעשייה האמריקאית ולנתק את התלות במסחר עם סין.</p>
+  <p><strong>השפעה על השוק:</strong> הצעדים מעלים את אי-הודאות בשווקים, פוגעים ביצואניות הגלובליות ובחברות הטכנולוגיה והתעשייה התלויות בשרשראות אספקה גלובליות.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">NVDA, AAPL</span></small><br>לחץ מיידי על מניות טכנולוגיה ויצוא עקב חשש מפני מלחמות סחר נגדיות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה)</small><br>התאמת שרשראות אספקה וחיפוש פתרונות עקיפים מצד חברות רב-לאומיות.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">MP</span></small><br>שינוי מבני לכיוון ייצור מקומי (Reshoring) והשקעות בתשתיות תעשייה מקומיות בארה&#34;ב ובמדינות ידידותיות.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">MP</span> MP Materials
+        <span class="pct down">-1.7% יום · -1.8% שבוע</span>
+        <br><small>נהנית ממדיניות עידוד כרייה וייצור מקומי בארה&#34;ב כחלופה לסין. · ביטחון: בינונית</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">NVDA</span> Nvidia
+        <span class="pct down">-3.9% יום</span>
+        <br><small>פגיעה פוטנציאלית בשווקי היצוא המרכזיים ובשרשראות האספקה בעקבות הגבלות מורחבות.</small></div></div>
+  </div>
+  <div class="src"><a href="https://www.bbc.co.uk/news/articles/c893r9ke5p97o" rel="noopener">US announces new tariffs on host of countries including China</a></div>
+</div>
+
+<div class="card ev">
+  <h3>החמרת הגבלות השבבים והטכנולוגיה על סין<span class="sev sev4" title="חומרה">4</span></h3>
+  <div class="tags"><span>שבבים וטכנולוגיה</span><span>ארה&#34;ב</span><span>סין</span><span>דרום-מזרח אסיה</span></div>
+  <p>ארה&#34;ב מהדקת את הפיקוח ומטילה מגבלות נוספות על ייצוא שבבי AI וציוד מתקדם לסין, לצד עצירת משלוחי שרתים למדינות בדרום-מזרח אסיה.</p>
+  <p><strong>השפעה על השוק:</strong> פגיעה ביכולת פיתוח מודלי הבינה המלאכותית בסין ויצירת לחץ על חברות השבבים הגדולות המובילות את התחום.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות · <span class="tk">NVDA, TSM, ASML</span></small><br>אי-ודאות סביב היקף המכירות המותרות ופגיעה זמנית בהכנסות החברות המובילות.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה)</small><br>הסתגלות השוק למציאות של פיצול טכנולוגי (Bifurcation).</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-חיובי">· חיובי</span></b><small>שנה ומעלה · <span class="tk">INTC, MU</span></small><br>השקעות ענק בבניית מפעלי ייצור שבבים עצמאיים בארה&#34;ב ובאירופה (CHIPS Act).</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">INTC</span> Intel
+        <span class="pct down">-0.6% יום · -0.4% שבוע</span>
+        <br><small>נהנית מסבסוד ממשלתי ומעדיפות לאומית לפיתוח ייצור שבבים מקומי בארה&#34;ב. · ביטחון: גבוהה</small></div></div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      <div class="stk"><span class="tk">NVDA</span> Nvidia
+        <span class="pct down">-3.9% יום</span>
+        <br><small>מגבלות על מכירת מעבדים מתקדמים לשווקים מרכזיים פוגעות בצמיחה.</small></div></div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOM1ZtZ1FmQ3d0Nk9xZzFmaDNtd3ZURjZ1cm1sWkptUktqcm1aOUc3eWpIYjVpUGoxWGxWd2FjRTZiTzBGRGtaTTA3ZUFsTEJLNk5BV3VfV2VKNHJVbk1mTDJqYkZkdEFPQ09jdzVHRzBHazlKVko5bVp4WDZMSUpUaEpyZk5ZUUUxbm42MjBIRWJCaGZzVXRkNklKN2dfdDRES3RwazQ1UU55Q3Bf" rel="noopener">Nvidia halts server shipments to four Southeast Asian countries, FT reports</a></div>
+</div>
+
+<div class="card ev">
+  <h3>תאונות ואירועים תפעוליים במתקני אנרגיה ותחבורה<span class="sev sev3" title="חומרה">3</span></h3>
+  <div class="tags"><span>אנרגיה</span><span>תאילנד</span><span>ספרד</span><span>מצרים</span></div>
+  <p>פיצוץ והשבתה של כל היחידות בבית הזיקוק בבנגקוק (Bangchak), לצד שקיעת מכלית דלק ליד איביזה ותאונת דרכים קטלנית של מכלית דלק בקהיר.</p>
+  <p><strong>השפעה על השוק:</strong> שיבושים מקומיים בזיקוק דלק ובתשתיות אנרגיה, המעלים באופן נקודתי את תשומת הלב לסיכוני שרשרת האספקה בתחום הדלקים.</p>
+  <div class="hz">
+  
+    <div class="hzc"><b>טווח קצר <span class="o-שלילי">· שלילי</span></b><small>ימים עד שבועות</small><br>השבתת מתקני הפקה או זיקוק פוגעת תפעולית ומעלה עלויות באופן זמני.</div>
+  
+    <div class="hzc"><b>טווח בינוני <span class="o-ניטרלי">· ניטרלי</span></b><small>חודשים (עד כשנה) · <span class="tk">XOM, CVX</span></small><br>חזרה הדרגתית לתפעול מלא של המתקנים המושבתים ואיזון מחדש של המלאים.</div>
+  
+    <div class="hzc"><b>טווח ארוך <span class="o-ניטרלי">· ניטרלי</span></b><small>שנה ומעלה</small><br>השקעה מוגברת בבטיחות ותקני תפעול מחמירים במתקני אנרגיה ישנים.</div>
+  </div>
+  <div class="grid">
+    <div class="col win"><h4>📈 מנצחות פוטנציאליות</h4>
+      </div>
+    <div class="col lose"><h4>📉 מפסידות פוטנציאליות</h4>
+      </div>
+  </div>
+  <div class="src"><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPWlNPSnIxb2YwTEVOMjktMmk4V1YtVkU5MWFHQ1BwaWtPc194NllBSmdpRDg3Ykg2RVBFenJCLVF3QVBDS090c1RicHBscV9mQWRWOHdpVUk2ZlVLdWN4ajJJSVR3a1dzRF9walA2NTcwMW1SeFpNdDhFbzVGbVZadUY4QlBXbVpJZEpYMk5QMmFBMjdtWDdTdzh5OTN5ejdDVEdiSHNnQmh4TktwbnFhY3FqSzI" rel="noopener">Thailand&#39;s Bangchak shuts all units at Bangkok refinery after fire</a></div>
+</div>
+
+
+
+
+<h2>אזורים</h2>
+<div class="card"><table>
+<tr><th>אזור</th><th>המלצה</th><th>למה</th></tr>
+<tr><td>ארה&#34;ב</td><td>ניטרלי</td><td>השווקים מפגינים עמידות מסוימת אך נדרשים להתמודד עם אי-ודאות סביב מדיניות המכסים, לחצים בסקטור הטכנולוגיה ומחזורי דוחות מתמשכים.</td></tr><tr><td>סין</td><td>להיזהר</td><td>הגבלות הסחר והשבבים המחמירות של ארה&#34;ב, לצד אכיפת הרגולציה המקומית, ממשיכו להוות משקולת על שוק המניות המקומי וסקטור הטכנולוגיה.</td></tr><tr><td>ישראל</td><td>ניטרלי</td><td>הבורסה המקומית מושפעת בעיקר מהתפתחויות גיאופוליטיות אזוריות ומתנודות בשווקים הגלובליים, לצד נתוני המאקרו המקומיים.</td></tr>
+</table></div>
+
+
+
+<h2>מצב השוק</h2>
+<div class="card">
+  <p style="font-size:1.05rem"><strong>המדדים המובילים בארה&#34;ב רושמים ירידות שערים על רקע החמרת מכסים והגבלות טכנולוגיה, בעוד השווקים בישראל ובקטנים מפגינים התאוששות יומית נקודתית.</strong></p>
+  <p><strong>קונטקסט:</strong> שווקי המניות בארה&#34;ב מתמודדים עם לחצים כבדים ורשמו ירידות חודשיות ושבועיות בולטות, בהובלת נאסד&#34;ק שירד ב-0.6% היום וב-10.9% בחודש האחרון, ו-S&amp;P 500 שירד ב-0.3% היום וב-7% החודש. לחצים אלו מגיעים על רקע החמרת הגבלות סחר ומכסים מצד ארה&#34;ב, לצד החמרת הגבלות ייצוא שבבים וטכנולוגיה לסין המכבידות על סקטור הטכנולוגיה. במקביל, אירועים תפעוליים במתקני אנרגיה תמכו בעלייה של 1.1% בנפט WTI לרמה של 84.57 דולר.</p>
+  <p><strong>ניתוח:</strong> מדד ה-VIX רשם ירידה יומית של 4.9% אך נותר ברמה גבוהה של 26.9 נקודות, גבוה משמעותית מממוצע 50 ו-200 הימים (ב-39.7% ו-43% בהתאמה), מה שמלמד על רמת תנודתיות וחשש שעדיין מאפיינת את השוק. נאסד&#34;ק ממשיך לסבול מחולשה חריגה והתרחק ב-14.5% מהשיא השנתי שלו ונסחר מתחת לממוצעי 50 ו-200 הימים. מנגד, מדד ת&#34;א-125 רשם זינוק יומי של 1.8%, וראסל 2000 עלה ב-0.7%. תשואת האג&#34;ח ל-10 שנים ירדה ב-1.1% ל-4.84%, והזהב עלה ב-1.7% לרמה של 3,594 דולר.</p>
+  <p><strong>המלצה:</strong> המלצה: סטנס זהיר עד הגנתי בשל התנודתיות הגבוהה ומדדי הפחד המורמים. פעולות קונקרטיות: להימנע מחשיפה אגרסיבית לסקטור הטכנולוגיה והשבבים המושפע מהגבלות הסחר, לשמור על משקל חסר בסקטורים אלו, ולבחון הזדמנויות סלקטיביות במניות ערך, סקטור האנרגיה הנהנה ממחירי הנפט, ומניות קטנות המראות סימני התייצבות מקומיים.</p>
+  <div class="hz">
+  <div class="hzc"><b>טווח קצר</b>המשך תנודתיות גבוהה (VIX ב-26.9) על רקע חדשות סחר ומכסים, עם לחץ מתמשך על מניות הטכנולוגיה.</div><div class="hzc"><b>טווח בינוני</b>בחינת יכולתם של מדדי S&amp;P 500 ונאסד&#34;ק לייצב את עצמם מול ממוצעי ה-50 וה-200 יום, תוך מעקב אחר השפעות האינפלציה והתשואות.</div><div class="hzc"><b>טווח ארוך</b>הערכת ההשלכות המבניות של מלחמות הסחר והגבלות השבבים על שרשרת האספקה העולמית וצמיחת החברות הרב-לאומיות.</div></div>
+  <div class="grid">
+    <div class="col"><h4>לעקוב אחרי</h4><ul class="l"><li>רמת VIX סביב 26-27 נקודות</li><li>תשואת אג&#34;ח ארה&#34;ב ל-10 שנים סביב 4.84%</li><li>רמת התמיכה של נאסד&#34;ק מול ממוצע 50 ו-200 יום</li><li>מחיר הנפט WTI סביב 84.5 דולר</li></ul></div>
+    <div class="col"><h4>סיכונים</h4><ul class="l"><li>החמרת מלחמת הסחר ומכסים נוספים מצד ארה&#34;ב וסין</li><li>פגיעה קשה ברווחיות סקטור השבבים והטכנולוגיה עקב הגבלות הייצוא</li><li>שיבושים נוספים באספקת האנרגיה שיגרמו لتנודתיות נוספת במחירי הנפט</li><li>רמת פחד גבוהה (VIX גבוה) העשויה לגרור גלי מכירות נוספים</li></ul></div>
+  </div>
+</div>
+<div class="card"><table>
+<tr><th>מדד/נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th><th>חודש</th><th>מהשיא השנתי</th></tr>
+<tr><td>S&amp;P 500</td><td class="pct">7182.78</td>
+<td class="pct down">-0.3%</td><td class="pct down">-1.9%</td><td class="pct down">-7.0%</td><td class="pct down">-8.1%</td></tr><tr><td>נאסד&#34;ק</td><td class="pct">23585.80</td>
+<td class="pct down">-0.6%</td><td class="pct down">-3.5%</td><td class="pct down">-10.9%</td><td class="pct down">-14.5%</td></tr><tr><td>ראסל 2000</td><td class="pct">2704.06</td>
+<td class="pct up">+0.7%</td><td class="pct down">-0.4%</td><td class="pct down">-4.1%</td><td class="pct down">-11.9%</td></tr><tr><td>ת&#34;א-125</td><td class="pct">3767.52</td>
+<td class="pct up">+1.8%</td><td class="pct down">-0.9%</td><td class="pct down">-6.0%</td><td class="pct down">-15.9%</td></tr><tr><td>VIX (פחד)</td><td class="pct">26.90</td>
+<td class="pct down">-4.9%</td><td class="pct down">-5.4%</td><td class="pct up">+59.1%</td><td class="pct down">-25.0%</td></tr><tr><td>תשואת 10Y ארה&#34;ב</td><td class="pct">4.85</td>
+<td class="pct down">-1.1%</td><td class="pct down">-4.3%</td><td class="pct down">-2.9%</td><td class="pct down">-8.7%</td></tr><tr><td>דולר/שקל</td><td class="pct">3.34</td>
+<td class="pct down">-0.4%</td><td class="pct up">+1.8%</td><td class="pct up">+10.4%</td><td class="pct down">-0.4%</td></tr><tr><td>מדד הדולר</td><td class="pct">103.77</td>
+<td class="pct up">+0.1%</td><td class="pct down">-0.1%</td><td class="pct up">+1.5%</td><td class="pct down">-0.5%</td></tr><tr><td>זהב</td><td class="pct">3594.30</td>
+<td class="pct up">+1.7%</td><td class="pct down">-2.5%</td><td class="pct down">-11.3%</td><td class="pct down">-32.4%</td></tr><tr><td>נפט WTI</td><td class="pct">84.57</td>
+<td class="pct up">+1.1%</td><td class="pct up">+1.6%</td><td class="pct down">-17.7%</td><td class="pct down">-25.1%</td></tr><tr><td>ביטקוין</td><td class="pct">60517.85</td>
+<td class="pct up">+0.2%</td><td class="pct up">+0.7%</td><td class="pct down">-20.3%</td><td class="pct down">-37.6%</td></tr>
+</table></div>
+
+
+<h2>מגמות בעולם שכדאי להכיר</h2>
+<div class="card"><strong>תמונת הסריקה:</strong> השווקים חווים טלטלה על רקע החמרת מכסים והגבלות ייצוא טכנולוגיה לסין, מה שמוביל לירידות חדות בסקטורי השבבים, הטכנולוגיה והמתכות. מנגד, סקטורים דפנסיביים כמו מוצרי צריכה בסיסיים ובריאות, לצד שווקים ספציפיים כמו הודו, מפגינים חוסן וחוזק יחסי בולט.</div>
+
+<div class="card ev"><h3>הודו <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">INDA</span></span></h3>
+  <p><strong>מה זה?</strong> הודו היא הכלכלה הגדולה בעלת הצמיחה המהירה בעולם, הנהנית ממעבר מפעלי ייצור מסין ומעמד ביניים מתרحب. היא מציגה ביצועים חזקים מאוד בניגוד לשווקים מתפתחים אחרים.</p>
+  <p><strong>למה עכשיו:</strong> הודו רושמת תשואה חודשית מרשימה של 13.8% וחוזק יחסי גבוה מאוד מול ה-S&amp;P500 (rel1 של 20.7), כאלטרנטיבה מובילה למדינות הנפגעות ממלחמת הסחר.</p>
+  <p class="pct" style="color:var(--muted)">חודש +13.8% · 3 חודשים +7.4% · מול S&P +14.2%</p>
+  <p><strong>איך לשחק:</strong> קרן סל INDA. להיזהר מחשיפה מוגזמת בתיק למדינה בודדת.</p>
+  <p>⚠ תנודתיות מטבע מקומי והערכות שווי גבוהות יחסית בחלק מהחברות.</p>
+  
+</div>
+
+<div class="card ev"><h3>מוצרי צריכה בסיסיים <span class="tags"><span>שלב: מוקדם</span><span>אופק: קצר</span><span class="tk">XLP</span></span></h3>
+  <p><strong>מה זה?</strong> חברות המייצרות מוצרים יומיומיים הכרחיים כמו מזון, משקאות ומוצרי היגיינה, שאנשים צורכים בכל מצב כלכלי. סקטור דפנסיבי קלאסי שמשמש מקלט בזמני אי-ודאות.</p>
+  <p><strong>למה עכשיו:</strong> על רקע המתיחות הגיאופוליטית והחמרת המכסים, המשקיעים נוהרים לנכסים בטוחים. הסקטור מציג תשואה של 5.9% בחודש האחרון ומרחק אפסי מהשיא השנתי (-0.3%).</p>
+  <p class="pct" style="color:var(--muted)">חודש +5.9% · 3 חודשים +9.2% · מול S&P +16.0%</p>
+  <p><strong>איך לשחק:</strong> קרן סל XLP. להיזהר מתשואת דיבידנד שעלולה להישחק אם ריביות יעלו.</p>
+  <p>⚠ צמיחה איטית יחסית בתקופות של שגשוג כלכלי מהיר.</p>
+  <div class="stk"><span class="tk">XLP</span> קרן סל לסקטור מוצרי צריכה בסיסיים <small>(קרן סל)</small> <span class="pct">$92.30</span>
+    <br><small>החמרת המכסים ומלחמת הסחר מגדילות את הביקוש לסקטורים הגנתיים; XLP מציע חשיפה רחבה למוצרי צריכה בסיסיים עם RSI מתון של 55 ומחיר קרוב לשיא 52 שבועות ללא מתיחת יתר, מתאים לסטנס זהיר בשווקים תנודתיים.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $93.00 · יעד $96.00 · סטופ $87.00</small></div><div class="stk"><span class="tk">KO</span> קוקה קולה <span class="pct">$97.59</span>
+    <br><small>מניית ערך הגנתית עם תזרים מזומנים יציב וחשיפה מוגבלת למגבלות השבבים; המחיר מרוחק 1.9% משיא 52 שבועות עם RSI 58, מה שמאפשר כניסה סלקטיבית בעת עליית מדדי הפחד.</small>
+    <br><small>אופק: בינוני · ביטחון: בינונית · קנייה עד $99.00 · יעד $102.00 · סטופ $92.00</small></div><div class="stk"><span class="tk">PM</span> פיליפ מוריס <span class="pct">$184.32</span>
+    <br><small>מניית טבק הגנתית במכפיל נמוך ותזרימי מזון יציבים; RSI 24 משקף מכירת יתר חריגה על רקע חששות רגולטוריים, בעוד החשיפה ישירה למכסי טכנולוגיה נמוכה, מה שמציע הזדמנות קונטרנית סלקטיבית בתיק הגנתי.</small>
+    <br><small>אופק: בינוני · ביטחון: נמוכה · קנייה עד $185.00 · יעד $200.00 · סטופ $170.00</small></div>
+</div>
+
+<div class="card ev"><h3>ביוטכנולוגיה <span class="tags"><span>שלב: באמצע</span><span>אופק: בינוני</span><span class="tk">IBB</span><span class="tk">XBI</span></span></h3>
+  <p><strong>מה זה?</strong> חברות מחקר, פיתוח ותרופות מתקדמות המפתחות טיפולים רפואיים חדשניים. הסקטור נשען על חדשנות מדעית ואינו תלוי ישירות בשרשראות אספקה גלובליות או במכסים.</p>
+  <p><strong>למה עכשיו:</strong> הביוטק מפגין עוצמה יוצאת דופן עם זינוק של 6.3% בשבוע האחרון וחוזק יחסי חיובי, בניגוד מוחלט למפולת בסקטור הטכנולוגיה הכללי.</p>
+  <p class="pct" style="color:var(--muted)">חודש +2.9% · 3 חודשים +1.6% · מול S&P +8.4%</p>
+  <p><strong>איך לשחק:</strong> קרן סל IBB לענקיות הפארמה והביוטק, או XBI המפוזרת על חברות קטנות. לשים לב לתנודתיות גבוהה.</p>
+  <p>⚠ כישלונות בניסויים קליניים או אישורי רגולציה עלולים לגרום לנפילות פתאומיות במניות בודדות.</p>
+  
+</div>
+
+<div class="card ev"><h3>בנייני בתים ונדל&#34;ן מגורים <span class="tags"><span>שלב: מוקדם</span><span>אופק: בינוני</span><span class="tk">ITB</span></span></h3>
+  <p><strong>מה זה?</strong> קרן העוקבת אחר חברות בניית בתים פרטיים ויצרניות חומרי בנייה למגורים בארה&#34;ב. התחום מונע מביקוש מבני חזק לדיור שטרם נענה.</p>
+  <p><strong>למה עכשיו:</strong> למרות לחצי המאקרו, הסקטור הפתיע בעוצמה חריגה עם זינוק של 6.1% בשבוע האחרון וחוזק יחסי גבוה מול השוק.</p>
+  <p class="pct" style="color:var(--muted)">חודש +8.8% · 3 חודשים +3.7% · מול S&P +10.5%</p>
+  <p><strong>איך לשחק:</strong> קרן סל ITB. להיזהר מתנודתיות מחזורית במניות הבנייה.</p>
+  <p>⚠ רגישות גבוהה לשינויים בריבית המשכנתאות ובשוק הדיור הרחב.</p>
+  
+</div>
+
+<div class="card ev"><h3>מתכות נדירות ומחצבים קריטיים <span class="tags"><span>שלב: נמתח יתר</span><span>אופק: ארוך</span><span class="tk">REMX</span><span class="tk">COPX</span></span></h3>
+  <p><strong>מה זה?</strong> חברות כרייה של מתכות נדירות וחיותיות המשמשות לתעשיות מתקדמות, טכנולוגיה ואנרגיה ירוקה. תחום זה סופג את עיקר המכה ממלחמות הסחר.</p>
+  <p><strong>למה עכשיו:</strong> זהו נושא &#34;נשכח ומתרסק&#34; בעוצמה: רישום צניחות חדות מאוד (למשל REMX ירדה ב-44.7% בשלושה חודשים) עקב הגבלות סחר ומכסים, מה שמראה לחץ קיצוני אך גם פוטנציאל היפוך עתידי אם יהיו הסכמות.</p>
+  <p class="pct" style="color:var(--muted)">חודש -19.2% · 3 חודשים -44.7% · מול S&P -37.9%</p>
+  <p><strong>איך לשחק:</strong> קרן סל REMX למתכות נדירות או COPX לנחושת. תחום בסיכון גבוה מאוד כרגע, מומלץ להמתין לייצוב לפני כניסה.</p>
+  <p>⚠ המשך החמרת הגבלות ייצוא וסחר מצד מעצמות עלול להוביל להפסדים נוספים.</p>
+  
+</div>
+
+<div class="card ev"><h3>אורניום ואנרגיה גרעינית <span class="tags"><span>שלב: נמתח יתר</span><span>אופק: ארוך</span><span class="tk">URA</span></span></h3>
+  <p><strong>מה זה?</strong> חברות הפקה וכרייה של אורניום המשמש להפקת אנרגיה גרעינית נקייה. התחום נהנה מביקוש ארוך טוח עקב צרכי האנרגיה העצומים של מרכזי נתונים ובינה מלאכותית.</p>
+  <p><strong>למה עכשיו:</strong> הסקטור חווה ירידות חדות בחודשים האחרונים (צניחה של 42.7% בשלושה חודשים), אך מהווה מוקד עניין אסטרטגי ארוך טווח בשל הצורך העולמי באנרגיה עצמאית.</p>
+  <p class="pct" style="color:var(--muted)">חודש -22.7% · 3 חודשים -42.7% · מול S&P -35.9%</p>
+  <p><strong>איך לשחק:</strong> קרן סל URA. מיועד למשקיעים בעלי סובלנות גבוהה לתנודתיות קיצונית.</p>
+  <p>⚠ רגולציה מחמירה, סכנות תפעוליות ותנודתיות מחירי הסחורה.</p>
+  
+</div>
+
+<div class="card"><strong>מובילים בסריקה:</strong> מוצרי צריכה בסיסיים (+16% מול S&P) · נפט (חוזים) (+14% מול S&P) · בריאות (+14% מול S&P) · הודו (+14% מול S&P) · מכשור רפואי (+13% מול S&P)
+<br><strong>מפגרים:</strong> נחושת (-32%) · אורניום ואנרגיה גרעינית (-36%) · מתכות נדירות (-38%)</div>
+<p style="color:var(--muted);font-size:.85rem">הסריקה אוטומטית ומבוססת על קרני סל רבות; ה-AI מסביר ובוחר, ואינו ייעוץ השקעות.</p>
+
+
+
+<h2>נתוני טיקרים</h2>
+<div class="card"><table>
+<tr><th>נכס</th><th>מחיר</th><th>יום</th><th>שבוע</th></tr>
+<tr><td class="tk">MP</td><td class="pct">35.3</td>
+<td class="pct down">-1.7%</td>
+<td class="pct down">-1.8%</td></tr><tr><td class="tk">NVDA</td><td class="pct">149.3</td>
+<td class="pct down">-3.9%</td>
+<td class="pct down">-1.1%</td></tr><tr><td class="tk">INTC</td><td class="pct">54.47</td>
+<td class="pct down">-0.6%</td>
+<td class="pct down">-0.4%</td></tr><tr><td class="tk">^GSPC</td><td class="pct">7182.78</td>
+<td class="pct down">-0.3%</td>
+<td class="pct down">-1.9%</td></tr><tr><td class="tk">^IXIC</td><td class="pct">23585.8</td>
+<td class="pct down">-0.6%</td>
+<td class="pct down">-3.5%</td></tr><tr><td class="tk">^TA125.TA</td><td class="pct">3767.52</td>
+<td class="pct up">+1.8%</td>
+<td class="pct down">-0.9%</td></tr><tr><td class="tk">GC=F</td><td class="pct">3594.3</td>
+<td class="pct up">+1.7%</td>
+<td class="pct down">-2.5%</td></tr><tr><td class="tk">CL=F</td><td class="pct">84.57</td>
+<td class="pct up">+1.1%</td>
+<td class="pct up">+1.6%</td></tr><tr><td class="tk">PLTR</td><td class="pct">163.59</td>
+<td class="pct up">+1.5%</td>
+<td class="pct up">+4.4%</td></tr><tr><td class="tk">LMT</td><td class="pct">599.24</td>
+<td class="pct up">+2.1%</td>
+<td class="pct up">+3.6%</td></tr><tr><td class="tk">ESLT.TA</td><td class="pct">220500.0</td>
+<td class="pct up">+0.2%</td>
+<td class="pct down">-4.1%</td></tr><tr><td class="tk">ELAL.TA</td><td class="pct">2058.0</td>
+<td class="pct down">-4.4%</td>
+<td class="pct down">-4.1%</td></tr>
+</table></div>
+
+
+
+
+<footer>הדוח נוצר אוטומטית באמצעות AI ממקורות חדשות פומביים, ואינו מהווה ייעוץ השקעות או המלצה לקנייה/מכירה. ייתכנו טעויות; בצע בדיקה עצמאית.</footer>
+</div></body></html>
